@@ -31,7 +31,7 @@ extension CGContextRef {
         let sx:CGFloat = 1.0
         let sy:CGFloat = arc.size.height / arc.size.width
 
-        let transform = CGAffineTransform.identity().rotated(rotation).scaled(sx,sy)
+        let transform = CGAffineTransform.identity().rotated(rotation).scaled(sx: sx,sy: sy)
     
         CGContextConcatCTM(self, transform)
 

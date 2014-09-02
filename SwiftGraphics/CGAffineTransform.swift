@@ -34,11 +34,11 @@ public extension CGAffineTransform {
         self = CGAffineTransformMakeRotation(angle)
     }
 
-    func translated(tx:CGFloat, _ ty:CGFloat) -> CGAffineTransform {
+    func translated(# tx:CGFloat, ty:CGFloat) -> CGAffineTransform {
         return CGAffineTransformTranslate(self, tx, ty)
     }
 
-    func scaled(sx:CGFloat, _ sy:CGFloat) -> CGAffineTransform  {
+    func scaled(# sx:CGFloat, sy:CGFloat) -> CGAffineTransform  {
         return CGAffineTransformScale(self, sx, sy)
     }
 
@@ -47,12 +47,12 @@ public extension CGAffineTransform {
     }
 
     mutating func translate(tx:CGFloat, _ ty:CGFloat) -> CGAffineTransform {
-        self = translated(tx, ty)
+        self = translated(tx:tx, ty:ty)
         return self
     }
 
     mutating func scale(sx:CGFloat, _ sy:CGFloat) -> CGAffineTransform  {
-        self = scaled(sx, sy)
+        self = scaled(sx:sx, sy:sy)
         return self
     }
 

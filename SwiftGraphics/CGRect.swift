@@ -21,6 +21,11 @@ public extension CGRect {
         self.size = CGSize(width:width, height:height)
     }
 
+    init(w width:CGFloat, h height:CGFloat) {
+        self.origin = CGPointZero
+        self.size = CGSize(width:width, height:height)
+    }
+
     init(P1:CGPoint, P2:CGPoint) {
         self.origin = CGPoint(x:min(P1.x, P2.x), y:min(P1.y, P2.y))
         self.size = CGSize(width:abs(P2.x - P1.x), height:abs(P2.y - P1.y))
