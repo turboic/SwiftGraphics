@@ -146,6 +146,15 @@ func StringToPoint(s:String) -> CGPoint {
     return CGPoint(x:x, y:y)
 }
 
+func StringToSize(s:String) -> CGSize {
+    let f = "([0-9.Ee+-]+)"
+    let pair = "\\{\(f), \(f)\\}"
+    let match = RegularExpression(pair).match(s)!
+    let w = CGFloat(string:match.groups[1].string)
+    let h = CGFloat(string:match.groups[2].string)
+    return CGSize(w:w, h:h)
+}
+
 func StringToRect(s:String) -> CGRect {
     let f = "([0-9.Ee+-]+)"
     let pair = "\\{\(f), \(f)\\}"

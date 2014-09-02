@@ -43,21 +43,26 @@ class OmniGraffleLine : OmniGraffleNode {
 
 class OmniGraffleDocumentModel {
     let path: String
+    var frame: CGRect!
+    var rootNode: OmniGraffleGroup!
+    var nodesByID: [String:OmniGraffleNode] = [:]
     
     init(path: String) {
         self.path = path
+        self.load()
     }
 
-    var rootNode: OmniGraffleGroup { get { load(); return _rootNode } }
-    var _rootNode: OmniGraffleGroup!
-    
-    var nodesByID: [String:OmniGraffleNode] = [:]
-    
     func load() {
         let data = NSData(contentsOfCompressedFile:path)
         var error:NSString?
         let d = NSPropertyListSerialization.propertyListFromData(data, mutabilityOption: NSPropertyListMutabilityOptions(), format: nil, errorDescription:&error) as NSDictionary!
         self._processRoot(d)
+        println(nodesByID)
+        println(d)
+        
+        let origin = StringToPoint(d["CanvasOrigin"] as String)
+        let size = StringToSize(d["CanvasSize"] as String)
+        self.frame = CGRect(origin:origin, size:size)
     }
     
     func _processRoot(d:NSDictionary) {
@@ -69,7 +74,7 @@ class OmniGraffleDocumentModel {
             }
         }
         let group = OmniGraffleGroup(children:children)
-        _rootNode = group
+        rootNode = group
     }
     
     func _processDictionary(d:NSDictionary) -> OmniGraffleNode! {

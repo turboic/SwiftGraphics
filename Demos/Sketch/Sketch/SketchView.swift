@@ -15,15 +15,12 @@ class SketchView: NSView {
     var rootNode : Group
 
     required init(coder: NSCoder) {
-//        rootNode.children = [
-//            Circle(name:"1", center:CGPoint(x:100, y:100), radius:10),
-//            Circle(name:"2", center:CGPoint(x:110, y:110), radius:10),
-//        ]
 
-        rootNode = loadTest() as Group
+        let path = NSBundle.mainBundle().pathForResource("Test", ofType:"graffle")
+        let converter = OmniGraffleLoader(path:path!)
+        rootNode = converter.root as Group
 
-        super.init(coder: coder)
-
+        super.init(coder:coder)
     }
         
     override func drawRect(dirtyRect: NSRect) {
@@ -36,8 +33,8 @@ class SketchView: NSView {
         }
     }
     
-    func renderNode(context:CGContext, rect:CGRect, node:Node, applySyleForNode:(context:CGContext, node:Node) -> Void) {
-        applySyleForNode(context: context, node: node)
+    func renderNode(context:CGContext, rect:CGRect, node:Node, applyStyleForNode:(context:CGContext, node:Node) -> Void) {
+        applyStyleForNode(context: context, node: node)
 
         if let geometryNode = node as? GeometryNode {
             if rect.intersects(geometryNode.frame) == false {
@@ -60,14 +57,18 @@ class SketchView: NSView {
         
         if let group = node as? Group {
             for node in group.children {
-                self.renderNode(context, rect:rect, node:node, applySyleForNode:applySyleForNode)
+                self.renderNode(context, rect:rect, node:node, applyStyleForNode:applyStyleForNode)
             }
         }
     }
     
     override func mouseDown(theEvent: NSEvent!) {
+        // TODO: Isolate into own code.
+        // TODO: Break this up into a ColorMap object
+        // Shows how to do per-pixel hit testing by using an offscreen render buffer (bitmap context)   
         let location = self.convertPoint(theEvent.locationInWindow, fromView:nil)
 
+        // We don't need _all_ of view as a bitmap - in fact we only need 1 pixel - but doing lets us dump the buffer to disk with context
         let rect = CGRect(center:location, radius:20)
         
         let context = CGContext.bitmapContext(rect.size)
@@ -81,6 +82,7 @@ class SketchView: NSView {
         self.renderNode(context, rect:rect, node:rootNode) {
             (context:CGContext, node:Node) -> Void in
 
+            // TODO: Random is good enough for a demo - not good enough for production.
             let colorInt:UInt32 = Random.random(0...0xFFFFFF) << 8 | 0xFF
             let color = NSColor(rgba:colorInt)
             colors[colorInt] = node
@@ -105,9 +107,8 @@ class SketchView: NSView {
         println(node)
 
         
-        let image = context.nsimage
-
-        image.TIFFRepresentation.writeToFile("/Users/schwa/Desktop/test.tiff", atomically:false)
+//        let image = context.nsimage
+//        image.TIFFRepresentation.writeToFile("/Users/schwa/Desktop/test.tiff", atomically:false)
     }
 }
 
