@@ -12,6 +12,7 @@
 		45331A7819B3821D00376528 /* OmniGraffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45331A7719B3821D00376528 /* OmniGraffle.swift */; };
 		455E20A919B612DC000773AE /* SketchOmniGraffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455E20A819B612DC000773AE /* SketchOmniGraffle.swift */; };
 		45A93FDC19B3895E00612D30 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A93FDB19B3895E00612D30 /* libz.dylib */; };
+		45C11F2F19B6280800143B22 /* Test.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 45C11F2E19B6280800143B22 /* Test.graffle */; };
 		45C6515319B3AB05001AC486 /* RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6515219B3AB05001AC486 /* RegularExpression.swift */; };
 		45D32A7D19B2976E0009E188 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D32A7C19B2976E0009E188 /* main.swift */; };
 		45D32A7F19B2976E0009E188 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D32A7E19B2976E0009E188 /* ViewController.swift */; };
@@ -69,6 +70,7 @@
 		45A93FD719B387F100612D30 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		45A93FDA19B3883F00612D30 /* zlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = zlib.h; path = ../../../../../../../../../../usr/include/zlib.h; sourceTree = "<group>"; };
 		45A93FDB19B3895E00612D30 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		45C11F2E19B6280800143B22 /* Test.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = Test.graffle; sourceTree = "<group>"; };
 		45C6515219B3AB05001AC486 /* RegularExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularExpression.swift; sourceTree = "<group>"; };
 		45D32A7719B2976E0009E188 /* Sketch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sketch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D32A7B19B2976E0009E188 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		45D32A7919B2976E0009E188 /* Sketch */ = {
 			isa = PBXGroup;
 			children = (
+				45C11F2E19B6280800143B22 /* Test.graffle */,
 				45D32A7E19B2976E0009E188 /* ViewController.swift */,
 				45D32A8019B2976E0009E188 /* Document.swift */,
 				45D32AAA19B297A20009E188 /* SketchView.swift */,
@@ -291,6 +294,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45C11F2F19B6280800143B22 /* Test.graffle in Resources */,
 				45D32A8319B2976E0009E188 /* Images.xcassets in Resources */,
 				45D32A8619B2976E0009E188 /* Main.storyboard in Resources */,
 			);

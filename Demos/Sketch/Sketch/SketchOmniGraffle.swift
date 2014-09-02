@@ -9,15 +9,13 @@
 import Foundation
 
 func loadTest() -> Node {
-    let path = "/Users/schwa/Desktop/Test.graffle"
-    let doc = OmniGraffleDocumentModel(path: path)
+    let path = NSBundle.mainBundle().pathForResource("Test", ofType:"graffle")
+    let doc = OmniGraffleDocumentModel(path: path!)
     let root = convert(doc.rootNode)
     return root
 }
 
 internal func convert(input:OmniGraffleNode) -> Node! {
-    // TODO: Can replace with switch pattern matching?
-    
     switch input {
         case let input as OmniGraffleGroup:
             return convert(input)
@@ -28,17 +26,6 @@ internal func convert(input:OmniGraffleNode) -> Node! {
         default:
             return nil
     }
-    
-//    if input is OmniGraffleGroup {
-//        return convert(input as OmniGraffleGroup)
-//    }
-//    else if input is OmniGraffleShape {
-//        return convert(input as OmniGraffleShape)
-//    }
-//    else if input is OmniGraffleLine {
-//        return convert(input as OmniGraffleLine)
-//    }
-//    return nil
 }
 
 internal func convert(input:OmniGraffleGroup) -> Node! {
