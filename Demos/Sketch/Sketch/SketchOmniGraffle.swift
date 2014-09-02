@@ -8,6 +8,8 @@
 
 import Foundation
 
+import SwiftGraphics
+
 func loadTest() -> Node {
     let path = NSBundle.mainBundle().pathForResource("Test", ofType:"graffle")
     let doc = OmniGraffleDocumentModel(path: path!)
@@ -37,13 +39,82 @@ internal func convert(input:OmniGraffleGroup) -> Node! {
     return group
 }
 
+
+enum GraphicsOrigin {
+    case TopLeft
+    case BottomLeft
+    case Native
+
+    var resolved : GraphicsOrigin {
+        get {
+            switch self {
+                case .TopLeft, .BottomLeft:
+                    return self
+                case .Native:
+                    #if os(OSX)
+                    return .TopLeft
+                    #else
+                    return .BottomLeft
+                    #endif
+            }
+        }
+    }
+
+    var isNative : Bool {
+        get {
+            switch self {
+                case .TopLeft:
+                    #if os(OSX)
+                    return false
+                    #else
+                    return true
+                    #endif
+                case .BottomLeft:
+                    #if os(OSX)
+                    return true
+                    #else
+                    return false
+                    #endif
+                case .Native:
+                    return true
+            }
+        }
+    }
+}
+
+extension CGPoint {
+    func flipped(origin:GraphicsOrigin, insideRect:CGRect) -> CGPoint {
+        if origin.isNative {
+            return self
+        }
+        else {
+            return self * CGAffineTransform(tx:0, ty:insideRect.size.height).scaled(sx:1, sy:-1)
+        }
+    }
+}
+
+extension CGRect {
+    func flipped(origin:GraphicsOrigin, insideRect:CGRect) -> CGRect {
+        if origin.isNative {
+            return self
+        }
+        else {
+            return self * CGAffineTransform(tx:0, ty:insideRect.size.height).scaled(sx:1, sy:-1)
+        }
+    }
+}
+
 internal func convert(input:OmniGraffleShape) -> Node! {
     let shapeName = input.dictionary["Shape"] as String
     switch shapeName {
         case "Circle":
-            return Circle(name:"Hello", center:input.bounds.mid, radius:input.bounds.size.width * 0.5)
+            println(input.bounds)
+            let bounds = input.bounds.flipped(.TopLeft, insideRect:CGRect(w:1024, h:768))
+            println(bounds)
+            return Circle(name:"Hello", center:bounds.mid, radius:bounds.size.width * 0.5)
         case "Rectangle":
-            return Rectangle(name:"Hello", frame:input.bounds)
+            let bounds = input.bounds.flipped(.TopLeft, insideRect:CGRect(w:1024, h:768))
+            return Rectangle(name:"Hello", frame:bounds)
 ////                    case "Bezier":
 ////                        println(d)
 //                        return nil
@@ -54,6 +125,9 @@ internal func convert(input:OmniGraffleShape) -> Node! {
 }
 
 internal func convert(input:OmniGraffleLine) -> Node! {
-    let shape = Line(name:"Hello", start:input.start, end:input.end)
+    let start = input.start.flipped(.TopLeft, insideRect:CGRect(w:1024, h:768))
+    let end = input.end.flipped(.TopLeft, insideRect:CGRect(w:1024, h:768))
+
+    let shape = Line(name:"Hello", start:start, end:end)
     return shape
 }
