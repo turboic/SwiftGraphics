@@ -32,3 +32,7 @@ NSBezierPath persistence format is a good idea.
 * TODO: Wrap code up in simple API
 * TODO: Persistence into a binary format - allowing loading of scalable graphics
 from disk without parsin SVG
+
+## OmniGraffle
+
+See Demo/Sketch sub-project for an example of import OmniGraffle documents.
