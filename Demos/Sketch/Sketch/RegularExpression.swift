@@ -84,8 +84,12 @@ struct RegularExpression {
 
     func match(string:String, options:NSMatchingOptions = NSMatchingOptions()) -> Match? {
         let range = 0..<string._bridgeToObjectiveC().length
-        let result = expression.firstMatchInString(string, options:options, range:NSRange(range))
-        return Match(string:string, result:result)
+        if let result = expression.firstMatchInString(string, options:options, range:NSRange(range)) {
+            return Match(string:string, result:result)
+        }
+        else {
+            return nil
+        }
     }
 
     struct Match {

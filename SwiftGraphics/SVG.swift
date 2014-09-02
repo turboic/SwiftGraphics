@@ -31,7 +31,7 @@ public enum DrawingCommand {
 public extension CGContextRef {
     func draw(document:SVGDocument) {
         self.with {
-            let transform = CGAffineTransform(sx:1.0, sy:-1.0).translated(0, -document.bounds.size.height)
+            let transform = CGAffineTransform(sx:1.0, sy:-1.0).translated(tx: 0, ty: -document.bounds.size.height)
             CGContextConcatCTM(self, transform)
             for command in document.commands {
                 switch command {
@@ -58,13 +58,12 @@ public class SVGParser {
 
     public func parseDocument(XMLDocument:NSXMLDocument) -> SVGDocument {
         document = SVGDocument()
-        parseSVGElement(XMLDocument.rootElement())
+        parseSVGElement(XMLDocument.rootElement()!)
         return document
     }
 
     func parseElement(element:NSXMLElement) {
-        let name = element.name as String
-        switch name {
+        switch element.name! {
             case "svg":
                 parseSVGElement(element)
             case "g":
@@ -84,17 +83,19 @@ public class SVGParser {
 
     func parseSVGElement(element:NSXMLElement) {
         
+        // TODO: So much unwrapping. Gonna make bang happen!
+        
         var x = CGFloat(0)
         var y = CGFloat(0) 
         
         if let xElement = element.attributeForName("x") {
-            (x, _) = parseDimension(xElement.stringValue)
+            (x, _) = parseDimension(xElement.stringValue!)
             }
         if let yElement = element.attributeForName("y") {
-            (y, _) = parseDimension(yElement.stringValue)
+            (y, _) = parseDimension(yElement.stringValue!)
             }
-        let (width, _) = parseDimension(element.attributeForName("width")!.stringValue)
-        let (height, _) = parseDimension(element.attributeForName("height")!.stringValue)
+        let (width, _) = parseDimension(element.attributeForName("width")!.stringValue!)
+        let (height, _) = parseDimension(element.attributeForName("height")!.stringValue!)
         document.bounds = CGRect(x:x, y:y, width:width, height:height)
 
         if let children = element.children {
@@ -119,7 +120,7 @@ public class SVGParser {
     }
 
     func parsePathElement(element:NSXMLElement) {
-        let path = element.attributeForName("d")!.stringValue
+        let path = element.attributeForName("d")!.stringValue!
         let atoms = stringToAtoms(path)
         let pathCommands = atomsToPathCommands(atoms)
         let bezierPath = pathCommandsToPath(pathCommands)
@@ -127,24 +128,24 @@ public class SVGParser {
     }
 
     func parseCircleElement(element:NSXMLElement) {
-        let cx = CGFloat(element.attributeForName("cx")!.stringValue)
-        let cy = CGFloat(element.attributeForName("cy")!.stringValue)
-        let r = CGFloat(element.attributeForName("r")!.stringValue)
+        let cx = CGFloat(element.attributeForName("cx")!.stringValue!)
+        let cy = CGFloat(element.attributeForName("cy")!.stringValue!)
+        let r = CGFloat(element.attributeForName("r")!.stringValue!)
         let path = CGPathCreateWithEllipseInRect(CGRect(center:CGPoint(cx,cy), size:CGSize(width:r * 2, height:r * 2)), nil)
         document.commands.append(.Path(path))
     }
 
     func parseRectElement(element:NSXMLElement) {
-        let x = CGFloat(element.attributeForName("x")!.stringValue)
-        let y = CGFloat(element.attributeForName("y")!.stringValue)
-        let width = CGFloat(element.attributeForName("width")!.stringValue)
-        let height = CGFloat(element.attributeForName("height")!.stringValue)
+        let x = CGFloat(element.attributeForName("x")!.stringValue!)
+        let y = CGFloat(element.attributeForName("y")!.stringValue!)
+        let width = CGFloat(element.attributeForName("width")!.stringValue!)
+        let height = CGFloat(element.attributeForName("height")!.stringValue!)
         let path = CGPathCreateWithRect(CGRect(x:x, y:y, width:width, height:height), nil)
         document.commands.append(.Path(path))
     }
 
     func parsePolygonElement(element:NSXMLElement) {
-        let pointsString = element.attributeForName("points")!.stringValue
+        let pointsString = element.attributeForName("points")!.stringValue!
 
         let scanner = NSScanner(string:pointsString)
         scanner.charactersToBeSkipped = NSCharacterSet(charactersInString:" \n,")

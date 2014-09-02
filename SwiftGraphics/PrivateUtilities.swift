@@ -23,9 +23,14 @@ func parseDimension(string:String) -> (CGFloat, String)! {
     let range = NSMakeRange(0, string._bridgeToObjectiveC().length)
     let match = pattern.firstMatchInString(string, options:NSMatchingOptions(), range:range)
     // TODO: Check for failures
-    let scalar = string._bridgeToObjectiveC().substringWithRange(match.rangeAtIndex(0))
-    let unit = string._bridgeToObjectiveC().substringWithRange(match.rangeAtIndex(1))
-    return (CGFloat(scalar), unit)
+    if let match = match {
+        let scalar = string._bridgeToObjectiveC().substringWithRange(match.rangeAtIndex(0))
+        let unit = string._bridgeToObjectiveC().substringWithRange(match.rangeAtIndex(1))
+        return (CGFloat(scalar), unit)
+    }
+    else {
+        return nil
+    }
 }
 
 extension Character {
