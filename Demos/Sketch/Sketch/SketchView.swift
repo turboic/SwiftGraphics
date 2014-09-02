@@ -45,22 +45,23 @@ class SketchView: NSView {
             }
         }
         
-        if let circle = node as? Circle {
-            context.strokeEllipseInRect(circle.frame)
+        switch node {
+            case let node as Circle:
+                context.strokeEllipseInRect(node.frame)
+            case let node as Line:
+                context.strokeLine(node.start, node.end)
+            case let node as Rectangle:
+                context.strokeRect(node.frame)
+            case let node as Group:
+                break
+            default:
+                println("No renderer for \(node)")
         }
-        else if let line = node as? Line {
-            context.strokeLine(line.start, line.end)
-        }
-        else if let rectangle = node as? Rectangle {
-            context.strokeRect(rectangle.frame)
-        }
-        else if let group = node as? Group {
+        
+        if let group = node as? Group {
             for node in group.children {
                 self.renderNode(context, rect:rect, node:node, applySyleForNode:applySyleForNode)
             }
-        }
-        else {
-            println("No renderer for \(node)")
         }
     }
     
