@@ -30,6 +30,16 @@ public extension CGRect {
         self.origin = CGPoint(x:center.x - size.width * 0.5, y:center.y - size.height * 0.5)
         self.size = size
     }
+
+    init(center:CGPoint, radius:CGFloat) {
+        self.origin = CGPoint(x:center.x - radius, y:center.y - radius)
+        self.size = CGSize(width:radius * 2, height:radius * 2)
+    }
+
+    init(center:CGPoint, diameter:CGFloat) {
+        self.origin = CGPoint(x:center.x - diameter * 0.5, y:center.y - diameter * 0.5)
+        self.size = CGSize(width:diameter, height:diameter)
+    }
 }
 
 public func * (lhs:CGRect, rhs:CGFloat) -> CGRect {
