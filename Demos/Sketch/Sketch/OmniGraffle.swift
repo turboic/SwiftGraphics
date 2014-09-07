@@ -8,10 +8,25 @@
 
 import Foundation
 
-class OmniGraffleNode : NSObject, Node {
+class OmniGraffleDocumentModel {
+    let path: String
+    var frame: CGRect!
+    var rootNode: OmniGraffleGroup!
+    var nodesByID: [Int:OmniGraffleNode] = [:]
+    
+    init(path: String) {
+        self.path = path
+        self.load()
+    }
+}
+
+class OmniGraffleNode : Node {
     weak var parent : Node?
     var dictionary: NSDictionary!
     var ID:Int { get { return dictionary["ID"]! as Int } }
+
+    init() {
+    }
 }
 
 class OmniGraffleGroup : OmniGraffleNode, GroupNode {
@@ -45,16 +60,7 @@ class OmniGraffleLine : OmniGraffleNode {
     var tail:OmniGraffleNode?
 }
 
-class OmniGraffleDocumentModel {
-    let path: String
-    var frame: CGRect!
-    var rootNode: OmniGraffleGroup!
-    var nodesByID: [Int:OmniGraffleNode] = [:]
-    
-    init(path: String) {
-        self.path = path
-        self.load()
-    }
+extension OmniGraffleDocumentModel {
 
     func load() {
         let data = NSData(contentsOfCompressedFile:path)

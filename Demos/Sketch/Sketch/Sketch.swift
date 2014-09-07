@@ -22,7 +22,7 @@ import SwiftGraphics
     var children : [Node] { get set }
 }
 
-@objc protocol GeometryNode : Node, Named {
+@objc protocol GeometryNode : Node {
     var frame : CGRect { get }
 }
 
@@ -50,48 +50,38 @@ class Group : GroupNode, GeometryNode {
 }
 
 class Circle : Shape, Node, GeometryNode {
-    var name : String?
     var frame : CGRect { get { return CGRect(center:center, radius:radius) } }
 
     var center : CGPoint
     var radius : CGFloat
     var parent : Node?
     
-    init(name:String, center:CGPoint, radius:CGFloat) {
-        self.name = name
+    init(center:CGPoint, radius:CGFloat) {
         self.center = center
         self.radius = radius
     }
 }
 
 class Line : Shape, Node, GeometryNode {
-    var name : String?
     var frame : CGRect { get { return CGRect(P1:self.start, P2:self.end) } }
 
     var start : CGPoint
     var end : CGPoint
     var parent : Node?
     
-    init(name:String, start:CGPoint, end:CGPoint) {
-        self.name = name
+    init(start:CGPoint, end:CGPoint) {
         self.start = start
         self.end = end
     }
 }
 
 class Rectangle : Shape, Node, GeometryNode {
-    var name : String?
     var frame : CGRect
 
     var parent : Node?
     
-    init(name:String, frame:CGRect) {
-        self.name = name
+    init(frame:CGRect) {
         self.frame = frame
     }
-}
-
-extension Line : Printable {
-    var description: String { get { return "Line(\(name))" } }
 }
 

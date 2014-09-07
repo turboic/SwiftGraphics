@@ -49,10 +49,10 @@ class OmniGraffleLoader {
         switch shapeName {
             case "Circle":
                 let bounds = input.bounds.flipped(.TopLeft, insideRect:self.doc.frame)
-                return Circle(name:"Hello", center:bounds.mid, radius:bounds.size.width * 0.5)
+                return Circle(center:bounds.mid, radius:bounds.size.width * 0.5)
             case "Rectangle":
                 let bounds = input.bounds.flipped(.TopLeft, insideRect:self.doc.frame)
-                return Rectangle(name:"Hello", frame:bounds)
+                return Rectangle(frame:bounds)
     ////                    case "Bezier":
     ////                        println(d)
     //                        return nil
@@ -66,7 +66,7 @@ class OmniGraffleLoader {
         let start = input.start.flipped(.TopLeft, insideRect:self.doc.frame)
         let end = input.end.flipped(.TopLeft, insideRect:self.doc.frame)
 
-        let shape = Line(name:"Hello", start:start, end:end)
+        let shape = Line(start:start, end:end)
         return shape
     }
 
