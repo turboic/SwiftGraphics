@@ -41,21 +41,31 @@ public extension Quadrant {
         return Quadrant.fromPoint(point - origin)
     }
 
-    static func fromPoint(point:CGPoint, rect:CGRect) -> Quadrant {
+    static func fromPoint(point:CGPoint, rect:CGRect) -> Quadrant? {
+        // TODO:  can be ouside
         return Quadrant.fromPoint(point - rect.mid)
     }
 
+    // TODO: Deprecate
     func quadrantRectOfRect(rect:CGRect) -> CGRect {
-        let size = CGSize(width:rect.size.width * 0.5, height:rect.size.height * 0.5)
-        switch self {
+        return rect.quadrant(self)
+    }
+}
+
+extension CGRect {
+    func quadrant(quadrant:Quadrant) -> CGRect {
+        let size = CGSize(width:self.size.width * 0.5, height:self.size.height * 0.5)
+        switch quadrant {
         case .TopLeft:
-            return CGRect(origin:CGPoint(x:rect.minX, y:rect.midY), size:size)
+            return CGRect(origin:CGPoint(x:self.minX, y:self.midY), size:size)
         case .TopRight:
-            return CGRect(origin:CGPoint(x:rect.midX, y:rect.midY), size:size)
+            return CGRect(origin:CGPoint(x:self.midX, y:self.midY), size:size)
         case .BottomLeft:
-            return CGRect(origin:CGPoint(x:rect.minX, y:rect.minY), size:size)
+            return CGRect(origin:CGPoint(x:self.minX, y:self.minY), size:size)
         case .BottomRight:
-            return CGRect(origin:CGPoint(x:rect.midX, y:rect.minY), size:size)
+            return CGRect(origin:CGPoint(x:self.midX, y:self.minY), size:size)
         }
     }
 }
+
+

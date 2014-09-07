@@ -56,6 +56,14 @@ public func * (lhs:CGFloat, rhs:CGRect) -> CGRect {
 }
 
 public extension CGRect {    
+
+    func insetted(# dx:CGFloat, dy:CGFloat) -> CGRect {
+        var copy = self
+        copy.inset(dx:dx, dy:dy)
+        return copy
+        }
+
+
     var isFinite : Bool { get { return CGRectIsNull(self) == false && CGRectIsInfinite(self) == false } }
     var mid : CGPoint { get { return CGPoint(x:self.midX, y:self.midY) } }
     

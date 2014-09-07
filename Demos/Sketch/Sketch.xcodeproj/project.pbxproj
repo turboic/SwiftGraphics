@@ -11,6 +11,7 @@
 		45331A7619B3814D00376528 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45331A7519B3814D00376528 /* Utilities.swift */; };
 		45331A7819B3821D00376528 /* OmniGraffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45331A7719B3821D00376528 /* OmniGraffle.swift */; };
 		455E20A919B612DC000773AE /* SketchOmniGraffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455E20A819B612DC000773AE /* SketchOmniGraffle.swift */; };
+		458BDD7D19BCF76800CD0EAC /* QuadTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458BDD7C19BCF76800CD0EAC /* QuadTreeView.swift */; };
 		45A93FDC19B3895E00612D30 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 45A93FDB19B3895E00612D30 /* libz.dylib */; };
 		45C11F2F19B6280800143B22 /* Test.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 45C11F2E19B6280800143B22 /* Test.graffle */; };
 		45C6515319B3AB05001AC486 /* RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6515219B3AB05001AC486 /* RegularExpression.swift */; };
@@ -67,6 +68,7 @@
 		45331A7519B3814D00376528 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		45331A7719B3821D00376528 /* OmniGraffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmniGraffle.swift; sourceTree = "<group>"; };
 		455E20A819B612DC000773AE /* SketchOmniGraffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SketchOmniGraffle.swift; sourceTree = "<group>"; };
+		458BDD7C19BCF76800CD0EAC /* QuadTreeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuadTreeView.swift; sourceTree = "<group>"; };
 		45A93FD719B387F100612D30 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		45A93FDA19B3883F00612D30 /* zlib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = zlib.h; path = ../../../../../../../../../../usr/include/zlib.h; sourceTree = "<group>"; };
 		45A93FDB19B3895E00612D30 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -133,6 +135,7 @@
 				45D32A7E19B2976E0009E188 /* ViewController.swift */,
 				45D32A8019B2976E0009E188 /* Document.swift */,
 				45D32AAA19B297A20009E188 /* SketchView.swift */,
+				458BDD7C19BCF76800CD0EAC /* QuadTreeView.swift */,
 				45331A7119B3812200376528 /* Sketch.swift */,
 				455E20A819B612DC000773AE /* SketchOmniGraffle.swift */,
 				45331A7519B3814D00376528 /* Utilities.swift */,
@@ -319,6 +322,7 @@
 				45D32A7F19B2976E0009E188 /* ViewController.swift in Sources */,
 				45331A7219B3812200376528 /* Sketch.swift in Sources */,
 				45C6515319B3AB05001AC486 /* RegularExpression.swift in Sources */,
+				458BDD7D19BCF76800CD0EAC /* QuadTreeView.swift in Sources */,
 				455E20A919B612DC000773AE /* SketchOmniGraffle.swift in Sources */,
 				45D32A7D19B2976E0009E188 /* main.swift in Sources */,
 				45D32A8119B2976E0009E188 /* Document.swift in Sources */,
