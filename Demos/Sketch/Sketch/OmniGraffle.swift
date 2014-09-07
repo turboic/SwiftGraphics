@@ -10,7 +10,8 @@ import Foundation
 
 class OmniGraffleNode : NSObject, Node {
     weak var parent : Node?
-    var dictionary:NSDictionary!
+    var dictionary: NSDictionary!
+    var ID:String { get { return dictionary["ID"]!.stringValue } }
 }
 
 class OmniGraffleGroup : OmniGraffleNode, GroupNode {
@@ -39,7 +40,25 @@ class OmniGraffleLine : OmniGraffleNode {
             return StringToPoint(strings[1])
         }
     }
+    var head:OmniGraffleNode?
+    var tail:OmniGraffleNode?
 }
+
+//extension NSDictionary {
+//
+//    subscript (keys:NSArray) -> AnyObject? { get {
+//    
+//        var d:AnyObject? = self
+//        
+//        for key in keys {
+//            if d == nil {
+//                return d
+//            }
+//            d = d![key]
+//        }
+//        return d
+//    } }
+//}
 
 class OmniGraffleDocumentModel {
     let path: String
@@ -57,12 +76,25 @@ class OmniGraffleDocumentModel {
         var error:NSString?
         let d = NSPropertyListSerialization.propertyListFromData(data, mutabilityOption: NSPropertyListMutabilityOptions(), format: nil, errorDescription:&error) as NSDictionary!
         self._processRoot(d)
-        println(nodesByID)
-        println(d)
-        
         let origin = StringToPoint(d["CanvasOrigin"] as String)
         let size = StringToSize(d["CanvasSize"] as String)
         self.frame = CGRect(origin:origin, size:size)
+        println(nodesByID)
+        
+        let nodes = nodesByID.values.filter {
+            (node:Node) -> Bool in
+            return node is OmniGraffleLine
+        }
+        for node in nodes {
+            let line = node as OmniGraffleLine
+            println(line.dictionary)
+            if let headID = line.dictionary["Head"]?["ID"]? as String {
+                println(headID)
+                println(headID.dynamicType)
+            }
+            
+        }
+        
     }
     
     func _processRoot(d:NSDictionary) {
@@ -90,14 +122,17 @@ class OmniGraffleDocumentModel {
                     }
                     let group = OmniGraffleGroup(children:children)
                     group.dictionary = d
+                    nodesByID[group.ID] = group
                     return group
                 case "ShapedGraphic":
                     let shape = OmniGraffleShape()
                     shape.dictionary = d
+                    nodesByID[shape.ID] = shape
                     return shape
                 case "LineGraphic":
                     let line = OmniGraffleLine()
                     line.dictionary = d
+                    nodesByID[line.ID] = line
                     return line
                 default:
                     println("Unknown: \(className)")
