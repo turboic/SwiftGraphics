@@ -6,6 +6,21 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		45B8AE8F19BCE56E00C61A3F /* All */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 45B8AE9019BCE56E00C61A3F /* Build configuration list for PBXAggregateTarget "All" */;
+			buildPhases = (
+			);
+			dependencies = (
+				45B8AE9419BCE57900C61A3F /* PBXTargetDependency */,
+				45B8AE9619BCE57900C61A3F /* PBXTargetDependency */,
+			);
+			name = All;
+			productName = All;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		4537991A19AA6C37004DF99E /* CGPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537991919AA6C37004DF99E /* CGPointTests.swift */; };
 		4537991D19AA788B004DF99E /* CGSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537991C19AA788B004DF99E /* CGSizeTests.swift */; };
@@ -55,6 +70,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 454D550619AA5CE6000E3EB3;
 			remoteInfo = SwiftGraphics_OSX;
+		};
+		45B8AE9319BCE57900C61A3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454D54FE19AA5CE6000E3EB3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 454D550619AA5CE6000E3EB3;
+			remoteInfo = SwiftGraphics_OSX;
+		};
+		45B8AE9519BCE57900C61A3F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454D54FE19AA5CE6000E3EB3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45DA4AC319AA62A800133F32;
+			remoteInfo = SwiftGraphics_iOS;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -314,6 +343,9 @@
 					454D551119AA5CE6000E3EB3 = {
 						CreatedOnToolsVersion = 6.0;
 					};
+					45B8AE8F19BCE56E00C61A3F = {
+						CreatedOnToolsVersion = 6.0;
+					};
 					45DA4AC319AA62A800133F32 = {
 						CreatedOnToolsVersion = 6.0;
 					};
@@ -331,6 +363,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				45B8AE8F19BCE56E00C61A3F /* All */,
 				454D550619AA5CE6000E3EB3 /* SwiftGraphics_OSX */,
 				45DA4AC319AA62A800133F32 /* SwiftGraphics_iOS */,
 				454D551119AA5CE6000E3EB3 /* SwiftGraphicsTests */,
@@ -425,6 +458,16 @@
 			isa = PBXTargetDependency;
 			target = 454D550619AA5CE6000E3EB3 /* SwiftGraphics_OSX */;
 			targetProxy = 4582DB7819AA7A6700B7F5B4 /* PBXContainerItemProxy */;
+		};
+		45B8AE9419BCE57900C61A3F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 454D550619AA5CE6000E3EB3 /* SwiftGraphics_OSX */;
+			targetProxy = 45B8AE9319BCE57900C61A3F /* PBXContainerItemProxy */;
+		};
+		45B8AE9619BCE57900C61A3F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45DA4AC319AA62A800133F32 /* SwiftGraphics_iOS */;
+			targetProxy = 45B8AE9519BCE57900C61A3F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -579,6 +622,20 @@
 			};
 			name = Release;
 		};
+		45B8AE9119BCE56E00C61A3F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		45B8AE9219BCE56E00C61A3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		45DA4AD419AA62A800133F32 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -654,6 +711,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		45B8AE9019BCE56E00C61A3F /* Build configuration list for PBXAggregateTarget "All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45B8AE9119BCE56E00C61A3F /* Debug */,
+				45B8AE9219BCE56E00C61A3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		45DA4AD819AA62A800133F32 /* Build configuration list for PBXNativeTarget "SwiftGraphics_iOS" */ = {
 			isa = XCConfigurationList;

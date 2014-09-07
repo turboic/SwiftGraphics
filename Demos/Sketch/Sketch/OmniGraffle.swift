@@ -11,7 +11,7 @@ import Foundation
 class OmniGraffleNode : NSObject, Node {
     weak var parent : Node?
     var dictionary: NSDictionary!
-    var ID:String { get { return dictionary["ID"]!.stringValue } }
+    var ID:Int { get { return dictionary["ID"]! as Int } }
 }
 
 class OmniGraffleGroup : OmniGraffleNode, GroupNode {
@@ -25,6 +25,7 @@ class OmniGraffleGroup : OmniGraffleNode, GroupNode {
 class OmniGraffleShape : OmniGraffleNode {
     var shape:String { get { return dictionary["Shape"] as String } }
     var bounds:CGRect { get { return StringToRect(dictionary["Bounds"] as String) } }
+    lazy var lines:[OmniGraffleLine] = []
 }
 
 class OmniGraffleLine : OmniGraffleNode {
@@ -44,27 +45,11 @@ class OmniGraffleLine : OmniGraffleNode {
     var tail:OmniGraffleNode?
 }
 
-//extension NSDictionary {
-//
-//    subscript (keys:NSArray) -> AnyObject? { get {
-//    
-//        var d:AnyObject? = self
-//        
-//        for key in keys {
-//            if d == nil {
-//                return d
-//            }
-//            d = d![key]
-//        }
-//        return d
-//    } }
-//}
-
 class OmniGraffleDocumentModel {
     let path: String
     var frame: CGRect!
     var rootNode: OmniGraffleGroup!
-    var nodesByID: [String:OmniGraffleNode] = [:]
+    var nodesByID: [Int:OmniGraffleNode] = [:]
     
     init(path: String) {
         self.path = path
@@ -87,14 +72,24 @@ class OmniGraffleDocumentModel {
         }
         for node in nodes {
             let line = node as OmniGraffleLine
-            println(line.dictionary)
-            if let headID = line.dictionary["Head"]?["ID"]? as String {
-                println(headID)
-                println(headID.dynamicType)
+            var headID : Int?
+            var tailID : Int?
+            if let headDictionary = line.dictionary["Head"] as? NSDictionary {
+                headID = headDictionary["ID"] as? Int
             }
-            
+            if let tailDictionary = line.dictionary["Tail"] as? NSDictionary {
+                tailID = tailDictionary["ID"] as? Int
+            }
+            if headID != nil && tailID != nil {
+                let head = nodesByID[headID!] as OmniGraffleShape
+                line.head = head
+                head.lines.append(line)
+
+                let tail = nodesByID[headID!] as OmniGraffleShape
+                line.tail = tail
+                tail.lines.append(line)
+            }
         }
-        
     }
     
     func _processRoot(d:NSDictionary) {
