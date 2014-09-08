@@ -110,7 +110,9 @@ public class QuadTreeNode <T> {
             }
         } else {
             for subnode in self.subnodes! {
-                foundItems += subnode.itemsInRect(rect)
+                if NSIntersectsRect(subnode.frame, rect) {
+                    foundItems += subnode.itemsInRect(rect)
+                }
             }
         }
         return foundItems
