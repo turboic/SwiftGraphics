@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4515FE2F19AAEA610001CEB6 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515FE2E19AAEA610001CEB6 /* EditorView.swift */; };
+		4556838D19BD580900025701 /* SwiftOutline.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4556838C19BD580900025701 /* SwiftOutline.svg */; };
+		4556839219BD584500025701 /* DemoSVGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4556839119BD584500025701 /* DemoSVGViewController.swift */; };
 		4570F57F19BD2D350024BBCE /* Test.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 4570F57519BD2D350024BBCE /* Test.graffle */; };
 		4570F58019BD2D350024BBCE /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570F57619BD2D350024BBCE /* Document.swift */; };
 		4570F58119BD2D350024BBCE /* SketchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570F57719BD2D350024BBCE /* SketchView.swift */; };
@@ -64,6 +66,8 @@
 
 /* Begin PBXFileReference section */
 		4515FE2E19AAEA610001CEB6 /* EditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
+		4556838C19BD580900025701 /* SwiftOutline.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SwiftOutline.svg; sourceTree = "<group>"; };
+		4556839119BD584500025701 /* DemoSVGViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoSVGViewController.swift; sourceTree = "<group>"; };
 		4570F57519BD2D350024BBCE /* Test.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = Test.graffle; sourceTree = "<group>"; };
 		4570F57619BD2D350024BBCE /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		4570F57719BD2D350024BBCE /* SketchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SketchView.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 				4570F59519BD38F70024BBCE /* TestArc.swift */,
 				4570F57D19BD2D350024BBCE /* BridgingHeader.h */,
 				4570F57E19BD2D350024BBCE /* RegularExpression.swift */,
+				4556839119BD584500025701 /* DemoSVGViewController.swift */,
 			);
 			name = "New Group";
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 				4570F57519BD2D350024BBCE /* Test.graffle */,
 				45859DBF19AAC84500BDBF61 /* Images.xcassets */,
 				45859DC119AAC84500BDBF61 /* Main.storyboard */,
+				4556838C19BD580900025701 /* SwiftOutline.svg */,
 				45859DB719AAC84500BDBF61 /* Supporting Files */,
 			);
 			path = SwiftGraphicsDemo;
@@ -275,6 +281,7 @@
 				4570F57F19BD2D350024BBCE /* Test.graffle in Resources */,
 				45859DC019AAC84500BDBF61 /* Images.xcassets in Resources */,
 				45859DC319AAC84500BDBF61 /* Main.storyboard in Resources */,
+				4556838D19BD580900025701 /* SwiftOutline.svg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +296,7 @@
 				4570F59819BD38F70024BBCE /* Arc.swift in Sources */,
 				45859DBE19AAC84500BDBF61 /* AppDelegate.swift in Sources */,
 				4570F58519BD2D350024BBCE /* Utilities.swift in Sources */,
+				4556839219BD584500025701 /* DemoSVGViewController.swift in Sources */,
 				4570F58019BD2D350024BBCE /* Document.swift in Sources */,
 				4570F58219BD2D350024BBCE /* QuadTreeView.swift in Sources */,
 				4570F58719BD2D350024BBCE /* RegularExpression.swift in Sources */,
