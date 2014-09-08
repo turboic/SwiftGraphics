@@ -26,11 +26,5 @@
       <FileRef
          location = "group:SwiftGraphicsDemo/SwiftGraphicsDemo.xcodeproj">
       </FileRef>
-      <FileRef
-         location = "group:ArcTest/ArcTest.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:Sketch/Sketch.xcodeproj">
-      </FileRef>
    </Group>
 </Workspace>

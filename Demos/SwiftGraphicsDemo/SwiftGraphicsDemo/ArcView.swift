@@ -14,13 +14,13 @@ class ArcView: NSView {
 
     var SVGArc : SVGArcParameters! { didSet {
         self.handles = [
-            Handle(position:CGPoint(x:SVGArc.x0, y:SVGArc.y0)),
-            Handle(position:CGPoint(x:SVGArc.x, y:SVGArc.y)),
+            ARCHandle(position:CGPoint(x:SVGArc.x0, y:SVGArc.y0)),
+            ARCHandle(position:CGPoint(x:SVGArc.x, y:SVGArc.y)),
         ]
         self.arc = Arc.arcWithSVGDefinition(SVGArc)
         } }
     var arc : Arc! { didSet { self.needsDisplay = true } }
-    var handles : [Handle]!
+    var handles : [ARCHandle]!
     var activeHandle : Int?
 
     override func drawRect(dirtyRect: NSRect) {

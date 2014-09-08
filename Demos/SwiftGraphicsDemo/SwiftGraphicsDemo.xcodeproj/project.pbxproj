@@ -8,8 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		4515FE2F19AAEA610001CEB6 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515FE2E19AAEA610001CEB6 /* EditorView.swift */; };
+		4570F57F19BD2D350024BBCE /* Test.graffle in Resources */ = {isa = PBXBuildFile; fileRef = 4570F57519BD2D350024BBCE /* Test.graffle */; };
+		4570F58019BD2D350024BBCE /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570F57619BD2D350024BBCE /* Document.swift */; };
+		4570F58119BD2D350024BBCE /* SketchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570F57719BD2D350024BBCE /* SketchView.swift */; };
+		4570F58219BD2D350024BBCE /* QuadTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570F57819BD2D350024BBCE /* QuadTreeView.swift */; };
+		4570F58319BD2D350024BBCE /* Sketch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570F57919BD2D350024BBCE /* Sketch.swift */; };
+		4570F58419BD2D350024BBCE /* SketchOmniGraffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570F57A19BD2D350024BBCE /* SketchOmniGraffle.swift */; };
+		4570F58519BD2D350024BBCE /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570F57B19BD2D350024BBCE /* Utilities.swift */; };
+		4570F58619BD2D350024BBCE /* OmniGraffle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570F57C19BD2D350024BBCE /* OmniGraffle.swift */; };
+		4570F58719BD2D350024BBCE /* RegularExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570F57E19BD2D350024BBCE /* RegularExpression.swift */; };
+		4570F58C19BD2D910024BBCE /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4570F58B19BD2D910024BBCE /* libz.dylib */; };
+		4570F58E19BD38B20024BBCE /* SVGView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570F58D19BD38B20024BBCE /* SVGView.swift */; };
+		4570F59619BD38F70024BBCE /* ArcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570F59219BD38F70024BBCE /* ArcViewController.swift */; };
+		4570F59719BD38F70024BBCE /* ArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570F59319BD38F70024BBCE /* ArcView.swift */; };
+		4570F59819BD38F70024BBCE /* Arc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570F59419BD38F70024BBCE /* Arc.swift */; };
+		4570F59919BD38F70024BBCE /* TestArc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570F59519BD38F70024BBCE /* TestArc.swift */; };
 		45859DBA19AAC84500BDBF61 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45859DB919AAC84500BDBF61 /* main.swift */; };
-		45859DBC19AAC84500BDBF61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45859DBB19AAC84500BDBF61 /* ViewController.swift */; };
 		45859DBE19AAC84500BDBF61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45859DBD19AAC84500BDBF61 /* AppDelegate.swift */; };
 		45859DC019AAC84500BDBF61 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45859DBF19AAC84500BDBF61 /* Images.xcassets */; };
 		45859DC319AAC84500BDBF61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45859DC119AAC84500BDBF61 /* Main.storyboard */; };
@@ -50,10 +64,25 @@
 
 /* Begin PBXFileReference section */
 		4515FE2E19AAEA610001CEB6 /* EditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
+		4570F57519BD2D350024BBCE /* Test.graffle */ = {isa = PBXFileReference; lastKnownFileType = file; path = Test.graffle; sourceTree = "<group>"; };
+		4570F57619BD2D350024BBCE /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		4570F57719BD2D350024BBCE /* SketchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SketchView.swift; sourceTree = "<group>"; };
+		4570F57819BD2D350024BBCE /* QuadTreeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuadTreeView.swift; sourceTree = "<group>"; };
+		4570F57919BD2D350024BBCE /* Sketch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sketch.swift; sourceTree = "<group>"; };
+		4570F57A19BD2D350024BBCE /* SketchOmniGraffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SketchOmniGraffle.swift; sourceTree = "<group>"; };
+		4570F57B19BD2D350024BBCE /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		4570F57C19BD2D350024BBCE /* OmniGraffle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OmniGraffle.swift; sourceTree = "<group>"; };
+		4570F57D19BD2D350024BBCE /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		4570F57E19BD2D350024BBCE /* RegularExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularExpression.swift; sourceTree = "<group>"; };
+		4570F58B19BD2D910024BBCE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		4570F58D19BD38B20024BBCE /* SVGView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGView.swift; sourceTree = "<group>"; };
+		4570F59219BD38F70024BBCE /* ArcViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcViewController.swift; sourceTree = "<group>"; };
+		4570F59319BD38F70024BBCE /* ArcView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcView.swift; sourceTree = "<group>"; };
+		4570F59419BD38F70024BBCE /* Arc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arc.swift; sourceTree = "<group>"; };
+		4570F59519BD38F70024BBCE /* TestArc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestArc.swift; sourceTree = "<group>"; };
 		45859DB419AAC84500BDBF61 /* SwiftGraphicsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGraphicsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45859DB819AAC84500BDBF61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45859DB919AAC84500BDBF61 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		45859DBB19AAC84500BDBF61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		45859DBD19AAC84500BDBF61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45859DBF19AAC84500BDBF61 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		45859DC219AAC84500BDBF61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4570F58C19BD2D910024BBCE /* libz.dylib in Frameworks */,
 				45FCB65219AC35760069DA07 /* SwiftGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,9 +103,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4570F59A19BD47D40024BBCE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4570F58D19BD38B20024BBCE /* SVGView.swift */,
+				45859DEB19AAC9B000BDBF61 /* DemoView.swift */,
+				4515FE2E19AAEA610001CEB6 /* EditorView.swift */,
+				4570F57719BD2D350024BBCE /* SketchView.swift */,
+				4570F57819BD2D350024BBCE /* QuadTreeView.swift */,
+				4570F59319BD38F70024BBCE /* ArcView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		4570F59B19BD47FB0024BBCE /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				4570F59219BD38F70024BBCE /* ArcViewController.swift */,
+				4570F57619BD2D350024BBCE /* Document.swift */,
+				4570F57919BD2D350024BBCE /* Sketch.swift */,
+				4570F57A19BD2D350024BBCE /* SketchOmniGraffle.swift */,
+				4570F57B19BD2D350024BBCE /* Utilities.swift */,
+				4570F57C19BD2D350024BBCE /* OmniGraffle.swift */,
+				4570F59419BD38F70024BBCE /* Arc.swift */,
+				4570F59519BD38F70024BBCE /* TestArc.swift */,
+				4570F57D19BD2D350024BBCE /* BridgingHeader.h */,
+				4570F57E19BD2D350024BBCE /* RegularExpression.swift */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 		45859DAB19AAC84500BDBF61 = {
 			isa = PBXGroup;
 			children = (
+				4570F58B19BD2D910024BBCE /* libz.dylib */,
 				45859DB619AAC84500BDBF61 /* SwiftGraphicsDemo */,
 				45FCB63F19AC355A0069DA07 /* SwiftGraphics.xcodeproj */,
 				45859DB519AAC84500BDBF61 /* Products */,
@@ -93,10 +154,10 @@
 		45859DB619AAC84500BDBF61 /* SwiftGraphicsDemo */ = {
 			isa = PBXGroup;
 			children = (
-				45859DEB19AAC9B000BDBF61 /* DemoView.swift */,
-				4515FE2E19AAEA610001CEB6 /* EditorView.swift */,
-				45859DBB19AAC84500BDBF61 /* ViewController.swift */,
 				45859DBD19AAC84500BDBF61 /* AppDelegate.swift */,
+				4570F59A19BD47D40024BBCE /* Views */,
+				4570F59B19BD47FB0024BBCE /* New Group */,
+				4570F57519BD2D350024BBCE /* Test.graffle */,
 				45859DBF19AAC84500BDBF61 /* Images.xcassets */,
 				45859DC119AAC84500BDBF61 /* Main.storyboard */,
 				45859DB719AAC84500BDBF61 /* Supporting Files */,
@@ -211,6 +272,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4570F57F19BD2D350024BBCE /* Test.graffle in Resources */,
 				45859DC019AAC84500BDBF61 /* Images.xcassets in Resources */,
 				45859DC319AAC84500BDBF61 /* Main.storyboard in Resources */,
 			);
@@ -224,10 +286,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				45859DEC19AAC9B000BDBF61 /* DemoView.swift in Sources */,
+				4570F59819BD38F70024BBCE /* Arc.swift in Sources */,
 				45859DBE19AAC84500BDBF61 /* AppDelegate.swift in Sources */,
-				45859DBC19AAC84500BDBF61 /* ViewController.swift in Sources */,
+				4570F58519BD2D350024BBCE /* Utilities.swift in Sources */,
+				4570F58019BD2D350024BBCE /* Document.swift in Sources */,
+				4570F58219BD2D350024BBCE /* QuadTreeView.swift in Sources */,
+				4570F58719BD2D350024BBCE /* RegularExpression.swift in Sources */,
+				4570F58E19BD38B20024BBCE /* SVGView.swift in Sources */,
+				4570F58419BD2D350024BBCE /* SketchOmniGraffle.swift in Sources */,
+				4570F59619BD38F70024BBCE /* ArcViewController.swift in Sources */,
+				4570F59919BD38F70024BBCE /* TestArc.swift in Sources */,
+				4570F59719BD38F70024BBCE /* ArcView.swift in Sources */,
+				4570F58619BD2D350024BBCE /* OmniGraffle.swift in Sources */,
 				45859DBA19AAC84500BDBF61 /* main.swift in Sources */,
+				4570F58319BD2D350024BBCE /* Sketch.swift in Sources */,
 				4515FE2F19AAEA610001CEB6 /* EditorView.swift in Sources */,
+				4570F58119BD2D350024BBCE /* SketchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +412,7 @@
 				INFOPLIST_FILE = SwiftGraphicsDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = SwiftGraphicsDemo/BridgingHeader.h;
 			};
 			name = Debug;
 		};
@@ -349,6 +424,7 @@
 				INFOPLIST_FILE = SwiftGraphicsDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = SwiftGraphicsDemo/BridgingHeader.h;
 			};
 			name = Release;
 		};

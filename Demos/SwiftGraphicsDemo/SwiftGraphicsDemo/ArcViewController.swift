@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ArcViewController: NSViewController {
 
     @IBOutlet var arcView : ArcView!
 

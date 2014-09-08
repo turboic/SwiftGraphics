@@ -10,7 +10,7 @@ import Foundation
 
 import SwiftGraphics
 
-class Handle : NSObject {
+class ARCHandle : NSObject {
     dynamic var position : CGPoint = CGPointZero {
         willSet {
             self.willChangeValueForKey("position_x")
@@ -39,9 +39,9 @@ class Handle : NSObject {
 
 class TestArc : NSObject {
     // TODO remove this
-    dynamic var handles : [Handle] = [
-        Handle(position:CGPoint(x:100, y:100)),
-        Handle(position:CGPoint(x:200, y:200)),
+    dynamic var handles : [ARCHandle] = [
+        ARCHandle(position:CGPoint(x:100, y:100)),
+        ARCHandle(position:CGPoint(x:200, y:200)),
         ]
     
     dynamic var start : CGPoint { get { return handles[0].position } }

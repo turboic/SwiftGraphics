@@ -35,7 +35,7 @@ extension CGContextRef {
     
         CGContextConcatCTM(self, transform)
 
-        println("\(arc.startAngle), \(arc.endAngle)")
+//        println("\(arc.startAngle), \(arc.endAngle)")
         CGContextAddArc(self, arc.center.x, arc.center.y, radius, arc.startAngle, arc.endAngle, 1)
         CGContextStrokePath(self)
 

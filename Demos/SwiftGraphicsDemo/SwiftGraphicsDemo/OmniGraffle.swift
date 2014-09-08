@@ -65,35 +65,37 @@ extension OmniGraffleDocumentModel {
     func load() {
         let data = NSData(contentsOfCompressedFile:path)
         var error:NSString?
-        let d = NSPropertyListSerialization.propertyListFromData(data, mutabilityOption: NSPropertyListMutabilityOptions(), format: nil, errorDescription:&error) as NSDictionary!
-        self._processRoot(d)
-        let origin = StringToPoint(d["CanvasOrigin"] as String)
-        let size = StringToSize(d["CanvasSize"] as String)
-        self.frame = CGRect(origin:origin, size:size)
-        println(nodesByID)
+        if let d = NSPropertyListSerialization.propertyListFromData(data, mutabilityOption: NSPropertyListMutabilityOptions(), format: nil, errorDescription:&error) as? NSDictionary {
         
-        let nodes = nodesByID.values.filter {
-            (node:Node) -> Bool in
-            return node is OmniGraffleLine
-        }
-        for node in nodes {
-            let line = node as OmniGraffleLine
-            var headID : Int?
-            var tailID : Int?
-            if let headDictionary = line.dictionary["Head"] as? NSDictionary {
-                headID = headDictionary["ID"] as? Int
+            self._processRoot(d)
+            let origin = StringToPoint(d["CanvasOrigin"] as String)
+            let size = StringToSize(d["CanvasSize"] as String)
+            self.frame = CGRect(origin:origin, size:size)
+//            println(nodesByID)
+            
+            let nodes = nodesByID.values.filter {
+                (node:Node) -> Bool in
+                return node is OmniGraffleLine
             }
-            if let tailDictionary = line.dictionary["Tail"] as? NSDictionary {
-                tailID = tailDictionary["ID"] as? Int
-            }
-            if headID != nil && tailID != nil {
-                let head = nodesByID[headID!] as OmniGraffleShape
-                line.head = head
-                head.lines.append(line)
+            for node in nodes {
+                let line = node as OmniGraffleLine
+                var headID : Int?
+                var tailID : Int?
+                if let headDictionary = line.dictionary["Head"] as? NSDictionary {
+                    headID = headDictionary["ID"] as? Int
+                }
+                if let tailDictionary = line.dictionary["Tail"] as? NSDictionary {
+                    tailID = tailDictionary["ID"] as? Int
+                }
+                if headID != nil && tailID != nil {
+                    let head = nodesByID[headID!] as OmniGraffleShape
+                    line.head = head
+                    head.lines.append(line)
 
-                let tail = nodesByID[headID!] as OmniGraffleShape
-                line.tail = tail
-                tail.lines.append(line)
+                    let tail = nodesByID[headID!] as OmniGraffleShape
+                    line.tail = tail
+                    tail.lines.append(line)
+                }
             }
         }
     }
