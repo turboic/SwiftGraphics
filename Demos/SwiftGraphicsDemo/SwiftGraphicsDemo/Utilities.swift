@@ -166,3 +166,62 @@ func StringToRect(s:String) -> CGRect {
     return CGRect(x:x, y:y, width:w, height:h)
 }
 
+/**
+ *  A struct that acts like an array but returns results from a block
+ */
+struct BlockBackedCollection <T> : CollectionType, SequenceType {
+    typealias Element = T
+    typealias Index = Int
+    typealias Block = (index:Index) -> T
+    typealias Generator = BlockBackedCollectionGenerator <T>
+
+    var startIndex: Index { get { return 0 } }
+    var endIndex: Index { get { return count } }
+    let count: Int
+    let block: Block
+
+    init(count:Index, block:Block) {
+        self.count = count
+        self.block = block
+    }
+
+    subscript (index:Index) -> T {
+        assert(index > 0 && index < self.count)
+        return block(index: index)
+    }
+
+    func generate() -> Generator {
+        return Generator(sequence:self)
+    }
+}
+
+struct BlockBackedCollectionGenerator <T> : GeneratorType {
+    typealias Sequence = BlockBackedCollection <T>
+    typealias Element = Sequence.Element
+    typealias Index = Sequence.Index
+    typealias Block = Sequence.Block
+
+    let startIndex: Index = 0
+    var endIndex: Index { get { return count } }
+    let count: Int
+    let block: Block
+    var nextIndex: Index = 0
+
+    init(sequence:Sequence) {
+        self.count = sequence.count
+        self.block = sequence.block
+    }
+        
+    mutating func next() -> Element? {
+        if nextIndex >= endIndex {
+            return nil
+        }
+        else if nextIndex < endIndex {
+            let element = block(index:nextIndex++)
+            return element
+        }
+        else {
+            return nil
+        }
+    }
+}
