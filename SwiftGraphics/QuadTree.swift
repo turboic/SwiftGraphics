@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 schwa. All rights reserved.
 //
 
-import Cocoa
+import CoreGraphics
 
 private struct QuadTreeConfig {
     let minimumNodeSize : CGSize
@@ -110,7 +110,7 @@ public class QuadTreeNode <T> {
             }
         } else {
             for subnode in self.subnodes! {
-                if NSIntersectsRect(subnode.frame, rect) {
+                if CGRectIntersectsRect(subnode.frame, rect) {
                     foundItems += subnode.itemsInRect(rect)
                 }
             }
