@@ -10,9 +10,9 @@ import CoreGraphics
 
 // TODO: This code is mostly experimental, use at your own risk - see TODO.markdown
 
-public extension CGContextRef {
+public extension CGContext {
 
-    class func bitmapContext(size:CGSize) -> CGContextRef! {
+    class func bitmapContext(size:CGSize) -> CGContext! {
         let colorspace = CGColorSpaceCreateDeviceRGB()    
         var bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedFirst.toRaw())
         return CGBitmapContextCreate(nil, UInt(size.width), UInt(size.height), 8, UInt(size.width) * 4, colorspace, bitmapInfo)
@@ -55,7 +55,11 @@ public extension CGContextRef {
         block()
         CGContextRestoreGState(self)
     }
+}
 
+// MARK: Colors
+
+public extension CGContext {
 #if os(OSX)
     func withColor(color:NSColor, block:() -> Void) {
         with {
@@ -67,13 +71,14 @@ public extension CGContextRef {
 #endif
 }
 
+// MARK: Images
+
 public extension CGImageRef {
     var size : CGSize { get { return CGSize(width:CGFloat(CGImageGetWidth(self)), height:CGFloat(CGImageGetHeight(self))) } }
 }
 
+public extension CGContext {
 #if os(OSX)
-public extension CGContextRef {
-
     var nsimage : NSImage {
         get { 
             let cgimage = CGBitmapContextCreateImage(self)
@@ -81,10 +86,27 @@ public extension CGContextRef {
             return nsimage
         }
     }
-}
 #endif
+}
 
-public extension CGContextRef {
+// MARK: Strings
+
+public extension CGContext {
+#if os(OSX)
+    func draw(string:String, point:CGPoint, attributes:NSDictionary?) {
+        string._bridgeToObjectiveC().drawAtPoint(point, withAttributes:attributes)
+    }
+
+    func drawLabel(string:String, point:CGPoint, size:CGFloat) {
+        let attributes = [NSFontAttributeName:NSFont.labelFontOfSize(size)]
+        self.draw(string, point:point, attributes:attributes)
+    }
+#endif
+}
+
+// MARK: Convenience shapes
+
+public extension CGContext {
 
     func strokeCross(rect:CGRect) {
         let linePoints = [
