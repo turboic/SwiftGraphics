@@ -18,6 +18,10 @@ public extension CGContextRef {
         return CGBitmapContextCreate(nil, UInt(size.width), UInt(size.height), 8, UInt(size.width) * 4, colorspace, bitmapInfo)
     }
 
+    func fillRect(rect:CGRect) {
+        CGContextFillRect(self, rect)
+    }
+
     func strokeRect(rect:CGRect) {
         CGContextStrokeRect(self, rect)
     }

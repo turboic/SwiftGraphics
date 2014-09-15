@@ -108,13 +108,13 @@
 		4570F59A19BD47D40024BBCE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4570F58D19BD38B20024BBCE /* SVGView.swift */,
 				45859DEB19AAC9B000BDBF61 /* DemoView.swift */,
 				4515FE2E19AAEA610001CEB6 /* EditorView.swift */,
 				4570F57719BD2D350024BBCE /* SketchView.swift */,
 				4570F57819BD2D350024BBCE /* QuadTreeView.swift */,
 				4570F59319BD38F70024BBCE /* ArcView.swift */,
 				4570F59219BD38F70024BBCE /* ArcViewController.swift */,
+				4570F58D19BD38B20024BBCE /* SVGView.swift */,
 				4556839119BD584500025701 /* DemoSVGViewController.swift */,
 			);
 			name = Views;

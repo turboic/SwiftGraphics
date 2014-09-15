@@ -24,13 +24,9 @@ class ViewController: NSViewController {
     override var representedObject: AnyObject? {
         didSet {
             XMLDocument = self.representedObject as? NSXMLDocument
-
             var parser = SVGParser()
             let document = parser.parseDocument(XMLDocument)
             bezierPathView.document = document
-
-
-//            self.bezierPathView.bezierPath = bezierPath
         }                                    
     }
 }
