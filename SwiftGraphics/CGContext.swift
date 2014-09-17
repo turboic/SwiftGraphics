@@ -14,7 +14,7 @@ public extension CGContext {
 
     class func bitmapContext(size:CGSize) -> CGContext! {
         let colorspace = CGColorSpaceCreateDeviceRGB()    
-        var bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedFirst.toRaw())
+        var bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedFirst.rawValue)
         return CGBitmapContextCreate(nil, UInt(size.width), UInt(size.height), 8, UInt(size.width) * 4, colorspace, bitmapInfo)
     }
 

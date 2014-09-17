@@ -21,7 +21,7 @@ extension CGFloat {
 func parseDimension(string:String) -> (CGFloat, String)! {
     let pattern = NSRegularExpression(pattern:"([0-9]+)[ \t]*(px)", options:.CaseInsensitive, error:nil)
     let range = NSMakeRange(0, string._bridgeToObjectiveC().length)
-    let match = pattern.firstMatchInString(string, options:NSMatchingOptions(), range:range)
+    let match = pattern!.firstMatchInString(string, options:NSMatchingOptions(), range:range)
     // TODO: Check for failures
     if let match = match {
         let scalar = string._bridgeToObjectiveC().substringWithRange(match.rangeAtIndex(0))
