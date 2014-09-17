@@ -9,6 +9,12 @@
 import AppKit
 import SwiftGraphics
 
+public func SGPRender(identifier:String, showView:((identifier:String, view:NSView) -> Void), block:((ctx:CGContext, bounds:CGRect) -> Void)) {
+    let demoView = SwiftGraphicsPlayground.DemoView(frame:CGRect(size:CGSize(w:480, h:320)))
+    demoView.drawBlock = block
+    showView(identifier: identifier, view: demoView)
+}
+
 public class Random {
 
     // This is pretty crude

@@ -5,12 +5,6 @@ import SwiftGraphics
 import SwiftGraphicsPlayground
 import XCPlayground
 
-func SGPRender(identifier:String, block:((ctx:CGContext, bounds:CGRect) -> Void)) {
-    let demoView = SwiftGraphicsPlayground.DemoView(frame:CGRect(size:CGSize(w:480, h:320)))
-    demoView.drawBlock = block
-    XCPShowView(identifier, demoView)
-}
-
 let r = Random()
 
 var points = Array <CGPoint> (count:50) {
@@ -19,7 +13,7 @@ var points = Array <CGPoint> (count:50) {
 
 let hull = monotoneChain(points, presorted:false)
 
-SGPRender("Test") {
+SGPRender("Test", XCPShowView) {
     (ctx:CGContext, bounds:CGRect) in
     for (index, point) in enumerate(points) {
         let color = contains(hull, point) ? NSColor.redColor() : NSColor.blackColor()
@@ -39,9 +33,7 @@ extension Array {
             self.append(block())
         }
     }
-}
 
-extension Array {
     mutating func push(o:T) {
         self.append(o)
     }

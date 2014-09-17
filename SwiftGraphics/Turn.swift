@@ -19,6 +19,14 @@ public enum Turn : Int {
     }
 }
 
+//extension Turn : Equatable {
+//}
+//
+//public func == (lhs:Turn, rhs:Turn) -> Bool {
+//    return lhs.rawValue == rhs.rawValue
+//}
+
+
 extension Turn : Comparable {
 }
 

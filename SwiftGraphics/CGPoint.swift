@@ -104,10 +104,16 @@ public extension CGPoint {
     init(_ v:(CGFloat, CGFloat)) {
         (x, y) = v
     }
-
     var asTuple : (CGFloat, CGFloat) { get { return (x, y) } }
 }
 
 
 
-
+//
+//
+//    func cross(o:CGPoint, a:CGPoint, b:CGPoint) -> Bool {
+////       let d = (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x)
+////       return d <= 0.0
+//        return Turn(o,a,b) == .Left
+//    }
+//
