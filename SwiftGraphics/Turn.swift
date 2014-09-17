@@ -9,9 +9,9 @@
 import Foundation
 
 public enum Turn : Int {
-    case Left = -1
+    case Left = 1
     case None = 0
-    case Right = 1
+    case Right = -1
 
     public init(_ p:CGPoint, _ q:CGPoint, _ r:CGPoint) {
         let c = (q.x - p.x)*(r.y - p.y) - (r.x - p.x)*(q.y - p.y)

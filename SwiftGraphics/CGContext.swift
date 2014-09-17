@@ -30,7 +30,7 @@ public extension CGContext {
         CGContextStrokeEllipseInRect(self, rect)
     }
 
-    func strokeLine(points:[CGPoint]) {
+    func strokeLines(points:[CGPoint]) {
         points.withUnsafeBufferPointer {
             (p:UnsafeBufferPointer<CGPoint>) -> Void in
             CGContextStrokeLineSegments(self, p.baseAddress, UInt(points.count))
@@ -38,8 +38,28 @@ public extension CGContext {
     }
 
     func strokeLine(p1:CGPoint, _ p2:CGPoint) {
-        self.strokeLine([p1, p2])
+        self.strokeLines([p1, p2])
     }
+
+    // TODO: Rename strokePolygon?
+    func strokeLine(points:[CGPoint], loop:Bool = false) {
+        var newPoints:[CGPoint] = []
+        for (first, second) in GeneratorOf(SlidingWindow(points)) {
+            if second == nil {
+                if (loop == true) {
+                    newPoints.append(first)
+                    newPoints.append(points[0])
+                }
+                break
+            }
+            newPoints.append(first)
+            newPoints.append(second!)
+        }
+
+
+        self.strokeLines(newPoints)
+    }
+
     
     func fillCircle(#center:CGPoint, radius:CGFloat) {
         let rect = CGRect(center:center, size:CGSize(width:radius * 2, height:radius * 2))
@@ -113,7 +133,7 @@ public extension CGContext {
             CGPoint(x:rect.minX, y:rect.midY), CGPoint(x:rect.maxX, y:rect.midY),
             CGPoint(x:rect.midX, y:rect.minY), CGPoint(x:rect.midX, y:rect.maxY),
         ]
-        self.strokeLine(linePoints)
+        self.strokeLines(linePoints)
     }
 
     func strokeSaltire(rect:CGRect) {    
@@ -121,7 +141,7 @@ public extension CGContext {
             CGPoint(x:rect.minX, y:rect.minY), CGPoint(x:rect.maxX, y:rect.maxY),
             CGPoint(x:rect.minX, y:rect.maxY), CGPoint(x:rect.maxX, y:rect.minY),
         ]
-        self.strokeLine(linePoints)
+        self.strokeLines(linePoints)
     }
 
 }

@@ -13,18 +13,20 @@ public class Random {
 
     // This is pretty crude
 
-    var _seed:UInt32?
-    public var seed:UInt32? {
-        get {
-            return _seed
-        }
-        set {
-            _seed = newValue
-            srandom(newValue!)
+    public var seed:UInt32 {
+        didSet {
+            srandom(seed)
         }
     }
-    
+
+    public init(seed:UInt32) {
+        self.seed = seed
+        srandom(seed)
+    }
+
     public init() {
+        self.seed = arc4random()
+        srandom(seed)
     }
 
     public func randomUniform(uniform:UInt32) -> UInt32 {
