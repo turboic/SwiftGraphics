@@ -23,6 +23,11 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		4515825C19C9F21000856C91 /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515825B19C9F21000856C91 /* Turn.swift */; };
+		4515825D19C9F21800856C91 /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515825B19C9F21000856C91 /* Turn.swift */; };
+		4515825F19C9F6A600856C91 /* TurnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515825E19C9F6A600856C91 /* TurnTests.swift */; };
+		4515826119C9F83300856C91 /* Private.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515826019C9F83300856C91 /* Private.swift */; };
+		4515826219C9F83300856C91 /* Private.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515826019C9F83300856C91 /* Private.swift */; };
 		4537991A19AA6C37004DF99E /* CGPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537991919AA6C37004DF99E /* CGPointTests.swift */; };
 		4537991D19AA788B004DF99E /* CGSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537991C19AA788B004DF99E /* CGSizeTests.swift */; };
 		454D550D19AA5CE6000E3EB3 /* SwiftGraphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 454D550C19AA5CE6000E3EB3 /* SwiftGraphics.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -112,6 +117,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4515825B19C9F21000856C91 /* Turn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Turn.swift; sourceTree = "<group>"; };
+		4515825E19C9F6A600856C91 /* TurnTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnTests.swift; sourceTree = "<group>"; };
+		4515826019C9F83300856C91 /* Private.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Private.swift; sourceTree = "<group>"; };
 		4537990419AA671E004DF99E /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4537990519AA671E004DF99E /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
 		4537990619AA6736004DF99E /* TODO.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.markdown; sourceTree = "<group>"; };
@@ -237,6 +245,7 @@
 			children = (
 				4537991919AA6C37004DF99E /* CGPointTests.swift */,
 				4537991C19AA788B004DF99E /* CGSizeTests.swift */,
+				4515825E19C9F6A600856C91 /* TurnTests.swift */,
 				454D551419AA5CE6000E3EB3 /* Supporting Files */,
 			);
 			path = SwiftGraphics_UnitTests;
@@ -287,6 +296,7 @@
 				459EE5DE19AEC5130012E023 /* CGContext.swift */,
 				459EE5DF19AEC5130012E023 /* CGPath.swift */,
 				459EE5E019AEC5130012E023 /* CGPoint.swift */,
+				4515825B19C9F21000856C91 /* Turn.swift */,
 				459EE5E119AEC5130012E023 /* CGRect.swift */,
 				459EE5E219AEC5130012E023 /* CGSize.swift */,
 				459EE5E319AEC5130012E023 /* Geometry.swift */,
@@ -294,6 +304,7 @@
 				458BDD8119BCF7D100CD0EAC /* QuadTree.swift */,
 				459EE5E519AEC5130012E023 /* Scaling.swift */,
 				459EE5E619AEC5130012E023 /* Utilities.swift */,
+				4515826019C9F83300856C91 /* Private.swift */,
 				459EE60819AED3600012E023 /* SVG.swift */,
 				4594B09119AEE31E00101EB4 /* Path.swift */,
 				459EE60D19AED5500012E023 /* PrivateUtilities.swift */,
@@ -518,6 +529,7 @@
 				458BDD8219BCF7D100CD0EAC /* QuadTree.swift in Sources */,
 				459EE60919AED3600012E023 /* SVG.swift in Sources */,
 				459EE5EB19AEC5130012E023 /* CGContext.swift in Sources */,
+				4515826119C9F83300856C91 /* Private.swift in Sources */,
 				4594B08B19AEDC2100101EB4 /* SwiftGraphicsHelper.m in Sources */,
 				459EE5F119AEC5130012E023 /* CGRect.swift in Sources */,
 				459EE5FB19AEC5130012E023 /* Utilities.swift in Sources */,
@@ -526,6 +538,7 @@
 				459EE5F919AEC5130012E023 /* Scaling.swift in Sources */,
 				459EE5F719AEC5130012E023 /* Quadrant.swift in Sources */,
 				459EE5F319AEC5130012E023 /* CGSize.swift in Sources */,
+				4515825C19C9F21000856C91 /* Turn.swift in Sources */,
 				459EE5ED19AEC5130012E023 /* CGPath.swift in Sources */,
 				456877E219B6857B004BEFD6 /* CoordinateSystems.swift in Sources */,
 				459EE5F519AEC5130012E023 /* Geometry.swift in Sources */,
@@ -540,6 +553,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4515825F19C9F6A600856C91 /* TurnTests.swift in Sources */,
 				4537991D19AA788B004DF99E /* CGSizeTests.swift in Sources */,
 				4537991A19AA6C37004DF99E /* CGPointTests.swift in Sources */,
 			);
@@ -561,8 +575,10 @@
 				4594B08C19AEDC2100101EB4 /* SwiftGraphicsHelper.m in Sources */,
 				459EE5F219AEC5130012E023 /* CGRect.swift in Sources */,
 				459EE5FC19AEC5130012E023 /* Utilities.swift in Sources */,
+				4515825D19C9F21800856C91 /* Turn.swift in Sources */,
 				458BDD8319BCF7D100CD0EAC /* QuadTree.swift in Sources */,
 				459EE5E819AEC5130012E023 /* BezierCurve.swift in Sources */,
+				4515826219C9F83300856C91 /* Private.swift in Sources */,
 				459EE5FA19AEC5130012E023 /* Scaling.swift in Sources */,
 				459EE5F819AEC5130012E023 /* Quadrant.swift in Sources */,
 				459EE5F419AEC5130012E023 /* CGSize.swift in Sources */,
