@@ -9,19 +9,46 @@
 import AppKit
 import SwiftGraphics
 
-public func random() -> CGFloat {
-    return CGFloat(arc4random_uniform(UInt32.max)) / CGFloat(UInt32.max)
-}
+public class Random {
 
-public func random(range:ClosedInterval<CGFloat>) -> CGFloat {
-    return random() * (range.end - range.start) + range.start
-}
+    // This is pretty crude
 
-public func random(range:CGRect) -> CGPoint {
-    return CGPoint(
-        x:range.origin.x + random() * range.size.width,
-        y:range.origin.y + random() * range.size.height
-    )
+    var _seed:UInt32?
+    public var seed:UInt32? {
+        get {
+            return _seed
+        }
+        set {
+            _seed = newValue
+            srandom(newValue!)
+        }
+    }
+    
+    public init() {
+    }
+
+    public func randomUniform(uniform:UInt32) -> UInt32 {
+        return UInt32(random()) % uniform
+    }
+
+    public func randomFloat() -> CGFloat {
+        // TODO: Gross!
+        let r = CGFloat(randomUniform(1000000)) / CGFloat(1000000)
+        return r
+    }
+
+    public func randomFloat(range:ClosedInterval<CGFloat>) -> CGFloat {
+        let r = randomFloat() * (range.end - range.start) + range.start
+        return r
+    }
+
+    public func randomCGPoint(range:CGRect) -> CGPoint {
+        let r = CGPoint(
+            x:range.origin.x + randomFloat() * range.size.width,
+            y:range.origin.y + randomFloat() * range.size.height
+        )
+        return r
+    }
 }
 
 public class DemoView : NSView {
