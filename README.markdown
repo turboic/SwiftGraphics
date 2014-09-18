@@ -11,7 +11,7 @@ Wrap Quartz (and other related Frameworks such as CoreImage) in a nice "Swifthon
 Provide wrappers and operators to help make working with graphics primitives in swift as 
 convenient as possible.
 
-## What's include
+## What's included
 
 * Pragmatic operator overloading for CoreGraphics types including: CGPoint, CGSize,
 CGRect, CGAffineTransform
