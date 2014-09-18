@@ -23,7 +23,7 @@ SGPRender("Test", XCPShowView) {
         ctx.drawLabel("\(index)", point:point + CGPoint(x:2, y:0), size:10)
     }
     
-    ctx.strokeLine(hull, loop:true)
+    ctx.strokeLine(hull, close:true)
 }
 
 extension Array {
