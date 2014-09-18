@@ -42,11 +42,11 @@ public extension CGContext {
     }
 
     // TODO: Rename strokePolygon?
-    func strokeLine(points:[CGPoint], loop:Bool = false) {
+    func strokeLine(points:[CGPoint], close:Bool = false) {
         var newPoints:[CGPoint] = []
         for (first, second) in GeneratorOf(SlidingWindow(points)) {
             if second == nil {
-                if (loop == true) {
+                if (close == true) {
                     newPoints.append(first)
                     newPoints.append(points[0])
                 }
@@ -67,7 +67,7 @@ public extension CGContext {
     }
     
     func fillCircle(circle:Circle) {
-        CGContextFillEllipseInRect(self, circle.rect)
+        CGContextFillEllipseInRect(self, circle.frame)
     }
 
     func with(block:() -> Void) {

@@ -68,8 +68,8 @@ public extension CGRect {
     var mid : CGPoint { get { return CGPoint(x:self.midX, y:self.midY) } }
     
     static func UnionOfRects(rects:[CGRect]) -> CGRect {
-        var result = CGRectZero
-        for rect in rects {
+        var result = rects[0]
+        for rect in rects[1..<rects.count] {
             result = CGRectUnion(result, rect)
         }
         return result

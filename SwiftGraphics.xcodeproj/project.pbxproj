@@ -30,6 +30,8 @@
 		4515826219C9F83300856C91 /* Private.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515826019C9F83300856C91 /* Private.swift */; };
 		4537991A19AA6C37004DF99E /* CGPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537991919AA6C37004DF99E /* CGPointTests.swift */; };
 		4537991D19AA788B004DF99E /* CGSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537991C19AA788B004DF99E /* CGSizeTests.swift */; };
+		454B0D5719CA9E7F00044B7C /* Fuzzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454B0D5619CA9E7F00044B7C /* Fuzzy.swift */; };
+		454B0D5919CAA00300044B7C /* Plotable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454B0D5819CAA00300044B7C /* Plotable.swift */; };
 		454D550D19AA5CE6000E3EB3 /* SwiftGraphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 454D550C19AA5CE6000E3EB3 /* SwiftGraphics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		454FE66719C77031002E4DEF /* SwiftGraphicsPlayground.h in Headers */ = {isa = PBXBuildFile; fileRef = 454FE66619C77031002E4DEF /* SwiftGraphicsPlayground.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		454FE68019C77455002E4DEF /* SwiftGraphicsPlayground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454FE67F19C77455002E4DEF /* SwiftGraphicsPlayground.swift */; };
@@ -128,6 +130,8 @@
 		4537990619AA6736004DF99E /* TODO.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.markdown; sourceTree = "<group>"; };
 		4537991919AA6C37004DF99E /* CGPointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointTests.swift; sourceTree = "<group>"; };
 		4537991C19AA788B004DF99E /* CGSizeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGSizeTests.swift; sourceTree = "<group>"; };
+		454B0D5619CA9E7F00044B7C /* Fuzzy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fuzzy.swift; sourceTree = "<group>"; };
+		454B0D5819CAA00300044B7C /* Plotable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plotable.swift; sourceTree = "<group>"; };
 		454D550719AA5CE6000E3EB3 /* SwiftGraphics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGraphics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		454D550B19AA5CE6000E3EB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		454D550C19AA5CE6000E3EB3 /* SwiftGraphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftGraphics.h; sourceTree = "<group>"; };
@@ -280,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				454FE66619C77031002E4DEF /* SwiftGraphicsPlayground.h */,
+				454B0D5819CAA00300044B7C /* Plotable.swift */,
 				454FE67F19C77455002E4DEF /* SwiftGraphicsPlayground.swift */,
 				454FE66419C77031002E4DEF /* Supporting Files */,
 			);
@@ -309,6 +314,7 @@
 				459EE5E119AEC5130012E023 /* CGRect.swift */,
 				459EE5E219AEC5130012E023 /* CGSize.swift */,
 				459EE5E319AEC5130012E023 /* Geometry.swift */,
+				454B0D5619CA9E7F00044B7C /* Fuzzy.swift */,
 				459EE5E419AEC5130012E023 /* Quadrant.swift */,
 				458BDD8119BCF7D100CD0EAC /* QuadTree.swift */,
 				459EE5E519AEC5130012E023 /* Scaling.swift */,
@@ -556,6 +562,7 @@
 				459EE5EF19AEC5130012E023 /* CGPoint.swift in Sources */,
 				459EE60E19AED5500012E023 /* PrivateUtilities.swift in Sources */,
 				4594B09219AEE31E00101EB4 /* Path.swift in Sources */,
+				454B0D5719CA9E7F00044B7C /* Fuzzy.swift in Sources */,
 				459EE5E919AEC5130012E023 /* CGAffineTransform.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,6 +582,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				454B0D5919CAA00300044B7C /* Plotable.swift in Sources */,
 				454FE68019C77455002E4DEF /* SwiftGraphicsPlayground.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
