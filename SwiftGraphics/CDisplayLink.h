@@ -11,7 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface CDisplayLink : NSObject
-@property (readwrite, nonatomic, copy) void (^displayLinkBlock)(const CVTimeStamp *inNow, const CVTimeStamp *inOutputTime);
+@property (readwrite, nonatomic, copy) void (^displayLinkBlock)(NSTimeInterval deltaTime, double fps);
 
 - (void)start;
 - (void)stop;
