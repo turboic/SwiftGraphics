@@ -1,0 +1,4 @@
+language: objective-c
+script:
+  - xctool -project 'SwiftGraphics.xcodeproj' -scheme 'All' ONLY_ACTIVE_ARCH=NO
+#  - xctool test -project 'TransformTest.xcodeproj' -configuration 'Unit Tests' -scheme TransformTest ONLY_ACTIVE_ARCH=NO
