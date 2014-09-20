@@ -13,10 +13,16 @@ import CoreGraphics
 infix operator ** { associativity none precedence 160 }
 
 public func ** (lhs:Double, rhs:Double) -> Double {
+    if rhs == 2.0 {
+        return lhs * lhs
+    }    
     return pow(lhs, rhs)
 }
 
 public func ** (lhs:CGFloat, rhs:CGFloat) -> CGFloat {
+    if rhs == 2.0 {
+        return lhs * lhs
+    }    
     return pow(lhs, rhs)
 }
 
@@ -28,7 +34,7 @@ public func clamp <T:Comparable> (value:T, lower:T, upper:T) -> T {
 
 // MARK: lerp
 
-public func lerp(lower:Double, upper:Double, factor:Double) -> Double {
+public func lerp(lower:CGFloat, upper:CGFloat, factor:CGFloat) -> CGFloat {
     return (1.0 - factor) * lower + factor * upper
 }
 
