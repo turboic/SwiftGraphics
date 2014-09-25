@@ -37,12 +37,11 @@ public class DemoView : NSView {
     public var tickBlock: ((Void) -> Void)? { didSet { displayLink.start() } }
     let displayLink: CDisplayLink = CDisplayLink()
 
-
     required public init(coder: NSCoder) {
         super.init(coder:coder)
 
         displayLink.displayLinkBlock = {
-            (a:UnsafePointer <CVTimeStamp>, b:UnsafePointer <CVTimeStamp>) in
+            (deltaTime:NSTimeInterval, fps:Double) in
             self.tick()
         }
     }
@@ -51,7 +50,7 @@ public class DemoView : NSView {
         super.init(frame:frameRect)
 
         displayLink.displayLinkBlock = {
-            (a:UnsafePointer <CVTimeStamp>, b:UnsafePointer <CVTimeStamp>) in
+            (deltaTime:NSTimeInterval, fps:Double) in
             self.tick()
         }
     }
