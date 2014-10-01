@@ -61,3 +61,18 @@ extension NSScanner {
         }
     }
 }
+
+/**
+ :example:
+    let (a,b) = ordered(("B", "A"))
+ */
+public func ordered <T:Comparable> (tuple:(T, T)) -> (T, T) {
+    let (lhs, rhs) = tuple
+    if lhs <= rhs {
+        return (lhs, rhs)
+    }
+    else {
+        return (rhs, lhs)
+    }
+}
+
