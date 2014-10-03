@@ -102,7 +102,7 @@ public extension CGContext {
     var nsimage : NSImage {
         get { 
             let cgimage = CGBitmapContextCreateImage(self)
-            let nsimage = NSImage(CGImage:cgimage, size:cgimage.size)
+            let nsimage = NSImage(CGImage:cgimage, size:cgimage.size)!
             return nsimage
         }
     }
