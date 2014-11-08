@@ -37,7 +37,7 @@ public class DemoView : NSView {
     public var tickBlock: ((Void) -> Void)? { didSet { displayLink.start() } }
     let displayLink: CDisplayLink = CDisplayLink()
 
-    required public init(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder:coder)
 
         displayLink.displayLinkBlock = {
@@ -56,7 +56,7 @@ public class DemoView : NSView {
     }
 
     override public func drawRect(dirtyRect: NSRect) {
-        let ctx = NSGraphicsContext.currentContext().CGContext
+        let ctx = NSGraphicsContext.currentContext()!.CGContext
         drawBlock?(ctx:ctx, bounds:bounds)
     }
 
