@@ -8,6 +8,8 @@
 
 import CoreGraphics
 
+// TODO - this is a "Point" quadtree - see http://www.codeproject.com/Articles/30535/A-Simple-QuadTree-Implementation-in-C for a discussion of point vs "region' quad tree
+
 private struct QuadTreeConfig {
     let minimumNodeSize : CGSize
     let maximumObjectsPerNode : Int
@@ -32,19 +34,6 @@ public class QuadTree <T> {
         assert(self.frame.intersects(rect))
         return self.rootNode.objectsInRect(rect)
     }
-    
-//    func dump() {
-//
-//        let walker = Walker <QuadTreeNode <T>> () {
-//            return $0.subnodes
-//        }
-//
-//        walker.walk(self.rootNode) {
-//            node, depth in
-//            let filler = String(count:Int(depth), repeatedValue:Character(" "))
-//            println("\(filler)\(node)")
-//        }
-//    }
 }
 
 public class QuadTreeNode <T> {
@@ -53,13 +42,12 @@ public class QuadTreeNode <T> {
 
     public let frame : CGRect
     private let config : QuadTreeConfig
+    public var subnodes : [QuadTreeNode]?
 
 //    var topLeft : QuadTreeNode?
 //    var topRight : QuadTreeNode?
 //    var bottomLeft : QuadTreeNode?
 //    var bottomRight : QuadTreeNode?
-
-    public var subnodes : [QuadTreeNode]?
 
     // Optional because this can be nil-ed out later.
     public lazy var items : [Item]? = []
@@ -75,7 +63,6 @@ public class QuadTreeNode <T> {
     } 
 
     internal var isLeaf : Bool { get { return self.subnodes == nil } }
-
     internal var canExpand : Bool { get { return self.frame.size.width >= self.config.minimumNodeSize.width * 2.0 && self.frame.size.height >= self.config.minimumNodeSize.height * 2.0 } }
 
     private init(config:QuadTreeConfig, frame:CGRect) {
@@ -161,11 +148,4 @@ public class QuadTreeNode <T> {
             return nil
         }
     }
-
-//    var description: String {
-//        get {
-//            return "Subnode: [Objects:\(self.objects != nil ? self.objects!.count : -1), Subnodes:\(self.subnodes != nil ? self.subnodes!.count : -1)]"
-//        }
-//    }
-//    var debugDescription: String { get { return "FOO"} }
 }
