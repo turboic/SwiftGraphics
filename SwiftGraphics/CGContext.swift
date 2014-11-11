@@ -81,6 +81,14 @@ public extension CGContext {
 
 public extension CGContext {
 #if os(OSX)
+    func setStrokeColor(color:NSColor) {
+        CGContextSetStrokeColorWithColor(self, color.CGColor)
+    }
+
+    func setFillColor(color:NSColor) {
+        CGContextSetFillColorWithColor(self, color.CGColor)
+    }
+
     func withColor(color:NSColor, block:() -> Void) {
         with {
             CGContextSetStrokeColorWithColor(self, color.CGColor)
