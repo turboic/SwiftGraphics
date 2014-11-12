@@ -8,6 +8,21 @@
 
 import Foundation
 
+// MARK:
+
+public func equal(lhs:CGFloat, rhs:CGFloat, # accuracy:CGFloat) -> Bool {
+    return abs(rhs - lhs) <= accuracy
+}
+
+public func equal(lhs:Float, rhs:Float, # accuracy:Float) -> Bool {
+    return abs(rhs - lhs) <= accuracy
+}
+
+public func equal(lhs:Double, rhs:Double, # accuracy:Double) -> Bool {
+    return abs(rhs - lhs) <= accuracy
+}
+
+
 // MARK: Fuzzy equality
 
 public protocol FuzzyEquatable {
@@ -16,13 +31,7 @@ public protocol FuzzyEquatable {
 
 infix operator ==% { associativity none precedence 130 }
 
-extension CGFloat : FuzzyEquatable {
-}
-
-public func ==% (lhs:CGFloat, rhs:CGFloat) -> Bool {
-    let epsilon = CGFloat(FLT_EPSILON) // TODO: FLT vs DBL
-    return equal(lhs, rhs, accuracy:epsilon)
-}
+// MARK: Fuzzy inequality
 
 infix operator !=% { associativity none precedence 130 }
 
@@ -30,6 +39,32 @@ public func !=% <T:FuzzyEquatable> (lhs:T, rhs:T) -> Bool {
     return !(lhs ==% rhs)
 }
 
-public func equal(lhs:CGFloat, rhs:CGFloat, # accuracy:CGFloat) -> Bool {
-    return abs(rhs - lhs) <= accuracy
+// MARK: Float
+
+extension Float : FuzzyEquatable {
+}
+
+public func ==% (lhs:Float, rhs:Float) -> Bool {
+    let epsilon = Float(FLT_EPSILON) // TODO: FLT vs DBL
+    return equal(lhs, rhs, accuracy:epsilon)
+}
+
+// MARK: Double
+
+extension Double : FuzzyEquatable {
+}
+
+public func ==% (lhs:Double, rhs:Double) -> Bool {
+    let epsilon = Double(FLT_EPSILON) // TODO: FLT vs DBL
+    return equal(lhs, rhs, accuracy:epsilon)
+}
+
+// Mark: CGFloat
+
+extension CGFloat : FuzzyEquatable {
+}
+
+public func ==% (lhs:CGFloat, rhs:CGFloat) -> Bool {
+    let epsilon = CGFloat(FLT_EPSILON) // TODO: FLT vs DBL
+    return equal(lhs, rhs, accuracy:epsilon)
 }

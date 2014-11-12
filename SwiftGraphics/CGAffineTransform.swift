@@ -10,14 +10,16 @@ import CoreGraphics
 
 public extension CGAffineTransform {
 
-    static func identity() -> CGAffineTransform {
-        return CGAffineTransformIdentity
-    }
+    static var identity:CGAffineTransform = CGAffineTransformIdentity
     
     init() {
-        self = CGAffineTransformIdentity
+        self = CGAffineTransform.identity
     }
-    
+
+    init(transform: CGAffineTransform) {
+        self = transform
+    }
+
     init(a: CGFloat, b: CGFloat, c: CGFloat, d: CGFloat, tx: CGFloat, ty: CGFloat) {
         self = CGAffineTransformMake(a, b, c, d, tx, ty)
     }
@@ -30,9 +32,29 @@ public extension CGAffineTransform {
         self = CGAffineTransformMakeScale(sx, sy)
     }
 
-    init(angle:CGFloat) {
+    init(angle: CGFloat) {
         self = CGAffineTransformMakeRotation(angle)
     }
+
+    var isIdentity: Bool { get { return CGAffineTransformIsIdentity(self) } }
+}
+
+public extension CGAffineTransform {
+
+    static func translation(# tx: CGFloat, ty: CGFloat) -> CGAffineTransform {
+        return CGAffineTransformMakeTranslation(tx, ty)
+    }
+
+    static func scale(# sx: CGFloat, sy: CGFloat) -> CGAffineTransform {
+        return CGAffineTransformMakeScale(sx, sy)
+    }
+
+    static func rotation(angle: CGFloat) -> CGAffineTransform {
+        return CGAffineTransformMakeRotation(angle)
+    }
+}
+
+public extension CGAffineTransform {
 
     func translated(# tx:CGFloat, ty:CGFloat) -> CGAffineTransform {
         return CGAffineTransformTranslate(self, tx, ty)
@@ -45,6 +67,19 @@ public extension CGAffineTransform {
     func rotated(angle:CGFloat) -> CGAffineTransform  {
         return CGAffineTransformRotate(self, angle)
     }
+
+    func concated(other:CGAffineTransform) -> CGAffineTransform {
+        return CGAffineTransformConcat(self, other)
+    }
+
+    func inverted() -> CGAffineTransform {
+        return CGAffineTransformInvert(self)
+    }
+//    var inverted: CGAffineTransform { get { return CGAffineTransformInvert(self) } }
+
+}
+
+public extension CGAffineTransform {
 
     mutating func translate(tx:CGFloat, _ ty:CGFloat) -> CGAffineTransform {
         self = translated(tx:tx, ty:ty)
@@ -61,23 +96,15 @@ public extension CGAffineTransform {
         return self
     }
 
-    func concated(other:CGAffineTransform) -> CGAffineTransform {
-        return CGAffineTransformConcat(self, other)
-    }
-
     mutating func concat(other:CGAffineTransform) -> CGAffineTransform {
         self = concated(other)
         return self
     }
 
-    var inverted : CGAffineTransform { get { return CGAffineTransformInvert(self) } }
-
     mutating func invert() -> CGAffineTransform {
-        self = self.inverted
+        self = self.inverted()
         return self
     }
-    
-    var isIdentity : Bool { get { return CGAffineTransformIsIdentity(self) } }
 }
 
 // MARK: Equatable
@@ -144,7 +171,41 @@ public extension CGAffineTransform {
     }
 }
 
+// MARK: Translation using CGPoint
 
+public extension CGAffineTransform {
 
+    static func translation(t: CGPoint) -> CGAffineTransform {
+        return CGAffineTransformMakeTranslation(t.x, t.y)
+    }
 
+    func translated(# t:CGPoint) -> CGAffineTransform {
+        return CGAffineTransformTranslate(self, t.x, t.y)
+    }
+
+    mutating func translate(t:CGPoint) -> CGAffineTransform {
+        self = translated(tx:t.x, ty:t.y)
+        return self
+    }
+}
+
+// MARK: Convenience constructors.
+
+public extension CGAffineTransform {
+
+    init(transforms:[CGAffineTransform]) {
+        var current = CGAffineTransform.identity
+        for transform in transforms {
+            current.concat(transform)
+        }
+        self = current
+    }
+
+    static func rotationAroundPoint(point:CGPoint, angle:CGFloat) -> CGAffineTransform {
+        var transform = CGAffineTransform.translation(point)
+        transform.rotate(angle)
+        transform.translate(-point)
+        return transform
+    }
+}
 
