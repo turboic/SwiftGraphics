@@ -117,13 +117,24 @@ public extension CGPoint {
     var asTuple : (CGFloat, CGFloat) { get { return (x, y) } }
 }
 
-
-
-//
-//
 //    func cross(o:CGPoint, a:CGPoint, b:CGPoint) -> Bool {
 ////       let d = (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x)
 ////       return d <= 0.0
 //        return Turn(o,a,b) == .Left
 //    }
-//
+
+public extension CGPoint {
+
+    func floored() -> CGPoint {
+        return CGPoint(x:floor(x), y:floor(y))
+    }
+
+    func ceiled() -> CGPoint {
+        return CGPoint(x:ceil(x), y:ceil(y))
+    }
+
+    func rounded() -> CGPoint {
+        return CGPoint(x:round(x), y:round(y))
+    }
+}
+

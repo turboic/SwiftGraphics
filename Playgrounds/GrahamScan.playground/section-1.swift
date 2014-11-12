@@ -85,19 +85,23 @@ func grahamScan(var points:[CGPoint], preordered:Bool = false) -> [CGPoint] {
     return hull_points
 }
 
-let r = Random()
-r.seed = 100
-
-var points = Array <CGPoint> (count:10) {
-    return r.randomCGPoint(CGRect(w:480, h:320))
-}
-points = grahamOrdered(points)
-
-let hull = grahamScan(points)
 
 
 SGPRender("Test") {
     (ctx:CGContext, bounds:CGRect) in
+
+    let r = Random()
+    r.seed = 100
+
+    var points = Array <CGPoint> (count:10) {
+        return r.randomCGPoint(CGRect(w:480, h:320))
+    }
+    points = grahamOrdered(points)
+
+    let hull = grahamScan(points)
+
+
+
     for (index, point) in enumerate(points) {
         if contains(hull, point) {
             NSColor.greenColor().set()
