@@ -95,17 +95,21 @@ public extension CGPoint {
 // MARK: Trig
 
 public extension CGPoint {
-    init(length:CGFloat, theta:CGFloat) {
-        x = cos(theta) * length
-        y = sin(theta) * length
+    init(magnitude:CGFloat, direction:CGFloat) {
+        x = cos(direction) * magnitude
+        y = sin(direction) * magnitude
     }
 
-    var length : CGFloat { get { return sqrt(x ** 2 + y ** 2) } }
-    var normalized : CGPoint { get { return CGPoint(x:x / length, y:y / length) } }
+    var magnitude : CGFloat { get { return sqrt(x ** 2 + y ** 2) } }
+    var normalized : CGPoint { get { return CGPoint(x:x / magnitude, y:y / magnitude) } }
 }
 
 public func atan2(point:CGPoint) -> CGFloat {
     return atan2(point.y, point.x)
+}
+
+public func dotProduct(a:CGPoint, b:CGPoint) -> CGFloat {
+    return a.x * b.x + a.y * b.y
 }
 
 // MARK: Converting to/from tuples

@@ -52,6 +52,12 @@ extension Triangle : Plotable {
 }
 
 public extension CGContext {
+
+    public func plot(a:Plotable) {
+        a.plotInContext(self)
+    }
+
+
     public func plot(a:Array <Plotable>) {
         for e in a {
             e.plotInContext(self)

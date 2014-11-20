@@ -56,6 +56,15 @@ class CGPointTests: XCTestCase {
         XCTAssertEqual(CGPoint(x:50, y:250).clamped(r), CGPoint(x:50, y:200))
     }
 
+    func testDotProduct() {
+
+        let p = CGPoint(x:100, y:50)
+
+        XCTAssertEqualWithAccuracy(p.magnitude, CGFloat(111.803), 0.01)
+        XCTAssertEqual(dotProduct(p, p), p.length ** 2)
+    }
+
+
 // TODO: Casting problems in newest beta.
 //    func testTrig() {
 //        let theta = DegreesToRadians(30) as CGFloat
