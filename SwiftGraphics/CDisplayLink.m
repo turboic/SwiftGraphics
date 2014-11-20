@@ -12,6 +12,7 @@
 
 @interface CDisplayLink ()
 @property (readwrite, nonatomic, assign) CVDisplayLinkRef displayLink;
+@property (readwrite, nonatomic, assign) CFAbsoluteTime startTime;
 @property (readwrite, nonatomic, assign) CFAbsoluteTime lastTime;
 @property (readwrite, nonatomic, assign) uint64_t frames;
 @property (readwrite, nonatomic, assign) double fps;
@@ -40,6 +41,7 @@
 - (void)start
     {
     CVDisplayLinkStart(_displayLink);
+    self.startTime = CFAbsoluteTimeGetCurrent();
     }
 
 - (void)stop;
@@ -52,6 +54,7 @@ static CVReturn MyCVDisplayLinkOutputCallback(CVDisplayLinkRef displayLink, cons
 	@autoreleasepool
 		{
         CDisplayLink *self = (__bridge CDisplayLink *)displayLinkContext;
+        CFAbsoluteTime theNow = CFAbsoluteTimeGetCurrent();
 
         if (self.lastTime == 0)
             {
@@ -62,25 +65,21 @@ static CVReturn MyCVDisplayLinkOutputCallback(CVDisplayLinkRef displayLink, cons
             {
             self.frames++;
             
-            CFAbsoluteTime theNow = CFAbsoluteTimeGetCurrent();
-            
+
             if (theNow >= self.lastTime + 1.0)
                 {
                 double diff = theNow - self.lastTime;
                 self.fps = (double)self.frames / diff;
                 self.lastTime = theNow;
                 self.frames = 0;
-                
                 }
             }
-
-
 
 
         const NSTimeInterval deltaTime = 1.0 / (inOutputTime->rateScalar * (double)inOutputTime->videoTimeScale / (double)inOutputTime->videoRefreshPeriod);
         if (self.displayLinkBlock != NULL)
             {
-            self.displayLinkBlock(deltaTime, self.fps);
+            self.displayLinkBlock(theNow - self.startTime, deltaTime, self.fps);
             }
 
 		}
