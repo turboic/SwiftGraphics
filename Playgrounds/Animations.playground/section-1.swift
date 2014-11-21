@@ -15,9 +15,11 @@ let view = SGPRender("Test", XCPShowView) {
     ctx.plot(c)
 }
 
-view.tickBlock = {
-    (time, timeInterval, fps) in
+if false {
+    view.tickBlock = {
+        (time, timeInterval, fps) in
 
-    let radius = 128 * (1.0 + (2.0 - fmod(time, 2.0)) ** 2.0) / 6.0
-    c = Circle(center:CGPoint(x:156, y:200), radius:CGFloat(radius))
+        let radius = 128 * (1.0 + (2.0 - fmod(time, 2.0)) ** 2.0) / 6.0
+        c = Circle(center:CGPoint(x:156, y:200), radius:CGFloat(radius))
+    }
 }
