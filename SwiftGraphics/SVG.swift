@@ -7,6 +7,7 @@
 //
 
 import CoreGraphics
+import Foundation
 
 // TODO: This is all very WIP. Expect a _lot_ to change.
 // Intent here is to break this code into two - parsing SVG in one part.
@@ -38,7 +39,6 @@ public extension CGContextRef {
                     case .Path(let bezierPath):
                         CGContextAddPath(self, bezierPath)
                         CGContextFillPath(self)
-                        bezierPath.dump()
                     default:
                         false
                 }
@@ -87,15 +87,22 @@ public class SVGParser {
         
         var x = CGFloat(0)
         var y = CGFloat(0) 
-        
         if let xElement = element.attributeForName("x") {
             (x, _) = parseDimension(xElement.stringValue!)
             }
         if let yElement = element.attributeForName("y") {
             (y, _) = parseDimension(yElement.stringValue!)
             }
-        let (width, _) = parseDimension(element.attributeForName("width")!.stringValue!)
-        let (height, _) = parseDimension(element.attributeForName("height")!.stringValue!)
+
+        var width = CGFloat(0)
+        var height = CGFloat (0)
+        if let widthElement = element.attributeForName("width") {
+            (width, _) = parseDimension(widthElement.stringValue!)
+            }
+        if let heightElement = element.attributeForName("height") {
+            (height, _) = parseDimension(heightElement.stringValue!)
+            }
+
         document.bounds = CGRect(x:x, y:y, width:width, height:height)
 
         if let children = element.children {
@@ -216,8 +223,9 @@ func stringToAtoms(path:String) -> [Atom] {
     while scanner.atEnd == false {
         var s : NSString?
         if scanner.scanCharactersFromSet(set, intoString:&s) {
-            let c = Character(s!)
-            atoms.append(.Command(c))
+            for c in String(s!) {
+                atoms.append(.Command(c))
+            }
         }
         var d : Double = 0.0
         if scanner.scanDouble(&d) {
@@ -401,7 +409,8 @@ func pathCommandsToAtoms(commands : [PathCommand]) -> [Atom]! {
 
 func pathCommandsToPath(commands : [PathCommand]) -> CGMutablePath {
     var bezier = CGPathCreateMutable()
-    
+    bezier.move(CGPointZero)
+
     for command in commands {
         switch command {
             case .MoveTo(let relative, let xy):

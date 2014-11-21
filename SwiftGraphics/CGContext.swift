@@ -7,6 +7,11 @@
 //
 
 import CoreGraphics
+import Foundation
+
+#if os(OSX)
+import AppKit
+#endif
 
 // TODO: This code is mostly experimental, use at your own risk - see TODO.markdown
 

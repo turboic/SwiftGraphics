@@ -43,6 +43,30 @@
 		456C315D19C65B0E003AA1DF /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456C315B19C65B0E003AA1DF /* Ellipse.swift */; };
 		456C316019C65B19003AA1DF /* CDisplayLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 456C315E19C65B19003AA1DF /* CDisplayLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		456C316119C65B19003AA1DF /* CDisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 456C315F19C65B19003AA1DF /* CDisplayLink.m */; };
+		4570B8351A1EC3200055847A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570B8341A1EC3200055847A /* main.swift */; };
+		4570B83E1A1EC3B40055847A /* SVG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE60819AED3600012E023 /* SVG.swift */; };
+		4570B83F1A1EC3F60055847A /* BezierCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5DC19AEC5130012E023 /* BezierCurve.swift */; };
+		4570B8401A1EC4130055847A /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456C315B19C65B0E003AA1DF /* Ellipse.swift */; };
+		4570B8411A1EC4130055847A /* CGAffineTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5DD19AEC5130012E023 /* CGAffineTransform.swift */; };
+		4570B8421A1EC4190055847A /* CGContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5DE19AEC5130012E023 /* CGContext.swift */; };
+		4570B8431A1EC4190055847A /* CGPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5DF19AEC5130012E023 /* CGPath.swift */; };
+		4570B8441A1EC4190055847A /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5E019AEC5130012E023 /* CGPoint.swift */; };
+		4570B8451A1EC4190055847A /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515825B19C9F21000856C91 /* Turn.swift */; };
+		4570B8461A1EC4190055847A /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5E119AEC5130012E023 /* CGRect.swift */; };
+		4570B8471A1EC4190055847A /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5E219AEC5130012E023 /* CGSize.swift */; };
+		4570B8481A1EC4190055847A /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5E319AEC5130012E023 /* Geometry.swift */; };
+		4570B8491A1EC4190055847A /* Fuzzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454B0D5619CA9E7F00044B7C /* Fuzzy.swift */; };
+		4570B84A1A1EC4190055847A /* Quadrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5E419AEC5130012E023 /* Quadrant.swift */; };
+		4570B84B1A1EC4190055847A /* QuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458BDD8119BCF7D100CD0EAC /* QuadTree.swift */; };
+		4570B84C1A1EC4190055847A /* Scaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5E519AEC5130012E023 /* Scaling.swift */; };
+		4570B84D1A1EC4190055847A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5E619AEC5130012E023 /* Utilities.swift */; };
+		4570B84E1A1EC4190055847A /* Private.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515826019C9F83300856C91 /* Private.swift */; };
+		4570B84F1A1EC41D0055847A /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4594B09119AEE31E00101EB4 /* Path.swift */; };
+		4570B8501A1EC41D0055847A /* PrivateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE60D19AED5500012E023 /* PrivateUtilities.swift */; };
+		4570B8511A1EC41D0055847A /* CoordinateSystems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456877E119B6857B004BEFD6 /* CoordinateSystems.swift */; };
+		4570B8521A1EC4220055847A /* ConvexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BA25B719CA112E00B612B7 /* ConvexHull.swift */; };
+		4570B8531A1EC4500055847A /* CColorConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45563F2D19B1047E003B1639 /* CColorConverter.m */; };
+		4570B8541A1EC4500055847A /* SwiftGraphicsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4594B08819AEDC2100101EB4 /* SwiftGraphicsHelper.m */; };
 		458BDD8219BCF7D100CD0EAC /* QuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458BDD8119BCF7D100CD0EAC /* QuadTree.swift */; };
 		458BDD8319BCF7D100CD0EAC /* QuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458BDD8119BCF7D100CD0EAC /* QuadTree.swift */; };
 		4594B08919AEDC2100101EB4 /* SwiftGraphicsHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 4594B08719AEDC2100101EB4 /* SwiftGraphicsHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -121,6 +145,18 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4570B8301A1EC3200055847A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4515825B19C9F21000856C91 /* Turn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Turn.swift; sourceTree = "<group>"; };
 		4515825E19C9F6A600856C91 /* TurnTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnTests.swift; sourceTree = "<group>"; };
@@ -149,6 +185,9 @@
 		456C315B19C65B0E003AA1DF /* Ellipse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ellipse.swift; sourceTree = "<group>"; };
 		456C315E19C65B19003AA1DF /* CDisplayLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDisplayLink.h; sourceTree = "<group>"; };
 		456C315F19C65B19003AA1DF /* CDisplayLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDisplayLink.m; sourceTree = "<group>"; };
+		4570B8321A1EC3200055847A /* CLITest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CLITest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4570B8341A1EC3200055847A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		4570B83C1A1EC3770055847A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		458BDD8119BCF7D100CD0EAC /* QuadTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuadTree.swift; sourceTree = "<group>"; };
 		4594B08719AEDC2100101EB4 /* SwiftGraphicsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftGraphicsHelper.h; sourceTree = "<group>"; };
 		4594B08819AEDC2100101EB4 /* SwiftGraphicsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwiftGraphicsHelper.m; sourceTree = "<group>"; };
@@ -166,6 +205,7 @@
 		459EE5E619AEC5130012E023 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		459EE60819AED3600012E023 /* SVG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVG.swift; sourceTree = "<group>"; };
 		459EE60D19AED5500012E023 /* PrivateUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateUtilities.swift; sourceTree = "<group>"; };
+		45B49C151A1E92A3004974BC /* SVG.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SVG.playground; sourceTree = "<group>"; };
 		45BA25B719CA112E00B612B7 /* ConvexHull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvexHull.swift; sourceTree = "<group>"; };
 		45BA25BB19CA156800B612B7 /* Triangle.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Triangle.playground; sourceTree = "<group>"; };
 		45BA25BC19CA1E8A00B612B7 /* ConvexHullTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvexHullTests.swift; sourceTree = "<group>"; };
@@ -199,6 +239,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4570B82F1A1EC3200055847A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		45DA4AC019AA62A800133F32 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -212,6 +259,7 @@
 		454D54FD19AA5CE6000E3EB3 = {
 			isa = PBXGroup;
 			children = (
+				4570B83C1A1EC3770055847A /* AppKit.framework */,
 				4537990419AA671E004DF99E /* LICENSE */,
 				4537990519AA671E004DF99E /* README.markdown */,
 				4537990619AA6736004DF99E /* TODO.markdown */,
@@ -221,6 +269,7 @@
 				454D550919AA5CE6000E3EB3 /* SwiftGraphics_OSX */,
 				45DA4AC519AA62A800133F32 /* SwiftGraphics_iOS */,
 				454FE66319C77031002E4DEF /* SwiftGraphicsPlayground */,
+				4570B8331A1EC3200055847A /* CLITest */,
 				454D550819AA5CE6000E3EB3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -232,6 +281,7 @@
 				454D551219AA5CE6000E3EB3 /* SwiftGraphicsTests.xctest */,
 				45DA4AC419AA62A800133F32 /* SwiftGraphics.framework */,
 				454FE66219C77031002E4DEF /* SwiftGraphicsPlayground.framework */,
+				4570B8321A1EC3200055847A /* CLITest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -281,6 +331,7 @@
 				4515826319CA0BA300856C91 /* MonotoneChain.playground */,
 				45BA25BB19CA156800B612B7 /* Triangle.playground */,
 				45FAC0661A16C4CA00A3F1D3 /* Animations.playground */,
+				45B49C151A1E92A3004974BC /* SVG.playground */,
 			);
 			path = Playgrounds;
 			sourceTree = "<group>";
@@ -302,6 +353,14 @@
 				454FE66519C77031002E4DEF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4570B8331A1EC3200055847A /* CLITest */ = {
+			isa = PBXGroup;
+			children = (
+				4570B8341A1EC3200055847A /* main.swift */,
+			);
+			path = CLITest;
 			sourceTree = "<group>";
 		};
 		459EE5DB19AEC5130012E023 /* SwiftGraphics */ = {
@@ -444,6 +503,23 @@
 			productReference = 454FE66219C77031002E4DEF /* SwiftGraphicsPlayground.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		4570B8311A1EC3200055847A /* CLITest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4570B8381A1EC3200055847A /* Build configuration list for PBXNativeTarget "CLITest" */;
+			buildPhases = (
+				4570B82E1A1EC3200055847A /* Sources */,
+				4570B82F1A1EC3200055847A /* Frameworks */,
+				4570B8301A1EC3200055847A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CLITest;
+			productName = CLITest;
+			productReference = 4570B8321A1EC3200055847A /* CLITest */;
+			productType = "com.apple.product-type.tool";
+		};
 		45DA4AC319AA62A800133F32 /* SwiftGraphics_iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 45DA4AD819AA62A800133F32 /* Build configuration list for PBXNativeTarget "SwiftGraphics_iOS" */;
@@ -480,6 +556,9 @@
 					454FE66119C77031002E4DEF = {
 						CreatedOnToolsVersion = 6.1;
 					};
+					4570B8311A1EC3200055847A = {
+						CreatedOnToolsVersion = 6.2;
+					};
 					45B8AE8F19BCE56E00C61A3F = {
 						CreatedOnToolsVersion = 6.0;
 					};
@@ -505,6 +584,7 @@
 				45DA4AC319AA62A800133F32 /* SwiftGraphics_iOS */,
 				454D551119AA5CE6000E3EB3 /* SwiftGraphicsTests */,
 				454FE66119C77031002E4DEF /* SwiftGraphicsPlayground */,
+				4570B8311A1EC3200055847A /* CLITest */,
 			);
 		};
 /* End PBXProject section */
@@ -590,6 +670,37 @@
 			files = (
 				454B0D5919CAA00300044B7C /* Plotable.swift in Sources */,
 				454FE68019C77455002E4DEF /* SwiftGraphicsPlayground.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4570B82E1A1EC3200055847A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4570B8501A1EC41D0055847A /* PrivateUtilities.swift in Sources */,
+				4570B8491A1EC4190055847A /* Fuzzy.swift in Sources */,
+				4570B8471A1EC4190055847A /* CGSize.swift in Sources */,
+				4570B8481A1EC4190055847A /* Geometry.swift in Sources */,
+				4570B83E1A1EC3B40055847A /* SVG.swift in Sources */,
+				4570B83F1A1EC3F60055847A /* BezierCurve.swift in Sources */,
+				4570B84E1A1EC4190055847A /* Private.swift in Sources */,
+				4570B8411A1EC4130055847A /* CGAffineTransform.swift in Sources */,
+				4570B8421A1EC4190055847A /* CGContext.swift in Sources */,
+				4570B8451A1EC4190055847A /* Turn.swift in Sources */,
+				4570B8441A1EC4190055847A /* CGPoint.swift in Sources */,
+				4570B8521A1EC4220055847A /* ConvexHull.swift in Sources */,
+				4570B84C1A1EC4190055847A /* Scaling.swift in Sources */,
+				4570B84D1A1EC4190055847A /* Utilities.swift in Sources */,
+				4570B8431A1EC4190055847A /* CGPath.swift in Sources */,
+				4570B8511A1EC41D0055847A /* CoordinateSystems.swift in Sources */,
+				4570B8461A1EC4190055847A /* CGRect.swift in Sources */,
+				4570B8531A1EC4500055847A /* CColorConverter.m in Sources */,
+				4570B84F1A1EC41D0055847A /* Path.swift in Sources */,
+				4570B84A1A1EC4190055847A /* Quadrant.swift in Sources */,
+				4570B84B1A1EC4190055847A /* QuadTree.swift in Sources */,
+				4570B8401A1EC4130055847A /* Ellipse.swift in Sources */,
+				4570B8541A1EC4500055847A /* SwiftGraphicsHelper.m in Sources */,
+				4570B8351A1EC3200055847A /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -841,6 +952,24 @@
 			};
 			name = Release;
 		};
+		4570B8361A1EC3200055847A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4570B8371A1EC3200055847A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		45B8AE9119BCE56E00C61A3F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -939,6 +1068,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		4570B8381A1EC3200055847A /* Build configuration list for PBXNativeTarget "CLITest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4570B8361A1EC3200055847A /* Debug */,
+				4570B8371A1EC3200055847A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		45B8AE9019BCE56E00C61A3F /* Build configuration list for PBXAggregateTarget "All" */ = {
 			isa = XCConfigurationList;
