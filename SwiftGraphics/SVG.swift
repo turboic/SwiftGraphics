@@ -8,6 +8,7 @@
 
 import CoreGraphics
 import Foundation
+import AppKit
 
 // TODO: This is all very WIP. Expect a _lot_ to change.
 // Intent here is to break this code into two - parsing SVG in one part.
@@ -19,14 +20,46 @@ import Foundation
 // MARK: SVGDocument
 
 public class SVGDocument {
-    var bounds : CGRect = CGRectZero
-    var commands : [DrawingCommand] = []
+    public var bounds : CGRect = CGRectZero
+    public var commands : [DrawingCommand] = []
+
+    public func image(size:CGSize) -> NSImage {
+        let context = CGContext.bitmapContext(size)
+        context.draw(self)
+        let image = context.nsimage
+        return image;
+    }
+
+    public func image() -> NSImage {
+        return image(bounds.size)
+    }
 }
 
 public enum DrawingCommand {
     case StartGroup
     case EndGroup
     case Path(CGPath)
+    case PushTransform(CGAffineTransform)
+    case PopTransform
+}
+
+extension DrawingCommand : Printable {
+    public var description: String {
+        get {
+            switch self {
+                case .StartGroup:
+                    return("StartGroup")
+                case .EndGroup:
+                    return("EndGroup")
+                case .Path(let path):
+                    return("Path \(path)")
+                case .PushTransform(let transform):
+                    return("PushTransform \(transform)")
+                case .PopTransform:
+                    return("PopTransform")
+            }
+        }
+    }
 }
 
 public extension CGContextRef {
@@ -39,8 +72,15 @@ public extension CGContextRef {
                     case .Path(let bezierPath):
                         CGContextAddPath(self, bezierPath)
                         CGContextFillPath(self)
+                    case .PushTransform(let transform):
+                        CGContextSaveGState(self)
+                        CGContextConcatCTM(self, transform)
+                        break
+                    case .PopTransform:
+                        CGContextSaveGState(self)
+                        break
                     default:
-                        false
+                        break
                 }
             }
         }
@@ -63,6 +103,9 @@ public class SVGParser {
     }
 
     func parseElement(element:NSXMLElement) {
+
+        let transformed = parseTransform(element)
+
         switch element.name! {
             case "svg":
                 parseSVGElement(element)
@@ -79,6 +122,56 @@ public class SVGParser {
             default:
                 println("Cannot handle element \(element)")
         }
+
+        if transformed {
+            document.commands.append(.PopTransform)
+        }
+
+    }
+
+    func parseTransform(element:NSXMLElement) -> Bool {
+        if let transformAttribute = element.attributeForName("transform")?.stringValue! {
+
+            var transform = CGAffineTransformIdentity
+
+            let scanner = NSScanner(string: transformAttribute)
+
+            while scanner.atEnd == false {
+                if scanner.scanString("matrix", intoString:nil) == true {
+                    assert(false)
+                }
+                else if scanner.scanString("translate", intoString:nil) == true {
+                    if scanner.scanString("(", intoString:nil) == false {
+                        assert(false)
+                    }
+                    var point:CGPoint = scanner.scanCGPoint(strict: false)!
+                    transform.translate(point)
+
+                    if scanner.scanString(")", intoString:nil) == false {
+                        assert(false)
+                    }
+                }
+                else if scanner.scanString("scale", intoString:nil) == true {
+                    assert(false)
+                }
+                else if scanner.scanString("rotate", intoString:nil) == true {
+                    assert(false)
+                }
+                else if scanner.scanString("skewX", intoString:nil) == true {
+                    assert(false)
+                }
+                else if scanner.scanString("skewY", intoString:nil) == true {
+                    assert(false)
+                }
+            }
+
+            if transform != CGAffineTransformIdentity {
+                document.commands.append(.PushTransform(transform))
+                return true
+            }
+        }
+
+        return false
     }
 
     func parseSVGElement(element:NSXMLElement) {
@@ -128,9 +221,9 @@ public class SVGParser {
 
     func parsePathElement(element:NSXMLElement) {
         let path = element.attributeForName("d")!.stringValue!
-        let atoms = stringToAtoms(path)
-        let pathCommands = atomsToPathCommands(atoms)
-        let bezierPath = pathCommandsToPath(pathCommands)
+        let atoms = Atom.stringToAtoms(path)
+        let pathCommands = Atom.atomsToPathCommands(atoms)
+        let bezierPath = PathCommand.pathCommandsToPath(pathCommands)
         document.commands.append(.Path(bezierPath))
     }
 
@@ -182,7 +275,7 @@ public class SVGParser {
 
 // #############################################################################
 
-enum Atom {
+public enum Atom {
     case Command(Character)
     case Number(CGFloat)
     case NOP // TODO: change to NOP?
@@ -212,33 +305,134 @@ enum Atom {
             }
         }
     }
+
+    public static func stringToAtoms(path:String) -> [Atom] {
+        var atoms : [Atom] = []
+        let scanner = NSScanner(string: path)
+        // TODO: Use real whitespace
+        scanner.charactersToBeSkipped = NSCharacterSet(charactersInString:" \n,")
+        let set = NSCharacterSet(charactersInString:"MmZzLlHhVvCcSsQqTtAa")
+        while scanner.atEnd == false {
+            var s : NSString?
+            if scanner.scanCharactersFromSet(set, intoString:&s) {
+                for c in String(s!) {
+                    atoms.append(.Command(c))
+                }
+            }
+            var d : Double = 0.0
+            if scanner.scanDouble(&d) {
+                atoms.append(.Number(CGFloat(d)))
+                }
+            }
+        atoms.append(.NOP)
+        return atoms
+        }
+
+    public static func atomsToString(atoms:[Atom]) -> String {
+        var result : String = ""
+        for atom in atoms {
+            switch atom {
+                case .Command(let c):
+                    result += "\(c) "
+                case .Number(let d):
+                    result += "\(d) "
+                default:
+                    break
+            }
+        }
+        return result
+    }
+
+    public static func atomsToPathCommands(atoms:[Atom]) -> [PathCommand] {
+        var commands : [PathCommand] = []
+        var index = 0
+        while index < atoms.count {
+            let atom = atoms[index++]
+            switch atom {
+                case .Command(let c):
+                    let relative = c.isLowercase
+                    switch c {
+                        case "M", "m":
+                            while (atoms[index].isNumber) {
+                                let x = atoms[index++].value
+                                let y = atoms[index++].value
+                                let coord = CGPoint(x:x, y:y)
+                                let command = PathCommand.MoveTo(relative:relative, xy:coord)
+                                commands.append(command)
+                            }
+                        case "Z", "z":
+                            let command = PathCommand.ClosePath
+                            commands.append(command)
+                        case "L", "l":
+                            while (atoms[index].isNumber) {
+                                let x = atoms[index++].value
+                                let y = atoms[index++].value
+                                let coord = CGPoint(x:x, y:y)
+                                let command = PathCommand.LineTo(relative:relative, xy:coord)
+                                commands.append(command)
+                            }
+                        case "H", "h":
+                            while (atoms[index].isNumber) {
+                                let x = atoms[index++].value
+                                let command = PathCommand.HorizontalLineTo(relative:relative, x:x)
+                                commands.append(command)
+                            }
+                        case "V", "v":
+                            while (atoms[index].isNumber) {
+                                let y = atoms[index++].value
+                                let command = PathCommand.VerticalLineTo(relative:relative, y:y)
+                                commands.append(command)
+                            }
+                        case "C", "c":
+                            while (atoms[index].isNumber) {
+                                let xy1 = CGPoint(x:atoms[index++].value, y:atoms[index++].value)
+                                let xy2 = CGPoint(x:atoms[index++].value, y:atoms[index++].value)
+                                let xy = CGPoint(x:atoms[index++].value, y:atoms[index++].value)
+                                let curve = BezierCurve(control1:xy1, control2:xy2, end:xy)
+                                let command = PathCommand.BezierCurveTo(relative:relative, curve:curve)
+                                commands.append(command)
+                            }
+                        case "S", "s":
+                            while (atoms[index].isNumber) {
+                                let xy1 = CGPoint(x:atoms[index++].value, y:atoms[index++].value)
+                                let xy = CGPoint(x:atoms[index++].value, y:atoms[index++].value)
+                                let curve = BezierCurve(control1:xy1, end:xy)
+                                let command = PathCommand.BezierCurveTo(relative:relative, curve:curve)
+                                commands.append(command)
+                            }
+                        case "Q", "q":
+                            assert(false)
+                        case "T", "T":
+                            assert(false)
+                        case "A", "a":
+                            while (atoms[index].isNumber) {
+                                let rxy = CGPoint(x:atoms[index++].value, y:atoms[index++].value)
+                                let xrotation = atoms[index++].value
+                                let largeArcFlag = atoms[index++].value
+                                let sweepflag = atoms[index++].value
+                                let xy = CGPoint(x:atoms[index++].value, y:atoms[index++].value)
+                                
+                                let command = PathCommand.EllipticalArc(relative:relative, rxy:rxy, xrotation: xrotation, largeArcFlag:largeArcFlag != 0.0, sweepFlag:sweepflag != 0.0, xy:xy)
+                                commands.append(command)
+                            }
+                        default:
+                            println("Unhandled command \(c)")
+                            assert(false)
+                    }
+                case .Number(let value):
+                    println("Unprocessed number \(value)")
+                case .NOP:
+                    break // TODO: Continue?
+                }
+            }
+        return commands
+        }
 }
 
-func stringToAtoms(path:String) -> [Atom] {
-    var atoms : [Atom] = []
-    let scanner = NSScanner(string: path)
-    // TODO: Use real whitespace
-    scanner.charactersToBeSkipped = NSCharacterSet(charactersInString:" \n,")
-    let set = NSCharacterSet(charactersInString:"MmZzLlHhVvCcSsQqTtAa")
-    while scanner.atEnd == false {
-        var s : NSString?
-        if scanner.scanCharactersFromSet(set, intoString:&s) {
-            for c in String(s!) {
-                atoms.append(.Command(c))
-            }
-        }
-        var d : Double = 0.0
-        if scanner.scanDouble(&d) {
-            atoms.append(.Number(CGFloat(d)))
-            }
-        }
-    atoms.append(.NOP)
-    return atoms
-    }
 
 // #############################################################################
 
-enum PathCommand {
+public enum PathCommand {
     case MoveTo(relative:Bool, xy:CGPoint)
     case ClosePath
     case LineTo(relative:Bool, xy:CGPoint)
@@ -248,205 +442,127 @@ enum PathCommand {
 // TODO: Shorthand curve forms
 //    case ShorthandQuadraticBezierCurveTo
     case EllipticalArc(relative:Bool, rxy:CGPoint, xrotation:CGFloat, largeArcFlag:Bool, sweepFlag:Bool, xy:CGPoint)
-}
 
-// #############################################################################
-
-func atomsToPathCommands(atoms:[Atom]) -> [PathCommand] {
-    var commands : [PathCommand] = []
-    var index = 0
-    while index < atoms.count {
-        let atom = atoms[index++]
-        switch atom {
-            case .Command(let c):
-                let relative = c.isLowercase
-                switch c {
-                    case "M", "m":
-                        while (atoms[index].isNumber) {
-                            let x = atoms[index++].value
-                            let y = atoms[index++].value
-                            let coord = CGPoint(x:x, y:y)
-                            let command = PathCommand.MoveTo(relative:relative, xy:coord)
-                            commands.append(command)
-                        }
-                    case "Z", "z":
-                        let command = PathCommand.ClosePath
-                        commands.append(command)
-                    case "L", "l":
-                        while (atoms[index].isNumber) {
-                            let x = atoms[index++].value
-                            let y = atoms[index++].value
-                            let coord = CGPoint(x:x, y:y)
-                            let command = PathCommand.LineTo(relative:relative, xy:coord)
-                            commands.append(command)
-                        }
-                    case "H", "h":
-                        while (atoms[index].isNumber) {
-                            let x = atoms[index++].value
-                            let command = PathCommand.HorizontalLineTo(relative:relative, x:x)
-                            commands.append(command)
-                        }
-                    case "V", "v":
-                        while (atoms[index].isNumber) {
-                            let y = atoms[index++].value
-                            let command = PathCommand.VerticalLineTo(relative:relative, y:y)
-                            commands.append(command)
-                        }
-                    case "C", "c":
-                        while (atoms[index].isNumber) {
-                            let xy1 = CGPoint(x:atoms[index++].value, y:atoms[index++].value)
-                            let xy2 = CGPoint(x:atoms[index++].value, y:atoms[index++].value)
-                            let xy = CGPoint(x:atoms[index++].value, y:atoms[index++].value)
-                            let curve = BezierCurve(control1:xy1, control2:xy2, end:xy)
-                            let command = PathCommand.BezierCurveTo(relative:relative, curve:curve)
-                            commands.append(command)
-                        }
-                    case "S", "s":
-                        while (atoms[index].isNumber) {
-                            let xy1 = CGPoint(x:atoms[index++].value, y:atoms[index++].value)
-                            let xy = CGPoint(x:atoms[index++].value, y:atoms[index++].value)
-                            let curve = BezierCurve(control1:xy1, end:xy)
-                            let command = PathCommand.BezierCurveTo(relative:relative, curve:curve)
-                            commands.append(command)
-                        }
-                    case "Q", "q":
-                        assert(false)
-                    case "T", "T":
-                        assert(false)
-                    case "A", "a":
-                        while (atoms[index].isNumber) {
-                            let rxy = CGPoint(x:atoms[index++].value, y:atoms[index++].value)
-                            let xrotation = atoms[index++].value
-                            let largeArcFlag = atoms[index++].value
-                            let sweepflag = atoms[index++].value
-                            let xy = CGPoint(x:atoms[index++].value, y:atoms[index++].value)
-                            
-                            let command = PathCommand.EllipticalArc(relative:relative, rxy:rxy, xrotation: xrotation, largeArcFlag:largeArcFlag != 0.0, sweepFlag:sweepflag != 0.0, xy:xy)
-                            commands.append(command)
-                        }
-                    default:
-                        println("Unhandled command \(c)")
-                        assert(false)
-                }
-            case .Number(let value):
-                println("Unprocessed number \(value)")
-            case .NOP:
-                break // TODO: Continue?
+    public static func pathCommandsToAtoms(commands : [PathCommand]) -> [Atom]! {
+        var atoms : [Atom] = []
+        for command in commands {
+            switch command {
+                case .MoveTo(let relative, let xy):
+                    atoms += [
+                        .Command(!relative ? "M" : "m"),
+                        .Number(xy.x), .Number(xy.y)
+                    ]
+                case .ClosePath:
+                    atoms += [
+                        .Command("Z")
+                    ]
+                case .LineTo(let relative, let xy):
+                    atoms += [
+                        .Command(!relative ? "L" : "l"),
+                        .Number(xy.x), .Number(xy.y)
+                    ]
+                case .HorizontalLineTo(let relative, let x):
+                    atoms += [
+                        .Command(!relative ? "H" : "h"),
+                        .Number(x)
+                    ]
+                case .VerticalLineTo(let relative, let y):
+                    atoms += [
+                        .Command(!relative ? "V" : "v"),
+                        .Number(y)
+                    ]
+                case .BezierCurveTo(let relative, let curve):
+                    switch curve.order {
+                        case .Quadratic:
+                            atoms += [
+                                .Command(!relative ? "S" : "s"),
+                                .Number(curve.controls[0].x), .Number(curve.controls[0].y),
+                                .Number(curve.end.x), .Number(curve.end.y),
+                            ]
+                        case .Cubic:
+                            atoms += [
+                                .Command(!relative ? "C" : "c"),
+                                .Number(curve.controls[0].x), .Number(curve.controls[0].y),
+                                .Number(curve.controls[1].x), .Number(curve.controls[1].y),
+                                .Number(curve.end.x), .Number(curve.end.y),
+                            ]
+                        default:
+                            return nil
+                    }
+                default:
+                    println("Nope")
             }
         }
-    return commands
+        return atoms
     }
 
-func atomsToString(atoms:[Atom]) -> String {
-    var result : String = ""
-    for atom in atoms {
-        switch atom {
-            case .Command(let c):
-                result += "\(c) "
-            case .Number(let d):
-                result += "\(d) "
-            default:
-                break
+    public static func pathCommandsToPath(commands : [PathCommand]) -> CGMutablePath {
+        var bezier = CGPathCreateMutable()
+        bezier.move(CGPointZero)
+
+        for command in commands {
+            switch command {
+                case .MoveTo(let relative, let xy):
+                    bezier.move(xy, relative:relative)
+                case .ClosePath:
+                    bezier.close()
+                case .LineTo(let relative, let xy):
+                    bezier.addLine(xy, relative:relative)
+                case .HorizontalLineTo(let relative, let x):
+                    var p = bezier.currentPoint
+                    if relative {
+                        p.x += x
+                    }
+                    else {
+                        p.x = x
+                    }
+                    bezier.addLine(p)
+                case .VerticalLineTo(let relative, let y):
+                    var p = bezier.currentPoint
+                    if relative {
+                        p.y += y
+                    }
+                    else {
+                        p.y = y
+                    }
+                    bezier.addLine(p)
+                case .BezierCurveTo(let relative, let curve):
+                    bezier.addCurve(curve, relative:relative)
+                case .EllipticalArc(let relative, let rxy, let xrotation, let largeArcFlag, let sweepFlag, let xy):
+                    println("Not handled \(command)")
+                    assert(false)                
+                default:
+                    println("Not handled \(command)")
+                    assert(false)
+            }
         }
+        
+        return bezier
     }
-    return result
 }
 
-// #############################################################################
-
-func pathCommandsToAtoms(commands : [PathCommand]) -> [Atom]! {
-    var atoms : [Atom] = []
-    for command in commands {
-        switch command {
-            case .MoveTo(let relative, let xy):
-                atoms += [
-                    .Command(!relative ? "M" : "m"),
-                    .Number(xy.x), .Number(xy.y)
-                ]
-            case .ClosePath:
-                atoms += [
-                    .Command("Z")
-                ]
-            case .LineTo(let relative, let xy):
-                atoms += [
-                    .Command(!relative ? "L" : "l"),
-                    .Number(xy.x), .Number(xy.y)
-                ]
-            case .HorizontalLineTo(let relative, let x):
-                atoms += [
-                    .Command(!relative ? "H" : "h"),
-                    .Number(x)
-                ]
-            case .VerticalLineTo(let relative, let y):
-                atoms += [
-                    .Command(!relative ? "V" : "v"),
-                    .Number(y)
-                ]
-            case .BezierCurveTo(let relative, let curve):
-                switch curve.order {
-                    case .Quadratic:
-                        atoms += [
-                            .Command(!relative ? "S" : "s"),
-                            .Number(curve.controls[0].x), .Number(curve.controls[0].y),
-                            .Number(curve.end.x), .Number(curve.end.y),
-                        ]
-                    case .Cubic:
-                        atoms += [
-                            .Command(!relative ? "C" : "c"),
-                            .Number(curve.controls[0].x), .Number(curve.controls[0].y),
-                            .Number(curve.controls[1].x), .Number(curve.controls[1].y),
-                            .Number(curve.end.x), .Number(curve.end.y),
-                        ]
-                    default:
-                        return nil
-                }
-            default:
-                println("Nope")
+extension PathCommand : Printable {
+    public var description: String {
+        get {
+            switch self {
+                case .MoveTo(let relative, let xy):
+                    return "MoveTo"
+                case .ClosePath:
+                    return "ClosePath"
+                case .LineTo(let relative, let xy):
+                    return "LineTo"
+                case .HorizontalLineTo(let relative, let x):
+                    return "HorizontalLineTo"
+                case .VerticalLineTo(let relative, let y):
+                    return "VerticalLineTo"
+                case .BezierCurveTo(let relative, let curve):
+                    return "BezierCurveTo"
+                case .EllipticalArc(let relative, let rxy, let xrotation, let largeArcFlag, let sweepFlag, let xy):
+                    return "EllipticalArc"
+                default:
+                    return "Unknown"
+            }
         }
     }
-    return atoms
 }
 
-func pathCommandsToPath(commands : [PathCommand]) -> CGMutablePath {
-    var bezier = CGPathCreateMutable()
-    bezier.move(CGPointZero)
-
-    for command in commands {
-        switch command {
-            case .MoveTo(let relative, let xy):
-                bezier.move(xy, relative:relative)
-            case .ClosePath:
-                bezier.close()
-            case .LineTo(let relative, let xy):
-                bezier.addLine(xy, relative:relative)
-            case .HorizontalLineTo(let relative, let x):
-                var p = bezier.currentPoint
-                if relative {
-                    p.x += x
-                }
-                else {
-                    p.x = x
-                }
-                bezier.addLine(p)
-            case .VerticalLineTo(let relative, let y):
-                var p = bezier.currentPoint
-                if relative {
-                    p.y += y
-                }
-                else {
-                    p.y = y
-                }
-                bezier.addLine(p)
-            case .BezierCurveTo(let relative, let curve):
-                bezier.addCurve(curve, relative:relative)
-            case .EllipticalArc(let relative, let rxy, let xrotation, let largeArcFlag, let sweepFlag, let xy):
-                println("Not handled \(command)")
-                assert(false)                
-            default:
-                println("Not handled \(command)")
-                assert(false)
-        }
-    }
-    
-    return bezier
-}

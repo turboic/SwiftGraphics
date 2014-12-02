@@ -61,7 +61,7 @@ class CGPointTests: XCTestCase {
         let p = CGPoint(x:100, y:50)
 
         XCTAssertEqualWithAccuracy(p.magnitude, CGFloat(111.803), 0.01)
-        XCTAssertEqual(dotProduct(p, p), p.length ** 2)
+        XCTAssertEqual(dotProduct(p, p), p.magnitude ** 2)
     }
 
 

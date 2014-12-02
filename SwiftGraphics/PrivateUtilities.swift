@@ -19,7 +19,7 @@ extension CGFloat {
 }
 
 func parseDimension(string:String) -> (CGFloat, String)! {
-    let pattern = NSRegularExpression(pattern:"([0-9]+)[ \t]*(px)", options:.CaseInsensitive, error:nil)
+    let pattern = NSRegularExpression(pattern:"([0-9]+)[ \t]*(px|%)?", options:.CaseInsensitive, error:nil)
     let range = NSMakeRange(0, string._bridgeToObjectiveC().length)
     let match = pattern!.firstMatchInString(string, options:NSMatchingOptions(), range:range)
     // TODO: Check for failures
@@ -38,7 +38,22 @@ extension Character {
     var isLowercase : Bool { get { return contains("abcdefghijklmnopqrstuvwxyz", self) } } 
 }
 
+func + (lhs:NSCharacterSet, rhs:NSCharacterSet) -> NSCharacterSet {
+    let result = NSMutableCharacterSet()
+    result.formUnionWithCharacterSet(lhs)
+    result.formUnionWithCharacterSet(rhs)
+    return result
+}
+
+let delimiters = NSCharacterSet.whitespaceAndNewlineCharacterSet() + NSCharacterSet(charactersInString: ",")
+
 extension NSScanner {
+
+    var remaining:String {
+        get {
+            return self.string._bridgeToObjectiveC().substringFromIndex(self.scanLocation)
+        }
+    }
 
     func scanCGFloat() -> CGFloat? {
         var d:Double = 0
@@ -50,16 +65,46 @@ extension NSScanner {
         }
     }
 
-    func scanCGPoint() -> CGPoint? {
+    func scanCGPoint(strict:Bool = true) -> CGPoint? {
         let x = scanCGFloat()
+        self.scanCharactersFromSet(delimiters, intoString:nil)
         let y = scanCGFloat()
-        if x != nil && y != nil {
-            return CGPoint(x:x!, y:y!)
+        if strict == true {
+            if x != nil && y != nil {
+                return CGPoint(x:x!, y:y!)
+            }
         }
         else {
-            return nil
+            if x != nil {
+                return CGPoint(x:x!, y:y != nil ? y! : 0.0)
+            }
         }
+        return nil
     }
+
+    func scanCGFloatsSeparatedByCharacterSet(characterSet:NSCharacterSet) -> [CGFloat]? {
+        let scanLocation = self.scanLocation
+
+        var floats:[CGFloat] = []
+
+        while self.atEnd == false {
+            let float = self.scanCGFloat()
+            if float == nil {
+                break
+            }
+            floats.append(float!)
+
+            if scanCharactersFromSet(characterSet, intoString:nil) == false {
+                break
+            }
+        }
+
+        return floats
+    }
+
+//    func scanBlockSeperatedByString(string:String, block:() -> ()) -> Bool {
+//        return false
+//    }
 }
 
 /**

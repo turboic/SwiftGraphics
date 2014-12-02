@@ -30,6 +30,7 @@
 		4515826219C9F83300856C91 /* Private.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515826019C9F83300856C91 /* Private.swift */; };
 		4537991A19AA6C37004DF99E /* CGPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537991919AA6C37004DF99E /* CGPointTests.swift */; };
 		4537991D19AA788B004DF99E /* CGSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537991C19AA788B004DF99E /* CGSizeTests.swift */; };
+		453956521A1FDB2F00E5E7FF /* SVGTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453956511A1FDB2F00E5E7FF /* SVGTests.swift */; };
 		454B0D5719CA9E7F00044B7C /* Fuzzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454B0D5619CA9E7F00044B7C /* Fuzzy.swift */; };
 		454B0D5919CAA00300044B7C /* Plotable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454B0D5819CAA00300044B7C /* Plotable.swift */; };
 		454D550D19AA5CE6000E3EB3 /* SwiftGraphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 454D550C19AA5CE6000E3EB3 /* SwiftGraphics.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -167,6 +168,7 @@
 		4537990619AA6736004DF99E /* TODO.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.markdown; sourceTree = "<group>"; };
 		4537991919AA6C37004DF99E /* CGPointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointTests.swift; sourceTree = "<group>"; };
 		4537991C19AA788B004DF99E /* CGSizeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGSizeTests.swift; sourceTree = "<group>"; };
+		453956511A1FDB2F00E5E7FF /* SVGTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGTests.swift; sourceTree = "<group>"; };
 		454B0D5619CA9E7F00044B7C /* Fuzzy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fuzzy.swift; sourceTree = "<group>"; };
 		454B0D5819CAA00300044B7C /* Plotable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plotable.swift; sourceTree = "<group>"; };
 		454D550719AA5CE6000E3EB3 /* SwiftGraphics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGraphics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -311,6 +313,7 @@
 				4515825E19C9F6A600856C91 /* TurnTests.swift */,
 				45C6DC741A13E59C004C4693 /* TransformTests.swift */,
 				45BA25BC19CA1E8A00B612B7 /* ConvexHullTests.swift */,
+				453956511A1FDB2F00E5E7FF /* SVGTests.swift */,
 				454D551419AA5CE6000E3EB3 /* Supporting Files */,
 			);
 			path = SwiftGraphics_UnitTests;
@@ -660,6 +663,7 @@
 				4537991D19AA788B004DF99E /* CGSizeTests.swift in Sources */,
 				4537991A19AA6C37004DF99E /* CGPointTests.swift in Sources */,
 				45C6DC751A13E59C004C4693 /* TransformTests.swift in Sources */,
+				453956521A1FDB2F00E5E7FF /* SVGTests.swift in Sources */,
 				45BA25BD19CA1E8A00B612B7 /* ConvexHullTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1076,6 +1080,7 @@
 				4570B8371A1EC3200055847A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45B8AE9019BCE56E00C61A3F /* Build configuration list for PBXAggregateTarget "All" */ = {
 			isa = XCConfigurationList;
