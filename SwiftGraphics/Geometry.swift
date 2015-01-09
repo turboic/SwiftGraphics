@@ -132,7 +132,7 @@ public struct Circle {
     }
 }
 
-// MARK: Circle
+// MARK: Triangle
 
 public struct Triangle {
     public let points: (CGPoint, CGPoint, CGPoint)
