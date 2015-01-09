@@ -23,6 +23,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		026F21041A5FB23E00A52D0E /* Fuzzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454B0D5619CA9E7F00044B7C /* Fuzzy.swift */; };
+		026F21051A5FB25800A52D0E /* CoordinateSystems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456877E119B6857B004BEFD6 /* CoordinateSystems.swift */; };
+		026F21061A5FB26600A52D0E /* ConvexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BA25B719CA112E00B612B7 /* ConvexHull.swift */; };
 		4515825C19C9F21000856C91 /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515825B19C9F21000856C91 /* Turn.swift */; };
 		4515825D19C9F21800856C91 /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515825B19C9F21000856C91 /* Turn.swift */; };
 		4515825F19C9F6A600856C91 /* TurnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515825E19C9F6A600856C91 /* TurnTests.swift */; };
@@ -712,6 +715,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				026F21061A5FB26600A52D0E /* ConvexHull.swift in Sources */,
+				026F21051A5FB25800A52D0E /* CoordinateSystems.swift in Sources */,
+				026F21041A5FB23E00A52D0E /* Fuzzy.swift in Sources */,
 				459EE5EC19AEC5130012E023 /* CGContext.swift in Sources */,
 				4594B08C19AEDC2100101EB4 /* SwiftGraphicsHelper.m in Sources */,
 				459EE5F219AEC5130012E023 /* CGRect.swift in Sources */,
