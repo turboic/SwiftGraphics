@@ -2,3 +2,4 @@ language: objective-c
 xcode_project: 'SwiftGraphics.xcodeproj'
 xcode_scheme: 'All'
 osx_image: xcode61
+xcode_sdk: 'iphonesimulator'
