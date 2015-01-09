@@ -1,5 +1,7 @@
 # SwiftGraphics
 
+![Silly Travis CI Badges that people seem to like](https://travis-ci.org/schwa/SwiftGraphics.svg?branch=master)
+
 Bringing Swift goodness to Quartz.
 
 See TODO.markdown for short term plans.
