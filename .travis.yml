@@ -1,5 +1,8 @@
 language: objective-c
-xcode_project: 'SwiftGraphics.xcodeproj'
-xcode_scheme: 'All'
 osx_image: xcode61
-xcode_sdk: 'iphonesimulator'
+#xcode_project: 'SwiftGraphics.xcodeproj'
+#xcode_scheme: 'All'
+#xcode_sdk: 'iphonesimulator'
+script:
+    xctool -project SwiftGraphics.xcodeproj -scheme SwiftGraphics_OSZ build
+    xctool -project SwiftGraphics.xcodeproj -scheme SwiftGraphics_iOS -sdk iphonesimulator build
