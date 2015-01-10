@@ -13,6 +13,7 @@
 			buildPhases = (
 			);
 			dependencies = (
+				4514F5F91A61D2EE00CC9C26 /* PBXTargetDependency */,
 				454FE67C19C77094002E4DEF /* PBXTargetDependency */,
 				45B8AE9419BCE57900C61A3F /* PBXTargetDependency */,
 				45B8AE9619BCE57900C61A3F /* PBXTargetDependency */,
@@ -25,7 +26,7 @@
 /* Begin PBXBuildFile section */
 		026F21041A5FB23E00A52D0E /* Fuzzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454B0D5619CA9E7F00044B7C /* Fuzzy.swift */; };
 		026F21051A5FB25800A52D0E /* CoordinateSystems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456877E119B6857B004BEFD6 /* CoordinateSystems.swift */; };
-		026F21061A5FB26600A52D0E /* ConvexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BA25B719CA112E00B612B7 /* ConvexHull.swift */; };
+		026F21061A5FB26600A52D0E /* MonotoneChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BA25B719CA112E00B612B7 /* MonotoneChain.swift */; };
 		4515825C19C9F21000856C91 /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515825B19C9F21000856C91 /* Turn.swift */; };
 		4515825D19C9F21800856C91 /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515825B19C9F21000856C91 /* Turn.swift */; };
 		4515825F19C9F6A600856C91 /* TurnTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515825E19C9F6A600856C91 /* TurnTests.swift */; };
@@ -46,29 +47,6 @@
 		456C315D19C65B0E003AA1DF /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456C315B19C65B0E003AA1DF /* Ellipse.swift */; };
 		456C316019C65B19003AA1DF /* CDisplayLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 456C315E19C65B19003AA1DF /* CDisplayLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		456C316119C65B19003AA1DF /* CDisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 456C315F19C65B19003AA1DF /* CDisplayLink.m */; };
-		4570B8351A1EC3200055847A /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4570B8341A1EC3200055847A /* main.swift */; };
-		4570B83F1A1EC3F60055847A /* BezierCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5DC19AEC5130012E023 /* BezierCurve.swift */; };
-		4570B8401A1EC4130055847A /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456C315B19C65B0E003AA1DF /* Ellipse.swift */; };
-		4570B8411A1EC4130055847A /* CGAffineTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5DD19AEC5130012E023 /* CGAffineTransform.swift */; };
-		4570B8421A1EC4190055847A /* CGContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5DE19AEC5130012E023 /* CGContext.swift */; };
-		4570B8431A1EC4190055847A /* CGPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5DF19AEC5130012E023 /* CGPath.swift */; };
-		4570B8441A1EC4190055847A /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5E019AEC5130012E023 /* CGPoint.swift */; };
-		4570B8451A1EC4190055847A /* Turn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515825B19C9F21000856C91 /* Turn.swift */; };
-		4570B8461A1EC4190055847A /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5E119AEC5130012E023 /* CGRect.swift */; };
-		4570B8471A1EC4190055847A /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5E219AEC5130012E023 /* CGSize.swift */; };
-		4570B8481A1EC4190055847A /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5E319AEC5130012E023 /* Geometry.swift */; };
-		4570B8491A1EC4190055847A /* Fuzzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454B0D5619CA9E7F00044B7C /* Fuzzy.swift */; };
-		4570B84A1A1EC4190055847A /* Quadrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5E419AEC5130012E023 /* Quadrant.swift */; };
-		4570B84B1A1EC4190055847A /* QuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458BDD8119BCF7D100CD0EAC /* QuadTree.swift */; };
-		4570B84C1A1EC4190055847A /* Scaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5E519AEC5130012E023 /* Scaling.swift */; };
-		4570B84D1A1EC4190055847A /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5E619AEC5130012E023 /* Utilities.swift */; };
-		4570B84E1A1EC4190055847A /* Private.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515826019C9F83300856C91 /* Private.swift */; };
-		4570B84F1A1EC41D0055847A /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4594B09119AEE31E00101EB4 /* Path.swift */; };
-		4570B8501A1EC41D0055847A /* PrivateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE60D19AED5500012E023 /* PrivateUtilities.swift */; };
-		4570B8511A1EC41D0055847A /* CoordinateSystems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456877E119B6857B004BEFD6 /* CoordinateSystems.swift */; };
-		4570B8521A1EC4220055847A /* ConvexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BA25B719CA112E00B612B7 /* ConvexHull.swift */; };
-		4570B8531A1EC4500055847A /* CColorConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45563F2D19B1047E003B1639 /* CColorConverter.m */; };
-		4570B8541A1EC4500055847A /* SwiftGraphicsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4594B08819AEDC2100101EB4 /* SwiftGraphicsHelper.m */; };
 		458BDD8219BCF7D100CD0EAC /* QuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458BDD8119BCF7D100CD0EAC /* QuadTree.swift */; };
 		458BDD8319BCF7D100CD0EAC /* QuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458BDD8119BCF7D100CD0EAC /* QuadTree.swift */; };
 		4594B08919AEDC2100101EB4 /* SwiftGraphicsHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 4594B08719AEDC2100101EB4 /* SwiftGraphicsHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -102,13 +80,29 @@
 		459EE60E19AED5500012E023 /* PrivateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE60D19AED5500012E023 /* PrivateUtilities.swift */; };
 		459EE60F19AED5500012E023 /* PrivateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE60D19AED5500012E023 /* PrivateUtilities.swift */; };
 		45B8AE8E19BCE4ED00C61A3F /* CColorConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45563F2D19B1047E003B1639 /* CColorConverter.m */; };
-		45BA25B819CA112E00B612B7 /* ConvexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BA25B719CA112E00B612B7 /* ConvexHull.swift */; };
+		45BA25B819CA112E00B612B7 /* MonotoneChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BA25B719CA112E00B612B7 /* MonotoneChain.swift */; };
 		45BA25BD19CA1E8A00B612B7 /* ConvexHullTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BA25BC19CA1E8A00B612B7 /* ConvexHullTests.swift */; };
 		45C6DC751A13E59C004C4693 /* TransformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6DC741A13E59C004C4693 /* TransformTests.swift */; };
+		45CFDC661A61CA0700053F96 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CFDC651A61CA0700053F96 /* Utilities.swift */; };
+		45CFDC691A61CB4500053F96 /* GrahamScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CFDC671A61CB3000053F96 /* GrahamScan.swift */; };
+		45CFDC6A1A61CB4500053F96 /* GrahamScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CFDC671A61CB3000053F96 /* GrahamScan.swift */; };
+		45CFDC6C1A61CB6800053F96 /* ConvexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CFDC6B1A61CB6800053F96 /* ConvexHull.swift */; };
+		45CFDC6D1A61CB6800053F96 /* ConvexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CFDC6B1A61CB6800053F96 /* ConvexHull.swift */; };
+		45CFDCA31A61CE3500053F96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CFDCA21A61CE3500053F96 /* AppDelegate.swift */; };
+		45CFDCA51A61CE3500053F96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CFDCA41A61CE3500053F96 /* ViewController.swift */; };
+		45CFDCA71A61CE3500053F96 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45CFDCA61A61CE3500053F96 /* Images.xcassets */; };
+		45CFDCAA1A61CE3500053F96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45CFDCA81A61CE3500053F96 /* Main.storyboard */; };
 		45DA4AC919AA62A800133F32 /* SwiftGraphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 45DA4AC819AA62A800133F32 /* SwiftGraphics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4514F5F81A61D2EE00CC9C26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454D54FE19AA5CE6000E3EB3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45CFDC9D1A61CE3500053F96;
+			remoteInfo = SwiftGraphics_OSX_UITest;
+		};
 		454FE67B19C77094002E4DEF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 454D54FE19AA5CE6000E3EB3 /* Project object */;
@@ -144,19 +138,14 @@
 			remoteGlobalIDString = 45DA4AC319AA62A800133F32;
 			remoteInfo = SwiftGraphics_iOS;
 		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		4570B8301A1EC3200055847A /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
+		45CFDCBD1A61CEE400053F96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454D54FE19AA5CE6000E3EB3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 454D550619AA5CE6000E3EB3;
+			remoteInfo = SwiftGraphics_OSX;
 		};
-/* End PBXCopyFilesBuildPhase section */
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		4515825B19C9F21000856C91 /* Turn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Turn.swift; sourceTree = "<group>"; };
@@ -187,8 +176,6 @@
 		456C315B19C65B0E003AA1DF /* Ellipse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ellipse.swift; sourceTree = "<group>"; };
 		456C315E19C65B19003AA1DF /* CDisplayLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDisplayLink.h; sourceTree = "<group>"; };
 		456C315F19C65B19003AA1DF /* CDisplayLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDisplayLink.m; sourceTree = "<group>"; };
-		4570B8321A1EC3200055847A /* CLITest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CLITest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4570B8341A1EC3200055847A /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		4570B83C1A1EC3770055847A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		458BDD8119BCF7D100CD0EAC /* QuadTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuadTree.swift; sourceTree = "<group>"; };
 		4594B08719AEDC2100101EB4 /* SwiftGraphicsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftGraphicsHelper.h; sourceTree = "<group>"; };
@@ -206,10 +193,20 @@
 		459EE5E519AEC5130012E023 /* Scaling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scaling.swift; sourceTree = "<group>"; };
 		459EE5E619AEC5130012E023 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		459EE60D19AED5500012E023 /* PrivateUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateUtilities.swift; sourceTree = "<group>"; };
-		45BA25B719CA112E00B612B7 /* ConvexHull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvexHull.swift; sourceTree = "<group>"; };
+		45BA25B719CA112E00B612B7 /* MonotoneChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonotoneChain.swift; sourceTree = "<group>"; };
 		45BA25BB19CA156800B612B7 /* Triangle.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Triangle.playground; sourceTree = "<group>"; };
 		45BA25BC19CA1E8A00B612B7 /* ConvexHullTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvexHullTests.swift; sourceTree = "<group>"; };
 		45C6DC741A13E59C004C4693 /* TransformTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformTests.swift; sourceTree = "<group>"; };
+		45CFDC651A61CA0700053F96 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		45CFDC671A61CB3000053F96 /* GrahamScan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrahamScan.swift; sourceTree = "<group>"; };
+		45CFDC6B1A61CB6800053F96 /* ConvexHull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvexHull.swift; sourceTree = "<group>"; };
+		45CFDC6F1A61CD4500053F96 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		45CFDC9E1A61CE3500053F96 /* SwiftGraphics_OSX_UITest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGraphics_OSX_UITest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		45CFDCA11A61CE3500053F96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45CFDCA21A61CE3500053F96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		45CFDCA41A61CE3500053F96 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		45CFDCA61A61CE3500053F96 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		45CFDCA91A61CE3500053F96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45DA4AC419AA62A800133F32 /* SwiftGraphics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGraphics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45DA4AC719AA62A800133F32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45DA4AC819AA62A800133F32 /* SwiftGraphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftGraphics.h; sourceTree = "<group>"; };
@@ -239,7 +236,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4570B82F1A1EC3200055847A /* Frameworks */ = {
+		45CFDC9B1A61CE3500053F96 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -256,10 +253,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4514F5F71A61D2D800CC9C26 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45CFDC6F1A61CD4500053F96 /* CoreGraphics.framework */,
+				4570B83C1A1EC3770055847A /* AppKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		454D54FD19AA5CE6000E3EB3 = {
 			isa = PBXGroup;
 			children = (
-				4570B83C1A1EC3770055847A /* AppKit.framework */,
 				4537990419AA671E004DF99E /* LICENSE */,
 				4537990519AA671E004DF99E /* README.markdown */,
 				4537990619AA6736004DF99E /* TODO.markdown */,
@@ -269,7 +274,8 @@
 				454D550919AA5CE6000E3EB3 /* SwiftGraphics_OSX */,
 				45DA4AC519AA62A800133F32 /* SwiftGraphics_iOS */,
 				454FE66319C77031002E4DEF /* SwiftGraphicsPlayground */,
-				4570B8331A1EC3200055847A /* CLITest */,
+				45CFDC9F1A61CE3500053F96 /* SwiftGraphics_OSX_UITest */,
+				4514F5F71A61D2D800CC9C26 /* Frameworks */,
 				454D550819AA5CE6000E3EB3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -281,7 +287,7 @@
 				454D551219AA5CE6000E3EB3 /* SwiftGraphicsTests.xctest */,
 				45DA4AC419AA62A800133F32 /* SwiftGraphics.framework */,
 				454FE66219C77031002E4DEF /* SwiftGraphicsPlayground.framework */,
-				4570B8321A1EC3200055847A /* CLITest */,
+				45CFDC9E1A61CE3500053F96 /* SwiftGraphics_OSX_UITest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -342,6 +348,7 @@
 				454FE66619C77031002E4DEF /* SwiftGraphicsPlayground.h */,
 				454B0D5819CAA00300044B7C /* Plotable.swift */,
 				454FE67F19C77455002E4DEF /* SwiftGraphicsPlayground.swift */,
+				45CFDC651A61CA0700053F96 /* Utilities.swift */,
 				454FE66419C77031002E4DEF /* Supporting Files */,
 			);
 			path = SwiftGraphicsPlayground;
@@ -353,14 +360,6 @@
 				454FE66519C77031002E4DEF /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4570B8331A1EC3200055847A /* CLITest */ = {
-			isa = PBXGroup;
-			children = (
-				4570B8341A1EC3200055847A /* main.swift */,
-			);
-			path = CLITest;
 			sourceTree = "<group>";
 		};
 		459EE5DB19AEC5130012E023 /* SwiftGraphics */ = {
@@ -391,9 +390,31 @@
 				45563F2D19B1047E003B1639 /* CColorConverter.m */,
 				4594B08719AEDC2100101EB4 /* SwiftGraphicsHelper.h */,
 				4594B08819AEDC2100101EB4 /* SwiftGraphicsHelper.m */,
-				45BA25B719CA112E00B612B7 /* ConvexHull.swift */,
+				45CFDC6B1A61CB6800053F96 /* ConvexHull.swift */,
+				45BA25B719CA112E00B612B7 /* MonotoneChain.swift */,
+				45CFDC671A61CB3000053F96 /* GrahamScan.swift */,
 			);
 			path = SwiftGraphics;
+			sourceTree = "<group>";
+		};
+		45CFDC9F1A61CE3500053F96 /* SwiftGraphics_OSX_UITest */ = {
+			isa = PBXGroup;
+			children = (
+				45CFDCA21A61CE3500053F96 /* AppDelegate.swift */,
+				45CFDCA41A61CE3500053F96 /* ViewController.swift */,
+				45CFDCA61A61CE3500053F96 /* Images.xcassets */,
+				45CFDCA81A61CE3500053F96 /* Main.storyboard */,
+				45CFDCA01A61CE3500053F96 /* Supporting Files */,
+			);
+			path = SwiftGraphics_OSX_UITest;
+			sourceTree = "<group>";
+		};
+		45CFDCA01A61CE3500053F96 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				45CFDCA11A61CE3500053F96 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		45DA4AC519AA62A800133F32 /* SwiftGraphics_iOS */ = {
@@ -502,22 +523,23 @@
 			productReference = 454FE66219C77031002E4DEF /* SwiftGraphicsPlayground.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		4570B8311A1EC3200055847A /* CLITest */ = {
+		45CFDC9D1A61CE3500053F96 /* SwiftGraphics_OSX_UITest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4570B8381A1EC3200055847A /* Build configuration list for PBXNativeTarget "CLITest" */;
+			buildConfigurationList = 45CFDCB71A61CE3500053F96 /* Build configuration list for PBXNativeTarget "SwiftGraphics_OSX_UITest" */;
 			buildPhases = (
-				4570B82E1A1EC3200055847A /* Sources */,
-				4570B82F1A1EC3200055847A /* Frameworks */,
-				4570B8301A1EC3200055847A /* CopyFiles */,
+				45CFDC9A1A61CE3500053F96 /* Sources */,
+				45CFDC9B1A61CE3500053F96 /* Frameworks */,
+				45CFDC9C1A61CE3500053F96 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				45CFDCBE1A61CEE400053F96 /* PBXTargetDependency */,
 			);
-			name = CLITest;
-			productName = CLITest;
-			productReference = 4570B8321A1EC3200055847A /* CLITest */;
-			productType = "com.apple.product-type.tool";
+			name = SwiftGraphics_OSX_UITest;
+			productName = SwiftGraphics_OSX_UITest;
+			productReference = 45CFDC9E1A61CE3500053F96 /* SwiftGraphics_OSX_UITest.app */;
+			productType = "com.apple.product-type.application";
 		};
 		45DA4AC319AA62A800133F32 /* SwiftGraphics_iOS */ = {
 			isa = PBXNativeTarget;
@@ -555,11 +577,11 @@
 					454FE66119C77031002E4DEF = {
 						CreatedOnToolsVersion = 6.1;
 					};
-					4570B8311A1EC3200055847A = {
-						CreatedOnToolsVersion = 6.2;
-					};
 					45B8AE8F19BCE56E00C61A3F = {
 						CreatedOnToolsVersion = 6.0;
+					};
+					45CFDC9D1A61CE3500053F96 = {
+						CreatedOnToolsVersion = 6.2;
 					};
 					45DA4AC319AA62A800133F32 = {
 						CreatedOnToolsVersion = 6.0;
@@ -572,6 +594,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 454D54FD19AA5CE6000E3EB3;
 			productRefGroup = 454D550819AA5CE6000E3EB3 /* Products */;
@@ -583,7 +606,7 @@
 				45DA4AC319AA62A800133F32 /* SwiftGraphics_iOS */,
 				454D551119AA5CE6000E3EB3 /* SwiftGraphicsTests */,
 				454FE66119C77031002E4DEF /* SwiftGraphicsPlayground */,
-				4570B8311A1EC3200055847A /* CLITest */,
+				45CFDC9D1A61CE3500053F96 /* SwiftGraphics_OSX_UITest */,
 			);
 		};
 /* End PBXProject section */
@@ -610,6 +633,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		45CFDC9C1A61CE3500053F96 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45CFDCA71A61CE3500053F96 /* Images.xcassets in Resources */,
+				45CFDCAA1A61CE3500053F96 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		45DA4AC219AA62A800133F32 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -626,18 +658,20 @@
 			files = (
 				456C316119C65B19003AA1DF /* CDisplayLink.m in Sources */,
 				456C315C19C65B0E003AA1DF /* Ellipse.swift in Sources */,
+				45CFDC6C1A61CB6800053F96 /* ConvexHull.swift in Sources */,
 				458BDD8219BCF7D100CD0EAC /* QuadTree.swift in Sources */,
 				459EE5EB19AEC5130012E023 /* CGContext.swift in Sources */,
 				4515826119C9F83300856C91 /* Private.swift in Sources */,
 				4594B08B19AEDC2100101EB4 /* SwiftGraphicsHelper.m in Sources */,
 				459EE5F119AEC5130012E023 /* CGRect.swift in Sources */,
 				459EE5FB19AEC5130012E023 /* Utilities.swift in Sources */,
+				45CFDC691A61CB4500053F96 /* GrahamScan.swift in Sources */,
 				459EE5E719AEC5130012E023 /* BezierCurve.swift in Sources */,
 				45563F2F19B1047E003B1639 /* CColorConverter.m in Sources */,
 				459EE5F919AEC5130012E023 /* Scaling.swift in Sources */,
 				459EE5F719AEC5130012E023 /* Quadrant.swift in Sources */,
 				459EE5F319AEC5130012E023 /* CGSize.swift in Sources */,
-				45BA25B819CA112E00B612B7 /* ConvexHull.swift in Sources */,
+				45BA25B819CA112E00B612B7 /* MonotoneChain.swift in Sources */,
 				4515825C19C9F21000856C91 /* Turn.swift in Sources */,
 				459EE5ED19AEC5130012E023 /* CGPath.swift in Sources */,
 				456877E219B6857B004BEFD6 /* CoordinateSystems.swift in Sources */,
@@ -666,38 +700,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45CFDC661A61CA0700053F96 /* Utilities.swift in Sources */,
 				454B0D5919CAA00300044B7C /* Plotable.swift in Sources */,
 				454FE68019C77455002E4DEF /* SwiftGraphicsPlayground.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4570B82E1A1EC3200055847A /* Sources */ = {
+		45CFDC9A1A61CE3500053F96 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4570B8501A1EC41D0055847A /* PrivateUtilities.swift in Sources */,
-				4570B8491A1EC4190055847A /* Fuzzy.swift in Sources */,
-				4570B8471A1EC4190055847A /* CGSize.swift in Sources */,
-				4570B8481A1EC4190055847A /* Geometry.swift in Sources */,
-				4570B83F1A1EC3F60055847A /* BezierCurve.swift in Sources */,
-				4570B84E1A1EC4190055847A /* Private.swift in Sources */,
-				4570B8411A1EC4130055847A /* CGAffineTransform.swift in Sources */,
-				4570B8421A1EC4190055847A /* CGContext.swift in Sources */,
-				4570B8451A1EC4190055847A /* Turn.swift in Sources */,
-				4570B8441A1EC4190055847A /* CGPoint.swift in Sources */,
-				4570B8521A1EC4220055847A /* ConvexHull.swift in Sources */,
-				4570B84C1A1EC4190055847A /* Scaling.swift in Sources */,
-				4570B84D1A1EC4190055847A /* Utilities.swift in Sources */,
-				4570B8431A1EC4190055847A /* CGPath.swift in Sources */,
-				4570B8511A1EC41D0055847A /* CoordinateSystems.swift in Sources */,
-				4570B8461A1EC4190055847A /* CGRect.swift in Sources */,
-				4570B8531A1EC4500055847A /* CColorConverter.m in Sources */,
-				4570B84F1A1EC41D0055847A /* Path.swift in Sources */,
-				4570B84A1A1EC4190055847A /* Quadrant.swift in Sources */,
-				4570B84B1A1EC4190055847A /* QuadTree.swift in Sources */,
-				4570B8401A1EC4130055847A /* Ellipse.swift in Sources */,
-				4570B8541A1EC4500055847A /* SwiftGraphicsHelper.m in Sources */,
-				4570B8351A1EC3200055847A /* main.swift in Sources */,
+				45CFDCA51A61CE3500053F96 /* ViewController.swift in Sources */,
+				45CFDCA31A61CE3500053F96 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -705,9 +719,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				026F21061A5FB26600A52D0E /* ConvexHull.swift in Sources */,
+				026F21061A5FB26600A52D0E /* MonotoneChain.swift in Sources */,
 				026F21051A5FB25800A52D0E /* CoordinateSystems.swift in Sources */,
 				026F21041A5FB23E00A52D0E /* Fuzzy.swift in Sources */,
+				45CFDC6D1A61CB6800053F96 /* ConvexHull.swift in Sources */,
 				459EE5EC19AEC5130012E023 /* CGContext.swift in Sources */,
 				4594B08C19AEDC2100101EB4 /* SwiftGraphicsHelper.m in Sources */,
 				459EE5F219AEC5130012E023 /* CGRect.swift in Sources */,
@@ -722,6 +737,7 @@
 				459EE5EE19AEC5130012E023 /* CGPath.swift in Sources */,
 				459EE5F619AEC5130012E023 /* Geometry.swift in Sources */,
 				459EE5F019AEC5130012E023 /* CGPoint.swift in Sources */,
+				45CFDC6A1A61CB4500053F96 /* GrahamScan.swift in Sources */,
 				45B8AE8E19BCE4ED00C61A3F /* CColorConverter.m in Sources */,
 				459EE60F19AED5500012E023 /* PrivateUtilities.swift in Sources */,
 				4594B09319AEE31E00101EB4 /* Path.swift in Sources */,
@@ -733,6 +749,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		4514F5F91A61D2EE00CC9C26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 45CFDC9D1A61CE3500053F96 /* SwiftGraphics_OSX_UITest */;
+			targetProxy = 4514F5F81A61D2EE00CC9C26 /* PBXContainerItemProxy */;
+		};
 		454FE67C19C77094002E4DEF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 454FE66119C77031002E4DEF /* SwiftGraphicsPlayground */;
@@ -758,7 +779,23 @@
 			target = 45DA4AC319AA62A800133F32 /* SwiftGraphics_iOS */;
 			targetProxy = 45B8AE9519BCE57900C61A3F /* PBXContainerItemProxy */;
 		};
+		45CFDCBE1A61CEE400053F96 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 454D550619AA5CE6000E3EB3 /* SwiftGraphics_OSX */;
+			targetProxy = 45CFDCBD1A61CEE400053F96 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		45CFDCA81A61CE3500053F96 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45CFDCA91A61CE3500053F96 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		454D551819AA5CE6000E3EB3 /* Debug */ = {
@@ -952,24 +989,6 @@
 			};
 			name = Release;
 		};
-		4570B8361A1EC3200055847A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		4570B8371A1EC3200055847A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 		45B8AE9119BCE56E00C61A3F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -980,6 +999,34 @@
 		45B8AE9219BCE56E00C61A3F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		45CFDCB81A61CE3500053F96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SwiftGraphics_OSX_UITest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		45CFDCB91A61CE3500053F96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = SwiftGraphics_OSX_UITest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1069,20 +1116,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4570B8381A1EC3200055847A /* Build configuration list for PBXNativeTarget "CLITest" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4570B8361A1EC3200055847A /* Debug */,
-				4570B8371A1EC3200055847A /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		45B8AE9019BCE56E00C61A3F /* Build configuration list for PBXAggregateTarget "All" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				45B8AE9119BCE56E00C61A3F /* Debug */,
 				45B8AE9219BCE56E00C61A3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		45CFDCB71A61CE3500053F96 /* Build configuration list for PBXNativeTarget "SwiftGraphics_OSX_UITest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				45CFDCB81A61CE3500053F96 /* Debug */,
+				45CFDCB91A61CE3500053F96 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

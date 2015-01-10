@@ -25,3 +25,23 @@ public func ordered <T:Comparable> (tuple:(T, T)) -> (T, T) {
     }
 }
 
+
+extension Array {
+    init(count:Int, block:(Void) -> T) {
+        self.init()
+        for N in 0..<count {
+            self.append(block())
+        }
+    }
+
+    mutating func push(o:T) {
+        self.append(o)
+    }
+    mutating func pop() -> T? {
+        if let first = self.first {
+            self.removeAtIndex(0)
+            return first
+        }
+        return nil
+    }
+}
