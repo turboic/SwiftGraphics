@@ -16,10 +16,10 @@ class DemoSVGViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let URL = NSBundle.mainBundle().URLForResource("SwiftOutline", withExtension:"svg")
-        let XMLDocument = NSXMLDocument(contentsOfURL:URL!, options:0, error:nil)
-        var parser = SVGParser()
-        let document = parser.parseDocument(XMLDocument)
-        svgView.document = document
-    }    
+//        let URL = NSBundle.mainBundle().URLForResource("SwiftOutline", withExtension:"svg")
+//        let XMLDocument = NSXMLDocument(contentsOfURL:URL!, options:0, error:nil)
+//        var parser = SVGParser()
+//        let document = parser.parseDocument(XMLDocument)
+//        svgView.document = document
+    }
 }

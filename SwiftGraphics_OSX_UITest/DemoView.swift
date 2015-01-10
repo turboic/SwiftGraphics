@@ -17,7 +17,7 @@ class DemoView: NSView {
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
 
-        let context = NSGraphicsContext.currentContext().CGContext
+        let context = NSGraphicsContext.currentContext()!.CGContext
 
         let radius = CGFloat(2)
         for p in self.points {
@@ -27,12 +27,12 @@ class DemoView: NSView {
         }
     }
 
-    override func mouseDown(theEvent: NSEvent!) {
+    override func mouseDown(theEvent: NSEvent) {
         let p = self.convertPoint(theEvent.locationInWindow, fromView:nil)
         self.addPoint(p)
     }    
 
-    override func mouseDragged(theEvent: NSEvent!) {
+    override func mouseDragged(theEvent: NSEvent) {
         let p = self.convertPoint(theEvent.locationInWindow, fromView:nil)
         self.addPoint(p)
     }    

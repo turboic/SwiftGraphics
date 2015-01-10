@@ -42,7 +42,7 @@ class Group : GroupNode, GeometryNode {
             return child.frame
         }
 
-        return CGRect.UnionOfRects(rects)
+        return CGRect.unionOfRects(rects)
     } }
 
     init() {

@@ -16,7 +16,7 @@ struct RegularExpression {
         var error:NSError?
         let expression = NSRegularExpression(pattern:pattern, options:options, error:&error)
         assert(error == nil)
-        self.expression = expression
+        self.expression = expression!
         
     }
 

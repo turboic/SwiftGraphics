@@ -14,7 +14,7 @@ class SketchView: NSView {
 
     var rootNode : Group
 
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
 
         let path = NSBundle.mainBundle().pathForResource("Test", ofType:"graffle")
         let converter = OmniGraffleLoader(path:path!)
@@ -26,7 +26,7 @@ class SketchView: NSView {
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
 
-        let context = NSGraphicsContext.currentContext().CGContext
+        let context = NSGraphicsContext.currentContext()!.CGContext
         self.renderNode(context, rect:dirtyRect, node:self.rootNode) {
             (context:CGContext, node:Node) -> Void in
             NSColor.redColor().set()            
@@ -62,7 +62,7 @@ class SketchView: NSView {
         }
     }
     
-    override func mouseDown(theEvent: NSEvent!) {
+    override func mouseDown(theEvent: NSEvent) {
         // TODO: Isolate into own code.
         // TODO: Break this up into a ColorMap object
         // Shows how to do per-pixel hit testing by using an offscreen render buffer (bitmap context)   

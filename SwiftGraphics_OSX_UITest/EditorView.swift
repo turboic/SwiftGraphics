@@ -104,21 +104,21 @@ class EditorView: NSView {
     
     var activeHandle : Int?
 
-    override init(frame frameRect: NSRect) {
-        super.init(frame:frame)
-    }
+//    override init(frame frameRect: NSRect) {
+//        super.init(frameRect:frame)
+//    }
 
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         super.init(coder:coder)
     }
 
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
-        let context = NSGraphicsContext.currentContext().CGContext
+        let context = NSGraphicsContext.currentContext()!.CGContext
         self.editor.draw(context)
     }
     
-    override func mouseDown(theEvent: NSEvent!) {
+    override func mouseDown(theEvent: NSEvent) {
         let location = self.convertPoint(theEvent.locationInWindow, fromView:nil)
         if let index = handleHit(location) {
             activeHandle = index
@@ -126,7 +126,7 @@ class EditorView: NSView {
         }
     }
 
-    override func mouseDragged(theEvent: NSEvent!) {
+    override func mouseDragged(theEvent: NSEvent) {
         if let activeHandle = activeHandle {
             let location = self.convertPoint(theEvent.locationInWindow, fromView:nil)
             self.editor.setHandlePosition(activeHandle, position:location)
@@ -134,7 +134,7 @@ class EditorView: NSView {
         }
     }
 
-    override func mouseUp(theEvent: NSEvent!) {
+    override func mouseUp(theEvent: NSEvent) {
         self.activeHandle = nil
         self.needsDisplay = true
     }

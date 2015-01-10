@@ -58,11 +58,11 @@ class TestArc : NSObject {
     var center : CGPoint {
         get {
             let midPoint = (start + end) / 2
-            let a = (midPoint - start).length
+            let a = (midPoint - start).magnitude
             let c = radius
             let b = sqrt(c ** 2 - a ** 2)
             let theta = atan2(end - start) + DegreesToRadians(90)
-            let center = CGPoint(length:b, theta:theta) + midPoint
+            let center = CGPoint(magnitude: b, direction:theta) + midPoint
             return center
         }
     }

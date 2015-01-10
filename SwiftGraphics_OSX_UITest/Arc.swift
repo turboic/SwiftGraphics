@@ -31,7 +31,7 @@ extension CGContextRef {
         let sx:CGFloat = 1.0
         let sy:CGFloat = arc.size.height / arc.size.width
 
-        let transform = CGAffineTransform.identity().rotated(rotation).scaled(sx: sx,sy: sy)
+        let transform = CGAffineTransform.identity.rotated(rotation).scaled(sx: sx,sy: sy)
     
         CGContextConcatCTM(self, transform)
 
@@ -39,7 +39,7 @@ extension CGContextRef {
         CGContextAddArc(self, arc.center.x, arc.center.y, radius, arc.startAngle, arc.endAngle, 1)
         CGContextStrokePath(self)
 
-        CGContextConcatCTM(self, transform.inverted)
+        CGContextConcatCTM(self, transform.inverted())
     }
 }
 

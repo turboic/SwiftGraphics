@@ -14,7 +14,7 @@ class QuadTreeView: NSView {
 
     var quadTree: SwiftGraphics.QuadTree <CGPoint>!
     
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         super.init(coder:coder)
         
         quadTree = QuadTree <CGPoint> (frame:self.bounds)
@@ -23,7 +23,7 @@ class QuadTreeView: NSView {
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
 
-        let context = NSGraphicsContext.currentContext().CGContext
+        let context = NSGraphicsContext.currentContext()!.CGContext
 
         self.quadTree.render(context)
 
@@ -32,13 +32,13 @@ class QuadTreeView: NSView {
         }
     }
 
-    override func mouseDown(theEvent: NSEvent!) {
+    override func mouseDown(theEvent: NSEvent) {
         let location = self.convertPoint(theEvent.locationInWindow, fromView:nil)
         self.quadTree.addObject(location, point:location)
         self.needsDisplay = true
     }
 
-    override func mouseDragged(theEvent: NSEvent!) {
+    override func mouseDragged(theEvent: NSEvent) {
         let location = self.convertPoint(theEvent.locationInWindow, fromView:nil)
         self.quadTree.addObject(location, point:location)
         self.needsDisplay = true

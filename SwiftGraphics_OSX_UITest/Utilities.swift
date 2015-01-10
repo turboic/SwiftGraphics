@@ -113,9 +113,9 @@ extension NSData {
     convenience init(contentsOfCompressedFile path:String) {
         let data = NSData(contentsOfFile:path)
         let zipFile = gzopen(path, "rb")
-        let unzippedData = NSMutableData(length:0)
+        let unzippedData = NSMutableData(length:0)!
         while true {
-            let buffer = NSMutableData(length:4 * 1024 * 1024)
+            let buffer = NSMutableData(length:4 * 1024 * 1024)!
             let result = gzread(zipFile, buffer.mutableBytes, UInt32(buffer.length))
             if result > 0 {
                 buffer.length = Int(result)

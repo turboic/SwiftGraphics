@@ -26,7 +26,7 @@ class ArcView: NSView {
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
 
-        let context = NSGraphicsContext.currentContext().CGContext
+        let context = NSGraphicsContext.currentContext()!.CGContext
 
         if let arc = self.arc {
             context.stroke(arc)
@@ -46,7 +46,7 @@ class ArcView: NSView {
         
     }
 
-    override func mouseDown(theEvent: NSEvent!) {
+    override func mouseDown(theEvent: NSEvent) {
         let location = self.convertPoint(theEvent.locationInWindow, fromView:nil)
         if let index = handleHit(location) {
             activeHandle = index
@@ -54,7 +54,7 @@ class ArcView: NSView {
         }
     }
 
-    override func mouseDragged(theEvent: NSEvent!) {
+    override func mouseDragged(theEvent: NSEvent) {
         if let activeHandle = activeHandle {
             let location = self.convertPoint(theEvent.locationInWindow, fromView:nil)
             self.handles[activeHandle].position = location
@@ -65,7 +65,7 @@ class ArcView: NSView {
         }
     }
     
-    override func mouseUp(theEvent: NSEvent!) {
+    override func mouseUp(theEvent: NSEvent) {
         self.activeHandle = nil
         self.needsDisplay = true
     }
