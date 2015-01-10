@@ -122,6 +122,13 @@
 			remoteGlobalIDString = 45CFDC9D1A61CE3500053F96;
 			remoteInfo = SwiftGraphics_OSX_UITest;
 		};
+		453997BB1A61F20A00572E47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454D54FE19AA5CE6000E3EB3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 454FE66119C77031002E4DEF;
+			remoteInfo = SwiftGraphicsPlayground;
+		};
 		454FE67B19C77094002E4DEF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 454D54FE19AA5CE6000E3EB3 /* Project object */;
@@ -598,6 +605,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				453997BC1A61F20A00572E47 /* PBXTargetDependency */,
 				45CFDCBE1A61CEE400053F96 /* PBXTargetDependency */,
 			);
 			name = SwiftGraphics_OSX_UITest;
@@ -835,6 +843,11 @@
 			isa = PBXTargetDependency;
 			target = 45CFDC9D1A61CE3500053F96 /* SwiftGraphics_OSX_UITest */;
 			targetProxy = 4514F5F81A61D2EE00CC9C26 /* PBXContainerItemProxy */;
+		};
+		453997BC1A61F20A00572E47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 454FE66119C77031002E4DEF /* SwiftGraphicsPlayground */;
+			targetProxy = 453997BB1A61F20A00572E47 /* PBXContainerItemProxy */;
 		};
 		454FE67C19C77094002E4DEF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

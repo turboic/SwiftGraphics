@@ -8,6 +8,9 @@
 
 import Cocoa
 
+import SwiftGraphics
+import SwiftGraphicsPlayground
+
 class AppDelegate: NSObject, NSApplicationDelegate {
                             
 
