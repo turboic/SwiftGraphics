@@ -189,6 +189,8 @@
 		4515825E19C9F6A600856C91 /* TurnTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnTests.swift; sourceTree = "<group>"; };
 		4515826019C9F83300856C91 /* Private.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Private.swift; sourceTree = "<group>"; };
 		4515826319CA0BA300856C91 /* MonotoneChain.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MonotoneChain.playground; sourceTree = "<group>"; };
+		451CE9F31A61D73B006F721B /* ScratchPad.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ScratchPad.playground; sourceTree = "<group>"; };
+		451CE9F41A61D73C006F721B /* SwiftGraphicsTest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SwiftGraphicsTest.playground; sourceTree = "<group>"; };
 		4537990419AA671E004DF99E /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4537990519AA671E004DF99E /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
 		4537990619AA6736004DF99E /* TODO.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.markdown; sourceTree = "<group>"; };
@@ -374,6 +376,8 @@
 				45BA25BB19CA156800B612B7 /* Triangle.playground */,
 				45FAC0661A16C4CA00A3F1D3 /* Animations.playground */,
 				45592F501A61B65200F496D2 /* TransformTest.playground */,
+				451CE9F31A61D73B006F721B /* ScratchPad.playground */,
+				451CE9F41A61D73C006F721B /* SwiftGraphicsTest.playground */,
 			);
 			path = Playgrounds;
 			sourceTree = "<group>";
