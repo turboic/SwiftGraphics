@@ -12,8 +12,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                             
 
 
-    func applicationDidFinishLaunching(aNotification: NSNotification?) {
-        // Insert code here to initialize your application
+
+    func applicationDidFinishLaunching(aNotification: NSNotification) {
+
+        var points = arrayOfRandomPoints(50, CGRect(w:480, h:320))
+
+        points = grahamOrdered(points)
+
+        // Next line asplodes!
+        let hull = grahamScan(points)
+
+        println(hull)
+
+
     }
 
     func applicationWillTerminate(aNotification: NSNotification?) {

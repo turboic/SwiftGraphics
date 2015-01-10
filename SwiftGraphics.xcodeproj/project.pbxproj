@@ -103,6 +103,8 @@
 		45BA25BD19CA1E8A00B612B7 /* ConvexHullTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BA25BC19CA1E8A00B612B7 /* ConvexHullTests.swift */; };
 		45C6DC751A13E59C004C4693 /* TransformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6DC741A13E59C004C4693 /* TransformTests.swift */; };
 		45CFDC661A61CA0700053F96 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CFDC651A61CA0700053F96 /* Utilities.swift */; };
+		45CFDC691A61CB4500053F96 /* GrahamScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CFDC671A61CB3000053F96 /* GrahamScan.swift */; };
+		45CFDC6A1A61CB4500053F96 /* GrahamScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CFDC671A61CB3000053F96 /* GrahamScan.swift */; };
 		45CFDC6C1A61CB6800053F96 /* ConvexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CFDC6B1A61CB6800053F96 /* ConvexHull.swift */; };
 		45CFDC6D1A61CB6800053F96 /* ConvexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CFDC6B1A61CB6800053F96 /* ConvexHull.swift */; };
 		45CFDCA31A61CE3500053F96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CFDCA21A61CE3500053F96 /* AppDelegate.swift */; };
@@ -203,6 +205,7 @@
 		454D550C19AA5CE6000E3EB3 /* SwiftGraphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftGraphics.h; sourceTree = "<group>"; };
 		454D551219AA5CE6000E3EB3 /* SwiftGraphicsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftGraphicsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		454D551519AA5CE6000E3EB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		454FE65C19C7700E002E4DEF /* GrahamScan.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GrahamScan.playground; sourceTree = "<group>"; };
 		454FE66219C77031002E4DEF /* SwiftGraphicsPlayground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGraphicsPlayground.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		454FE66519C77031002E4DEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		454FE66619C77031002E4DEF /* SwiftGraphicsPlayground.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftGraphicsPlayground.h; sourceTree = "<group>"; };
@@ -236,6 +239,7 @@
 		45BA25BC19CA1E8A00B612B7 /* ConvexHullTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvexHullTests.swift; sourceTree = "<group>"; };
 		45C6DC741A13E59C004C4693 /* TransformTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformTests.swift; sourceTree = "<group>"; };
 		45CFDC651A61CA0700053F96 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		45CFDC671A61CB3000053F96 /* GrahamScan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrahamScan.swift; sourceTree = "<group>"; };
 		45CFDC6B1A61CB6800053F96 /* ConvexHull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvexHull.swift; sourceTree = "<group>"; };
 		45CFDC6F1A61CD4500053F96 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		45CFDC9E1A61CE3500053F96 /* SwiftGraphics_OSX_UITest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftGraphics_OSX_UITest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -372,6 +376,7 @@
 		454FE65B19C77001002E4DEF /* Playgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				454FE65C19C7700E002E4DEF /* GrahamScan.playground */,
 				4515826319CA0BA300856C91 /* MonotoneChain.playground */,
 				45BA25BB19CA156800B612B7 /* Triangle.playground */,
 				45FAC0661A16C4CA00A3F1D3 /* Animations.playground */,
@@ -432,6 +437,7 @@
 				4594B08819AEDC2100101EB4 /* SwiftGraphicsHelper.m */,
 				45CFDC6B1A61CB6800053F96 /* ConvexHull.swift */,
 				45BA25B719CA112E00B612B7 /* MonotoneChain.swift */,
+				45CFDC671A61CB3000053F96 /* GrahamScan.swift */,
 			);
 			path = SwiftGraphics;
 			sourceTree = "<group>";
@@ -725,6 +731,7 @@
 				4594B08B19AEDC2100101EB4 /* SwiftGraphicsHelper.m in Sources */,
 				459EE5F119AEC5130012E023 /* CGRect.swift in Sources */,
 				459EE5FB19AEC5130012E023 /* Utilities.swift in Sources */,
+				45CFDC691A61CB4500053F96 /* GrahamScan.swift in Sources */,
 				459EE5E719AEC5130012E023 /* BezierCurve.swift in Sources */,
 				45563F2F19B1047E003B1639 /* CColorConverter.m in Sources */,
 				459EE5F919AEC5130012E023 /* Scaling.swift in Sources */,
@@ -812,6 +819,7 @@
 				459EE5EE19AEC5130012E023 /* CGPath.swift in Sources */,
 				459EE5F619AEC5130012E023 /* Geometry.swift in Sources */,
 				459EE5F019AEC5130012E023 /* CGPoint.swift in Sources */,
+				45CFDC6A1A61CB4500053F96 /* GrahamScan.swift in Sources */,
 				45B8AE8E19BCE4ED00C61A3F /* CColorConverter.m in Sources */,
 				459EE60F19AED5500012E023 /* PrivateUtilities.swift in Sources */,
 				4594B09319AEE31E00101EB4 /* Path.swift in Sources */,
