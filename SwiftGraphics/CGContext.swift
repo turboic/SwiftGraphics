@@ -114,8 +114,10 @@ public extension CGContext {
 #if os(OSX)
     var nsimage : NSImage {
         get { 
+            // This assumes the context is a bitmap context
             let cgimage = CGBitmapContextCreateImage(self)
-            let nsimage = NSImage(CGImage:cgimage, size:cgimage.size)
+            let size = CGSize(width:CGFloat(CGImageGetWidth(cgimage)), height:CGFloat(CGImageGetHeight(cgimage)))
+            let nsimage = NSImage(CGImage:cgimage, size:size)
             return nsimage
         }
     }
