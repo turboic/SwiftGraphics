@@ -28,7 +28,7 @@ public enum Alignment {
    case Right
 }
 
-public func ScaleAndAlignRectToRect(inner:CGRect, outer:CGRect, scaling:Scaling, align:Alignment) -> CGRect {
+public func scaleAndAlignRectToRect(inner:CGRect, outer:CGRect, scaling:Scaling, align:Alignment) -> CGRect {
     var resultRect = CGRectZero
 
     switch scaling {

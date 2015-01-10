@@ -46,7 +46,7 @@ extension Triangle : Plotable {
                 return $0.frame
             }
             println(rects)
-            return CGRect.UnionOfRects(rects)
+            return CGRect.unionOfRects(rects)
         }
     }
 }

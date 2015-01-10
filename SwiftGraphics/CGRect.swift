@@ -67,7 +67,7 @@ public extension CGRect {
     var isFinite : Bool { get { return CGRectIsNull(self) == false && CGRectIsInfinite(self) == false } }
     var mid : CGPoint { get { return CGPoint(x:self.midX, y:self.midY) } }
     
-    static func UnionOfRects(rects:[CGRect]) -> CGRect {
+    static func unionOfRects(rects:[CGRect]) -> CGRect {
         var result = rects[0]
         for rect in rects[1..<rects.count] {
             result = CGRectUnion(result, rect)
