@@ -8,32 +8,93 @@
 
 import CoreGraphics
 
+// MARK: Printable
+
+extension CGAffineTransform: Printable {
+    public var description: String {
+        get {
+            return "CGAffineTransform(\(a), \(b), \(c), \(d), \(tx), \(ty))"
+        }
+    }
+}
+
+// MARK: Equatable
+
+extension CGAffineTransform : Equatable {
+}
+
+public func == (lhs:CGAffineTransform, rhs:CGAffineTransform) -> Bool {
+    return CGAffineTransformEqualToTransform(lhs, rhs)
+}
+
+
+// MARK: Constructors
+
 public extension CGAffineTransform {
 
     static var identity:CGAffineTransform = CGAffineTransformIdentity
     
+    /**
+     Identity.
+     */
     init() {
         self = CGAffineTransform.identity
     }
 
+    /**
+     Copy.
+     */
     init(transform: CGAffineTransform) {
         self = transform
     }
 
+    /**
+     Parameterized.
+     */
     init(a: CGFloat, b: CGFloat, c: CGFloat, d: CGFloat, tx: CGFloat, ty: CGFloat) {
         self = CGAffineTransformMake(a, b, c, d, tx, ty)
     }
     
+    /**
+     Translation.
+     */
+    init(translation: CGPoint) {
+        self = CGAffineTransformMakeTranslation(translation.x, translation.y)
+    }
+
     init(tx: CGFloat, ty: CGFloat) {
         self = CGAffineTransformMakeTranslation(tx, ty)
+    }
+
+    /**
+     Scale.
+     */
+    init(scale: CGSize) {
+        self = CGAffineTransformMakeScale(scale.width, scale.height)
     }
 
     init(sx: CGFloat, sy: CGFloat) {
         self = CGAffineTransformMakeScale(sx, sy)
     }
 
-    init(angle: CGFloat) {
-        self = CGAffineTransformMakeRotation(angle)
+    init(scale: CGFloat) {
+        self = CGAffineTransformMakeScale(scale, scale)
+    }
+
+    /**
+     Rotation
+
+     :param: angle Rotation angle in radians.
+     */
+    init(rotation: CGFloat) {
+        self = CGAffineTransformMakeRotation(rotation)
+    }
+
+    /**
+     Rotation around a point.
+     */
+    init(rotation: CGFloat, origin:CGPoint) {
+        self = CGAffineTransform(translation:-origin) + CGAffineTransform(rotation:rotation) + CGAffineTransform(translation:origin)
     }
 
     var isIdentity: Bool { get { return CGAffineTransformIsIdentity(self) } }
@@ -41,31 +102,32 @@ public extension CGAffineTransform {
 
 public extension CGAffineTransform {
 
-    static func translation(# tx: CGFloat, ty: CGFloat) -> CGAffineTransform {
-        return CGAffineTransformMakeTranslation(tx, ty)
+    func translated(# translation:CGPoint) -> CGAffineTransform {
+        return CGAffineTransformTranslate(self, translation.x, translation.y)
     }
-
-    static func scale(# sx: CGFloat, sy: CGFloat) -> CGAffineTransform {
-        return CGAffineTransformMakeScale(sx, sy)
-    }
-
-    static func rotation(angle: CGFloat) -> CGAffineTransform {
-        return CGAffineTransformMakeRotation(angle)
-    }
-}
-
-public extension CGAffineTransform {
 
     func translated(# tx:CGFloat, ty:CGFloat) -> CGAffineTransform {
         return CGAffineTransformTranslate(self, tx, ty)
+    }
+
+    func scaled(# scale:CGSize) -> CGAffineTransform  {
+        return CGAffineTransformScale(self, scale.width, scale.height)
     }
 
     func scaled(# sx:CGFloat, sy:CGFloat) -> CGAffineTransform  {
         return CGAffineTransformScale(self, sx, sy)
     }
 
+    func scaled(# scale:CGFloat) -> CGAffineTransform  {
+        return CGAffineTransformScale(self, scale, scale)
+    }
+
     func rotated(angle:CGFloat) -> CGAffineTransform  {
         return CGAffineTransformRotate(self, angle)
+    }
+
+    func rotated(rotation:CGFloat, origin:CGPoint) -> CGAffineTransform  {
+        return CGAffineTransform(rotation: rotation, origin: origin)
     }
 
     func concated(other:CGAffineTransform) -> CGAffineTransform {
@@ -75,14 +137,23 @@ public extension CGAffineTransform {
     func inverted() -> CGAffineTransform {
         return CGAffineTransformInvert(self)
     }
-//    var inverted: CGAffineTransform { get { return CGAffineTransformInvert(self) } }
 
 }
 
 public extension CGAffineTransform {
 
+    mutating func translate(translation:CGPoint) -> CGAffineTransform {
+        self = translated(tx:translation.x, ty:translation.y)
+        return self
+    }
+
     mutating func translate(tx:CGFloat, _ ty:CGFloat) -> CGAffineTransform {
         self = translated(tx:tx, ty:ty)
+        return self
+    }
+
+    mutating func scale(scale:CGSize) -> CGAffineTransform  {
+        self = scaled(sx:scale.width, sy:scale.height)
         return self
     }
 
@@ -91,8 +162,18 @@ public extension CGAffineTransform {
         return self
     }
 
+    mutating func scale(scale:CGFloat) -> CGAffineTransform  {
+        self = scaled(sx:scale, sy:scale)
+        return self
+    }
+
     mutating func rotate(angle:CGFloat) -> CGAffineTransform  {
         self = rotated(angle)
+        return self
+    }
+
+    mutating func rotate(angle:CGFloat, origin:CGPoint) -> CGAffineTransform  {
+        self = rotated(angle, origin:origin)
         return self
     }
 
@@ -105,15 +186,6 @@ public extension CGAffineTransform {
         self = self.inverted()
         return self
     }
-}
-
-// MARK: Equatable
-
-extension CGAffineTransform : Equatable {
-}
-
-public func == (lhs:CGAffineTransform, rhs:CGAffineTransform) -> Bool {
-    return CGAffineTransformEqualToTransform(lhs, rhs)
 }
 
 // MARK: Concatination via the + and += operators
@@ -171,24 +243,6 @@ public extension CGAffineTransform {
     }
 }
 
-// MARK: Translation using CGPoint
-
-public extension CGAffineTransform {
-
-    static func translation(t: CGPoint) -> CGAffineTransform {
-        return CGAffineTransformMakeTranslation(t.x, t.y)
-    }
-
-    func translated(# t:CGPoint) -> CGAffineTransform {
-        return CGAffineTransformTranslate(self, t.x, t.y)
-    }
-
-    mutating func translate(t:CGPoint) -> CGAffineTransform {
-        self = translated(tx:t.x, ty:t.y)
-        return self
-    }
-}
-
 // MARK: Convenience constructors.
 
 public extension CGAffineTransform {
@@ -202,10 +256,7 @@ public extension CGAffineTransform {
     }
 
     static func rotationAroundPoint(point:CGPoint, angle:CGFloat) -> CGAffineTransform {
-        var transform = CGAffineTransform.translation(point)
-        transform.rotate(angle)
-        transform.translate(-point)
-        return transform
+        return CGAffineTransform(rotation:angle, origin:point)
     }
 }
 

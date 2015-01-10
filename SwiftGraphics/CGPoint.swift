@@ -127,18 +127,21 @@ public extension CGPoint {
 //        return Turn(o,a,b) == .Left
 //    }
 
+
 public extension CGPoint {
-
-    func floored() -> CGPoint {
-        return CGPoint(x:floor(x), y:floor(y))
-    }
-
-    func ceiled() -> CGPoint {
-        return CGPoint(x:ceil(x), y:ceil(y))
-    }
-
-    func rounded() -> CGPoint {
-        return CGPoint(x:round(x), y:round(y))
+    func map(transform: CGFloat -> CGFloat) -> CGPoint {
+        return CGPoint(x:transform(x), y:transform(y))
     }
 }
 
+public func floor(value:CGPoint) -> CGPoint {
+    return value.map { floor($0) }
+}
+
+public func ceil(value:CGPoint) -> CGPoint {
+    return value.map { ceil($0) }
+}
+
+public func round(value:CGPoint) -> CGPoint {
+    return value.map { round($0) }
+}

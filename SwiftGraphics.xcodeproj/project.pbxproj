@@ -182,6 +182,7 @@
 		454FE67F19C77455002E4DEF /* SwiftGraphicsPlayground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftGraphicsPlayground.swift; sourceTree = "<group>"; };
 		45563F2C19B1047E003B1639 /* CColorConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CColorConverter.h; sourceTree = "<group>"; };
 		45563F2D19B1047E003B1639 /* CColorConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CColorConverter.m; sourceTree = "<group>"; };
+		45592F501A61B65200F496D2 /* TransformTest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TransformTest.playground; sourceTree = "<group>"; };
 		456877E119B6857B004BEFD6 /* CoordinateSystems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateSystems.swift; sourceTree = "<group>"; };
 		456C315B19C65B0E003AA1DF /* Ellipse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ellipse.swift; sourceTree = "<group>"; };
 		456C315E19C65B19003AA1DF /* CDisplayLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDisplayLink.h; sourceTree = "<group>"; };
@@ -330,6 +331,7 @@
 				4515826319CA0BA300856C91 /* MonotoneChain.playground */,
 				45BA25BB19CA156800B612B7 /* Triangle.playground */,
 				45FAC0661A16C4CA00A3F1D3 /* Animations.playground */,
+				45592F501A61B65200F496D2 /* TransformTest.playground */,
 			);
 			path = Playgrounds;
 			sourceTree = "<group>";
