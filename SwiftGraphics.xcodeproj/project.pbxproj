@@ -53,6 +53,12 @@
 		4515826219C9F83300856C91 /* Private.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4515826019C9F83300856C91 /* Private.swift */; };
 		4537991A19AA6C37004DF99E /* CGPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537991919AA6C37004DF99E /* CGPointTests.swift */; };
 		4537991D19AA788B004DF99E /* CGSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4537991C19AA788B004DF99E /* CGSizeTests.swift */; };
+		453997C91A61F89F00572E47 /* BouncingBalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453997C31A61F89F00572E47 /* BouncingBalls.swift */; };
+		453997CA1A61F89F00572E47 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453997C41A61F89F00572E47 /* Grid.swift */; };
+		453997CB1A61F89F00572E47 /* MarchingSquares.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453997C51A61F89F00572E47 /* MarchingSquares.swift */; };
+		453997CC1A61F89F00572E47 /* MetaballsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453997C61A61F89F00572E47 /* MetaballsView.swift */; };
+		453997CD1A61F89F00572E47 /* Polygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453997C71A61F89F00572E47 /* Polygon.swift */; };
+		453997CE1A61F89F00572E47 /* MoreUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453997C81A61F89F00572E47 /* MoreUtilities.swift */; };
 		454B0D5719CA9E7F00044B7C /* Fuzzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454B0D5619CA9E7F00044B7C /* Fuzzy.swift */; };
 		454B0D5919CAA00300044B7C /* Plotable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454B0D5819CAA00300044B7C /* Plotable.swift */; };
 		454D550D19AA5CE6000E3EB3 /* SwiftGraphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 454D550C19AA5CE6000E3EB3 /* SwiftGraphics.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -205,6 +211,12 @@
 		4537990619AA6736004DF99E /* TODO.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.markdown; sourceTree = "<group>"; };
 		4537991919AA6C37004DF99E /* CGPointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointTests.swift; sourceTree = "<group>"; };
 		4537991C19AA788B004DF99E /* CGSizeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGSizeTests.swift; sourceTree = "<group>"; };
+		453997C31A61F89F00572E47 /* BouncingBalls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BouncingBalls.swift; sourceTree = "<group>"; };
+		453997C41A61F89F00572E47 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		453997C51A61F89F00572E47 /* MarchingSquares.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarchingSquares.swift; sourceTree = "<group>"; };
+		453997C61A61F89F00572E47 /* MetaballsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaballsView.swift; sourceTree = "<group>"; };
+		453997C71A61F89F00572E47 /* Polygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polygon.swift; sourceTree = "<group>"; };
+		453997C81A61F89F00572E47 /* MoreUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreUtilities.swift; sourceTree = "<group>"; };
 		454B0D5619CA9E7F00044B7C /* Fuzzy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fuzzy.swift; sourceTree = "<group>"; };
 		454B0D5819CAA00300044B7C /* Plotable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plotable.swift; sourceTree = "<group>"; };
 		454D550719AA5CE6000E3EB3 /* SwiftGraphics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGraphics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -357,6 +369,19 @@
 			name = "View & ViewControllers";
 			sourceTree = "<group>";
 		};
+		453997C21A61F89F00572E47 /* MarchingSquares */ = {
+			isa = PBXGroup;
+			children = (
+				453997C31A61F89F00572E47 /* BouncingBalls.swift */,
+				453997C41A61F89F00572E47 /* Grid.swift */,
+				453997C51A61F89F00572E47 /* MarchingSquares.swift */,
+				453997C61A61F89F00572E47 /* MetaballsView.swift */,
+				453997C71A61F89F00572E47 /* Polygon.swift */,
+				453997C81A61F89F00572E47 /* MoreUtilities.swift */,
+			);
+			path = MarchingSquares;
+			sourceTree = "<group>";
+		};
 		454D54FD19AA5CE6000E3EB3 = {
 			isa = PBXGroup;
 			children = (
@@ -497,6 +522,7 @@
 		45CFDC9F1A61CE3500053F96 /* SwiftGraphics_OSX_UITest */ = {
 			isa = PBXGroup;
 			children = (
+				453997C21A61F89F00572E47 /* MarchingSquares */,
 				453997BE1A61F2C500572E47 /* Application */,
 				453997BF1A61F2DB00572E47 /* View & ViewControllers */,
 				453997BD1A61F2B700572E47 /* Misc */,
@@ -801,22 +827,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				45CFDCA51A61CE3500053F96 /* ViewController.swift in Sources */,
+				453997C91A61F89F00572E47 /* BouncingBalls.swift in Sources */,
 				4514F60E1A61D4C400CC9C26 /* ArcView.swift in Sources */,
+				453997CA1A61F89F00572E47 /* Grid.swift in Sources */,
 				4514F6151A61D4C400CC9C26 /* QuadTreeView.swift in Sources */,
 				4514F61D1A61D4C400CC9C26 /* TestArc.swift in Sources */,
+				453997CE1A61F89F00572E47 /* MoreUtilities.swift in Sources */,
 				4514F61A1A61D4C400CC9C26 /* SVGView.swift in Sources */,
 				4514F6171A61D4C400CC9C26 /* Sketch.swift in Sources */,
 				4514F61E1A61D4C400CC9C26 /* Utilities.swift in Sources */,
 				4514F6141A61D4C400CC9C26 /* OmniGraffle.swift in Sources */,
+				453997CD1A61F89F00572E47 /* Polygon.swift in Sources */,
 				4514F6131A61D4C400CC9C26 /* main.swift in Sources */,
 				45CFDCA31A61CE3500053F96 /* AppDelegate.swift in Sources */,
 				4514F60F1A61D4C400CC9C26 /* ArcViewController.swift in Sources */,
 				4514F6101A61D4C400CC9C26 /* DemoSVGViewController.swift in Sources */,
 				4514F6161A61D4C400CC9C26 /* RegularExpression.swift in Sources */,
+				453997CB1A61F89F00572E47 /* MarchingSquares.swift in Sources */,
 				4514F6191A61D4C400CC9C26 /* SketchView.swift in Sources */,
 				4514F6181A61D4C400CC9C26 /* SketchOmniGraffle.swift in Sources */,
 				4514F6121A61D4C400CC9C26 /* EditorView.swift in Sources */,
 				4514F60D1A61D4C400CC9C26 /* Arc.swift in Sources */,
+				453997CC1A61F89F00572E47 /* MetaballsView.swift in Sources */,
 				4514F6111A61D4C400CC9C26 /* DemoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

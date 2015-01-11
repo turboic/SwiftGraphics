@@ -19,6 +19,8 @@ somewhat viable.
 
 ## SVG
 
+* NOTE THIS HAS MOVED *
+
 SwiftGraphics could (should?) have basic support for SVG. Supporting the full
 SVG spec is nuts. But supporting enough of SVG so we can use it as an
 NSBezierPath persistence format is a good idea.
@@ -35,4 +37,4 @@ from disk without parsin SVG
 
 ## OmniGraffle
 
-See Demo/Sketch sub-project for an example of import OmniGraffle documents.
+See UITest target for an example of import OmniGraffle documents.
