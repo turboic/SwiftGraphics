@@ -10,7 +10,7 @@ import Cocoa
 import XCTest
 import SwiftGraphicsPlayground
 
-class SwiftGraphicsPlayground_OSX_UnitTests: XCTestCase {
+class SwiftGraphicsPlayground_UnitTests: XCTestCase {
 
     func testPerformanceExample() {
         let rng = Random(provider:SRandomProvider(seed:0))

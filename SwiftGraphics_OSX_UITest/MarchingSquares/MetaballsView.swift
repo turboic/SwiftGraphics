@@ -18,6 +18,13 @@ class MetaballsView: NSView {
     var marchingSquares: MarchingSquares!
     var bouncingBalls : BouncingBalls!
     var fps: Double = 0
+    var fieldSize: IntSize! {
+        didSet {
+            println("DID CHANGE FIELD SIZE")
+            marchingSquares = MarchingSquares(size:fieldSize, resolution:resolution)
+            marchingSquares.magnitudeClosure = self.magnitudeAtPoint
+        }
+    }
 
     required init?(coder: NSCoder) {
 
@@ -25,9 +32,10 @@ class MetaballsView: NSView {
 
         let width = Int(ceil(self.bounds.size.width / resolution)) + 1
         let height = Int(ceil(self.bounds.size.height / resolution)) + 1
+        fieldSize = IntSize(width:width, height:height)
 
         bouncingBalls = BouncingBalls(bounds:self.bounds, numberOfBalls:10)
-        marchingSquares = MarchingSquares(size:IntSize(width:width, height:height), resolution:resolution)
+        marchingSquares = MarchingSquares(size:fieldSize, resolution:resolution)
         marchingSquares.magnitudeClosure = self.magnitudeAtPoint
 
         self.displayLink.displayLinkBlock = {
@@ -42,12 +50,25 @@ class MetaballsView: NSView {
         super.drawRect(dirtyRect)
 
         let context = NSGraphicsContext.currentContext()!.CGContext
-        self.marchingSquares.drawMagnitudeGrid(context)
-        self.marchingSquares.render(context)
-        self.bouncingBalls.draw(context)
-        
+        if let marchingSquares = marchingSquares {
+            marchingSquares.drawMagnitudeGrid(context)
+            marchingSquares.render(context)
+        }
+        bouncingBalls.draw(context)
+
         
         context.drawLabel("\(Int(fps))", point:CGPoint(x:20,y:20), size:18)
+    }
+
+    override func setFrameSize(newSize: NSSize) {
+        super.setFrameSize(newSize)
+
+        println("SET FRAME SIZE \(newSize)")
+        let width = Int(ceil(self.bounds.size.width / resolution)) + 1
+        let height = Int(ceil(self.bounds.size.height / resolution)) + 1
+        fieldSize = IntSize(width:width, height:height)
+
+        bouncingBalls.bounds = self.bounds
     }
 
     override func mouseDown(theEvent: NSEvent) {
@@ -67,7 +88,9 @@ class MetaballsView: NSView {
             return
         }
         self.bouncingBalls.moveBalls(delta)
-        self.marchingSquares.update()
+        if let marchingSquares = marchingSquares {
+            marchingSquares.update()
+            }
         self.needsDisplay = true
     }
 

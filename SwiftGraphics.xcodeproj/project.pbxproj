@@ -27,7 +27,7 @@
 		026F21041A5FB23E00A52D0E /* Fuzzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454B0D5619CA9E7F00044B7C /* Fuzzy.swift */; };
 		026F21051A5FB25800A52D0E /* CoordinateSystems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456877E119B6857B004BEFD6 /* CoordinateSystems.swift */; };
 		026F21061A5FB26600A52D0E /* MonotoneChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BA25B719CA112E00B612B7 /* MonotoneChain.swift */; };
-		450155841A62F9F600D7FB7B /* SwiftGraphicsPlayground_OSX_UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450155831A62F9F600D7FB7B /* SwiftGraphicsPlayground_OSX_UnitTests.swift */; };
+		450155841A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450155831A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift */; };
 		450155851A62F9F600D7FB7B /* SwiftGraphicsPlayground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454FE66219C77031002E4DEF /* SwiftGraphicsPlayground.framework */; };
 		4514F60D1A61D4C400CC9C26 /* Arc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4514F5FA1A61D4C400CC9C26 /* Arc.swift */; };
 		4514F60E1A61D4C400CC9C26 /* ArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4514F5FB1A61D4C400CC9C26 /* ArcView.swift */; };
@@ -60,7 +60,6 @@
 		453997CB1A61F89F00572E47 /* MarchingSquares.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453997C51A61F89F00572E47 /* MarchingSquares.swift */; };
 		453997CC1A61F89F00572E47 /* MetaballsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453997C61A61F89F00572E47 /* MetaballsView.swift */; };
 		453997CD1A61F89F00572E47 /* Polygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453997C71A61F89F00572E47 /* Polygon.swift */; };
-		453997CE1A61F89F00572E47 /* MoreUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453997C81A61F89F00572E47 /* MoreUtilities.swift */; };
 		454B0D5719CA9E7F00044B7C /* Fuzzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454B0D5619CA9E7F00044B7C /* Fuzzy.swift */; };
 		454B0D5919CAA00300044B7C /* Plotable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454B0D5819CAA00300044B7C /* Plotable.swift */; };
 		454D550D19AA5CE6000E3EB3 /* SwiftGraphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 454D550C19AA5CE6000E3EB3 /* SwiftGraphics.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -192,7 +191,7 @@
 /* Begin PBXFileReference section */
 		4501557F1A62F9F600D7FB7B /* SwiftGraphicsPlayground_OSX_UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftGraphicsPlayground_OSX_UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		450155821A62F9F600D7FB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		450155831A62F9F600D7FB7B /* SwiftGraphicsPlayground_OSX_UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGraphicsPlayground_OSX_UnitTests.swift; sourceTree = "<group>"; };
+		450155831A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGraphicsPlayground_UnitTests.swift; sourceTree = "<group>"; };
 		4514F5FA1A61D4C400CC9C26 /* Arc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arc.swift; sourceTree = "<group>"; };
 		4514F5FB1A61D4C400CC9C26 /* ArcView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcView.swift; sourceTree = "<group>"; };
 		4514F5FC1A61D4C400CC9C26 /* ArcViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcViewController.swift; sourceTree = "<group>"; };
@@ -229,7 +228,6 @@
 		453997C51A61F89F00572E47 /* MarchingSquares.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarchingSquares.swift; sourceTree = "<group>"; };
 		453997C61A61F89F00572E47 /* MetaballsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaballsView.swift; sourceTree = "<group>"; };
 		453997C71A61F89F00572E47 /* Polygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Polygon.swift; sourceTree = "<group>"; };
-		453997C81A61F89F00572E47 /* MoreUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreUtilities.swift; sourceTree = "<group>"; };
 		454B0D5619CA9E7F00044B7C /* Fuzzy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fuzzy.swift; sourceTree = "<group>"; };
 		454B0D5819CAA00300044B7C /* Plotable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plotable.swift; sourceTree = "<group>"; };
 		454D550719AA5CE6000E3EB3 /* SwiftGraphics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGraphics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -340,7 +338,7 @@
 		450155801A62F9F600D7FB7B /* SwiftGraphicsPlayground_OSX_UnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				450155831A62F9F600D7FB7B /* SwiftGraphicsPlayground_OSX_UnitTests.swift */,
+				450155831A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift */,
 				450155811A62F9F600D7FB7B /* Supporting Files */,
 			);
 			path = SwiftGraphicsPlayground_OSX_UnitTests;
@@ -417,7 +415,6 @@
 				453997C51A61F89F00572E47 /* MarchingSquares.swift */,
 				453997C61A61F89F00572E47 /* MetaballsView.swift */,
 				453997C71A61F89F00572E47 /* Polygon.swift */,
-				453997C81A61F89F00572E47 /* MoreUtilities.swift */,
 			);
 			path = MarchingSquares;
 			sourceTree = "<group>";
@@ -434,8 +431,8 @@
 				454D550919AA5CE6000E3EB3 /* SwiftGraphics_OSX */,
 				45DA4AC519AA62A800133F32 /* SwiftGraphics_iOS */,
 				454FE66319C77031002E4DEF /* SwiftGraphicsPlayground */,
-				45CFDC9F1A61CE3500053F96 /* SwiftGraphics_OSX_UITest */,
 				450155801A62F9F600D7FB7B /* SwiftGraphicsPlayground_OSX_UnitTests */,
+				45CFDC9F1A61CE3500053F96 /* SwiftGraphics_OSX_UITest */,
 				4514F5F71A61D2D800CC9C26 /* Frameworks */,
 				454D550819AA5CE6000E3EB3 /* Products */,
 			);
@@ -845,7 +842,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				450155841A62F9F600D7FB7B /* SwiftGraphicsPlayground_OSX_UnitTests.swift in Sources */,
+				450155841A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -914,7 +911,6 @@
 				453997CA1A61F89F00572E47 /* Grid.swift in Sources */,
 				4514F6151A61D4C400CC9C26 /* QuadTreeView.swift in Sources */,
 				4514F61D1A61D4C400CC9C26 /* TestArc.swift in Sources */,
-				453997CE1A61F89F00572E47 /* MoreUtilities.swift in Sources */,
 				4514F61A1A61D4C400CC9C26 /* SVGView.swift in Sources */,
 				4514F6171A61D4C400CC9C26 /* Sketch.swift in Sources */,
 				4514F61E1A61D4C400CC9C26 /* Utilities.swift in Sources */,

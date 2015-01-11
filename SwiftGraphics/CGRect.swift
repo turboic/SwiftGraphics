@@ -45,6 +45,10 @@ public extension CGRect {
         self.origin = CGPoint(x:center.x - diameter * 0.5, y:center.y - diameter * 0.5)
         self.size = CGSize(width:diameter, height:diameter)
     }
+
+    init(minX:CGFloat, minY:CGFloat, maxX:CGFloat, maxY:CGFloat) {
+        self = CGRect(P1:CGPoint(x:minX, y:minY), P2:CGPoint(x:maxX, y:maxY))
+    }
 }
 
 public func * (lhs:CGRect, rhs:CGFloat) -> CGRect {
@@ -55,7 +59,9 @@ public func * (lhs:CGFloat, rhs:CGRect) -> CGRect {
     return CGRect(origin:lhs * rhs.origin, size:lhs * rhs.size)
 }
 
-public extension CGRect {    
+// MARK: Misc. CGRect utilities.
+
+public extension CGRect {
 
     func insetted(# dx:CGFloat, dy:CGFloat) -> CGRect {
         var copy = self
@@ -74,17 +80,23 @@ public extension CGRect {
         }
         return result
     }
-}
 
-
-public extension CGRect {
     var asTuple : (CGFloat, CGFloat, CGFloat, CGFloat) { get { return (origin.x, origin.y, size.width, size.height) } }
-}
-
-public extension CGRect {
 
     func integral() -> CGRect {
         return CGRectIntegral(self)
     }
 
+    func partiallyIntersects(other:CGRect) -> Bool {
+        if CGRectIntersectsRect(self, other) == true {
+            let union = CGRectUnion(self, other)
+            if CGRectEqualToRect(self, union) == false {
+                return true
+            }
+        }
+        return false
+    }
+
 }
+
+
