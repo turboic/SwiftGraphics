@@ -18,7 +18,7 @@ extension Array {
 }
 
 public func arrayOfRandomPoints(count:Int, range:CGRect) -> Array <CGPoint> {
-    return Array <CGPoint> (count:10) {
+    return Array <CGPoint> (count:count) {
         return Random.rng.random(range)
     }
 }
