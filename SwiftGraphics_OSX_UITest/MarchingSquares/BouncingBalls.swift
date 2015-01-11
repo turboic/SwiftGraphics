@@ -8,6 +8,9 @@
 
 import Cocoa
 import SwiftGraphics
+import SwiftGraphicsPlayground
+
+
 
 class Ball {
     var position:CGPoint
@@ -35,10 +38,10 @@ class BouncingBalls {
         self.bounds = bounds
 
         for N in 0..<numberOfBalls {
-            let radius = random(CGFloat(10)...CGFloat(50))
-            let velocity = random(CGRect(x:-100, y:-100, width:200, height:200))
+            let radius = Random.rng.random(CGFloat(10)...CGFloat(50))
+            let velocity = Random.rng.random(CGRect(x:-100, y:-100, width:200, height:200))
             let positionRange = self.bounds.insetted(dx:radius, dy:radius)
-            balls.append(Ball(position:random(positionRange), radius:radius, velocity:velocity))
+            balls.append(Ball(position:Random.rng.random(positionRange), radius:radius, velocity:velocity))
         }
     }
 

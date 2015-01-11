@@ -26,17 +26,3 @@ extension CGRect {
     }
 }
 
-func random() -> CGFloat {
-    return CGFloat(arc4random_uniform(UInt32.max)) / CGFloat(UInt32.max)
-}
-
-func random(range:ClosedInterval<CGFloat>) -> CGFloat {
-    return random() * (range.end - range.start) + range.start
-}
-
-func random(range:CGRect) -> CGPoint {
-    return CGPoint(
-        x:range.origin.x + random() * range.size.width,
-        y:range.origin.y + random() * range.size.height
-    )
-}

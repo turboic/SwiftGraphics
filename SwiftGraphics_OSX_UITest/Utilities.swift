@@ -86,29 +86,6 @@ extension NSColor {
 }
 
 
-struct Random {
-    static func random() -> UInt8 {
-        let uniform: UInt32 = 256
-        return UInt8(arc4random_uniform(uniform))
-    }
-
-    static func random(range:Range <UInt32>) -> UInt32 {
-        let uniform: UInt32 = range.endIndex - range.startIndex
-        
-        return UInt32(arc4random_uniform(uniform)) + range.startIndex
-    }
-
-    static func random() -> Double {
-        let uniform:UInt32 = 10000000
-        return Double(arc4random_uniform(uniform)) / Double(uniform)
-    }
-
-    static func random() -> CGFloat {
-        let uniform:UInt32 = 10000000
-        return CGFloat(arc4random_uniform(uniform)) / CGFloat(uniform)
-    }
-}
-
 extension NSData {
     convenience init(contentsOfCompressedFile path:String) {
         let data = NSData(contentsOfFile:path)
