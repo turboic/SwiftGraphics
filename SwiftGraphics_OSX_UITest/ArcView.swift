@@ -26,8 +26,12 @@ class ArcView: NSView {
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
 
+        NSColor.whiteColor().set()
+        NSRectFill(dirtyRect)
+
         let context = NSGraphicsContext.currentContext()!.CGContext
 
+        NSColor.blackColor().set()
         if let arc = self.arc {
             context.stroke(arc)
             }
@@ -42,8 +46,6 @@ class ArcView: NSView {
                 context.fillCircle(center:handle.position, radius:3)
             }
         }
-
-        
     }
 
     override func mouseDown(theEvent: NSEvent) {

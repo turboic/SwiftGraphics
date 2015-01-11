@@ -114,6 +114,11 @@ class EditorView: NSView {
 
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
+
+        NSColor.whiteColor().set()
+        NSRectFill(dirtyRect)
+        NSColor.blackColor().set()
+
         let context = NSGraphicsContext.currentContext()!.CGContext
         self.editor.draw(context)
     }

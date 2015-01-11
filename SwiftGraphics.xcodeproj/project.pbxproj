@@ -312,6 +312,51 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		453997BD1A61F2B700572E47 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				4514F5FA1A61D4C400CC9C26 /* Arc.swift */,
+				4514F6021A61D4C400CC9C26 /* OmniGraffle.swift */,
+				4514F6041A61D4C400CC9C26 /* RegularExpression.swift */,
+				4514F6051A61D4C400CC9C26 /* Sketch.swift */,
+				4514F6061A61D4C400CC9C26 /* SketchOmniGraffle.swift */,
+				4514F60C1A61D4C400CC9C26 /* Utilities.swift */,
+				4514F60B1A61D4C400CC9C26 /* TestArc.swift */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		453997BE1A61F2C500572E47 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				4514F6011A61D4C400CC9C26 /* main.swift */,
+				45CFDCA21A61CE3500053F96 /* AppDelegate.swift */,
+				45CFDCA81A61CE3500053F96 /* Main.storyboard */,
+				45CFDCA61A61CE3500053F96 /* Images.xcassets */,
+				4514F5FD1A61D4C400CC9C26 /* BridgingHeader.h */,
+				4514F6091A61D4C400CC9C26 /* SwiftOutline.svg */,
+				4514F60A1A61D4C400CC9C26 /* Test.graffle */,
+				45CFDCA11A61CE3500053F96 /* Info.plist */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		453997BF1A61F2DB00572E47 /* View & ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				45CFDCA41A61CE3500053F96 /* ViewController.swift */,
+				4514F5FC1A61D4C400CC9C26 /* ArcViewController.swift */,
+				4514F5FB1A61D4C400CC9C26 /* ArcView.swift */,
+				4514F5FF1A61D4C400CC9C26 /* DemoView.swift */,
+				4514F6001A61D4C400CC9C26 /* EditorView.swift */,
+				4514F6031A61D4C400CC9C26 /* QuadTreeView.swift */,
+				4514F6071A61D4C400CC9C26 /* SketchView.swift */,
+				4514F5FE1A61D4C400CC9C26 /* DemoSVGViewController.swift */,
+				4514F6081A61D4C400CC9C26 /* SVGView.swift */,
+			);
+			name = "View & ViewControllers";
+			sourceTree = "<group>";
+		};
 		454D54FD19AA5CE6000E3EB3 = {
 			isa = PBXGroup;
 			children = (
@@ -452,40 +497,11 @@
 		45CFDC9F1A61CE3500053F96 /* SwiftGraphics_OSX_UITest */ = {
 			isa = PBXGroup;
 			children = (
-				45CFDCA21A61CE3500053F96 /* AppDelegate.swift */,
-				45CFDCA41A61CE3500053F96 /* ViewController.swift */,
-				45CFDCA61A61CE3500053F96 /* Images.xcassets */,
-				45CFDCA81A61CE3500053F96 /* Main.storyboard */,
-				4514F5FA1A61D4C400CC9C26 /* Arc.swift */,
-				4514F5FB1A61D4C400CC9C26 /* ArcView.swift */,
-				4514F5FC1A61D4C400CC9C26 /* ArcViewController.swift */,
-				4514F5FD1A61D4C400CC9C26 /* BridgingHeader.h */,
-				4514F5FE1A61D4C400CC9C26 /* DemoSVGViewController.swift */,
-				4514F5FF1A61D4C400CC9C26 /* DemoView.swift */,
-				4514F6001A61D4C400CC9C26 /* EditorView.swift */,
-				4514F6011A61D4C400CC9C26 /* main.swift */,
-				4514F6021A61D4C400CC9C26 /* OmniGraffle.swift */,
-				4514F6031A61D4C400CC9C26 /* QuadTreeView.swift */,
-				4514F6041A61D4C400CC9C26 /* RegularExpression.swift */,
-				4514F6051A61D4C400CC9C26 /* Sketch.swift */,
-				4514F6061A61D4C400CC9C26 /* SketchOmniGraffle.swift */,
-				4514F6071A61D4C400CC9C26 /* SketchView.swift */,
-				4514F6081A61D4C400CC9C26 /* SVGView.swift */,
-				4514F6091A61D4C400CC9C26 /* SwiftOutline.svg */,
-				4514F60A1A61D4C400CC9C26 /* Test.graffle */,
-				4514F60B1A61D4C400CC9C26 /* TestArc.swift */,
-				4514F60C1A61D4C400CC9C26 /* Utilities.swift */,
-				45CFDCA01A61CE3500053F96 /* Supporting Files */,
+				453997BE1A61F2C500572E47 /* Application */,
+				453997BF1A61F2DB00572E47 /* View & ViewControllers */,
+				453997BD1A61F2B700572E47 /* Misc */,
 			);
 			path = SwiftGraphics_OSX_UITest;
-			sourceTree = "<group>";
-		};
-		45CFDCA01A61CE3500053F96 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				45CFDCA11A61CE3500053F96 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		45DA4AC519AA62A800133F32 /* SwiftGraphics_iOS */ = {

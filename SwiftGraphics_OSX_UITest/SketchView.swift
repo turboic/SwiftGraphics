@@ -26,6 +26,10 @@ class SketchView: NSView {
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
 
+        NSColor.whiteColor().set()
+        NSRectFill(dirtyRect)
+        NSColor.blackColor().set()
+
         let context = NSGraphicsContext.currentContext()!.CGContext
         self.renderNode(context, rect:dirtyRect, node:self.rootNode) {
             (context:CGContext, node:Node) -> Void in

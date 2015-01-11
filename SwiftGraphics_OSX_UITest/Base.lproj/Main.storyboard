@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6206.9" systemVersion="14A343f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <deployment defaultVersion="101000" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6206.9"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6724"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -642,12 +641,12 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SwiftGraphicsDemo" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SwiftGraphics_OSX_UITest" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
-        <!--Window-->
+        <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
@@ -694,12 +693,12 @@
                 </viewController>
                 <customObject id="lwk-cQ-Kjr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1411" y="624"/>
+            <point key="canvasLocation" x="1411" y="729"/>
         </scene>
         <!--Tab View Controller-->
         <scene sceneID="rEa-fV-D4r">
             <objects>
-                <tabViewController selectedTabViewItemIndex="3" id="TNj-8r-aRG" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="1" id="TNj-8r-aRG" sceneMemberID="viewController">
                     <tabView key="view" id="HWi-xv-eW4">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -707,44 +706,44 @@
                         <tabViewItems/>
                     </tabView>
                     <tabViewItems>
-                        <tabViewItem label="QuadTree" identifier="" id="oBZ-Bk-eg9"/>
                         <tabViewItem label="DemoView" identifier="" id="kra-Ev-EVF"/>
+                        <tabViewItem label="QuadTree" identifier="" id="oBZ-Bk-eg9"/>
+                        <tabViewItem label="Editor View" id="uuM-Hx-sV4"/>
+                        <tabViewItem label="Arc View" id="sSt-fa-xDF"/>
                         <tabViewItem label="OmniGraffle" id="FN0-r7-S0E"/>
                         <tabViewItem label="SVG View" id="NHl-gP-o5c"/>
-                        <tabViewItem label="Arc View" id="sSt-fa-xDF"/>
-                        <tabViewItem label="Editor View" id="uuM-Hx-sV4"/>
                     </tabViewItems>
                     <connections>
-                        <segue destination="K8q-YO-JNy" kind="relationship" relationship="tabItem" id="Jb7-DQ-EbQ"/>
-                        <segue destination="ttq-86-y00" kind="relationship" relationship="tabItem" id="eWr-iU-yJR"/>
-                        <segue destination="Gm2-q4-fPO" kind="relationship" relationship="tabItem" id="G23-tJ-2z0"/>
-                        <segue destination="maU-p6-pVv" kind="relationship" relationship="tabItem" id="oZN-ZF-wLr"/>
-                        <segue destination="2Rk-8J-GTy" kind="relationship" relationship="tabItem" id="QAS-15-ejs"/>
-                        <segue destination="igI-5m-qaF" kind="relationship" relationship="tabItem" id="1CY-AP-U4Y"/>
+                        <segue destination="ttq-86-y00" kind="relationship" relationship="tabItems" id="U9j-mm-h6O"/>
+                        <segue destination="K8q-YO-JNy" kind="relationship" relationship="tabItems" id="TNr-Ix-zi4"/>
+                        <segue destination="igI-5m-qaF" kind="relationship" relationship="tabItems" id="vB0-GL-wUF"/>
+                        <segue destination="2Rk-8J-GTy" kind="relationship" relationship="tabItems" id="gLl-jd-hLa"/>
+                        <segue destination="Gm2-q4-fPO" kind="relationship" relationship="tabItems" id="BhL-rY-faV"/>
+                        <segue destination="maU-p6-pVv" kind="relationship" relationship="tabItems" id="b8n-3z-aqH"/>
                     </connections>
                 </tabViewController>
                 <customObject id="OyY-ov-XOg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1360" y="1062"/>
+            <point key="canvasLocation" x="1411.5" y="1284"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="uBN-ol-EAs">
             <objects>
                 <viewController id="igI-5m-qaF" sceneMemberID="viewController">
-                    <view key="view" id="dtF-s6-EUE" customClass="EditorView" customModule="SwiftGraphicsDemo" customModuleProvider="target">
+                    <view key="view" id="dtF-s6-EUE" customClass="EditorView" customModule="SwiftGraphics_OSX_UITest" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
                 </viewController>
                 <customObject id="q2o-gT-3Xi" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2143" y="1016"/>
+            <point key="canvasLocation" x="3007" y="1942"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="3so-Jf-6Lk">
             <objects>
                 <viewController id="K8q-YO-JNy" sceneMemberID="viewController">
-                    <view key="view" id="n9J-4L-f9U" customClass="QuadTreeView" customModule="SwiftGraphicsDemo" customModuleProvider="target">
+                    <view key="view" id="n9J-4L-f9U" customClass="QuadTreeView" customModule="SwiftGraphics_OSX_UITest" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
@@ -757,7 +756,7 @@
         <scene sceneID="PGi-86-GfT">
             <objects>
                 <viewController id="ttq-86-y00" sceneMemberID="viewController">
-                    <view key="view" id="CyE-il-7EE" customClass="DemoView" customModule="SwiftGraphicsDemo" customModuleProvider="target">
+                    <view key="view" id="CyE-il-7EE" customClass="DemoView" customModule="SwiftGraphics_OSX_UITest" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
@@ -770,7 +769,7 @@
         <scene sceneID="TK1-NR-1s2">
             <objects>
                 <viewController id="Gm2-q4-fPO" sceneMemberID="viewController">
-                    <view key="view" id="7g8-nA-gIq" customClass="SketchView" customModule="SwiftGraphicsDemo" customModuleProvider="target">
+                    <view key="view" id="7g8-nA-gIq" customClass="SketchView" customModule="SwiftGraphics_OSX_UITest" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
@@ -782,8 +781,8 @@
         <!--DemoSVG View Controller-->
         <scene sceneID="rFR-GC-dae">
             <objects>
-                <viewController id="maU-p6-pVv" customClass="DemoSVGViewController" customModule="SwiftGraphicsDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="o5E-sU-g1k" customClass="SVGView" customModule="SwiftGraphicsDemo" customModuleProvider="target">
+                <viewController id="maU-p6-pVv" customClass="DemoSVGViewController" customModule="SwiftGraphics_OSX_UITest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="o5E-sU-g1k" customClass="SVGView" customModule="SwiftGraphics_OSX_UITest" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
@@ -795,7 +794,7 @@
         <!--Arc View Controller-->
         <scene sceneID="6Yk-nN-4iQ">
             <objects>
-                <viewController id="2Rk-8J-GTy" customClass="ArcViewController" customModule="SwiftGraphicsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2Rk-8J-GTy" customClass="ArcViewController" customModule="SwiftGraphics_OSX_UITest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="HjG-Yu-P4s">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -803,12 +802,12 @@
                             <splitView dividerStyle="paneSplitter" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TkH-Tv-gcE">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                                 <subviews>
-                                    <customView fixedFrame="YES" id="2hq-QK-d2t" customClass="ArcView" customModule="SwiftGraphicsDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="235" height="270"/>
+                                    <customView fixedFrame="YES" id="2hq-QK-d2t" customClass="ArcView" customModule="SwiftGraphics_OSX_UITest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="269" height="270"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     </customView>
                                     <customView id="wJ2-kd-cOC">
-                                        <rect key="frame" x="245" y="0.0" width="186" height="258"/>
+                                        <rect key="frame" x="279" y="0.0" width="201" height="270"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ljr-ko-out">
@@ -982,13 +981,6 @@
                                                     </binding>
                                                 </connections>
                                             </textField>
-                                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dBw-1m-o0J">
-                                                <rect key="frame" x="171" y="237" width="19" height="27"/>
-                                                <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="QkV-Ha-f1I"/>
-                                                <connections>
-                                                    <binding destination="2Rk-8J-GTy" name="value" keyPath="x0" id="FFQ-dg-c61"/>
-                                                </connections>
-                                            </stepper>
                                             <button translatesAutoresizingMaskIntoConstraints="NO" id="hVn-MM-P9e">
                                                 <rect key="frame" x="104" y="88" width="64" height="18"/>
                                                 <buttonCell key="cell" type="check" title="Sweep" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Mzw-8q-doU">
@@ -999,63 +991,70 @@
                                                     <binding destination="2Rk-8J-GTy" name="value" keyPath="sweepFlag" id="FV0-JA-ONZ"/>
                                                 </connections>
                                             </button>
+                                            <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dBw-1m-o0J">
+                                                <rect key="frame" x="171" y="237" width="19" height="27"/>
+                                                <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="QkV-Ha-f1I"/>
+                                                <connections>
+                                                    <binding destination="2Rk-8J-GTy" name="value" keyPath="x0" id="FFQ-dg-c61"/>
+                                                </connections>
+                                            </stepper>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="gxh-Gx-XUE" firstAttribute="baseline" secondItem="qAx-ta-SF6" secondAttribute="baseline" id="1eI-rj-FCl"/>
-                                            <constraint firstItem="XoM-r7-T5v" firstAttribute="trailing" secondItem="hVn-MM-P9e" secondAttribute="trailing" id="6MH-aS-TMt"/>
-                                            <constraint firstItem="qAx-ta-SF6" firstAttribute="top" secondItem="XoM-r7-T5v" secondAttribute="bottom" constant="6" id="8GJ-kb-Zgl"/>
-                                            <constraint firstItem="qAx-ta-SF6" firstAttribute="leading" secondItem="XoM-r7-T5v" secondAttribute="leading" id="9zy-HC-yfd"/>
-                                            <constraint firstItem="huo-y5-WWq" firstAttribute="baseline" secondItem="qjW-wy-prh" secondAttribute="baseline" id="APi-v0-UfE"/>
-                                            <constraint firstItem="g17-hl-gNJ" firstAttribute="leading" secondItem="dnu-iU-cr7" secondAttribute="leading" id="AZc-EC-qcm"/>
-                                            <constraint firstItem="XoM-r7-T5v" firstAttribute="trailing" secondItem="qAx-ta-SF6" secondAttribute="trailing" id="Alr-5R-hHv"/>
-                                            <constraint firstItem="FFm-hn-yVg" firstAttribute="baseline" secondItem="dnu-iU-cr7" secondAttribute="baseline" id="Cqt-Al-G74"/>
-                                            <constraint firstItem="hVn-MM-P9e" firstAttribute="trailing" secondItem="dnu-iU-cr7" secondAttribute="trailing" id="Iu8-ph-RTz"/>
-                                            <constraint firstItem="UQ0-Fn-vAi" firstAttribute="leading" secondItem="FFm-hn-yVg" secondAttribute="leading" id="J0Q-We-kNV"/>
-                                            <constraint firstItem="qjW-wy-prh" firstAttribute="leading" secondItem="g17-hl-gNJ" secondAttribute="leading" id="K9V-S8-1cf"/>
-                                            <constraint firstItem="3yB-L7-O6s" firstAttribute="top" secondItem="wwz-GB-YRL" secondAttribute="bottom" constant="6" id="Kfj-bc-wdO"/>
-                                            <constraint firstItem="dnu-iU-cr7" firstAttribute="top" secondItem="g17-hl-gNJ" secondAttribute="bottom" constant="6" id="LHb-qA-3d2"/>
-                                            <constraint firstItem="wwz-GB-YRL" firstAttribute="baseline" secondItem="Ljr-ko-out" secondAttribute="baseline" id="OXF-rj-oQK"/>
-                                            <constraint firstItem="qjW-wy-prh" firstAttribute="trailing" secondItem="3yB-L7-O6s" secondAttribute="trailing" id="Pq1-Bc-jII"/>
-                                            <constraint firstItem="dBw-1m-o0J" firstAttribute="top" secondItem="wJ2-kd-cOC" secondAttribute="top" constant="-4" id="Q8d-mb-nwh"/>
-                                            <constraint firstItem="dnu-iU-cr7" firstAttribute="leading" secondItem="FFm-hn-yVg" secondAttribute="trailing" constant="8" symbolic="YES" id="RIR-cI-rIL"/>
-                                            <constraint firstItem="huo-y5-WWq" firstAttribute="leading" secondItem="nr7-Jm-4f2" secondAttribute="leading" id="RaV-P7-EPy"/>
-                                            <constraint firstItem="8zb-EQ-09O" firstAttribute="baseline" secondItem="XoM-r7-T5v" secondAttribute="baseline" id="SrR-as-H6D"/>
-                                            <constraint firstItem="dnu-iU-cr7" firstAttribute="centerY" secondItem="wJ2-kd-cOC" secondAttribute="centerY" id="U6S-6H-08K"/>
-                                            <constraint firstItem="3yB-L7-O6s" firstAttribute="baseline" secondItem="nr7-Jm-4f2" secondAttribute="baseline" id="VPN-sj-WGR"/>
-                                            <constraint firstItem="FFm-hn-yVg" firstAttribute="leading" secondItem="KNU-UV-5m5" secondAttribute="leading" id="Vfl-Xp-hnf"/>
-                                            <constraint firstItem="XoM-r7-T5v" firstAttribute="top" secondItem="UQ0-Fn-vAi" secondAttribute="bottom" constant="8" symbolic="YES" id="WMt-oO-HI1"/>
-                                            <constraint firstItem="KNU-UV-5m5" firstAttribute="leading" secondItem="huo-y5-WWq" secondAttribute="leading" id="WSf-Ly-6nb"/>
-                                            <constraint firstItem="nr7-Jm-4f2" firstAttribute="leading" secondItem="Ljr-ko-out" secondAttribute="leading" id="Wel-tA-cgq"/>
-                                            <constraint firstItem="dnu-iU-cr7" firstAttribute="leading" secondItem="XoM-r7-T5v" secondAttribute="leading" id="Z1N-8D-vJF"/>
-                                            <constraint firstItem="3yB-L7-O6s" firstAttribute="trailing" secondItem="wwz-GB-YRL" secondAttribute="trailing" id="bgq-of-Pum"/>
-                                            <constraint firstItem="g17-hl-gNJ" firstAttribute="trailing" secondItem="qjW-wy-prh" secondAttribute="trailing" id="cg3-2L-O0n"/>
-                                            <constraint firstItem="3yB-L7-O6s" firstAttribute="leading" secondItem="wwz-GB-YRL" secondAttribute="leading" id="cih-eZ-19T"/>
-                                            <constraint firstItem="g17-hl-gNJ" firstAttribute="baseline" secondItem="KNU-UV-5m5" secondAttribute="baseline" id="dcI-sh-KpN"/>
-                                            <constraint firstItem="8zb-EQ-09O" firstAttribute="leading" secondItem="gxh-Gx-XUE" secondAttribute="leading" id="ejt-cc-wVC"/>
-                                            <constraint firstItem="Ljr-ko-out" firstAttribute="leading" secondItem="wJ2-kd-cOC" secondAttribute="leading" constant="20" symbolic="YES" id="g2H-gX-BHu"/>
-                                            <constraint firstItem="UQ0-Fn-vAi" firstAttribute="top" secondItem="dnu-iU-cr7" secondAttribute="bottom" constant="8" symbolic="YES" id="nB9-Ym-tzv"/>
-                                            <constraint firstItem="dBw-1m-o0J" firstAttribute="leading" secondItem="wwz-GB-YRL" secondAttribute="trailing" constant="8" symbolic="YES" id="o1X-zX-ayt"/>
-                                            <constraint firstItem="qjW-wy-prh" firstAttribute="top" secondItem="3yB-L7-O6s" secondAttribute="bottom" constant="8" id="o6M-gw-IWx"/>
-                                            <constraint firstItem="hVn-MM-P9e" firstAttribute="leading" secondItem="UQ0-Fn-vAi" secondAttribute="trailing" constant="8" symbolic="YES" id="rIm-4W-JAY"/>
-                                            <constraint firstItem="8zb-EQ-09O" firstAttribute="leading" secondItem="UQ0-Fn-vAi" secondAttribute="leading" id="rKH-hG-Bn8"/>
-                                            <constraint firstItem="qjW-wy-prh" firstAttribute="leading" secondItem="3yB-L7-O6s" secondAttribute="leading" id="sLX-VQ-vz4"/>
-                                            <constraint firstItem="dnu-iU-cr7" firstAttribute="trailing" secondItem="g17-hl-gNJ" secondAttribute="trailing" id="v2v-vd-L3k"/>
-                                            <constraint firstItem="g17-hl-gNJ" firstAttribute="top" secondItem="qjW-wy-prh" secondAttribute="bottom" constant="8" id="w3T-Pi-Sfl"/>
-                                            <constraint firstItem="UQ0-Fn-vAi" firstAttribute="baseline" secondItem="hVn-MM-P9e" secondAttribute="baseline" id="xDm-qp-T4S"/>
+                                            <constraint firstItem="Ljr-ko-out" firstAttribute="leading" secondItem="wJ2-kd-cOC" secondAttribute="leading" constant="20" symbolic="YES" id="0nS-zO-yHd"/>
+                                            <constraint firstItem="UQ0-Fn-vAi" firstAttribute="top" secondItem="dnu-iU-cr7" secondAttribute="bottom" constant="8" symbolic="YES" id="3hw-4q-Vxg"/>
+                                            <constraint firstItem="8zb-EQ-09O" firstAttribute="leading" secondItem="gxh-Gx-XUE" secondAttribute="leading" id="3tD-CQ-L4g"/>
+                                            <constraint firstItem="3yB-L7-O6s" firstAttribute="trailing" secondItem="wwz-GB-YRL" secondAttribute="trailing" id="55D-Ii-ZrC"/>
+                                            <constraint firstItem="3yB-L7-O6s" firstAttribute="top" secondItem="wwz-GB-YRL" secondAttribute="bottom" constant="6" id="8Pi-vD-aud"/>
+                                            <constraint firstItem="KNU-UV-5m5" firstAttribute="leading" secondItem="huo-y5-WWq" secondAttribute="leading" id="9kO-lz-UxJ"/>
+                                            <constraint firstItem="Ljr-ko-out" firstAttribute="baseline" secondItem="wwz-GB-YRL" secondAttribute="baseline" id="BO8-2B-veJ"/>
+                                            <constraint firstItem="dnu-iU-cr7" firstAttribute="centerY" secondItem="wJ2-kd-cOC" secondAttribute="centerY" id="Bgi-U2-wex"/>
+                                            <constraint firstItem="dnu-iU-cr7" firstAttribute="leading" secondItem="FFm-hn-yVg" secondAttribute="trailing" constant="8" symbolic="YES" id="DMD-tk-rBI"/>
+                                            <constraint firstItem="hVn-MM-P9e" firstAttribute="baseline" secondItem="UQ0-Fn-vAi" secondAttribute="baseline" id="EGf-3a-Fk1"/>
+                                            <constraint firstItem="dnu-iU-cr7" firstAttribute="top" secondItem="g17-hl-gNJ" secondAttribute="bottom" constant="6" id="G7K-jC-iOq"/>
+                                            <constraint firstItem="g17-hl-gNJ" firstAttribute="leading" secondItem="qjW-wy-prh" secondAttribute="leading" id="Hu4-vb-HX1"/>
+                                            <constraint firstItem="gxh-Gx-XUE" firstAttribute="baseline" secondItem="qAx-ta-SF6" secondAttribute="baseline" id="P9o-76-v7f"/>
+                                            <constraint firstItem="FFm-hn-yVg" firstAttribute="leading" secondItem="UQ0-Fn-vAi" secondAttribute="leading" id="PCS-Uo-THO"/>
+                                            <constraint firstItem="hVn-MM-P9e" firstAttribute="leading" secondItem="UQ0-Fn-vAi" secondAttribute="trailing" constant="8" symbolic="YES" id="PgV-E8-NlS"/>
+                                            <constraint firstItem="XoM-r7-T5v" firstAttribute="top" secondItem="UQ0-Fn-vAi" secondAttribute="bottom" constant="8" symbolic="YES" id="PuO-cI-Cfl"/>
+                                            <constraint firstItem="XoM-r7-T5v" firstAttribute="trailing" secondItem="hVn-MM-P9e" secondAttribute="trailing" id="RdJ-He-xiq"/>
+                                            <constraint firstItem="qjW-wy-prh" firstAttribute="trailing" secondItem="3yB-L7-O6s" secondAttribute="trailing" id="Roz-Nj-oat"/>
+                                            <constraint firstItem="Ljr-ko-out" firstAttribute="leading" secondItem="nr7-Jm-4f2" secondAttribute="leading" id="RyJ-uG-IgZ"/>
+                                            <constraint firstItem="FFm-hn-yVg" firstAttribute="leading" secondItem="KNU-UV-5m5" secondAttribute="leading" id="Rz5-ik-n4L"/>
+                                            <constraint firstItem="huo-y5-WWq" firstAttribute="baseline" secondItem="qjW-wy-prh" secondAttribute="baseline" id="TAm-Kb-9cl"/>
+                                            <constraint firstItem="nr7-Jm-4f2" firstAttribute="leading" secondItem="huo-y5-WWq" secondAttribute="leading" id="TD4-2f-yqQ"/>
+                                            <constraint firstItem="hVn-MM-P9e" firstAttribute="trailing" secondItem="dnu-iU-cr7" secondAttribute="trailing" id="V2d-c9-m9d"/>
+                                            <constraint firstItem="nr7-Jm-4f2" firstAttribute="baseline" secondItem="3yB-L7-O6s" secondAttribute="baseline" id="V8R-h4-4pU"/>
+                                            <constraint firstItem="XoM-r7-T5v" firstAttribute="leading" secondItem="dnu-iU-cr7" secondAttribute="leading" id="Yta-0C-WnV"/>
+                                            <constraint firstItem="qjW-wy-prh" firstAttribute="trailing" secondItem="g17-hl-gNJ" secondAttribute="trailing" id="Zz7-bG-KMw"/>
+                                            <constraint firstItem="qAx-ta-SF6" firstAttribute="trailing" secondItem="XoM-r7-T5v" secondAttribute="trailing" id="an4-Sb-Fjj"/>
+                                            <constraint firstItem="g17-hl-gNJ" firstAttribute="baseline" secondItem="KNU-UV-5m5" secondAttribute="baseline" id="cR3-9Y-pVW"/>
+                                            <constraint firstItem="3yB-L7-O6s" firstAttribute="leading" secondItem="qjW-wy-prh" secondAttribute="leading" id="eqF-z4-zPf"/>
+                                            <constraint firstItem="qjW-wy-prh" firstAttribute="top" secondItem="3yB-L7-O6s" secondAttribute="bottom" constant="8" id="fDP-fC-83N"/>
+                                            <constraint firstItem="wwz-GB-YRL" firstAttribute="top" secondItem="dBw-1m-o0J" secondAttribute="top" id="h88-vT-hXn"/>
+                                            <constraint firstItem="FFm-hn-yVg" firstAttribute="baseline" secondItem="dnu-iU-cr7" secondAttribute="baseline" id="hQw-uC-Rpq"/>
+                                            <constraint firstItem="g17-hl-gNJ" firstAttribute="top" secondItem="qjW-wy-prh" secondAttribute="bottom" constant="8" id="ikX-xl-Bzv"/>
+                                            <constraint firstItem="3yB-L7-O6s" firstAttribute="leading" secondItem="wwz-GB-YRL" secondAttribute="leading" id="kOP-uN-QH2"/>
+                                            <constraint firstItem="XoM-r7-T5v" firstAttribute="baseline" secondItem="8zb-EQ-09O" secondAttribute="baseline" id="mxJ-cd-BvW"/>
+                                            <constraint firstItem="XoM-r7-T5v" firstAttribute="leading" secondItem="qAx-ta-SF6" secondAttribute="leading" id="nry-EY-UMd"/>
+                                            <constraint firstItem="8zb-EQ-09O" firstAttribute="leading" secondItem="UQ0-Fn-vAi" secondAttribute="leading" id="vno-mc-mCl"/>
+                                            <constraint firstItem="qAx-ta-SF6" firstAttribute="top" secondItem="XoM-r7-T5v" secondAttribute="bottom" constant="6" id="vyQ-GT-khA"/>
+                                            <constraint firstItem="g17-hl-gNJ" firstAttribute="leading" secondItem="dnu-iU-cr7" secondAttribute="leading" id="x79-Hv-uXk"/>
+                                            <constraint firstItem="g17-hl-gNJ" firstAttribute="trailing" secondItem="dnu-iU-cr7" secondAttribute="trailing" id="xIR-9Y-QB0"/>
+                                            <constraint firstItem="dBw-1m-o0J" firstAttribute="leading" secondItem="wwz-GB-YRL" secondAttribute="trailing" constant="8" symbolic="YES" id="xb6-SF-5N3"/>
                                         </constraints>
                                     </customView>
                                 </subviews>
                                 <holdingPriorities>
                                     <real value="250"/>
-                                    <real value="250"/>
+                                    <real value="300"/>
                                 </holdingPriorities>
                             </splitView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="TkH-Tv-gcE" secondAttribute="trailing" id="HG7-IC-C6b"/>
-                            <constraint firstItem="TkH-Tv-gcE" firstAttribute="leading" secondItem="HjG-Yu-P4s" secondAttribute="leading" id="i6O-cq-blX"/>
-                            <constraint firstItem="TkH-Tv-gcE" firstAttribute="top" secondItem="HjG-Yu-P4s" secondAttribute="top" id="uKv-Sd-YZE"/>
-                            <constraint firstAttribute="bottom" secondItem="TkH-Tv-gcE" secondAttribute="bottom" id="ygA-uX-5j9"/>
+                            <constraint firstAttribute="trailing" secondItem="TkH-Tv-gcE" secondAttribute="trailing" id="FOH-kC-NlS"/>
+                            <constraint firstItem="TkH-Tv-gcE" firstAttribute="top" secondItem="HjG-Yu-P4s" secondAttribute="top" id="d4t-gp-ihB"/>
+                            <constraint firstAttribute="bottom" secondItem="TkH-Tv-gcE" secondAttribute="bottom" id="hXk-sb-aC8"/>
+                            <constraint firstItem="TkH-Tv-gcE" firstAttribute="leading" secondItem="HjG-Yu-P4s" secondAttribute="leading" id="z9c-Eh-mpI"/>
                         </constraints>
                     </view>
                     <connections>
