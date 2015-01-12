@@ -27,6 +27,8 @@
 		026F21041A5FB23E00A52D0E /* Fuzzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454B0D5619CA9E7F00044B7C /* Fuzzy.swift */; };
 		026F21051A5FB25800A52D0E /* CoordinateSystems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456877E119B6857B004BEFD6 /* CoordinateSystems.swift */; };
 		026F21061A5FB26600A52D0E /* MonotoneChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BA25B719CA112E00B612B7 /* MonotoneChain.swift */; };
+		029651AB1A6366FA0099DA1C /* CDisplayLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 029651A91A6366FA0099DA1C /* CDisplayLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		029651AC1A6366FA0099DA1C /* CDisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 029651AA1A6366FA0099DA1C /* CDisplayLink.m */; };
 		450155841A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450155831A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift */; };
 		450155851A62F9F600D7FB7B /* SwiftGraphicsPlayground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454FE66219C77031002E4DEF /* SwiftGraphicsPlayground.framework */; };
 		4514F60D1A61D4C400CC9C26 /* Arc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4514F5FA1A61D4C400CC9C26 /* Arc.swift */; };
@@ -71,8 +73,6 @@
 		456877E219B6857B004BEFD6 /* CoordinateSystems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456877E119B6857B004BEFD6 /* CoordinateSystems.swift */; };
 		456C315C19C65B0E003AA1DF /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456C315B19C65B0E003AA1DF /* Ellipse.swift */; };
 		456C315D19C65B0E003AA1DF /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456C315B19C65B0E003AA1DF /* Ellipse.swift */; };
-		456C316019C65B19003AA1DF /* CDisplayLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 456C315E19C65B19003AA1DF /* CDisplayLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		456C316119C65B19003AA1DF /* CDisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 456C315F19C65B19003AA1DF /* CDisplayLink.m */; };
 		458BDD8219BCF7D100CD0EAC /* QuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458BDD8119BCF7D100CD0EAC /* QuadTree.swift */; };
 		458BDD8319BCF7D100CD0EAC /* QuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458BDD8119BCF7D100CD0EAC /* QuadTree.swift */; };
 		4594B08919AEDC2100101EB4 /* SwiftGraphicsHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 4594B08719AEDC2100101EB4 /* SwiftGraphicsHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -189,6 +189,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		029651A91A6366FA0099DA1C /* CDisplayLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDisplayLink.h; sourceTree = "<group>"; };
+		029651AA1A6366FA0099DA1C /* CDisplayLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDisplayLink.m; sourceTree = "<group>"; };
 		4501557F1A62F9F600D7FB7B /* SwiftGraphicsPlayground_OSX_UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftGraphicsPlayground_OSX_UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		450155821A62F9F600D7FB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		450155831A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGraphicsPlayground_UnitTests.swift; sourceTree = "<group>"; };
@@ -245,8 +247,6 @@
 		45592F501A61B65200F496D2 /* TransformTest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TransformTest.playground; sourceTree = "<group>"; };
 		456877E119B6857B004BEFD6 /* CoordinateSystems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateSystems.swift; sourceTree = "<group>"; };
 		456C315B19C65B0E003AA1DF /* Ellipse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ellipse.swift; sourceTree = "<group>"; };
-		456C315E19C65B19003AA1DF /* CDisplayLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDisplayLink.h; sourceTree = "<group>"; };
-		456C315F19C65B19003AA1DF /* CDisplayLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDisplayLink.m; sourceTree = "<group>"; };
 		4570B83C1A1EC3770055847A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		458BDD8119BCF7D100CD0EAC /* QuadTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuadTree.swift; sourceTree = "<group>"; };
 		4594B08719AEDC2100101EB4 /* SwiftGraphicsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftGraphicsHelper.h; sourceTree = "<group>"; };
@@ -454,6 +454,8 @@
 		454D550919AA5CE6000E3EB3 /* SwiftGraphics_OSX */ = {
 			isa = PBXGroup;
 			children = (
+				029651A91A6366FA0099DA1C /* CDisplayLink.h */,
+				029651AA1A6366FA0099DA1C /* CDisplayLink.m */,
 				454D550C19AA5CE6000E3EB3 /* SwiftGraphics.h */,
 				454D550A19AA5CE6000E3EB3 /* Supporting Files */,
 			);
@@ -528,8 +530,6 @@
 		459EE5DB19AEC5130012E023 /* SwiftGraphics */ = {
 			isa = PBXGroup;
 			children = (
-				456C315E19C65B19003AA1DF /* CDisplayLink.h */,
-				456C315F19C65B19003AA1DF /* CDisplayLink.m */,
 				456C315B19C65B0E003AA1DF /* Ellipse.swift */,
 				459EE5DC19AEC5130012E023 /* BezierCurve.swift */,
 				459EE5DD19AEC5130012E023 /* CGAffineTransform.swift */,
@@ -595,10 +595,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				029651AB1A6366FA0099DA1C /* CDisplayLink.h in Headers */,
 				454D550D19AA5CE6000E3EB3 /* SwiftGraphics.h in Headers */,
 				4594B08919AEDC2100101EB4 /* SwiftGraphicsHelper.h in Headers */,
 				45563F2E19B1047E003B1639 /* CColorConverter.h in Headers */,
-				456C316019C65B19003AA1DF /* CDisplayLink.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -850,7 +850,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				456C316119C65B19003AA1DF /* CDisplayLink.m in Sources */,
+				029651AC1A6366FA0099DA1C /* CDisplayLink.m in Sources */,
 				456C315C19C65B0E003AA1DF /* Ellipse.swift in Sources */,
 				45CFDC6C1A61CB6800053F96 /* ConvexHull.swift in Sources */,
 				458BDD8219BCF7D100CD0EAC /* QuadTree.swift in Sources */,
