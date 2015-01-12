@@ -25,6 +25,13 @@ CGRect, CGAffineTransform
 cubic of course)
 * A path object that represents a bezier path - can be used to create and manipulate
 paths in a more natural way than CGPath or NSBezierPath can do 
+* Convex Hull Generation
+* QuadTree data structure
+* Metaballs (Marching Squares algorithm) implementation
+
+![Convex Hull Screenshot](Documentation/ConvexHull.png)
+![Metaballs Screenshot](Documentation/Metaballs.png)
+![QuadTree Screenshot](Documentation/QuadTree.png)
 
 ## In Progress
 
