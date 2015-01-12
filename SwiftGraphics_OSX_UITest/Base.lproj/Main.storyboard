@@ -793,10 +793,10 @@
             </objects>
             <point key="canvasLocation" x="1893" y="1927"/>
         </scene>
-        <!--View Controller-->
+        <!--Metaballs-->
         <scene sceneID="yDx-uK-ilu">
             <objects>
-                <viewController title="View Controller" id="71F-0d-QXL" sceneMemberID="viewController">
+                <viewController title="Metaballs" id="71F-0d-QXL" sceneMemberID="viewController">
                     <view key="view" id="KsV-IC-MbJ" customClass="MetaballsView" customModule="SwiftGraphics_OSX_UITest" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>

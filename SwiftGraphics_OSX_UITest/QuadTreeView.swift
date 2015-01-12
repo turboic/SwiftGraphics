@@ -29,7 +29,9 @@ class QuadTreeView: NSView {
 
         let context = NSGraphicsContext.currentContext()!.CGContext
 
-        self.quadTree.render(context)
+        context.withColor(NSColor.greenColor()) {
+            self.quadTree.render(context)
+        }
 
         for point in self.quadTree.objectsInRect(dirtyRect.insetted(dx:-5, dy:-5)) {
             context.strokeCross(CGRect(center:point, diameter:10))

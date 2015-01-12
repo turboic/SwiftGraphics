@@ -29,6 +29,12 @@ class DemoView: NSView {
                 context.strokeSaltire(CGRect(center:p, size:CGSize(w:4, h:4)))
             }
         }
+
+        context.withColor(NSColor.greenColor()) {
+            let hull = convexHull(self.points)
+            context.strokeLine(hull, close:true)
+        }
+
     }
 
     override func mouseDown(theEvent: NSEvent) {
