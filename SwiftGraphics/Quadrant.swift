@@ -11,29 +11,42 @@ import CoreGraphics
 // MARK: Quadrants
 
 public enum Quadrant {
-    case TopLeft
-    case TopRight
-    case BottomLeft
-    case BottomRight
+    case MinXMinY
+    case MaxXMinY
+    case MinXMaxY
+    case MaxXMaxY
 }
 
 public extension Quadrant {
     static func fromPoint(point:CGPoint) -> Quadrant {
         if (point.y >= 0) {
             if (point.x >= 0) {
-                return(.TopRight)
+                return(.MaxXMaxY)
             }
             else {
-                return(.TopLeft)
+                return(.MinXMaxY)
             }
         }
         else {
             if (point.x >= 0) {
-                return(.BottomRight)
+                return(.MaxXMinY)
             }
             else {
-                return(.BottomLeft)
+                return(.MinXMinY)
             }
+        }
+    }
+
+    func toPoint() -> CGPoint {
+        switch self {
+            case .MinXMinY:
+                return CGPoint(x:-1, y:-1)
+            case .MaxXMinY:
+                return CGPoint(x:1, y:-1)
+            case .MinXMaxY:
+                return CGPoint(x:-1, y:1)
+            case .MaxXMaxY:
+                return CGPoint(x:1, y:1)
         }
     }
 
@@ -56,14 +69,14 @@ extension CGRect {
     func quadrant(quadrant:Quadrant) -> CGRect {
         let size = CGSize(width:self.size.width * 0.5, height:self.size.height * 0.5)
         switch quadrant {
-        case .TopLeft:
-            return CGRect(origin:CGPoint(x:self.minX, y:self.midY), size:size)
-        case .TopRight:
-            return CGRect(origin:CGPoint(x:self.midX, y:self.midY), size:size)
-        case .BottomLeft:
+        case .MinXMinY:
             return CGRect(origin:CGPoint(x:self.minX, y:self.minY), size:size)
-        case .BottomRight:
+        case .MaxXMinY:
             return CGRect(origin:CGPoint(x:self.midX, y:self.minY), size:size)
+        case .MinXMaxY:
+            return CGRect(origin:CGPoint(x:self.minX, y:self.midY), size:size)
+        case .MaxXMaxY:
+            return CGRect(origin:CGPoint(x:self.midX, y:self.midY), size:size)
         }
     }
 }
