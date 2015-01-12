@@ -105,10 +105,10 @@
 		459EE5FC19AEC5130012E023 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5E619AEC5130012E023 /* Utilities.swift */; };
 		459EE60E19AED5500012E023 /* PrivateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE60D19AED5500012E023 /* PrivateUtilities.swift */; };
 		459EE60F19AED5500012E023 /* PrivateUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE60D19AED5500012E023 /* PrivateUtilities.swift */; };
+		45B8787C1A634F1F00CE168E /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B8787B1A634F1F00CE168E /* Random.swift */; };
 		45B8AE8E19BCE4ED00C61A3F /* CColorConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 45563F2D19B1047E003B1639 /* CColorConverter.m */; };
 		45BA25B819CA112E00B612B7 /* MonotoneChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BA25B719CA112E00B612B7 /* MonotoneChain.swift */; };
 		45BA25BD19CA1E8A00B612B7 /* ConvexHullTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BA25BC19CA1E8A00B612B7 /* ConvexHullTests.swift */; };
-		45BF1EBE1A61FD0D00DE8AE5 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BF1EBD1A61FD0D00DE8AE5 /* Random.swift */; };
 		45C6DC751A13E59C004C4693 /* TransformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C6DC741A13E59C004C4693 /* TransformTests.swift */; };
 		45CFDC661A61CA0700053F96 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CFDC651A61CA0700053F96 /* Utilities.swift */; };
 		45CFDC691A61CB4500053F96 /* GrahamScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CFDC671A61CB3000053F96 /* GrahamScan.swift */; };
@@ -264,10 +264,10 @@
 		459EE5E519AEC5130012E023 /* Scaling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scaling.swift; sourceTree = "<group>"; };
 		459EE5E619AEC5130012E023 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		459EE60D19AED5500012E023 /* PrivateUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateUtilities.swift; sourceTree = "<group>"; };
+		45B8787B1A634F1F00CE168E /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		45BA25B719CA112E00B612B7 /* MonotoneChain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonotoneChain.swift; sourceTree = "<group>"; };
 		45BA25BB19CA156800B612B7 /* Triangle.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Triangle.playground; sourceTree = "<group>"; };
 		45BA25BC19CA1E8A00B612B7 /* ConvexHullTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvexHullTests.swift; sourceTree = "<group>"; };
-		45BF1EBD1A61FD0D00DE8AE5 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Random.swift; path = ../../../../../Desktop/Random.swift; sourceTree = "<group>"; };
 		45BF1EBF1A61FED300DE8AE5 /* Random.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Random.playground; sourceTree = "<group>"; };
 		45C6DC741A13E59C004C4693 /* TransformTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformTests.swift; sourceTree = "<group>"; };
 		45CFDC651A61CA0700053F96 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -511,7 +511,7 @@
 				454B0D5819CAA00300044B7C /* Plotable.swift */,
 				454FE67F19C77455002E4DEF /* SwiftGraphicsPlayground.swift */,
 				45CFDC651A61CA0700053F96 /* Utilities.swift */,
-				45BF1EBD1A61FD0D00DE8AE5 /* Random.swift */,
+				45B8787B1A634F1F00CE168E /* Random.swift */,
 				454FE66419C77031002E4DEF /* Supporting Files */,
 			);
 			path = SwiftGraphicsPlayground;
@@ -894,8 +894,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45BF1EBE1A61FD0D00DE8AE5 /* Random.swift in Sources */,
 				45CFDC661A61CA0700053F96 /* Utilities.swift in Sources */,
+				45B8787C1A634F1F00CE168E /* Random.swift in Sources */,
 				454B0D5919CAA00300044B7C /* Plotable.swift in Sources */,
 				454FE68019C77455002E4DEF /* SwiftGraphicsPlayground.swift in Sources */,
 			);
@@ -1353,6 +1353,7 @@
 				450155891A62F9F600D7FB7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		454D550119AA5CE6000E3EB3 /* Build configuration list for PBXProject "SwiftGraphics" */ = {
 			isa = XCConfigurationList;

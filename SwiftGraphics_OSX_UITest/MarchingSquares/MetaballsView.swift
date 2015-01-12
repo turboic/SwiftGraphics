@@ -20,7 +20,6 @@ class MetaballsView: NSView {
     var fps: Double = 0
     var fieldSize: IntSize! {
         didSet {
-            println("DID CHANGE FIELD SIZE")
             marchingSquares = MarchingSquares(size:fieldSize, resolution:resolution)
             marchingSquares.magnitudeClosure = self.magnitudeAtPoint
         }
@@ -63,7 +62,6 @@ class MetaballsView: NSView {
     override func setFrameSize(newSize: NSSize) {
         super.setFrameSize(newSize)
 
-        println("SET FRAME SIZE \(newSize)")
         let width = Int(ceil(self.bounds.size.width / resolution)) + 1
         let height = Int(ceil(self.bounds.size.height / resolution)) + 1
         fieldSize = IntSize(width:width, height:height)
