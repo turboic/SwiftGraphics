@@ -49,6 +49,17 @@ public func - (lhs:CGPoint, rhs:CGPoint) -> CGPoint {
     return CGPoint(x:lhs.x - rhs.x, y:lhs.y - rhs.y)
 }
 
+// MARK: Arithmetic (with float)
+
+public func * (lhs:CGPoint, rhs:CGPoint) -> CGPoint {
+    return CGPoint(x:lhs.x * rhs.x, y:lhs.y * rhs.y)
+}
+
+public func / (lhs:CGPoint, rhs:CGPoint) -> CGPoint {
+    return CGPoint(x:lhs.x / rhs.x, y:lhs.y / rhs.y)
+}
+
+
 // MARK: Arithmetic (with scalar)
 
 public func * (lhs:CGPoint, rhs:CGFloat) -> CGPoint {
