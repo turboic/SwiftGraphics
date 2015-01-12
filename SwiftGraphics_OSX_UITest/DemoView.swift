@@ -25,12 +25,12 @@ class DemoView: NSView {
 
         let radius = CGFloat(2)
         for p in self.points {
-            context.withColor(NSColor.blackColor()) {
+            context.withColor(CGColor.blackColor()) {
                 context.strokeSaltire(CGRect(center:p, size:CGSize(w:4, h:4)))
             }
         }
 
-        context.withColor(NSColor.greenColor()) {
+        context.withColor(CGColor.greenColor()) {
             let hull = convexHull(self.points)
             context.strokeLine(hull, close:true)
         }

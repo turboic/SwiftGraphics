@@ -2,38 +2,63 @@
 
 import SwiftGraphics 
 
-extension CGColor {
-    func colorWithAlpha(alpha:CGFloat) -> CGColor {
-        return CGColorCreateCopyWithAlpha(self, alpha)
-    }
-}
+let c = NSColor(deviceHue: 1.0, saturation: 1.0, brightness: 1.0, alpha: 1.0)
+c.CGColor.colorSpace.name
 
-extension CGColor {
-    class func whiteColor() -> CGColor {
-        return NSColor.whiteColor().CGColor
-    }
-    class func blackColor() -> CGColor {
-        return NSColor.blackColor().CGColor
-    }
-    class func redColor() -> CGColor {
-        return NSColor.redColor().CGColor
-    }
-    class func greenColor() -> CGColor {
-        return NSColor.greenColor().CGColor
-    }
-}
+//struct RGBA {
+//    let red:CGFloat = 0.0
+//    let green:CGFloat = 0.0
+//    let blue:CGFloat = 0.0
+//    let alpha:CGFloat = 0.0
+//}
+//
+//typealias RGBA2 = (CGFloat, CGFloat, CGFloat, CGFloat)
+//
+//sizeof(RGBA2)
 
-func * (lhs:CGColor, rhs:CGFloat) -> CGColor {
-    return lhs.colorWithAlpha(rhs)
-}
+//struct Color {
+//    let CGColor:CGColorRef?
+//
+//    init(CGColor:CGColorRef) {
+//        self.CGColor = CGColor
+//    }
+//
+//    init(red:CGFloat = 0.0, green:CGFloat = 0.0, blue:CGFloat = 0.0, alpha:CGFloat = 1.0) {
+//        self.CGColor = CGColorCreateGenericRGB(red, green, blue, alpha)
+//    }
+//
+//    init(white:CGFloat, alpha:CGFloat = 1.0) {
+//        self.CGColor = CGColorCreateGenericGray(white, alpha)
+//    }
+//
+//    static var blackColor = Color(white:0)
+//    static var darkGrayColor = Color(white:0.333)
+//    static var lightGrayColor = Color(white:0.667)
+//    static var whiteColor = Color(white:1)
+//    static var grayColor = Color(white:0.5)
+//    static var redColor = Color(red:1)
+//    static var greenColor = Color(green:1)
+//    static var blueColor = Color(blue:1)
+//    static var cyanColor = Color(green:1, blue:1)
+//    static var yellowColor = Color(red:1, green:1)
+//    static var magnetaColor = Color(green:1, blue:1)
+//    static var orangeColor = Color(red:1, green:0.5)
+//    static var purpleColor = Color(red:0.5, blue:0.5)
+//    static var brownColor = Color(red:0.6, green:0.4, blue:0.2)
+//    static var clearColor = Color(white:0.0, alpha:0.0)
+//
+//}
+//
+//println(sizeof(Color))
+//
+//print(Color.redColor.CGColor)
+//println(NSColor.redColor().CGColor)
 
 struct Styles {
     var fillColor:CGColor?
     var strokeColor:CGColor?
     var lineWidth:CGFloat?
     var lineDash:[CGFloat]?
-
-
     init() {
     }
 }
@@ -118,24 +143,6 @@ extension CGContext {
     }
 }
 
-public extension CGContext {
-
-    func setStrokeColor(color:CGColor) {
-        CGContextSetStrokeColorWithColor(self, color)
-    }
-    func setFillColor(color:CGColor) {
-        CGContextSetFillColorWithColor(self, color)
-    }
-    func setLineWidth(width:CGFloat) {
-        CGContextSetLineWidth(self, width)
-    }
-    func setLineDash(lengths:[CGFloat]) {
-        lengths.withUnsafeBufferPointer {
-            (buffer:UnsafeBufferPointer<CGFloat>) -> Void in
-            CGContextSetLineDash(self, 0.0, buffer.baseAddress, UInt(lengths.count))
-        }
-    }
-}
 
 enum Style {
     case strokeColor(CGColor)
@@ -184,7 +191,7 @@ let context = CGContextRef.bitmapContext(CGSize(w:512, h:512))
 let center = CGPoint(x:200, y:200)
 let radius:CGFloat = 100
 
-context.fillColor = CGColor.redColor() * 0.5
+context.fillColor = CGColor.redColor().withAlpha(0.5)
 context.fillCircle(center:center, radius:radius)
 
 // From: http://www.faqs.org/faqs/graphics/algorithms-faq/ section 4.04

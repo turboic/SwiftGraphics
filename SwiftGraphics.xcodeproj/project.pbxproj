@@ -68,6 +68,9 @@
 		456877E219B6857B004BEFD6 /* CoordinateSystems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456877E119B6857B004BEFD6 /* CoordinateSystems.swift */; };
 		456C315C19C65B0E003AA1DF /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456C315B19C65B0E003AA1DF /* Ellipse.swift */; };
 		456C315D19C65B0E003AA1DF /* Ellipse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456C315B19C65B0E003AA1DF /* Ellipse.swift */; };
+		4574C0251A64604900454DE5 /* CGContext_OSX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4574C0241A64604900454DE5 /* CGContext_OSX.swift */; };
+		4574C0271A64613A00454DE5 /* CGContext+BitmapContexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4574C0261A64613A00454DE5 /* CGContext+BitmapContexts.swift */; };
+		4574C0281A64613A00454DE5 /* CGContext+BitmapContexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4574C0261A64613A00454DE5 /* CGContext+BitmapContexts.swift */; };
 		458BDD8219BCF7D100CD0EAC /* QuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458BDD8119BCF7D100CD0EAC /* QuadTree.swift */; };
 		458BDD8319BCF7D100CD0EAC /* QuadTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458BDD8119BCF7D100CD0EAC /* QuadTree.swift */; };
 		4594B08919AEDC2100101EB4 /* SwiftGraphicsHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 4594B08719AEDC2100101EB4 /* SwiftGraphicsHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -122,6 +125,10 @@
 		45CFDCA71A61CE3500053F96 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45CFDCA61A61CE3500053F96 /* Images.xcassets */; };
 		45CFDCAA1A61CE3500053F96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45CFDCA81A61CE3500053F96 /* Main.storyboard */; };
 		45DA4AC919AA62A800133F32 /* SwiftGraphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 45DA4AC819AA62A800133F32 /* SwiftGraphics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		45F32C721A6455BB00E3DA68 /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F32C711A6455BB00E3DA68 /* CGColor.swift */; };
+		45F32C731A6455BB00E3DA68 /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F32C711A6455BB00E3DA68 /* CGColor.swift */; };
+		45F32C751A64590E00E3DA68 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F32C741A64590E00E3DA68 /* Color.swift */; };
+		45F32C761A64590E00E3DA68 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F32C741A64590E00E3DA68 /* Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -245,6 +252,8 @@
 		456877E119B6857B004BEFD6 /* CoordinateSystems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateSystems.swift; sourceTree = "<group>"; };
 		456C315B19C65B0E003AA1DF /* Ellipse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ellipse.swift; sourceTree = "<group>"; };
 		4570B83C1A1EC3770055847A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		4574C0241A64604900454DE5 /* CGContext_OSX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGContext_OSX.swift; sourceTree = "<group>"; };
+		4574C0261A64613A00454DE5 /* CGContext+BitmapContexts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGContext+BitmapContexts.swift"; sourceTree = "<group>"; };
 		458BDD8119BCF7D100CD0EAC /* QuadTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuadTree.swift; sourceTree = "<group>"; };
 		4594B08719AEDC2100101EB4 /* SwiftGraphicsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwiftGraphicsHelper.h; sourceTree = "<group>"; };
 		4594B08819AEDC2100101EB4 /* SwiftGraphicsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwiftGraphicsHelper.m; sourceTree = "<group>"; };
@@ -286,6 +295,8 @@
 		45DA4AC419AA62A800133F32 /* SwiftGraphics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGraphics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45DA4AC719AA62A800133F32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45DA4AC819AA62A800133F32 /* SwiftGraphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftGraphics.h; sourceTree = "<group>"; };
+		45F32C711A6455BB00E3DA68 /* CGColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
+		45F32C741A64590E00E3DA68 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		45FAC0661A16C4CA00A3F1D3 /* Animations.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Animations.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -458,6 +469,7 @@
 				029651A91A6366FA0099DA1C /* CDisplayLink.h */,
 				029651AA1A6366FA0099DA1C /* CDisplayLink.m */,
 				454D550C19AA5CE6000E3EB3 /* SwiftGraphics.h */,
+				4574C0241A64604900454DE5 /* CGContext_OSX.swift */,
 				454D550A19AA5CE6000E3EB3 /* Supporting Files */,
 			);
 			path = SwiftGraphics_OSX;
@@ -538,7 +550,10 @@
 				456C315B19C65B0E003AA1DF /* Ellipse.swift */,
 				459EE5DC19AEC5130012E023 /* BezierCurve.swift */,
 				459EE5DD19AEC5130012E023 /* CGAffineTransform.swift */,
+				45F32C711A6455BB00E3DA68 /* CGColor.swift */,
 				459EE5DE19AEC5130012E023 /* CGContext.swift */,
+				4574C0261A64613A00454DE5 /* CGContext+BitmapContexts.swift */,
+				45F32C741A64590E00E3DA68 /* Color.swift */,
 				459EE5DF19AEC5130012E023 /* CGPath.swift */,
 				459EE5E019AEC5130012E023 /* CGPoint.swift */,
 				4515825B19C9F21000856C91 /* Turn.swift */,
@@ -857,6 +872,7 @@
 			files = (
 				029651AC1A6366FA0099DA1C /* CDisplayLink.m in Sources */,
 				456C315C19C65B0E003AA1DF /* Ellipse.swift in Sources */,
+				4574C0251A64604900454DE5 /* CGContext_OSX.swift in Sources */,
 				45CFDC6C1A61CB6800053F96 /* ConvexHull.swift in Sources */,
 				458BDD8219BCF7D100CD0EAC /* QuadTree.swift in Sources */,
 				459EE5EB19AEC5130012E023 /* CGContext.swift in Sources */,
@@ -870,10 +886,13 @@
 				459EE5F919AEC5130012E023 /* Scaling.swift in Sources */,
 				459EE5F719AEC5130012E023 /* Quadrant.swift in Sources */,
 				459EE5F319AEC5130012E023 /* CGSize.swift in Sources */,
+				4574C0271A64613A00454DE5 /* CGContext+BitmapContexts.swift in Sources */,
 				45BA25B819CA112E00B612B7 /* MonotoneChain.swift in Sources */,
 				4515825C19C9F21000856C91 /* Turn.swift in Sources */,
+				45F32C751A64590E00E3DA68 /* Color.swift in Sources */,
 				459EE5ED19AEC5130012E023 /* CGPath.swift in Sources */,
 				456877E219B6857B004BEFD6 /* CoordinateSystems.swift in Sources */,
+				45F32C721A6455BB00E3DA68 /* CGColor.swift in Sources */,
 				459EE5F519AEC5130012E023 /* Geometry.swift in Sources */,
 				459EE5EF19AEC5130012E023 /* CGPoint.swift in Sources */,
 				459EE60E19AED5500012E023 /* PrivateUtilities.swift in Sources */,
@@ -947,7 +966,9 @@
 				45CFDC6D1A61CB6800053F96 /* ConvexHull.swift in Sources */,
 				459EE5EC19AEC5130012E023 /* CGContext.swift in Sources */,
 				4594B08C19AEDC2100101EB4 /* SwiftGraphicsHelper.m in Sources */,
+				4574C0281A64613A00454DE5 /* CGContext+BitmapContexts.swift in Sources */,
 				459EE5F219AEC5130012E023 /* CGRect.swift in Sources */,
+				45F32C731A6455BB00E3DA68 /* CGColor.swift in Sources */,
 				459EE5FC19AEC5130012E023 /* Utilities.swift in Sources */,
 				4515825D19C9F21800856C91 /* Turn.swift in Sources */,
 				458BDD8319BCF7D100CD0EAC /* QuadTree.swift in Sources */,
@@ -957,6 +978,7 @@
 				459EE5F819AEC5130012E023 /* Quadrant.swift in Sources */,
 				459EE5F419AEC5130012E023 /* CGSize.swift in Sources */,
 				459EE5EE19AEC5130012E023 /* CGPath.swift in Sources */,
+				45F32C761A64590E00E3DA68 /* Color.swift in Sources */,
 				459EE5F619AEC5130012E023 /* Geometry.swift in Sources */,
 				459EE5F019AEC5130012E023 /* CGPoint.swift in Sources */,
 				45CFDC6A1A61CB4500053F96 /* GrahamScan.swift in Sources */,

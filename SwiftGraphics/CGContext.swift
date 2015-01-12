@@ -7,21 +7,75 @@
 //
 
 import CoreGraphics
-import Foundation
 
-#if os(OSX)
-import AppKit
-#endif
+public extension CGContext {
+
+    func setFillColor(color:CGColor) {
+        CGContextSetFillColorWithColor(self, color)
+    }
+    func setStrokeColor(color:CGColor) {
+        CGContextSetStrokeColorWithColor(self, color)
+    }
+
+    func setLineWidth(width:CGFloat) {
+        CGContextSetLineWidth(self, width)
+    }
+
+    func setLineCap(lineCap:CGLineCap) {
+        CGContextSetLineCap(self, lineCap)
+    }
+
+    func setLineJoin(lineJoin:CGLineJoin) {
+        CGContextSetLineJoin(self, lineJoin)
+    }
+
+    func setMiterLimit(miterLimit:CGFloat) {
+        CGContextSetMiterLimit(self, miterLimit)
+    }
+
+    func setLineDash(lengths:[CGFloat], phase:CGFloat = 0.0) {
+        lengths.withUnsafeBufferPointer {
+            (buffer:UnsafeBufferPointer<CGFloat>) -> Void in
+            CGContextSetLineDash(self, phase, buffer.baseAddress, UInt(lengths.count))
+        }
+    }
+
+    func setFlatness(flatness:CGFloat) {
+        CGContextSetFlatness(self, flatness)
+    }
+
+    func setAlpha(alpha:CGFloat) {
+        CGContextSetAlpha(self, alpha)
+    }
+
+    func setBlendMode(blendMode:CGBlendMode) {
+        CGContextSetBlendMode(self, blendMode)
+    }
+}
+
+// MARK: "with" helpers
+
+public extension CGContext {
+
+    func with(block:() -> Void) {
+        CGContextSaveGState(self)
+        block()
+        CGContextRestoreGState(self)
+    }
+
+    func withColor(color:CGColor, block:() -> Void) {
+        with {
+            self.setStrokeColor(color)
+            self.setFillColor(color)
+            block()
+        }
+    }
+}
+
 
 // TODO: This code is mostly experimental, use at your own risk - see TODO.markdown
 
 public extension CGContext {
-
-    class func bitmapContext(size:CGSize) -> CGContext! {
-        let colorspace = CGColorSpaceCreateDeviceRGB()    
-        var bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedFirst.rawValue)
-        return CGBitmapContextCreate(nil, UInt(size.width), UInt(size.height), 8, UInt(size.width) * 4, colorspace, bitmapInfo)
-    }
 
     func fillRect(rect:CGRect) {
         CGContextFillRect(self, rect)
@@ -61,7 +115,6 @@ public extension CGContext {
             newPoints.append(second!)
         }
 
-
         self.strokeLines(newPoints)
     }
 
@@ -75,73 +128,7 @@ public extension CGContext {
         CGContextFillEllipseInRect(self, circle.frame)
     }
 
-    func with(block:() -> Void) {
-        CGContextSaveGState(self)
-        block()
-        CGContextRestoreGState(self)
-    }
-}
-
-// MARK: Colors
-
-public extension CGContext {
-#if os(OSX)
-    func setStrokeColor(color:NSColor) {
-        CGContextSetStrokeColorWithColor(self, color.CGColor)
-    }
-
-    func setFillColor(color:NSColor) {
-        CGContextSetFillColorWithColor(self, color.CGColor)
-    }
-
-    func withColor(color:NSColor, block:() -> Void) {
-        with {
-            CGContextSetStrokeColorWithColor(self, color.CGColor)
-            CGContextSetFillColorWithColor(self, color.CGColor)
-            block()
-        }
-    }
-#endif
-}
-
-// MARK: Images
-
-public extension CGImageRef {
-    var size : CGSize { get { return CGSize(width:CGFloat(CGImageGetWidth(self)), height:CGFloat(CGImageGetHeight(self))) } }
-}
-
-public extension CGContext {
-#if os(OSX)
-    var nsimage : NSImage {
-        get { 
-            // This assumes the context is a bitmap context
-            let cgimage = CGBitmapContextCreateImage(self)
-            let size = CGSize(width:CGFloat(CGImageGetWidth(cgimage)), height:CGFloat(CGImageGetHeight(cgimage)))
-            let nsimage = NSImage(CGImage:cgimage, size:size)
-            return nsimage
-        }
-    }
-#endif
-}
-
-// MARK: Strings
-
-public extension CGContext {
-#if os(OSX)
-    func draw(string:String, point:CGPoint, attributes:NSDictionary?) {
-        string._bridgeToObjectiveC().drawAtPoint(point, withAttributes:attributes)
-    }
-
-    func drawLabel(string:String, point:CGPoint, size:CGFloat) {
-        let attributes = [NSFontAttributeName:NSFont.labelFontOfSize(size)]
-        self.draw(string, point:point, attributes:attributes)
-    }
-#endif
-}
-
 // MARK: Convenience shapes
-
-public extension CGContext {
 
     func strokeCross(rect:CGRect) {
         let linePoints = [
@@ -158,5 +145,4 @@ public extension CGContext {
         ]
         self.strokeLines(linePoints)
     }
-
 }

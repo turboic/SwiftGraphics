@@ -38,9 +38,9 @@ class ArcView: NSView {
             }
 
         for (index, handle) in enumerate(handles) {
-            var color = NSColor.blueColor()
+            var color = CGColor.blueColor()
             if activeHandle == index {
-                color = NSColor.redColor()
+                color = CGColor.redColor()
             }
             
             context.withColor(color) {

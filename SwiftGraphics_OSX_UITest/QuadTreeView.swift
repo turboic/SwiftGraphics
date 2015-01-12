@@ -29,7 +29,7 @@ class QuadTreeView: NSView {
 
         let context = NSGraphicsContext.currentContext()!.CGContext
 
-        context.withColor(NSColor.greenColor()) {
+        context.withColor(CGColor.greenColor()) {
             self.quadTree.render(context)
         }
 

@@ -42,7 +42,7 @@ class MarchingSquares {
                 
                 let hue:CGFloat = magnitude >= threshold ? 1.0 : 0.8
                 
-                let color = NSColor(deviceHue:hue, saturation:1.0, brightness:1.0, alpha:magnitude)
+                let color = CGColor.color(hue:hue, saturation:1.0, brightness:1.0, alpha:magnitude)
                 ctx.withColor(color) {
                     ctx.fillCircle(center:point, radius:1.5)
                 }

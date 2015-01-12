@@ -63,12 +63,12 @@ class BezierEditor : Editor {
     
     func draw(context:CGContextRef) {
         for p in self.handles {
-            context.withColor(NSColor.redColor()) {
+            context.withColor(CGColor.redColor()) {
                 context.strokeCross(CGRect(center:p.position, size:CGSize(w:6, h:6)))
             }
         }
         for p in self.guides {
-            context.withColor(NSColor.blueColor()) {
+            context.withColor(CGColor.blueColor()) {
                 context.strokeSaltire(CGRect(center:p.position, size:CGSize(w:3, h:3)))
             }
         }
