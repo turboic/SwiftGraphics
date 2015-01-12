@@ -5,4 +5,5 @@ osx_image: xcode61
 #xcode_sdk: 'iphonesimulator'
 script:
     - xctool -project SwiftGraphics.xcodeproj -scheme SwiftGraphics_OSX build test
+    - xctool -project SwiftGraphics.xcodeproj -scheme SwiftGraphics_OSX_UITest build test
     - xctool -project SwiftGraphics.xcodeproj -scheme SwiftGraphics_iOS -sdk iphonesimulator build test
