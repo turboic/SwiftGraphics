@@ -12,7 +12,14 @@ struct HSV {
     var h:CGFloat = 0.0
     var s:CGFloat = 0.0
     var v:CGFloat = 0.0
+    init(h:CGFloat = 0.0, s:CGFloat = 0.0, v:CGFloat = 0.0) {
+        (self.h, self.s, self.v) = (h,s,v)
+    }
+    init(tuple:(h:CGFloat, s:CGFloat, v:CGFloat)) {
+        (self.h, self.s, self.v) = tuple
+    }
 }
+
 
 struct RGB {
     var r:CGFloat = 0.0
@@ -25,6 +32,17 @@ struct RGB {
         (self.r, self.g, self.b) = tuple
     }
 }
+
+// TODO: One option? Or just add alpha to colors
+//struct HSVA {
+//    var hsv:HSV
+//    var a:CGFloat
+//}
+//
+//struct RGBA {
+//    var rgb:RGB
+//    var a:CGFloat
+//}
 
 func convert(hsv:HSV) -> RGB {
     var (h, s, v) = (hsv.h, hsv.s, hsv.v)
@@ -65,32 +83,36 @@ func convert(hsv:HSV) -> RGB {
     }
 }
 
-//void RGBtoHSV(float r, float g, float b, float *h, float *s, float *v)
-//{
-//    float max = MAX(r, MAX(g, b));
-//    float min = MIN(r, MIN(g, b));
-//    float delta = max - min;
-//    
-//    *v = max;
-//    *s = (max != 0.0f) ? (delta / max) : 0.0f;
-//    
-//    if (*s == 0.0f) {
-//        *h = 0.0f;
-//    } else {
-//        if (r == max) {
-//            *h = (g - b) / delta;
-//        } else if (g == max) {
-//            *h = 2.0f + (b - r) / delta;
-//        } else if (b == max) {
-//            *h = 4.0f + (r - g) / delta;
-//        }
-//        
-//        *h *= 60.0f;
-//        
-//        if (*h < 0.0f) {
-//            *h += 360.0f;
-//        }
-//    }
-//    
-//    *h /= 360.0f;
-//}
+func convert(rgb:RGB) -> HSV {
+    let max_ = max(rgb.r, rgb.g, rgb.b)
+    let min_ = min(rgb.r, rgb.g, rgb.b)
+    let delta = max_ - min_
+
+    var h:CGFloat = 0.0
+    let s = max_ != 0.0 ? delta / max_ : 0.0
+    let v = max_
+
+    if s == 0.0 {
+        h = 0.0
+    }
+    else {
+        if rgb.r == max_ {
+            h = (rgb.g - rgb.b) / delta
+        }
+        else if rgb.g == max_ {
+            h = 2 + (rgb.b - rgb.r) / delta
+        }
+        else if rgb.b == max_ {
+            h = 4 + (rgb.r - rgb.g) / delta
+        }
+
+        h *= 60
+        if h < 0 {
+            h += 360
+        }
+    }
+
+    h /= 360
+
+    return HSV(h:h, s:s, v:v)
+}
