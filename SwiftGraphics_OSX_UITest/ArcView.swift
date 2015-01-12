@@ -9,6 +9,7 @@
 import Cocoa
 
 import SwiftGraphics
+import SwiftGraphicsPlayground
 
 class ArcView: NSView {
 

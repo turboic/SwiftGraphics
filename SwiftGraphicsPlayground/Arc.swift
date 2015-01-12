@@ -10,22 +10,22 @@ import Cocoa
 
 import SwiftGraphics
 
-enum CircularDirection {
+public enum CircularDirection {
     case Clockwise
     case CounterClockwise
     }
 
-struct Arc {
-    var center:CGPoint = CGPointZero
-    var size:CGSize = CGSizeZero
-    var startAngle:CGFloat = 0 // Currently degrees
-    var endAngle:CGFloat = 360 // Currently degrees
+public struct Arc {
+    public var center:CGPoint = CGPointZero
+    public var size:CGSize = CGSizeZero
+    public var startAngle:CGFloat = 0 // Currently degrees
+    public var endAngle:CGFloat = 360 // Currently degrees
 //    var direction:CircularDirection = .Clockwise
-    var rotation:CGFloat = 0.0 // Currently degrees
+    public var rotation:CGFloat = 0.0 // Currently degrees
 }
 
 extension CGContextRef {
-    func stroke(arc:Arc) {
+    public func stroke(arc:Arc) {
         let radius = arc.size.width * 0.5
         let rotation = DegreesToRadians(arc.rotation)
         let sx:CGFloat = 1.0
@@ -48,29 +48,41 @@ extension CGContextRef {
 // * AffineTransform.getRotateInstance
 //     *     (angle, arc.getX()+arc.getWidth()/2, arc.getY()+arc.getHeight()/2);
 
-struct SVGArcParameters {
-   var x0:CGFloat
-   var y0:CGFloat
-   var rx:CGFloat
-   var ry:CGFloat
-   var angle:CGFloat
-   var largeArcFlag:Bool
-   var sweepFlag:Bool
-   var x:CGFloat
-   var y:CGFloat
+public struct SVGArcParameters {
+    public var x0:CGFloat
+    public var y0:CGFloat
+    public var rx:CGFloat
+    public var ry:CGFloat
+    public var angle:CGFloat
+    public var largeArcFlag:Bool
+    public var sweepFlag:Bool
+    public var x:CGFloat
+    public var y:CGFloat
+
+    public init(x0:CGFloat, y0:CGFloat, rx:CGFloat, ry:CGFloat, angle:CGFloat, largeArcFlag:Bool, sweepFlag:Bool, x:CGFloat, y:CGFloat) {
+        self.x0 = x0
+        self.y0 = y0
+        self.rx = rx
+        self.ry = ry
+        self.angle = angle
+        self.largeArcFlag = largeArcFlag
+        self.sweepFlag = sweepFlag
+        self.x = x
+        self.y = y
+    }
 }
 
 
 extension Arc {
 
-    static func arcWithSVGDefinition(definition:SVGArcParameters) -> Arc! {
+    public static func arcWithSVGDefinition(definition:SVGArcParameters) -> Arc! {
         return computeArc(definition.x0, definition.y0, definition.rx, definition.ry, definition.angle, definition.largeArcFlag, definition.sweepFlag, definition.x, definition.y)
     }
 
 
 }
 
-func computeArc(x0:CGFloat, y0:CGFloat, rx:CGFloat, ry:CGFloat, angle:CGFloat, largeArcFlag:Bool, sweepFlag:Bool, x:CGFloat, y:CGFloat) -> Arc
+public func computeArc(x0:CGFloat, y0:CGFloat, rx:CGFloat, ry:CGFloat, angle:CGFloat, largeArcFlag:Bool, sweepFlag:Bool, x:CGFloat, y:CGFloat) -> Arc
 {
 
     //

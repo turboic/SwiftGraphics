@@ -48,9 +48,9 @@ class SketchView: NSView {
         }
         
         switch node {
-            case let node as Circle:
+            case let node as SwiftGraphicsPlayground.Circle:
                 context.strokeEllipseInRect(node.frame)
-            case let node as Line:
+            case let node as SwiftGraphicsPlayground.Line:
                 context.strokeLine(node.start, node.end)
             case let node as Rectangle:
                 context.strokeRect(node.frame)

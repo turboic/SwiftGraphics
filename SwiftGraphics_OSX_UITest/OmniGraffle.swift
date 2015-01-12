@@ -8,6 +8,8 @@
 
 import Foundation
 
+import SwiftGraphicsPlayground
+
 class OmniGraffleDocumentModel {
     let path: String
     var frame: CGRect!

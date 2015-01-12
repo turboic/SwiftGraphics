@@ -8,6 +8,8 @@
 
 import Cocoa
 
+import SwiftGraphicsPlayground
+
 class ArcViewController: NSViewController {
 
     @IBOutlet var arcView : ArcView!

@@ -19,12 +19,5 @@ context.withColor(NSColor.redColor()) {
     CGContextStrokePath(context)
 }
 
-
-
-
-
-
-
-
 context.nsimage
 
