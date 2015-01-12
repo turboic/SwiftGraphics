@@ -18,27 +18,6 @@ struct Handle {
 //    }
 }
 
-extension CGContextRef {
-
-    func stroke(curve:BezierCurve) {
-        switch curve.order {
-            case .Quadratic:
-                if let start = curve.start {
-                    CGContextMoveToPoint(self, start.x, start.y)
-                    }
-                CGContextAddQuadCurveToPoint(self, curve.controls[0].x, curve.controls[0].y, curve.end.x, curve.end.y)              
-                CGContextStrokePath(self)
-            case .Cubic:
-                if let start = curve.start {
-                    CGContextMoveToPoint(self, start.x, start.y)
-                    }
-                CGContextAddCurveToPoint(self, curve.controls[0].x, curve.controls[0].y, curve.controls[1].x, curve.controls[1].y, curve.end.x, curve.end.y)              
-                CGContextStrokePath(self)
-            case .OrderN(let order):
-                assert(false)
-        }
-    }
-}
 
 protocol Editor {
     var handles:[Handle] { get }
