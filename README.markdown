@@ -9,6 +9,8 @@ Bringing Swift goodness to Quartz.
 
 See TODO.markdown for short term plans.
 
+*IMPORTANT* Most interesting development happens on the develop branch.
+
 ## Philosophy
 
 Wrap Quartz (and other related Frameworks such as CoreImage) in a nice "Swifthonic" API.
