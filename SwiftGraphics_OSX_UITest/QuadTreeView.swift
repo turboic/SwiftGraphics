@@ -38,14 +38,18 @@ class QuadTreeView: NSView {
 
     override func mouseDown(theEvent: NSEvent) {
         let location = self.convertPoint(theEvent.locationInWindow, fromView:nil)
-        self.quadTree.addObject(location, point:location)
-        self.needsDisplay = true
+        if quadTree.frame.contains(location) {
+            self.quadTree.addObject(location, point:location)
+            self.needsDisplay = true
+        }
     }
 
     override func mouseDragged(theEvent: NSEvent) {
         let location = self.convertPoint(theEvent.locationInWindow, fromView:nil)
-        self.quadTree.addObject(location, point:location)
-        self.needsDisplay = true
+        if quadTree.frame.contains(location) {
+            self.quadTree.addObject(location, point:location)
+            self.needsDisplay = true
+        }
     }
     
 }
