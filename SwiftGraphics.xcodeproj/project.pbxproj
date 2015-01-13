@@ -299,6 +299,7 @@
 		45DA4AC419AA62A800133F32 /* SwiftGraphics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGraphics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45DA4AC719AA62A800133F32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45DA4AC819AA62A800133F32 /* SwiftGraphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftGraphics.h; sourceTree = "<group>"; };
+		45ECEC301A6561D60018F7C6 /* BezierPath.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BezierPath.playground; sourceTree = "<group>"; };
 		45F32C711A6455BB00E3DA68 /* CGColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
 		45F32C741A64590E00E3DA68 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		45FAC0661A16C4CA00A3F1D3 /* Animations.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Animations.playground; sourceTree = "<group>"; };
@@ -521,6 +522,7 @@
 				45BF1EBF1A61FED300DE8AE5 /* Random.playground */,
 				457DEBD41A649689003E4363 /* Path.playground */,
 				455D0A5D1A64A3EF00189879 /* Color.playground */,
+				45ECEC301A6561D60018F7C6 /* BezierPath.playground */,
 			);
 			path = Playgrounds;
 			sourceTree = "<group>";
