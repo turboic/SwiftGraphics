@@ -93,41 +93,78 @@ public extension CGMutablePath {
 }
 
 public extension CGPath {
-
-    func dump() {
+    func enumerate(block:(type:CGPathElementType, points:[CGPoint]) -> Void) {
+        var curpt  = CGPoint()
+        
         CGPathApplyWithBlock(self) {
             (elementPtr:UnsafePointer<CGPathElement>) -> Void in
             let element : CGPathElement = elementPtr.memory
+            
+            switch element.type.value {
+            case kCGPathElementMoveToPoint.value:
+                curpt = element.points.memory
+                block(type:kCGPathElementMoveToPoint, points:[curpt])
+                
+            case kCGPathElementAddLineToPoint.value:
+                let points = [curpt, element.points.memory]
+                curpt = points[1]
+                block(type:kCGPathElementAddLineToPoint, points:points)
+                
+            case kCGPathElementAddQuadCurveToPoint.value:
+                let cp = element.points.memory
+                let end = element.points.advancedBy(1).memory
+                let points = [curpt, (curpt + 2 * cp) / 3, (end + 2 * cp) / 3, end]
+                block(type:kCGPathElementAddCurveToPoint, points:points)
+                curpt = end
+                
+            case kCGPathElementAddCurveToPoint.value:
+                let points = [curpt, element.points.memory,
+                    element.points.advancedBy(1).memory,
+                    element.points.advancedBy(2).memory]
+                block(type:kCGPathElementAddCurveToPoint, points:points)
+                curpt = points[3]
+            
+            case kCGPathElementCloseSubpath.value:
+                block(type:kCGPathElementCloseSubpath, points:[curpt, self.getPoint(0)!])
+            default:
+                println("default")
+            }
+        }
+    }
+    
+    func getPoint(index:Int) -> CGPoint? {
+        var pt:CGPoint?
+        var i = 0
+        
+        CGPathApplyWithBlock(self) {
+            (elementPtr:UnsafePointer<CGPathElement>) -> Void in
+            if index == i++ {
+                let element : CGPathElement = elementPtr.memory
+                pt = element.points.memory
+            }
+        }
+        return pt
+    }
 
-                switch element.type.value {
-                    case kCGPathElementMoveToPoint.value:
-                        println("kCGPathElementMoveToPoint")
-                        let point = element.points.memory
-                        println(point)
-                    case kCGPathElementAddLineToPoint.value:
-                        println("kCGPathElementAddLineToPoint")
-                        let point = element.points.memory
-                        println(point)
-                    case kCGPathElementAddQuadCurveToPoint.value:
-                        println("kCGPathElementAddQuadCurveToPoint")
-                        let point = element.points.memory
-                        println(point)
-                        let point2 = element.points.advancedBy(1).memory
-                        println(point2)
-                    case kCGPathElementAddCurveToPoint.value:
-                        println("kCGPathElementAddCurveToPoint")
-                        let point = element.points.memory
-                        println(point)
-                        let point2 = element.points.advancedBy(1).memory
-                        println(point2)
-                        let point3 = element.points.advancedBy(2).memory
-                        println(point3)
-                    case kCGPathElementCloseSubpath.value:
-                        println("kCGPathElementCloseSubpath")
-                    default:
-                        println("default")
-                }
-            println("Element")
+    func dump() {
+        enumerate() {
+            (type:CGPathElementType, points:[CGPoint]) -> Void in
+            switch type.value {
+            case kCGPathElementMoveToPoint.value:
+                println("kCGPathElementMoveToPoint (\(points[0].x),\(points[0].y))")
+            case kCGPathElementAddLineToPoint.value:
+                println("kCGPathElementAddLineToPoint (\(points[0].x),\(points[0].y))-(\(points[1].x),\(points[1].y))")
+            case kCGPathElementAddQuadCurveToPoint.value:
+                println("error: kCGPathElementAddQuadCurveToPoint")
+            case kCGPathElementAddCurveToPoint.value:
+                println("kCGPathElementAddCurveToPoint (\(points[0].x),\(points[0].y))-(\(points[1].x),\(points[1].y))"
+                    + ", (\(points[2].x),\(points[2].y))-(\(points[3].x),\(points[3].y))")
+            case kCGPathElementCloseSubpath.value:
+                println("kCGPathElementCloseSubpath (\(points[0].x),\(points[0].y))-(\(points[1].x),\(points[1].y))")
+            default:
+                println("default")
+            }
+            //println("Element")
         }
     }
 

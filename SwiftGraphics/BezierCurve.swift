@@ -1,5 +1,5 @@
 //
-//  BezierArc.swift
+//  BezierCurve.swift
 //  SwiftGraphics
 //
 //  Created by Jonathan Wight on 8/24/14.
@@ -96,6 +96,11 @@ public extension BezierCurve {
         self.end = points[points.count - 1]
     }
 
+    public init(start:CGPoint, end:CGPoint) {
+        self.start = start
+        self.controls = [(start + end) / 2]
+        self.end = end
+    }
 }
 
 // MARK: Increasing the order.
@@ -108,6 +113,16 @@ public extension BezierCurve {
         return BezierCurve(start:start!, controls:[CP1, CP2], end:end)
     }
 
+}
+
+// MARK: Converting from tuples
+
+public extension BezierCurve {
+    init(_ v:[(CGFloat, CGFloat)]) {
+        self.start = CGPoint(v[0])
+        self.controls = v.count==2 ? [CGPoint(v[1]), CGPoint(v[2])] : v.count==1 ? [CGPoint(v[1])] : []
+        self.end = CGPoint(v[v.count - 1])
+    }
 }
 
 // MARK: Stroking the path to a context

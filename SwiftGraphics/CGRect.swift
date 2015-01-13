@@ -76,9 +76,28 @@ public extension CGRect {
     static func unionOfRects(rects:[CGRect]) -> CGRect {
         var result = rects[0]
         for rect in rects[1..<rects.count] {
-            result = CGRectUnion(result, rect)
+            result.union(rect)
         }
         return result
+    }
+    
+    static func unionOfPoints(points:[CGPoint]) -> CGRect {
+        if points.isEmpty {
+            return CGRect.nullRect
+        }
+        var result = CGRect(center:points[0], radius:0.0)
+        for pt in points[1..<points.count] {
+            result.union(pt)
+        }
+        return result
+    }
+    
+    func rectByUnion(point: CGPoint) -> CGRect {
+        return rectByUnion(CGRect(center:point, radius:0.0))
+    }
+    
+    mutating func union(point: CGPoint) {
+        union(CGRect(center:point, radius:0.0))
     }
 
     var asTuple : (CGFloat, CGFloat, CGFloat, CGFloat) { get { return (origin.x, origin.y, size.width, size.height) } }

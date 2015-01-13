@@ -74,6 +74,9 @@ class BezierEditor : Editor {
         }
         
         context.stroke(self.curve)
+        context.withColor(CGColor.lightGrayColor()) {
+            context.strokeRect(self.curve.bounds())
+        }
     }
 }
 
