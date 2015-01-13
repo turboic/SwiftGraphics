@@ -8,6 +8,45 @@
 
 import Foundation
 
+//struct Color {
+//    let CGColor:CGColorRef?
+//
+//    init(CGColor:CGColorRef) {
+//        self.CGColor = CGColor
+//    }
+//
+//    init(red:CGFloat = 0.0, green:CGFloat = 0.0, blue:CGFloat = 0.0, alpha:CGFloat = 1.0) {
+//        self.CGColor = CGColorCreateGenericRGB(red, green, blue, alpha)
+//    }
+//
+//    init(white:CGFloat, alpha:CGFloat = 1.0) {
+//        self.CGColor = CGColorCreateGenericGray(white, alpha)
+//    }
+//
+//    static var blackColor = Color(white:0)
+//    static var darkGrayColor = Color(white:0.333)
+//    static var lightGrayColor = Color(white:0.667)
+//    static var whiteColor = Color(white:1)
+//    static var grayColor = Color(white:0.5)
+//    static var redColor = Color(red:1)
+//    static var greenColor = Color(green:1)
+//    static var blueColor = Color(blue:1)
+//    static var cyanColor = Color(green:1, blue:1)
+//    static var yellowColor = Color(red:1, green:1)
+//    static var magnetaColor = Color(green:1, blue:1)
+//    static var orangeColor = Color(red:1, green:0.5)
+//    static var purpleColor = Color(red:0.5, blue:0.5)
+//    static var brownColor = Color(red:0.6, green:0.4, blue:0.2)
+//    static var clearColor = Color(white:0.0, alpha:0.0)
+//
+//}
+//
+//println(sizeof(Color))
+//
+//print(Color.redColor.CGColor)
+//println(NSColor.redColor().CGColor)
+
+
 struct HSV {
     var h:CGFloat = 0.0
     var s:CGFloat = 0.0
