@@ -10,8 +10,8 @@ typealias Style = SwiftGraphicsPlayground.Style
 
 let context = CGContextRef.bitmapContext(CGSize(w:512, h:512))
 
-let center = CGPoint(x:200, y:200)
-let radius:CGFloat = 100
+let center = CGPoint(x:256, y:256)
+let radius:CGFloat = 200
 
 let circle_styles:[StyleElement] = [
     .fillColor(CGColor.redColor().withAlpha(0.2)),
@@ -38,14 +38,15 @@ context.with(Style(elements: circle_styles)) {
 let d = radius * 4.0 * (sqrt(2.0) - 1.0) / 3.0
 
 let quadrants = [
-    CGPoint(x:1.0, y:1.0),
+    CGPoint(x:-1.0, y:-1.0),
     CGPoint(x:1.0, y:-1.0),
     CGPoint(x:-1.0, y:1.0),
-    CGPoint(x:-1.0, y:-1.0),
+    CGPoint(x:1.0, y:1.0),
 ]
 
 // Create a cubic bezier curve for the each quadrant of the circle...
-let curves = quadrants.map() {
+// Note this does not draw the curves either clockwise or anti-clockwise - and not suitable for use in a bezier path.
+var curves = quadrants.map() {
     (quadrant:CGPoint) -> BezierCurve in
     return BezierCurve(
         start:center + CGPoint(x:radius) * quadrant,
@@ -54,6 +55,9 @@ let curves = quadrants.map() {
         end:center + CGPoint(y:radius) * quadrant
     )
 }
+
+curves[0].start = center + CGPoint(x:radius) * quadrants[0]
+
 context.draw(curves, style:Style(elements:bezier_styles)) { return $0 as Drawable }
 //context.draw(curves as [Drawable])
 

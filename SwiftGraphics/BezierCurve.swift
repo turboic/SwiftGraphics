@@ -43,7 +43,16 @@ public struct BezierCurve {
             }       
         }
     }
-    public var points : [CGPoint] { get { return [self.start!] + self.controls + [self.end] } }
+    public var points : [CGPoint] {
+        get {
+            if let start = self.start {
+                return [start] + self.controls + [self.end]
+            }
+            else {
+                return self.controls + [self.end]
+            }
+        }
+    }
 }
 
 // MARK: Good old Printable.
