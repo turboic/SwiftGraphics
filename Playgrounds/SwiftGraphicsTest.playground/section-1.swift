@@ -38,16 +38,16 @@ context.with(Style(elements: circle_styles)) {
 let d = radius * 4.0 * (sqrt(2.0) - 1.0) / 3.0
 
 let quadrants = [
-    CGPoint(x:-1.0, y:-1.0),
-    CGPoint(x:1.0, y:-1.0),
-    CGPoint(x:-1.0, y:1.0),
-    CGPoint(x:1.0, y:1.0),
+    CGSize(w:-1.0, h:-1.0),
+    CGSize(w:1.0, h:-1.0),
+    CGSize(w:-1.0, h:1.0),
+    CGSize(w:1.0, h:1.0),
 ]
 
 // Create a cubic bezier curve for the each quadrant of the circle...
 // Note this does not draw the curves either clockwise or anti-clockwise - and not suitable for use in a bezier path.
 var curves = quadrants.map() {
-    (quadrant:CGPoint) -> BezierCurve in
+    (quadrant:CGSize) -> BezierCurve in
     return BezierCurve(
         start:center + CGPoint(x:radius) * quadrant,
         control1:center + (CGPoint(x:radius) + CGPoint(y:d)) * quadrant,
