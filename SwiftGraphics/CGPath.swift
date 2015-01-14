@@ -92,6 +92,8 @@ public extension CGMutablePath {
     }
 }
 
+// MARK: Enumerate path elements
+
 public extension CGPath {
     func enumerate(block:(type:CGPathElementType, points:[CGPoint]) -> Void) {
         var curpt  = CGPoint()
@@ -168,4 +170,10 @@ public extension CGPath {
         }
     }
 
+}
+
+// MARK: Bounding box
+
+public extension CGPath {
+    public var bounds: CGRect { get { return CGPathGetBoundingBox(self) }}
 }
