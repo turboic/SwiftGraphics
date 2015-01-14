@@ -17,9 +17,6 @@ var points = arrayOfRandomPoints(50, CGRect(w:480, h:320))
 SGPRender("Test") {
     (ctx:CGContext, bounds:CGRect) in
 
-    let r = Random()
-    r.seed = 100
-
     points = grahamOrdered(points)
 
     // Next line asplodes!

@@ -2,7 +2,7 @@
 
 import SwiftGraphicsPlayground
 
-let rnd = Random()
+let rng = Random.rng
 
 let suites = "♣️,♦️,♠️,♥️".componentsSeparatedByString(",")
 let values = "A,1,2,3,4,5,6,7,8,9,J,Q,K".componentsSeparatedByString(",")
@@ -22,13 +22,13 @@ var cards2:[String] = (0..<52).map() {
     return "\(value)\(suite)"
 }
 
-rnd.shuffle(&cards)
+rng.shuffle(&cards)
 cards
 
-let b = rnd.random_array(52, initial:0) { $0 }
+let b = rng.random_array(52, initial:0) { $0 }
 b
 
-cards2 = rnd.shuffled(cards2)
+cards2 = rng.shuffled(cards2)
 
 
 
