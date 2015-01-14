@@ -24,8 +24,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		0205AE4A1A6678D3006444C8 /* CGPoint+Rular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205AE491A6678D3006444C8 /* CGPoint+Rular.swift */; };
-		0205AE4B1A6678D3006444C8 /* CGPoint+Rular.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205AE491A6678D3006444C8 /* CGPoint+Rular.swift */; };
+		0205AE4A1A6678D3006444C8 /* CGPoint+Ruler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205AE491A6678D3006444C8 /* CGPoint+Ruler.swift */; };
+		0205AE4B1A6678D3006444C8 /* CGPoint+Ruler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0205AE491A6678D3006444C8 /* CGPoint+Ruler.swift */; };
 		026F21041A5FB23E00A52D0E /* Fuzzy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454B0D5619CA9E7F00044B7C /* Fuzzy.swift */; };
 		026F21051A5FB25800A52D0E /* CoordinateSystems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456877E119B6857B004BEFD6 /* CoordinateSystems.swift */; };
 		026F21061A5FB26600A52D0E /* MonotoneChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BA25B719CA112E00B612B7 /* MonotoneChain.swift */; };
@@ -201,7 +201,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0205AE491A6678D3006444C8 /* CGPoint+Rular.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Rular.swift"; sourceTree = "<group>"; };
+		0205AE491A6678D3006444C8 /* CGPoint+Ruler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Ruler.swift"; sourceTree = "<group>"; };
 		029651A91A6366FA0099DA1C /* CDisplayLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDisplayLink.h; sourceTree = "<group>"; };
 		029651AA1A6366FA0099DA1C /* CDisplayLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDisplayLink.m; sourceTree = "<group>"; };
 		02BF437D1A64FACB00132343 /* BezierBounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezierBounds.swift; sourceTree = "<group>"; };
@@ -569,7 +569,7 @@
 				45F32C741A64590E00E3DA68 /* Color.swift */,
 				459EE5DF19AEC5130012E023 /* CGPath.swift */,
 				459EE5E019AEC5130012E023 /* CGPoint.swift */,
-				0205AE491A6678D3006444C8 /* CGPoint+Rular.swift */,
+				0205AE491A6678D3006444C8 /* CGPoint+Ruler.swift */,
 				4515825B19C9F21000856C91 /* Turn.swift */,
 				459EE5E119AEC5130012E023 /* CGRect.swift */,
 				459EE5E219AEC5130012E023 /* CGSize.swift */,
@@ -908,7 +908,7 @@
 				456877E219B6857B004BEFD6 /* CoordinateSystems.swift in Sources */,
 				45F32C721A6455BB00E3DA68 /* CGColor.swift in Sources */,
 				459EE5F519AEC5130012E023 /* Geometry.swift in Sources */,
-				0205AE4A1A6678D3006444C8 /* CGPoint+Rular.swift in Sources */,
+				0205AE4A1A6678D3006444C8 /* CGPoint+Ruler.swift in Sources */,
 				459EE5EF19AEC5130012E023 /* CGPoint.swift in Sources */,
 				4594B09219AEE31E00101EB4 /* Path.swift in Sources */,
 				454B0D5719CA9E7F00044B7C /* Fuzzy.swift in Sources */,
@@ -998,7 +998,7 @@
 				459EE5F619AEC5130012E023 /* Geometry.swift in Sources */,
 				459EE5F019AEC5130012E023 /* CGPoint.swift in Sources */,
 				45CFDC6A1A61CB4500053F96 /* GrahamScan.swift in Sources */,
-				0205AE4B1A6678D3006444C8 /* CGPoint+Rular.swift in Sources */,
+				0205AE4B1A6678D3006444C8 /* CGPoint+Ruler.swift in Sources */,
 				45B8AE8E19BCE4ED00C61A3F /* CColorConverter.m in Sources */,
 				4594B09319AEE31E00101EB4 /* Path.swift in Sources */,
 				459EE5EA19AEC5130012E023 /* CGAffineTransform.swift in Sources */,
