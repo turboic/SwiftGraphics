@@ -127,6 +127,7 @@ public extension CGPoint {
 // MARK: Trig
 
 public extension CGPoint {
+
     init(magnitude:CGFloat, direction:CGFloat) {
         x = cos(direction) * magnitude
         y = sin(direction) * magnitude
@@ -140,6 +141,7 @@ public extension CGPoint {
             self = CGPoint(magnitude:v, direction:direction)
         }
     }
+
     var direction : CGFloat {
         get {
             return atan2(self)
@@ -148,15 +150,36 @@ public extension CGPoint {
             self = CGPoint(magnitude:magnitude, direction:v)
         }
     }
-    var square : CGFloat { get { return x ** 2 + y ** 2 } }
+
+    var square : CGFloat {
+        get {
+            return x ** 2 + y ** 2
+            }
+        }
+
     var normalized : CGPoint { get {
         let len = magnitude
         return len ==% 0 ? self : CGPoint(x:x / len, y:y / len)
         }}
-    var orthogonal : CGPoint { get { return CGPoint(x:-y, y:x) } }
-    var isZero: Bool { get { return x == 0 && y == 0 } }
 
-    var isFuzzyZero: Bool { get { return self ==% CGPointZero } }
+    var orthogonal : CGPoint {
+        get {
+            return CGPoint(x:-y, y:x)
+        }
+    }
+
+    var isZero: Bool {
+        get {
+            return x == 0 && y == 0
+            }
+        }
+
+    // TODO: It might be better to remove this and let users use ==% CGPointZero
+    var isFuzzyZero: Bool {
+        get {
+            return self ==% CGPointZero
+            }
+        }
 }
 
 public func atan2(point:CGPoint) -> CGFloat {   // (-M_PI, M_PI]
