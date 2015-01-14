@@ -132,11 +132,32 @@ public extension CGPoint {
         y = sin(direction) * magnitude
     }
 
-    var magnitude : CGFloat { get { return sqrt(x ** 2 + y ** 2) } }
-    var normalized : CGPoint { get { return CGPoint(x:x / magnitude, y:y / magnitude) } }
+    var magnitude : CGFloat {
+        get {
+            return sqrt(x ** 2 + y ** 2)
+        }
+        set(v) {
+            self = CGPoint(magnitude:v, direction:direction)
+        }
+    }
+    var direction : CGFloat {
+        get {
+            return atan2(self)
+        }
+        set(v) {
+            self = CGPoint(magnitude:magnitude, direction:v)
+        }
+    }
+    var square : CGFloat { get { return x ** 2 + y ** 2 } }
+    var normalized : CGPoint { get {
+        let len = magnitude
+        return len ==% 0 ? self : CGPoint(x:x / len, y:y / len)
+        }}
+    var orthogonal : CGPoint { get { return CGPoint(x:-y, y:x) } }
+    var isZero: Bool { get { return x ==% 0 && y ==% 0 } }
 }
 
-public func atan2(point:CGPoint) -> CGFloat {
+public func atan2(point:CGPoint) -> CGFloat {   // (-M_PI, M_PI]
     return atan2(point.y, point.x)
 }
 
@@ -148,13 +169,6 @@ public extension CGPoint {
     }
     var asTuple : (CGFloat, CGFloat) { get { return (x, y) } }
 }
-
-//    func cross(o:CGPoint, a:CGPoint, b:CGPoint) -> Bool {
-////       let d = (a.x - o.x) * (b.y - o.y) - (a.y - o.y) * (b.x - o.x)
-////       return d <= 0.0
-//        return Turn(o,a,b) == .Left
-//    }
-
 
 public extension CGPoint {
     func map(transform: CGFloat -> CGFloat) -> CGPoint {
@@ -172,4 +186,37 @@ public func ceil(value:CGPoint) -> CGPoint {
 
 public func round(value:CGPoint) -> CGPoint {
     return value.map { round($0) }
+}
+
+// MARK: Distance and angle between two points or vectors
+
+public extension CGPoint {
+
+    func distanceTo(point:CGPoint) -> CGFloat {
+        return (self - point).magnitude
+    }
+    
+    func distanceTo(p1:CGPoint, p2:CGPoint) -> CGFloat {
+        return (p2-p1).crossProduct(self-p1)
+    }
+
+    func angleTo(vec:CGPoint) -> CGFloat {       // [-M_PI, M_PI)
+        return atan2(crossProduct(vec), dotProduct(vec))
+    }
+}
+
+// MARK: Equatable
+
+extension CGPoint : Equatable {
+}
+
+public func == (lhs:CGPoint, rhs:CGPoint) -> Bool {
+    return CGPointEqualToPoint(lhs, rhs)
+}
+
+extension CGPoint : FuzzyEquatable {
+}
+
+public func ==% (lhs:CGPoint, rhs:CGPoint) -> Bool {
+    return (lhs - rhs).isZero
 }
