@@ -105,14 +105,18 @@ public extension BezierCurve {
 
 // MARK: Increasing the order.
 public extension BezierCurve {
-    func increasedOrder() -> BezierCurve {
-        assert(self.controls.count == 1)
-    
-        let CP1 = points[0] + ((2.0 / 3.0) * (points[1] - points[0]))
-        let CP2 = points[2] + ((2.0 / 3.0) * (points[1] - points[2]))
-        return BezierCurve(start:start!, controls:[CP1, CP2], end:end)
+    func cubicCurve() -> BezierCurve {
+        switch self.controls.count {
+        case 1:
+            let CP1 = points[0] + ((2.0 / 3.0) * (points[1] - points[0]))
+            let CP2 = points[2] + ((2.0 / 3.0) * (points[1] - points[2]))
+            return BezierCurve(start:start!, controls:[CP1, CP2], end:end)
+        case 2:
+            return self
+        default:
+            return BezierCurve(start:start!, end:end).cubicCurve()
+        }
     }
-
 }
 
 // MARK: Converting from tuples

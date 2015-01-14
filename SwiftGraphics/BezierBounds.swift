@@ -12,17 +12,16 @@ import CoreGraphics
 
 public extension BezierCurve {
     
-    func simpleBounds() -> CGRect {
+    public var simpleBounds: CGRect { get {
         return CGRect.unionOfPoints(points)
-    }
+    }}
     
     //! Compute the bounding box based on the straightened curve, for best fit
-    func bounds() -> CGRect {
-        if self.controls.count == 1 {
-            return increasedOrder().bounds()
+    public var bounds: CGRect { get {
+        if self.controls.count != 2 {
+            return cubicCurve().bounds
         }
         
-        assert(self.controls.count == 2)
         let pt1 = start!
         let pt2 = controls[0]
         let pt3 = controls[1]
@@ -62,9 +61,7 @@ public extension BezierCurve {
         }
         
         return bbox
-    }
-    
-    
+    }}
     
     // compute the value for the cubic bezier function at time=t
     private func computeCubicBaseValue(t:CGFloat, a:CGFloat, b:CGFloat, c:CGFloat, d:CGFloat) -> CGFloat {
