@@ -39,8 +39,6 @@ public prefix func - (p:CGPoint) -> CGPoint {
     return CGPoint(x:-p.x, y:-p.y)
 }
 
-// MARK: Arithmetic
-
 public func + (lhs:CGPoint, rhs:CGPoint) -> CGPoint {
     return CGPoint(x:lhs.x + rhs.x, y:lhs.y + rhs.y)
 }
@@ -48,17 +46,6 @@ public func + (lhs:CGPoint, rhs:CGPoint) -> CGPoint {
 public func - (lhs:CGPoint, rhs:CGPoint) -> CGPoint {
     return CGPoint(x:lhs.x - rhs.x, y:lhs.y - rhs.y)
 }
-
-// MARK: Arithmetic (with float)
-
-public func * (lhs:CGPoint, rhs:CGPoint) -> CGPoint {
-    return CGPoint(x:lhs.x * rhs.x, y:lhs.y * rhs.y)
-}
-
-public func / (lhs:CGPoint, rhs:CGPoint) -> CGPoint {
-    return CGPoint(x:lhs.x / rhs.x, y:lhs.y / rhs.y)
-}
-
 
 // MARK: Arithmetic (with scalar)
 
@@ -74,7 +61,7 @@ public func / (lhs:CGPoint, rhs:CGFloat) -> CGPoint {
     return CGPoint(x:lhs.x / rhs, y:lhs.y / rhs)
 }
 
-// MARK: Arithmetic Assignment 
+// MARK: Arithmetic Assignment
 
 public func += (inout lhs:CGPoint, rhs:CGPoint) {
     lhs = lhs + rhs
@@ -90,6 +77,43 @@ public func *= (inout lhs:CGPoint, rhs:CGFloat) {
 
 public func /= (inout lhs:CGPoint, rhs:CGFloat) {
     lhs = lhs / rhs
+}
+
+// MARK: Arithmetic (with scalar of CGSize)
+
+public func * (lhs:CGPoint, rhs:CGSize) -> CGPoint {
+    return CGPoint(x:lhs.x * rhs.width, y:lhs.y * rhs.height)
+}
+
+public func / (lhs:CGPoint, rhs:CGSize) -> CGPoint {
+    return CGPoint(x:lhs.x / rhs.width, y:lhs.y / rhs.height)
+}
+
+public func *= (inout lhs:CGPoint, rhs:CGSize) {
+    lhs = lhs * rhs
+}
+
+public func /= (inout lhs:CGPoint, rhs:CGSize) {
+    lhs = lhs / rhs
+}
+
+public extension CGPoint {
+    var asSize : CGSize { get { return CGSize(w:x, h:y) } }
+}
+
+// MARK: dotProduct and crossProduct
+
+public extension CGPoint {
+    func dotProduct(v:CGPoint) -> CGFloat { return x * v.x + y * v.y }
+    func crossProduct(v:CGPoint) -> CGFloat { return x * v.y - y * v.x }
+}
+
+public func * (lhs:CGPoint, rhs:CGPoint) -> CGFloat {
+    return lhs.dotProduct(rhs)
+}
+
+public func ^ (lhs:CGPoint, rhs:CGPoint) -> CGFloat {
+    return lhs.crossProduct(rhs)
 }
 
 // MARK: Misc
@@ -117,10 +141,6 @@ public extension CGPoint {
 
 public func atan2(point:CGPoint) -> CGFloat {
     return atan2(point.y, point.x)
-}
-
-public func dotProduct(a:CGPoint, b:CGPoint) -> CGFloat {
-    return a.x * b.x + a.y * b.y
 }
 
 // MARK: Converting to/from tuples
