@@ -14,7 +14,16 @@ extension CGPoint : Printable {
     public var description: String { get { return "\(x), \(y)" } }
 }
 
-// MARK: Init
+// MARK: Equatable
+
+extension CGPoint : Equatable {
+}
+
+public func == (lhs:CGPoint, rhs:CGPoint) -> Bool {
+    return CGPointEqualToPoint(lhs, rhs)
+}
+
+// MARK: Convenience initializers
 
 public extension CGPoint {
     
@@ -27,6 +36,15 @@ public extension CGPoint {
         self.x = 0
         self.y = y
     }
+}
+
+// MARK: Converting to/from tuples
+
+public extension CGPoint {
+    init(_ v:(CGFloat, CGFloat)) {
+        (x, y) = v
+    }
+    var asTuple : (CGFloat, CGFloat) { get { return (x, y) } }
 }
 
 // MARK: Arithmetic
@@ -186,14 +204,6 @@ public func atan2(point:CGPoint) -> CGFloat {   // (-M_PI, M_PI]
     return atan2(point.y, point.x)
 }
 
-// MARK: Converting to/from tuples
-
-public extension CGPoint {
-    init(_ v:(CGFloat, CGFloat)) {
-        (x, y) = v
-    }
-    var asTuple : (CGFloat, CGFloat) { get { return (x, y) } }
-}
 
 public extension CGPoint {
     func map(transform: CGFloat -> CGFloat) -> CGPoint {
@@ -231,13 +241,6 @@ public extension CGPoint {
 }
 
 // MARK: Equatable
-
-extension CGPoint : Equatable {
-}
-
-public func == (lhs:CGPoint, rhs:CGPoint) -> Bool {
-    return CGPointEqualToPoint(lhs, rhs)
-}
 
 extension CGPoint : FuzzyEquatable {
 }
