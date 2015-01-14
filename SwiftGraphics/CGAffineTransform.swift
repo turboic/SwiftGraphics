@@ -80,6 +80,10 @@ public extension CGAffineTransform {
     init(scale: CGFloat) {
         self = CGAffineTransformMakeScale(scale, scale)
     }
+    
+    init(scale: CGFloat, origin:CGPoint) {
+        self = CGAffineTransformMake(scale, 0, 0, scale, (1 - scale) * origin.x, (1 - scale) * origin.y)
+    }
 
     /**
      Rotation
@@ -120,6 +124,10 @@ public extension CGAffineTransform {
 
     func scaled(# scale:CGFloat) -> CGAffineTransform  {
         return CGAffineTransformScale(self, scale, scale)
+    }
+    
+    func scaled(# scale:CGFloat, origin:CGPoint) -> CGAffineTransform  {
+        return self + CGAffineTransform(scale:scale, origin:origin)
     }
 
     func rotated(angle:CGFloat) -> CGAffineTransform  {
@@ -164,6 +172,11 @@ public extension CGAffineTransform {
 
     mutating func scale(scale:CGFloat) -> CGAffineTransform  {
         self = scaled(sx:scale, sy:scale)
+        return self
+    }
+    
+    mutating func scale(scale:CGFloat, origin:CGPoint) -> CGAffineTransform  {
+        self = scaled(scale:scale, origin:origin)
         return self
     }
 
@@ -254,9 +267,18 @@ public extension CGAffineTransform {
         }
         self = current
     }
-
-    static func rotationAroundPoint(point:CGPoint, angle:CGFloat) -> CGAffineTransform {
-        return CGAffineTransform(rotation:angle, origin:point)
+    
+    // Constructor with two fingers' positions while moving fingers.
+    init(from1:CGPoint, from2:CGPoint, to1:CGPoint, to2:CGPoint) {
+        if (from1 == from2 || to1 == to2) {
+            self = CGAffineTransform.identity
+        } else {
+            let scale = to2.distanceTo(to1) / from2.distanceTo(from1)
+            let angle1 = (to2 - to1).direction, angle2 = (from2 - from1).direction
+            self = CGAffineTransform(translation:to1 - from1)
+                + CGAffineTransform(scale:scale, origin:to1)
+                + CGAffineTransform(rotation:angle1 - angle2, origin:to1)
+        }
     }
 }
 
