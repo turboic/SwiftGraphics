@@ -12,12 +12,7 @@ import SwiftGraphics
 
 struct Handle {
     var position : CGPoint
-    
-//    init(position:CGPoint) {
-//        self.position = position
-//    }
 }
-
 
 protocol Editor {
     var handles:[Handle] { get }
@@ -31,12 +26,12 @@ class BezierEditor : Editor {
     var handles:[Handle] = []
     var guides:[Handle] = []
 
-    init() {
-        self.curve = BezierCurve(start:CGPoint(x:100,y:100), control1:CGPoint(x:150,y:150), end:CGPoint(x:200,y:100))
+    init(_ curve:BezierCurve) {
+        self.curve = curve
         self.handles = self.curve.points.map {
             (p:CGPoint) -> Handle in
             return Handle(position:p)
-            }    
+        }
         self._update()
     }
     
@@ -50,7 +45,7 @@ class BezierEditor : Editor {
         let points = self.handles.map() {
             (h:Handle) -> CGPoint in
             return h.position
-            }
+        }
         self.curve = BezierCurve(points:points)
 
         // Make a cubic and turn its points into guides...
@@ -62,13 +57,13 @@ class BezierEditor : Editor {
     }
     
     func draw(context:CGContextRef) {
-        for p in self.handles {
-            context.withColor(CGColor.redColor()) {
+        context.withColor(CGColor.redColor()) {
+            for p in self.handles {
                 context.strokeCross(CGRect(center:p.position, size:CGSize(w:6, h:6)))
             }
         }
-        for p in self.guides {
-            context.withColor(CGColor.blueColor()) {
+        context.withColor(CGColor.blueColor()) {
+            for p in self.guides {
                 context.strokeSaltire(CGRect(center:p.position, size:CGSize(w:3, h:3)))
             }
         }
@@ -76,14 +71,22 @@ class BezierEditor : Editor {
         context.stroke(self.curve)
         context.withColor(CGColor.lightGrayColor()) {
             context.strokeRect(self.curve.bounds)
+            let points = self.curve.points
+            context.strokeLine(points[0], points[1])
+            context.strokeLine(points[2], self.curve.end)
         }
     }
 }
 
 class EditorView: NSView {
 
-    var editor : Editor = BezierEditor()
+    var curves : [Editor] = [
+        BezierEditor(BezierCurve(start:CGPoint(x:100,y:200), control1:CGPoint(x:150,y:250),
+            control2:CGPoint(x:200,y:250), end:CGPoint(x:200,y:200))),
+        BezierEditor(BezierCurve(start:CGPoint(x:100,y:100), control1:CGPoint(x:150,y:150),
+            end:CGPoint(x:200,y:100)))]
     
+    var activeCurve : Editor?
     var activeHandle : Int?
 
 //    override init(frame frameRect: NSRect) {
@@ -102,12 +105,15 @@ class EditorView: NSView {
         NSColor.blackColor().set()
 
         let context = NSGraphicsContext.currentContext()!.CGContext
-        self.editor.draw(context)
+        for curve in self.curves {
+            curve.draw(context)
+        }
     }
     
     override func mouseDown(theEvent: NSEvent) {
         let location = self.convertPoint(theEvent.locationInWindow, fromView:nil)
-        if let index = handleHit(location) {
+        if let (curve, index) = handleHit(location) {
+            activeCurve = curve
             activeHandle = index
             self.needsDisplay = true
         }
@@ -116,22 +122,25 @@ class EditorView: NSView {
     override func mouseDragged(theEvent: NSEvent) {
         if let activeHandle = activeHandle {
             let location = self.convertPoint(theEvent.locationInWindow, fromView:nil)
-            self.editor.setHandlePosition(activeHandle, position:location)
+            activeCurve!.setHandlePosition(activeHandle, position:location)
             self.needsDisplay = true
         }
     }
 
     override func mouseUp(theEvent: NSEvent) {
+        self.activeCurve = nil
         self.activeHandle = nil
         self.needsDisplay = true
     }
 
-    func handleHit(point:CGPoint) -> Int? {
-        for (index, handle) in enumerate(self.editor.handles) {
-            let R = CGFloat(10.0)
-            let handleRect = CGRect(x:handle.position.x - R, y:handle.position.y - R, width:R * 2, height:R * 2)
-            if handleRect.contains(point) {
-                return index
+    func handleHit(point:CGPoint) -> (Editor, Int)? {
+        for curve in self.curves {
+            for (index, handle) in enumerate(curve.handles) {
+                let R = CGFloat(10.0)
+                let handleRect = CGRect(x:handle.position.x - R, y:handle.position.y - R, width:R * 2, height:R * 2)
+                if handleRect.contains(point) {
+                    return (curve, index)
+                }
             }
         }
         return nil
