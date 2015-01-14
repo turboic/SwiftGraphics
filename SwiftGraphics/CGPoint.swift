@@ -104,16 +104,13 @@ public extension CGPoint {
 // MARK: dotProduct and crossProduct
 
 public extension CGPoint {
-    func dotProduct(v:CGPoint) -> CGFloat { return x * v.x + y * v.y }
-    func crossProduct(v:CGPoint) -> CGFloat { return x * v.y - y * v.x }
-}
+    func dotProduct(v:CGPoint) -> CGFloat {
+        return x * v.x + y * v.y
+    }
 
-public func * (lhs:CGPoint, rhs:CGPoint) -> CGFloat {
-    return lhs.dotProduct(rhs)
-}
-
-public func ^ (lhs:CGPoint, rhs:CGPoint) -> CGFloat {
-    return lhs.crossProduct(rhs)
+    func crossProduct(v:CGPoint) -> CGFloat {
+        return x * v.y - y * v.x
+    }
 }
 
 // MARK: Misc
