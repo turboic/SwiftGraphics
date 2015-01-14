@@ -154,7 +154,9 @@ public extension CGPoint {
         return len ==% 0 ? self : CGPoint(x:x / len, y:y / len)
         }}
     var orthogonal : CGPoint { get { return CGPoint(x:-y, y:x) } }
-    var isZero: Bool { get { return x ==% 0 && y ==% 0 } }
+    var isZero: Bool { get { return x == 0 && y == 0 } }
+
+    var isFuzzyZero: Bool { get { return self ==% CGPointZero } }
 }
 
 public func atan2(point:CGPoint) -> CGFloat {   // (-M_PI, M_PI]
