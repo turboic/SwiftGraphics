@@ -23,6 +23,7 @@ let curves = [
         end: CGPoint(x:100,y:10))]
 
 for curve in curves {
+    context.setLineDash([1])
     context.setLineWidth(3)
     
     context.setStrokeColor(CGColor.blackColor())

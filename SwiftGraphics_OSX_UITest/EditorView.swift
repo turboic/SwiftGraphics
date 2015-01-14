@@ -54,7 +54,7 @@ class BezierEditor : Editor {
         self.curve = BezierCurve(points:points)
 
         // Make a cubic and turn its points into guides...
-        let cubicCurve = self.curve.cubicCurve()
+        let cubicCurve = self.curve.increasedOrder()
         self.guides = cubicCurve.controls.map {
             (p:CGPoint) -> Handle in
             return Handle(position:p)

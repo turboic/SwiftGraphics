@@ -56,6 +56,7 @@ public struct BezierCurve {
 }
 
 // MARK: Good old Printable.
+
 extension BezierCurve : Printable {
     public var description: String { get {
         let controlsString = ", ".join(controls.map() {
@@ -67,6 +68,7 @@ extension BezierCurve : Printable {
 }
 
 // MARK: Convenience initializers
+
 public extension BezierCurve {
     public init(control1:CGPoint, end:CGPoint) {
         self.controls = [control1]
@@ -104,8 +106,9 @@ public extension BezierCurve {
 }
 
 // MARK: Increasing the order.
+
 public extension BezierCurve {
-    func cubicCurve() -> BezierCurve {
+    func increasedOrder() -> BezierCurve {
         switch self.controls.count {
         case 1:
             let CP1 = points[0] + ((2.0 / 3.0) * (points[1] - points[0]))
@@ -114,7 +117,7 @@ public extension BezierCurve {
         case 2:
             return self
         default:
-            return BezierCurve(start:start!, end:end).cubicCurve()
+            return BezierCurve(start:start!, end:end).increasedOrder()
         }
     }
 }
@@ -130,6 +133,7 @@ public extension BezierCurve {
 }
 
 // MARK: Stroking the path to a context
+
 public extension CGContextRef {
     func stroke(curve:BezierCurve) {
         switch curve.order {
