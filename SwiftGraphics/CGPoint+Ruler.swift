@@ -1,5 +1,5 @@
 //
-//  CGPoint+Rular.swift
+//  CGPoint+Ruler.swift
 //  SwiftGraphics
 //
 //  Created by Zhang Yungui <https://github.com/rhcad> on 15/1/14.
@@ -9,31 +9,40 @@
 import CoreGraphics
 
 
-// MARK: Ruler constructions
+// MARK: Relative point calculation methods like ruler tools
 
 public extension CGPoint {
-    
-    func rulerPoint(dir:CGPoint, dy:CGFloat) -> CGPoint {
-        let len = distanceTo(dir)
-        if len ==% 0 {
-            return CGPoint(x:x, y:y + dy)
-        }
-        let d = dy / len
-        return CGPoint(x:x - (dir.y - y) * d, y:y + (dir.x - x) * d)
-    }
-    
+    /**
+     * Calculate a point along the direction from this point to 'dir' point.
+     *
+     * @param dir the direction point.
+     * @param dx the distance from this point to the result point.
+     *           The negative value represents along the opposite direction.
+     *
+     * @return the point relative to this point.
+     */
     func rulerPoint(dir:CGPoint, dx:CGFloat) -> CGPoint {
         let len = distanceTo(dir)
-        if len ==% 0 {
+        if len == 0 {
             return CGPoint(x:x + dx, y:y)
         }
         let d = dx / len
         return CGPoint(x:x + (dir.x - x) * d, y:y + (dir.y - y) * d)
     }
     
+    /**
+     * Calculate a point along the direction from this point to 'dir' point.
+     * dx and dy may be negative which represents along the opposite direction.
+     *
+     * @param dir the direction point.
+     * @param dx the projection distance along the direction from this point to 'dir' point.
+     * @param dy the perpendicular distance from the result point to the line of this point to 'dir' point.
+     *
+     * @return the point relative to this point.
+     */
     func rulerPoint(dir:CGPoint, dx:CGFloat, dy:CGFloat) -> CGPoint {
         let len = distanceTo(dir)
-        if len ==% 0 {
+        if len == 0 {
             return CGPoint(x:x + dx, y:y + dy)
         }
         let dcos = (dir.x - x) / len
@@ -48,6 +57,7 @@ public extension CGPoint {
     
     public static var vectorTolerance:CGFloat = 1e-4
     
+    //! Returns whether this vector is perpendicular to another vector.
     func isPerpendicularTo(vec:CGPoint) -> Bool {
         let sinfz = abs(crossProduct(vec))
         if sinfz == 0 {
@@ -57,6 +67,12 @@ public extension CGPoint {
         return cosfz <= sinfz * CGPoint.vectorTolerance
     }
     
+    /**
+     * Returns the length of the vector which perpendicular to the projection of this vector onto xAxis vector.
+     *
+     * @param xAxis projection target vector.
+     * @return the perpendicular distance which is positive if this vector is in the CCW direction of xAxis and negative if clockwise.
+     */
     func distanceToVector(xAxis:CGPoint) -> CGFloat {
         let len = xAxis.magnitude
         return len == 0 ? magnitude : xAxis.crossProduct(self) / len
@@ -75,13 +91,13 @@ public extension CGPoint {
         return (proj, perp)
     }
     
-    //! Vector decomposition: self==u*uAxis + v*vAxis
-    func resolveVector(uAxis:CGPoint, vAxis:CGPoint) -> CGPoint {
+    //! Vector decomposition onto two vectors: self==u*uAxis + v*vAxis
+    func resolveVector(uAxis:CGPoint, vAxis:CGPoint) -> (CGFloat, CGFloat) {
         let denom = uAxis.crossProduct(vAxis)
         if denom == 0 {
-            return CGPoint.zeroPoint
+            return (0, 0)
         }
         let c = uAxis.crossProduct(self)
-        return CGPoint(x:crossProduct(vAxis) / denom, y:c / denom)  // (u,v)
+        return (crossProduct(vAxis) / denom, c / denom)  // (u,v)
     }
 }
