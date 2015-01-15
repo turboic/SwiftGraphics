@@ -204,6 +204,7 @@
 		0205AE491A6678D3006444C8 /* CGPoint+Ruler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Ruler.swift"; sourceTree = "<group>"; };
 		029651A91A6366FA0099DA1C /* CDisplayLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDisplayLink.h; sourceTree = "<group>"; };
 		029651AA1A6366FA0099DA1C /* CDisplayLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDisplayLink.m; sourceTree = "<group>"; };
+		02A969E21A6744C3006DDF62 /* RulerPoint.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RulerPoint.playground; sourceTree = "<group>"; };
 		02BF437D1A64FACB00132343 /* BezierBounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezierBounds.swift; sourceTree = "<group>"; };
 		4501557F1A62F9F600D7FB7B /* SwiftGraphicsPlayground_OSX_UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftGraphicsPlayground_OSX_UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		450155821A62F9F600D7FB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -515,6 +516,7 @@
 		454FE65B19C77001002E4DEF /* Playgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				02A969E21A6744C3006DDF62 /* RulerPoint.playground */,
 				454FE65C19C7700E002E4DEF /* GrahamScan.playground */,
 				4515826319CA0BA300856C91 /* MonotoneChain.playground */,
 				45BA25BB19CA156800B612B7 /* Triangle.playground */,
