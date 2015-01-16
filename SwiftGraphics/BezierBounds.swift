@@ -12,13 +12,15 @@ import CoreGraphics
 
 public extension BezierCurve {
     
+// MARK: simpleBounds and bounds
+    
     public var simpleBounds: CGRect { get {
         return CGRect.unionOfPoints(points)
     }}
     
     //! Compute the bounding box based on the straightened curve, for best fit
     public var bounds: CGRect { get {
-        if self.controls.count != 2 {
+        if self.controls.count == 1 {
             return increasedOrder().bounds
         }
         
@@ -87,4 +89,79 @@ public extension BezierCurve {
         return ((numerator + root) / denominator, (numerator - root) / denominator)
     }
     
+// MARK: isStraight and length
+    
+    public var isStraight: Bool { get {
+        let pts = points
+        return collinear(pts[0], pts[2], pts[1])
+            || (pts.count == 4 && collinear(pts[0], pts[2], pts[3]))
+        }}
+    
+    // Gauss quadrature for cubic Bezier curves http://processingjs.nihongoresources.com/bezierinfo/
+    
+    public var length: CGFloat { get {
+        if self.controls.count == 1 {
+            return increasedOrder().length
+        }
+        if self.isStraight {
+            return self.start!.distanceTo(self.end)
+        }
+        
+        let pts = points
+        let z2:CGFloat = 0.5
+        var sum:CGFloat = 0.0
+        
+        for i in 0..<24 {
+            let corrected_t = z2 * BezierCurve.Tvalues[i] + z2
+            sum += BezierCurve.Cvalues[i] * cubicF(corrected_t, pts)
+        }
+        
+        return z2 * sum
+        }}
+    
+    private func base3(t:CGFloat, _ p1:CGFloat, _ p2:CGFloat, _ p3:CGFloat, _ p4:CGFloat) -> CGFloat {
+        let t1 = -3*p1 + 9*p2 - 9*p3 + 3*p4
+        let t2 = t*t1 + 6*p1 - 12*p2 + 6*p3
+        return t*t2 - 3*p1 + 3*p2
+    }
+    
+    private func cubicF(t:CGFloat, _ pts:[CGPoint]) -> CGFloat {
+        let xbase = base3(t, pts[0].x, pts[1].x, pts[2].x, pts[3].x)
+        let ybase = base3(t, pts[0].y, pts[1].y, pts[2].y, pts[3].y)
+        return hypot(xbase, ybase)
+    }
+    
+    // Legendre-Gauss abscissae (xi values, defined at i=n as the roots of the nth order Legendre polynomial Pn(x))
+    private static let Tvalues:[CGFloat] = {
+        let arr:[CGFloat] = [-0.06405689286260562997910028570913709, 0.06405689286260562997910028570913709,
+            -0.19111886747361631067043674647720763, 0.19111886747361631067043674647720763,
+            -0.31504267969616339684080230654217302, 0.31504267969616339684080230654217302,
+            -0.43379350762604512725673089335032273, 0.43379350762604512725673089335032273,
+            -0.54542147138883956269950203932239674, 0.54542147138883956269950203932239674,
+            -0.64809365193697554552443307329667732, 0.64809365193697554552443307329667732,
+            -0.74012419157855435791759646235732361, 0.74012419157855435791759646235732361]
+        let arr2:[CGFloat] = [-0.82000198597390294708020519465208053, 0.82000198597390294708020519465208053,
+            -0.88641552700440107148693869021371938, 0.88641552700440107148693869021371938,
+            -0.93827455200273279789513480864115990, 0.93827455200273279789513480864115990,
+            -0.97472855597130947380435372906504198, 0.97472855597130947380435372906504198,
+            -0.99518721999702131064680088456952944, 0.99518721999702131064680088456952944]
+        return arr + arr2
+        }()
+    
+    // Legendre-Gauss weights (wi values, defined by a function linked to in the Bezier primer article)
+    private static let Cvalues:[CGFloat] = {
+        let arr:[CGFloat] = [0.12793819534675215932040259758650790, 0.12793819534675215932040259758650790,
+            0.12583745634682830250028473528800532, 0.12583745634682830250028473528800532,
+            0.12167047292780339140527701147220795, 0.12167047292780339140527701147220795,
+            0.11550566805372559919806718653489951, 0.11550566805372559919806718653489951,
+            0.10744427011596563437123563744535204, 0.10744427011596563437123563744535204,
+            0.09761865210411388438238589060347294, 0.09761865210411388438238589060347294,
+            0.08619016153195327434310968328645685, 0.08619016153195327434310968328645685]
+        let arr2:[CGFloat] = [0.07334648141108029983925575834291521, 0.07334648141108029983925575834291521,
+            0.05929858491543678333801636881617014, 0.05929858491543678333801636881617014,
+            0.04427743881741980774835454326421313, 0.04427743881741980774835454326421313,
+            0.02853138862893366337059042336932179, 0.02853138862893366337059042336932179,
+            0.01234122979998720018302016399047715, 0.01234122979998720018302016399047715]
+        return arr + arr2
+        }()
 }

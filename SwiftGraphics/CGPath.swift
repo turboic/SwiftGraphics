@@ -175,5 +175,5 @@ public extension CGPath {
 // MARK: Bounding box
 
 public extension CGPath {
-    public var bounds: CGRect { get { return CGPathGetBoundingBox(self) }}
+    public var bounds: CGRect { get { return CGPathGetPathBoundingBox(self) }}
 }
