@@ -64,15 +64,19 @@ Use Demos/SwiftGraphicsDemos.xcworkspace.
 Your help wanted. I would definitely appreciate contributions from other members of the 
 Swift/Cocoa community. Please fork this project and submit pull requests.
 
-You can help by using Swift Graphics in your projects and discovering its shortcomings. I encourage you to file [issues][https://github.com/schwa/SwiftGraphics/issuess] against this project.
+You can help by using Swift Graphics in your projects and discovering its shortcomings. I encourage you to file [issues][issues] against this project.
+
+[issues]: https://github.com/schwa/SwiftGraphics/issues
 
 Contributions are always welcome in the following areas:
 
 * Header doc comments explaining what the functions do
 * Unit tests
 * Playgrounds showing graphically what SwiftGraphics can do
-* New graphical algorithms (take your pick from https://en.wikipedia.org/wiki/Category:Computer_graphics_algorithms)
+* New graphical algorithms (take your pick from [wikipedia][wikipedia])
 * New geometry structs
+
+[wikipedia]: https://en.wikipedia.org/wiki/Category:Computer_graphics_algorithms
 
 ## Naming
 
