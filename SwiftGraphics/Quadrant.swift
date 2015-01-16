@@ -21,18 +21,18 @@ public extension Quadrant {
     static func fromPoint(point:CGPoint) -> Quadrant {
         if (point.y >= 0) {
             if (point.x >= 0) {
-                return(.MaxXMaxY)
+                return .MaxXMaxY
             }
             else {
-                return(.MinXMaxY)
+                return .MinXMaxY
             }
         }
         else {
             if (point.x >= 0) {
-                return(.MaxXMinY)
+                return .MaxXMinY
             }
             else {
-                return(.MinXMinY)
+                return .MinXMinY
             }
         }
     }
@@ -65,7 +65,7 @@ public extension Quadrant {
     }
 }
 
-extension CGRect {
+public extension CGRect {
     func quadrant(quadrant:Quadrant) -> CGRect {
         let size = CGSize(width:self.size.width * 0.5, height:self.size.height * 0.5)
         switch quadrant {
