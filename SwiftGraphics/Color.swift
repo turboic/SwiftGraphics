@@ -47,29 +47,52 @@ import Foundation
 //println(NSColor.redColor().CGColor)
 
 
-struct HSV {
+public struct HSV {
     var h:CGFloat = 0.0
     var s:CGFloat = 0.0
     var v:CGFloat = 0.0
-    init(h:CGFloat = 0.0, s:CGFloat = 0.0, v:CGFloat = 0.0) {
+    public init(h:CGFloat = 0.0, s:CGFloat = 0.0, v:CGFloat = 0.0) {
         (self.h, self.s, self.v) = (h,s,v)
     }
-    init(tuple:(h:CGFloat, s:CGFloat, v:CGFloat)) {
+    public init(tuple:(h:CGFloat, s:CGFloat, v:CGFloat)) {
         (self.h, self.s, self.v) = tuple
     }
 }
 
+extension HSV : Printable {
+    public var description: String { return "HSV(\(h), \(s), \(v))" }
+}
 
-struct RGB {
+extension HSV : Equatable {
+    
+}
+
+public func ==(lhs: HSV, rhs: HSV) -> Bool {
+    return lhs.h == rhs.h && lhs.s == rhs.s && lhs.v == rhs.v
+}
+
+public struct RGB {
     var r:CGFloat = 0.0
     var g:CGFloat = 0.0
     var b:CGFloat = 0.0
-    init(r:CGFloat = 0.0, g:CGFloat = 0.0, b:CGFloat = 0.0) {
+    public init(r:CGFloat = 0.0, g:CGFloat = 0.0, b:CGFloat = 0.0) {
         (self.r, self.g, self.b) = (r,g,b)
     }
-    init(tuple:(r:CGFloat, g:CGFloat, b:CGFloat)) {
+    public init(tuple:(r:CGFloat, g:CGFloat, b:CGFloat)) {
         (self.r, self.g, self.b) = tuple
     }
+}
+
+extension RGB : Printable {
+    public var description: String { return "RGB(\(r), \(g), \(b))" }
+}
+
+extension RGB : Equatable {
+    
+}
+
+public func ==(lhs: RGB, rhs: RGB) -> Bool {
+    return lhs.r == rhs.r && lhs.g == rhs.g && lhs.b == rhs.b
 }
 
 // TODO: One option? Or just add alpha to colors
@@ -83,7 +106,7 @@ struct RGB {
 //    var a:CGFloat
 //}
 
-func convert(hsv:HSV) -> RGB {
+public func convert(hsv:HSV) -> RGB {
     var (h, s, v) = (hsv.h, hsv.s, hsv.v)
     if (s == 0) {
         return RGB(tuple:(v,v,v))
@@ -122,7 +145,7 @@ func convert(hsv:HSV) -> RGB {
     }
 }
 
-func convert(rgb:RGB) -> HSV {
+public func convert(rgb:RGB) -> HSV {
     let max_ = max(rgb.r, rgb.g, rgb.b)
     let min_ = min(rgb.r, rgb.g, rgb.b)
     let delta = max_ - min_

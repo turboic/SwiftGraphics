@@ -33,6 +33,7 @@
 		029651AC1A6366FA0099DA1C /* CDisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 029651AA1A6366FA0099DA1C /* CDisplayLink.m */; };
 		02BF437E1A64FACB00132343 /* BezierBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF437D1A64FACB00132343 /* BezierBounds.swift */; };
 		02BF437F1A64FACB00132343 /* BezierBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF437D1A64FACB00132343 /* BezierBounds.swift */; };
+		2E0F5BD91A6986DA00221BB0 /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0F5BD81A6986DA00221BB0 /* ColorTests.swift */; };
 		450155841A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450155831A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift */; };
 		450155851A62F9F600D7FB7B /* SwiftGraphicsPlayground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454FE66219C77031002E4DEF /* SwiftGraphicsPlayground.framework */; };
 		4514F60E1A61D4C400CC9C26 /* ArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4514F5FB1A61D4C400CC9C26 /* ArcView.swift */; };
@@ -206,6 +207,7 @@
 		029651AA1A6366FA0099DA1C /* CDisplayLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDisplayLink.m; sourceTree = "<group>"; };
 		02A969E21A6744C3006DDF62 /* RulerPoint.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RulerPoint.playground; sourceTree = "<group>"; };
 		02BF437D1A64FACB00132343 /* BezierBounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezierBounds.swift; sourceTree = "<group>"; };
+		2E0F5BD81A6986DA00221BB0 /* ColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTests.swift; sourceTree = "<group>"; };
 		4501557F1A62F9F600D7FB7B /* SwiftGraphicsPlayground_OSX_UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftGraphicsPlayground_OSX_UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		450155821A62F9F600D7FB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		450155831A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGraphicsPlayground_UnitTests.swift; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 				45C6DC741A13E59C004C4693 /* TransformTests.swift */,
 				45BA25BC19CA1E8A00B612B7 /* ConvexHullTests.swift */,
 				454D551419AA5CE6000E3EB3 /* Supporting Files */,
+				2E0F5BD81A6986DA00221BB0 /* ColorTests.swift */,
 			);
 			path = SwiftGraphics_UnitTests;
 			sourceTree = "<group>";
@@ -923,6 +926,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4515825F19C9F6A600856C91 /* TurnTests.swift in Sources */,
+				2E0F5BD91A6986DA00221BB0 /* ColorTests.swift in Sources */,
 				4537991D19AA788B004DF99E /* CGSizeTests.swift in Sources */,
 				4537991A19AA6C37004DF99E /* CGPointTests.swift in Sources */,
 				45C6DC751A13E59C004C4693 /* TransformTests.swift in Sources */,
