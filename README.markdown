@@ -1,5 +1,11 @@
 # SwiftGraphics
 
+## *IMPORTANT*
+
+Most interesting development happens on the [develop][develop] branch.
+
+[develop]: https://github.com/schwa/SwiftGraphics/tree/develop
+
 [![Travis][travis_img]][travis]
 
 [travis]: https://travis-ci.org/schwa/SwiftGraphics
@@ -9,7 +15,6 @@ Bringing Swift goodness to Quartz.
 
 See TODO.markdown for short term plans.
 
-*IMPORTANT* Most interesting development happens on the develop branch.
 
 ## Philosophy
 
