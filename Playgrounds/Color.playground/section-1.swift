@@ -5,7 +5,14 @@ import Cocoa
 import SwiftGraphics
 import SwiftGraphicsPlayground
 
-func computeParameters(size:CGSize, bitsPerComponent:Int, colorSpace:CGColorSpaceRef, alphaInfo:CGImageAlphaInfo, bitmapInfo:CGBitmapInfo) -> (width:UInt,height:UInt,bitsPerComponent:UInt,bytesPerRow:UInt,colorSpace:CGColorSpace,bitmapInfo:CGBitmapInfo) {
+public typealias BitmapContextParameters = (width:UInt,height:UInt,bitsPerComponent:UInt,bytesPerRow:UInt,colorSpace:CGColorSpace,bitmapInfo:CGBitmapInfo)
+
+enum BitmapContextMode {
+    case RGBA_UINT8
+    case RGBA_UINT16
+}
+
+public func expandBitmapContextParameters(size:CGSize, bitsPerComponent:Int, colorSpace:CGColorSpaceRef, alphaInfo:CGImageAlphaInfo, bitmapInfo:CGBitmapInfo) -> BitmapContextParameters? {
 
     let colorModel = CGColorSpaceGetModel(colorSpace)
 
@@ -23,7 +30,12 @@ func computeParameters(size:CGSize, bitsPerComponent:Int, colorSpace:CGColorSpac
         }
     }()
 
-    assert((bitmapInfo.rawValue & CGBitmapInfo.FloatComponents.rawValue != 0) && bitsPerComponent == sizeof(Float) * 8)
+    if (bitmapInfo.rawValue & CGBitmapInfo.FloatComponents.rawValue != 0)
+        {
+        if bitsPerComponent != sizeof(Float) * 8 {
+            return nil
+        }
+    }
 
     let hasAlphaComponent = alphaInfo != .None && alphaInfo != .Only
     let numberOfComponents:UInt = numberOfColorComponents + (hasAlphaComponent ? 1 : 0)
@@ -39,62 +51,10 @@ func computeParameters(size:CGSize, bitsPerComponent:Int, colorSpace:CGColorSpac
     return tuple
     }
 
-
-func validForBitmapContext(# colorSpace:CGColorSpaceRef, # bitsPerPixel:Int, # bitsPerComponent:Int, # alphaInfo:CGImageAlphaInfo, # bitmapInfo:CGBitmapInfo) -> Bool {
-
-    // https://developer.apple.com/library/ios/documentation/GraphicsImaging/Conceptual/drawingwithquartz2d/dq_context/dq_context.html#//apple_ref/doc/uid/TP30001066-CH203-TPXREF101
-
-    let model = CGColorSpaceGetModel(colorSpace)
-
-    let bitmapInfo = CGBitmapInfo(bitmapInfo.rawValue & CGBitmapInfo.FloatComponents.rawValue)
-
-    let tuple = (model.value, bitsPerPixel, bitsPerComponent, alphaInfo, bitmapInfo)
-
-    switch tuple {
-        // TODO: kCGColorSpaceModelUnknown????? = -alpha only?
-        case (kCGColorSpaceModelUnknown.value, 8, 8, .Only, CGBitmapInfo()): // Mac OS X, iOS
-            return true
-        case (kCGColorSpaceModelMonochrome.value, 8, 8, .None, CGBitmapInfo()): // Mac OS X, iOS
-            return true
-        case (kCGColorSpaceModelMonochrome.value, 8, 8, .Only, CGBitmapInfo()): // Mac OS X, iOS
-            return true
-        case (kCGColorSpaceModelMonochrome.value, 16, 16, .None, CGBitmapInfo()): // Mac OS X
-            return true
-        case (kCGColorSpaceModelMonochrome.value, 32, 32, .None, CGBitmapInfo.FloatComponents): // Mac OS X
-            return true
-        case (kCGColorSpaceModelRGB.value, 16, 5, .NoneSkipFirst, CGBitmapInfo()): // Mac OS X, iOS
-            return true
-        case (kCGColorSpaceModelRGB.value, 32, 8, .NoneSkipFirst, CGBitmapInfo()): // Mac OS X, iOS
-            return true
-        case (kCGColorSpaceModelRGB.value, 32, 8, .NoneSkipLast, CGBitmapInfo()): // Mac OS X, iOS
-            return true
-        case (kCGColorSpaceModelRGB.value, 32, 8, .PremultipliedFirst, CGBitmapInfo()): // Mac OS X, iOS
-            return true
-        case (kCGColorSpaceModelRGB.value, 32, 8, .PremultipliedLast, CGBitmapInfo()): // Mac OS X, iOS
-            return true
-        case (kCGColorSpaceModelRGB.value, 64, 16, .PremultipliedLast, CGBitmapInfo()): // Mac OS X
-            return true
-        case (kCGColorSpaceModelRGB.value, 64, 16, .NoneSkipLast, CGBitmapInfo()): // Mac OS X
-            return true
-        case (kCGColorSpaceModelRGB.value, 128, 32, .NoneSkipLast, CGBitmapInfo.FloatComponents): // Mac OS X
-            return true
-        case (kCGColorSpaceModelRGB.value, 128, 32, .PremultipliedLast, CGBitmapInfo.FloatComponents): // Mac OS X
-            return true
-        case (kCGColorSpaceModelCMYK.value, 32, 8, .None, CGBitmapInfo()): // Mac OS X
-            return true
-        case (kCGColorSpaceModelCMYK.value, 64, 16, .None, CGBitmapInfo()): // Mac OS X
-            return true
-        case (kCGColorSpaceModelCMYK.value, 128, 32, .None, CGBitmapInfo.FloatComponents): // Mac OS X
-            return true
-        default:
-            return false
-    }
-}
-
 public extension CGContext {
     class func bitmapContext(size:CGSize, bitsPerComponent:Int, colorSpace:CGColorSpaceRef, alphaInfo:CGImageAlphaInfo, bitmapInfo:CGBitmapInfo) -> CGContext! {
 
-        let p = computeParameters(size, bitsPerComponent, colorSpace, alphaInfo, bitmapInfo)
+        let p = expandBitmapContextParameters(size, bitsPerComponent, colorSpace, alphaInfo, bitmapInfo)!
 
         return CGBitmapContextCreate(nil, p.width, p.height, p.bitsPerComponent, p.bytesPerRow, p.colorSpace, p.bitmapInfo)
     }
@@ -107,13 +67,12 @@ let colorSpace = CGColorSpaceCreateDeviceRGB()
 //     class func bitmapContext(size:CGSize, bitsPerComponent:UInt, colorSpace:CGColorSpaceRef, alphaInfo:CGImageAlphaInfo, bitmapInfo:CGBitmapInfo) -> CGContext! {
 
 let alphaInfo = CGImageAlphaInfo.NoneSkipLast
-let bitmapInfo = CGBitmapInfo.FloatComponents
+let bitmapInfo = CGBitmapInfo() // CGBitmapInfo.FloatComponents
+typealias ComponentType = UInt8
 
-println(validForBitmapContext(colorSpace:colorSpace, bitsPerPixel:32 * 4, bitsPerComponent:32, alphaInfo:alphaInfo, bitmapInfo:bitmapInfo))
+println(validParametersForBitmapContext(colorSpace:colorSpace, bitsPerPixel:sizeof(ComponentType) * 8 * 4, bitsPerComponent:sizeof(ComponentType) * 8, alphaInfo:alphaInfo, bitmapInfo:bitmapInfo))
 
-//# colorSpace:CGColorSpaceRef, # bitsPerPixel:Int, # bitsPerComponent:Int, # alphaInfo:CGImageAlphaInfo, # bitmapInfo:CGBitmapInfo
-
-let context = CGContextRef.bitmapContext(size, bitsPerComponent:sizeof(Float) * 8, colorSpace: colorSpace, alphaInfo: alphaInfo, bitmapInfo: bitmapInfo)
+let context = CGContextRef.bitmapContext(size, bitsPerComponent:sizeof(ComponentType) * 8, colorSpace: colorSpace, alphaInfo: alphaInfo, bitmapInfo: bitmapInfo)
 
 
 CGContextSetAllowsAntialiasing(context, false)
@@ -126,7 +85,7 @@ CGContextSetBlendMode(context, kCGBlendModeCopy)
 context.setFillColor(CGColor.greenColor())
 CGContextFillRect(context, CGRect(size:size))
 
-let data:UnsafePointer <Float> = UnsafePointer <Float> (CGBitmapContextGetData(context))
+let data = UnsafePointer <ComponentType> (CGBitmapContextGetData(context))
 data[0]
 data[1]
 data[2]
