@@ -120,3 +120,12 @@ public struct Polygon {
         self.points = points
     }
 }
+
+// MARK: Drawing (TODO: Replace with Drawable)
+
+public extension CGContext {
+    func stroke(lineSegment:LineSegment) {
+        self.strokeLine(lineSegment.start, lineSegment.end)
+    }
+}
+

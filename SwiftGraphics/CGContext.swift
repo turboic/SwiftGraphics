@@ -77,6 +77,11 @@ public extension CGContext {
 
 public extension CGContext {
 
+    func strokePath(path:CGPath) {
+        CGContextAddPath(self, path)
+        CGContextStrokePath(self)
+    }
+
     func fillRect(rect:CGRect) {
         CGContextFillRect(self, rect)
     }

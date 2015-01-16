@@ -1,86 +1,105 @@
 // Playground - noun: a place where people can play
 
-import Cocoa
 import CoreGraphics
 import SwiftGraphics
-
-extension CGContext {
-
-    var size:CGSize {
-        get {
-            return CGSize(w:CGFloat(CGBitmapContextGetWidth(self)), h:CGFloat(CGBitmapContextGetHeight(self)))
-        }
-    }
-
-    func strokePath(path:CGPath) {
-        CGContextAddPath(self, path)
-        CGContextStrokePath(context)
-    }
-}
-
-struct Marker {
-    let point:CGPoint
-
-    func draw(context:CGContext) {
-        context.strokeSaltire(CGRect(center:point, diameter:10))
-    }
-
-    static func markers(points:[CGPoint]) -> [Marker] {
-        return points.map() {
-            return Marker(point:$0)
-        }
-    }
-
-}
-
-extension CGContext {
-    func draw(markers:[Marker]) {
-        for marker in markers {
-            marker.draw(self)
-        }
-    }
-}
+import SwiftGraphicsPlayground
 
 struct BezierCurveChain {
+
+    // TODO: This isn't really an accurate representaiton of what we want.
+    // TODO: Control points should be shared between neighbouring curves.
     let curves:[BezierCurve]
 
     init(curves:[BezierCurve]) {
-        self.curves = curves
+
+        var previousCurve:BezierCurve?
+        self.curves = curves.map() {
+            (curve:BezierCurve) -> BezierCurve in
+
+            var newCurve = curve
+            if let previousEndPoint = previousCurve?.end {
+                if let start = curve.start {
+//                    assert(previousEndPoint == start)
+                    newCurve = BezierCurve(controls:curve.controls, end:curve.end)
+                }
+            }
+
+            previousCurve = curve
+
+            return newCurve
+        }
+    }
+}
+
+extension BezierCurveChain: Printable {
+    var description: String {
+        get {
+            return ", ".join(curves.map() { $0.description })
+        }
     }
 }
 
 extension CGContext {
     func stroke(chain:BezierCurveChain) {
+        // Stroke all curves as a single path
+        let start = chain.curves[0].start
+        CGContextMoveToPoint(self, start!.x, start!.y)
         for curve in chain.curves {
-            stroke(curve)
+            self.addToPath(curve)
         }
+        CGContextStrokePath(self)
     }
 }
 
+
 extension Ellipse {
 
-    var points:[CGPoint] {
-        return [
-            center + CGPoint(x:-a, y:-b),
-            center + CGPoint(x:-a, y:+b),
-            center + CGPoint(x:+a, y:-b),
-            center + CGPoint(x:+a, y:+b),
-        ]
+    var markup:[Markup] {
+
+        var markup:[Markup] = []
+
+        // Center and foci already include rotation...
+        markup.append(Marker(point: center, tag: "center"))
+        markup.append(Marker(point: foci.0, tag: "foci"))
+        markup.append(Marker(point: foci.1, tag: "foci"))
+
+        let t = CGAffineTransform(rotation: rotation)
+        markup.append(Marker(point: center + CGPoint(x:-a, y:-b) * t, tag: "corner"))
+        markup.append(Marker(point: center + CGPoint(x:-a, y:+b) * t, tag: "corner"))
+        markup.append(Marker(point: center + CGPoint(x:+a, y:-b) * t, tag: "corner"))
+        markup.append(Marker(point: center + CGPoint(x:+a, y:+b) * t, tag: "corner"))
+
+        markup.append(Marker(point: CGPoint(x:-a) * t, tag: "-a"))
+        markup.append(Marker(point: CGPoint(x:+a) * t, tag: "+a"))
+        markup.append(Marker(point: CGPoint(y:-b) * t, tag: "-b"))
+        markup.append(Marker(point: CGPoint(y:+b) * t, tag: "+b"))
+
+        let A = LineSegment(start:CGPoint(x:-a) * t, end:CGPoint(x:+a) * t)
+        markup.append(Guide(type: .lineSegment(A), tag: "A"))
+
+        let B = LineSegment(start:CGPoint(y:-b) * t, end:CGPoint(y:+b) * t)
+        markup.append(Guide(type: .lineSegment(B), tag: "B"))
+
+        return markup
     }
+
+}
+
+
+extension Ellipse {
 
     var asBezierChain:(BezierCurveChain) {
         get {
             let curves = self.asBezierCurves
             let curvesArray = [curves.0, curves.1, curves.2, curves.3]
-            return BezierCurveChain(curves:curves)
+            return BezierCurveChain(curves:curvesArray)
         }
     }
-
 
     var asBezierCurves:(BezierCurve, BezierCurve, BezierCurve, BezierCurve) {
         get {
 
-            let t = CGAffineTransform(rotation: DegreesToRadians(45))
+            let t = CGAffineTransform(rotation: rotation)
 
             let da = a * 4.0 * (sqrt(2.0) - 1.0) / 3.0
             let db = b * 4.0 * (sqrt(2.0) - 1.0) / 3.0
@@ -116,32 +135,20 @@ extension Ellipse {
 }
 
 
-let size = CGSize(w:200, h:200)
+let size = CGSize(w:400, h:400)
 let context = CGContextRef.bitmapContext(size, color:CGColor.lightGrayColor())
 
-CGContextTranslateCTM(context, 100, 100)
+CGContextTranslateCTM(context, 200, 200)
 
-var ellipse = Ellipse(center:CGPointZero, semiMajorAxis:50.0, eccentricity:0.9)
-context.strokePath(ellipse.path)
+var ellipse = Ellipse(center:CGPointZero, semiMajorAxis:150.0, eccentricity:0.9, rotation:DegreesToRadians(30))
+//context.strokePath(ellipse.path)
 
-let markers = Marker.markers(ellipse.points)
-context.draw(markers)
+let markup = ellipse.markup
+context.draw(markup)
 
-//    init(center:CGPoint, semiMajorAxis a:CGFloat, eccentricity e:CGFloat) {
+let curves = ellipse.asBezierChain
+context.stroke(curves)
 
-
-
-let curves = ellipse.asBezierCurves
-let bezierCurves = [curves.0, curves.1, curves.2, curves.3]
-for (index, curve) in enumerate(bezierCurves) {
-    if index % 2 == 0 {
-        context.setStrokeColor(CGColor.redColor())
-    }
-    else {
-        context.setStrokeColor(CGColor.greenColor())
-    }
-    context.stroke(curve)
-}
 
 context.nsimage
 

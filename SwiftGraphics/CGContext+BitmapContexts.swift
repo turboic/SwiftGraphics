@@ -22,6 +22,11 @@ public extension CGContext {
         return context
     }
 
+    var size:CGSize {
+        get {
+            return CGSize(w:CGFloat(CGBitmapContextGetWidth(self)), h:CGFloat(CGBitmapContextGetHeight(self)))
+        }
+    }
 }
 
 public extension CGImageRef {

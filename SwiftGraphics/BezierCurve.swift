@@ -8,6 +8,8 @@
 
 import CoreGraphics
 
+import Foundation
+
 public struct BezierCurve {
 
     public enum Order {
@@ -58,13 +60,27 @@ public struct BezierCurve {
 // MARK: Good old Printable.
 
 extension BezierCurve : Printable {
-    public var description: String { get {
-        let controlsString = ", ".join(controls.map() {
-            (c:CGPoint) -> String in
-            return "(\(c.x), \(c.y))"
-        })
-        return "BezierCurve(start:\(start?.description), controls:\(controlsString), end:\(end.description))"
-    } }
+    public var description: String {
+        get {
+
+            let formatter = NSNumberFormatter()
+
+            let pointFormatter = {
+                (p:CGPoint) -> String in
+                let x = formatter.stringFromNumber(p.x)!
+                let y = formatter.stringFromNumber(p.y)!
+                return "(\(x), \(y))"
+            }
+
+            let controlsString = ", ".join(controls.map() { pointFormatter($0) })
+            if let start = start {
+                return "BezierCurve(start:\(pointFormatter(start)), controls:\(controlsString), end:\(pointFormatter(end))"
+            }
+            else {
+                return "BezierCurve(controls:\(controlsString), end:\(pointFormatter(end))"
+            }
+        }
+    }
 }
 
 // MARK: Convenience initializers
@@ -135,22 +151,23 @@ public extension BezierCurve {
 // MARK: Stroking the path to a context
 
 public extension CGContextRef {
-    func stroke(curve:BezierCurve) {
+
+    func addToPath(curve:BezierCurve) {
         switch curve.order {
             case .Quadratic:
-                if let start = curve.start {
-                    CGContextMoveToPoint(self, start.x, start.y)
-                    }
-                CGContextAddQuadCurveToPoint(self, curve.controls[0].x, curve.controls[0].y, curve.end.x, curve.end.y)              
-                CGContextStrokePath(self)
+                CGContextAddQuadCurveToPoint(self, curve.controls[0].x, curve.controls[0].y, curve.end.x, curve.end.y)
             case .Cubic:
-                if let start = curve.start {
-                    CGContextMoveToPoint(self, start.x, start.y)
-                    }
-                CGContextAddCurveToPoint(self, curve.controls[0].x, curve.controls[0].y, curve.controls[1].x, curve.controls[1].y, curve.end.x, curve.end.y)              
-                CGContextStrokePath(self)
+                CGContextAddCurveToPoint(self, curve.controls[0].x, curve.controls[0].y, curve.controls[1].x, curve.controls[1].y, curve.end.x, curve.end.y)
             case .OrderN(let order):
                 assert(false)
         }
+    }
+
+    func stroke(curve:BezierCurve) {
+        if let start = curve.start {
+            CGContextMoveToPoint(self, start.x, start.y)
+        }
+        self.addToPath(curve)
+        CGContextStrokePath(self)
     }
 }

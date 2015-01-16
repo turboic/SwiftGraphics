@@ -135,6 +135,7 @@
 		45CFDCA71A61CE3500053F96 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45CFDCA61A61CE3500053F96 /* Images.xcassets */; };
 		45CFDCAA1A61CE3500053F96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45CFDCA81A61CE3500053F96 /* Main.storyboard */; };
 		45DA4AC919AA62A800133F32 /* SwiftGraphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 45DA4AC819AA62A800133F32 /* SwiftGraphics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		45E298711A69AE76006FE740 /* Markup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E298701A69AE76006FE740 /* Markup.swift */; };
 		45F32C721A6455BB00E3DA68 /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F32C711A6455BB00E3DA68 /* CGColor.swift */; };
 		45F32C731A6455BB00E3DA68 /* CGColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F32C711A6455BB00E3DA68 /* CGColor.swift */; };
 		45F32C751A64590E00E3DA68 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F32C741A64590E00E3DA68 /* Color.swift */; };
@@ -316,6 +317,7 @@
 		45DA4AC419AA62A800133F32 /* SwiftGraphics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGraphics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45DA4AC719AA62A800133F32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45DA4AC819AA62A800133F32 /* SwiftGraphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftGraphics.h; sourceTree = "<group>"; };
+		45E298701A69AE76006FE740 /* Markup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Markup.swift; sourceTree = "<group>"; };
 		45ECEC301A6561D60018F7C6 /* BezierPath.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BezierPath.playground; sourceTree = "<group>"; };
 		45F32C711A6455BB00E3DA68 /* CGColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGColor.swift; sourceTree = "<group>"; };
 		45F32C741A64590E00E3DA68 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -561,6 +563,7 @@
 				45B32D4E1A637ECC004FD3FB /* RegularExpression.swift */,
 				457DEBCE1A6493AF003E4363 /* Style.swift */,
 				457DEBD21A6495BB003E4363 /* Drawable.swift */,
+				45E298701A69AE76006FE740 /* Markup.swift */,
 				454FE66419C77031002E4DEF /* Supporting Files */,
 			);
 			path = SwiftGraphicsPlayground;
@@ -986,6 +989,7 @@
 				45B32D4A1A637DF3004FD3FB /* Sketch.swift in Sources */,
 				45B8787C1A634F1F00CE168E /* Random.swift in Sources */,
 				45B32D481A637DF3004FD3FB /* Arc.swift in Sources */,
+				45E298711A69AE76006FE740 /* Markup.swift in Sources */,
 				454B0D5919CAA00300044B7C /* Plotable.swift in Sources */,
 				457DEBCF1A6493AF003E4363 /* Style.swift in Sources */,
 				454FE68019C77455002E4DEF /* SwiftGraphicsPlayground.swift in Sources */,
