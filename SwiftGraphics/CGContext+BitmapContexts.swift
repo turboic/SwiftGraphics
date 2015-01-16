@@ -14,6 +14,14 @@ public extension CGContext {
         var bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedFirst.rawValue)
         return CGBitmapContextCreate(nil, UInt(size.width), UInt(size.height), 8, UInt(size.width) * 4, colorspace, bitmapInfo)
     }
+
+    class func bitmapContext(size:CGSize, color:CGColor) -> CGContext! {
+        var context = bitmapContext(size)
+        context.setFillColor(color)
+        context.fillRect(CGRect(size:size))
+        return context
+    }
+
 }
 
 public extension CGImageRef {
