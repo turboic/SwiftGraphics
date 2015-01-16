@@ -248,3 +248,18 @@ extension CGPoint : FuzzyEquatable {
 public func ==% (lhs:CGPoint, rhs:CGPoint) -> Bool {
     return (lhs - rhs).isZero
 }
+
+/**
+ Return true if a, b, and c all lie on the same line.
+ */
+public func collinear(a:CGPoint, b:CGPoint, c:CGPoint) -> Bool {
+    return (b.x - a.x) * (c.y - a.y) ==% (c.x - a.x) * (b.y - a.y)
+}
+
+public func angle(p0:CGPoint, p1:CGPoint, p2:CGPoint) -> CGFloat {
+    let x10 = p1.x - p0.x
+    let y10 = p1.y - p0.y
+    let x20 = p2.x - p0.x
+    let y20 = p2.y - p0.y
+    return atan2(abs(x10 * y20 - y10 * x20), x10 * x20 + y10 * y20);
+    }

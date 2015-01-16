@@ -59,6 +59,24 @@ public func * (lhs:CGFloat, rhs:CGRect) -> CGRect {
     return CGRect(origin:lhs * rhs.origin, size:lhs * rhs.size)
 }
 
+public extension CGRect {
+
+    var mid : CGPoint { get { return midXMidY } }
+
+    var minXMinY : CGPoint { get { return CGPoint(x:self.minX, y:self.minY) } }
+    var minXMidY : CGPoint { get { return CGPoint(x:self.minX, y:self.midY) } }
+    var minXMaxY : CGPoint { get { return CGPoint(x:self.minX, y:self.maxY) } }
+
+    var midXMinY : CGPoint { get { return CGPoint(x:self.midX, y:self.minY) } }
+    var midXMidY : CGPoint { get { return CGPoint(x:self.midX, y:self.midY) } }
+    var midXMaxY : CGPoint { get { return CGPoint(x:self.midX, y:self.maxY) } }
+
+    var maxXMinY : CGPoint { get { return CGPoint(x:self.maxX, y:self.minY) } }
+    var maxXMidY : CGPoint { get { return CGPoint(x:self.maxX, y:self.midY) } }
+    var maxXMaxY : CGPoint { get { return CGPoint(x:self.maxX, y:self.maxY) } }
+
+}
+
 // MARK: Misc. CGRect utilities.
 
 public extension CGRect {
@@ -70,9 +88,12 @@ public extension CGRect {
         }
 
 
-    var isFinite : Bool { get { return CGRectIsNull(self) == false && CGRectIsInfinite(self) == false } }
-    var mid : CGPoint { get { return CGPoint(x:self.midX, y:self.midY) } }
-    
+    var isFinite : Bool {
+        get {
+            return CGRectIsNull(self) == false && CGRectIsInfinite(self) == false
+        }
+    }
+
     static func unionOfRects(rects:[CGRect]) -> CGRect {
         var result = rects[0]
         for rect in rects[1..<rects.count] {
