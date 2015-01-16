@@ -11,10 +11,12 @@ Most interesting development happens on the [develop][develop] branch.
 [travis]: https://travis-ci.org/schwa/SwiftGraphics
 [travis_img]: https://travis-ci.org/schwa/SwiftGraphics.svg?branch=master
 
-Bringing Swift goodness to Quartz.
+## Bringing Swift goodness to Quartz.
 
-See TODO.markdown for short term plans.
+See [TODO.markdown][TODO] for short term plans.
+See "Help Wanted" section of this document for how you can contribute to SwiftGraphics.
 
+[TODO]: TODO.markdown
 
 ## Philosophy
 
@@ -61,6 +63,16 @@ Use Demos/SwiftGraphicsDemos.xcworkspace.
 
 Your help wanted. I would definitely appreciate contributions from other members of the 
 Swift/Cocoa community. Please fork this project and submit pull requests.
+
+You can help by using Swift Graphics in your projects and discovering its shortcomings. I encourage you to file [issues][https://github.com/schwa/SwiftGraphics/issuess] against this project.
+
+Contributions are always welcome in the following areas:
+
+* Header doc comments explaining what the functions do
+* Unit tests
+* Playgrounds showing graphically what SwiftGraphics can do
+* New graphical algorithms (take your pick from https://en.wikipedia.org/wiki/Category:Computer_graphics_algorithms)
+* New geometry structs
 
 ## Naming
 
