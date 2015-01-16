@@ -156,8 +156,6 @@ public extension CGPath {
                 println("kCGPathElementMoveToPoint (\(points[0].x),\(points[0].y))")
             case kCGPathElementAddLineToPoint.value:
                 println("kCGPathElementAddLineToPoint (\(points[0].x),\(points[0].y))-(\(points[1].x),\(points[1].y))")
-            case kCGPathElementAddQuadCurveToPoint.value:
-                println("error: kCGPathElementAddQuadCurveToPoint")
             case kCGPathElementAddCurveToPoint.value:
                 println("kCGPathElementAddCurveToPoint (\(points[0].x),\(points[0].y))-(\(points[1].x),\(points[1].y))"
                     + ", (\(points[2].x),\(points[2].y))-(\(points[3].x),\(points[3].y))")
@@ -166,14 +164,29 @@ public extension CGPath {
             default:
                 println("default")
             }
-            //println("Element")
         }
     }
 
 }
 
-// MARK: Bounding box
+// MARK: Bounding box and length
 
 public extension CGPath {
-    public var bounds: CGRect { get { return CGPathGetBoundingBox(self) }}
+    public var bounds: CGRect { get { return CGPathGetPathBoundingBox(self) }}
+    
+    public var length: CGFloat { get {
+        var ret:CGFloat = 0.0
+        enumerate() {
+            (type:CGPathElementType, points:[CGPoint]) -> Void in
+            switch type.value {
+            case kCGPathElementAddLineToPoint.value, kCGPathElementCloseSubpath.value:
+                ret += points[0].distanceTo(points[1])
+            case kCGPathElementAddCurveToPoint.value:
+                ret += BezierCurve(points:points).length
+            default:
+                assert(false)
+            }
+        }
+        return ret
+    }}
 }
