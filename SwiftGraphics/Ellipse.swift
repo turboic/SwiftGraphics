@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 toxicsoftware. All rights reserved.
 //
 
-import Foundation
+import CoreGraphics
 
-class Ellipse {
-    var center:CGPoint
-    let a:CGFloat // semi major axis
-    let b:CGFloat // semi minor axis
-    let e:CGFloat // eccentricity
-    let F:CGFloat
+public struct Ellipse {
+    public let center:CGPoint
+    public let a:CGFloat // Semi major axis
+    public let b:CGFloat // Semi minor axis
+    public let e:CGFloat // Eccentricity
+    public let F:CGFloat // Distance to foci
 
-    init(center:CGPoint, semiMajorAxis a:CGFloat, eccentricity e:CGFloat) {
+    public init(center:CGPoint, semiMajorAxis a:CGFloat, eccentricity e:CGFloat) {
         self.center = center
         self.a = a
         self.b = a * sqrt(1.0 - e * e)
@@ -23,10 +23,25 @@ class Ellipse {
         self.F = a * e
     }
 
-    var F1: CGPoint { get { return CGPoint(x:self.center.x - self.F, y:self.center.y) } }
-    var F2: CGPoint { get { return CGPoint(x:self.center.x + self.F, y:self.center.y) } }
+//    public var F1: CGPoint { get { return CGPoint(x:self.center.x - self.F, y:self.center.y) } }
+//    public var F2: CGPoint { get { return CGPoint(x:self.center.x + self.F, y:self.center.y) } }
 
-    var rect:CGRect {
+    public var foci:(CGPoint, CGPoint) {
+        get {
+            return (
+                CGPoint(x:self.center.x - self.F, y:self.center.y),
+                CGPoint(x:self.center.x + self.F, y:self.center.y)
+            )
+        }
+    }
+
+    public var size:CGSize {
+        get {
+            return CGSize(width:self.a * 2, height:self.b * 2)
+        }
+    }
+
+    public var frame:CGRect {
         get {
             let size = CGSize(width:self.a * 2, height:self.b * 2)
             let origin = CGPoint(x:self.center.x - size.width * 0.5, y:self.center.y - size.height * 0.5)
@@ -34,5 +49,17 @@ class Ellipse {
         }
     }
 
-    var path:CGPath { get { return CGPathCreateWithEllipseInRect(self.rect, nil) } }
 }
+
+public extension Ellipse {
+    var asCircle : Circle? {
+        get {
+            return nil
+        }
+    }
+}
+
+public extension Ellipse {
+    var path:CGPath { get { return CGPathCreateWithEllipseInRect(self.frame, nil) } }
+}
+
