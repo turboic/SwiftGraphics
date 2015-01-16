@@ -100,11 +100,11 @@ public extension BezierCurve {
     // Gauss quadrature for cubic Bezier curves http://processingjs.nihongoresources.com/bezierinfo/
     
     public var length: CGFloat { get {
-        if self.controls.count == 1 {
-            return increasedOrder().length
-        }
         if self.isStraight {
             return self.start!.distanceTo(self.end)
+        }
+        if self.controls.count == 1 {
+            return increasedOrder().length
         }
         
         let pts = points
