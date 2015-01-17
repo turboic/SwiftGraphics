@@ -36,6 +36,7 @@
 		2E0F5BD91A6986DA00221BB0 /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0F5BD81A6986DA00221BB0 /* ColorTests.swift */; };
 		2E0F5BDB1A69BBA600221BB0 /* QuadrantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0F5BDA1A69BBA600221BB0 /* QuadrantTests.swift */; };
 		2E0F5BDD1A69C43A00221BB0 /* UtilitesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0F5BDC1A69C43A00221BB0 /* UtilitesTests.swift */; };
+		2E0F5BDF1A6A8FCA00221BB0 /* GrahamScanUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0F5BDE1A6A8FCA00221BB0 /* GrahamScanUnitTests.swift */; };
 		450155841A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450155831A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift */; };
 		450155851A62F9F600D7FB7B /* SwiftGraphicsPlayground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454FE66219C77031002E4DEF /* SwiftGraphicsPlayground.framework */; };
 		4514F60E1A61D4C400CC9C26 /* ArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4514F5FB1A61D4C400CC9C26 /* ArcView.swift */; };
@@ -229,6 +230,7 @@
 		2E0F5BD81A6986DA00221BB0 /* ColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTests.swift; sourceTree = "<group>"; };
 		2E0F5BDA1A69BBA600221BB0 /* QuadrantTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuadrantTests.swift; sourceTree = "<group>"; };
 		2E0F5BDC1A69C43A00221BB0 /* UtilitesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilitesTests.swift; sourceTree = "<group>"; };
+		2E0F5BDE1A6A8FCA00221BB0 /* GrahamScanUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrahamScanUnitTests.swift; sourceTree = "<group>"; };
 		4501557F1A62F9F600D7FB7B /* SwiftGraphicsPlayground_OSX_UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftGraphicsPlayground_OSX_UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		450155821A62F9F600D7FB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		450155831A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGraphicsPlayground_UnitTests.swift; sourceTree = "<group>"; };
@@ -539,6 +541,7 @@
 				2E0F5BD81A6986DA00221BB0 /* ColorTests.swift */,
 				2E0F5BDA1A69BBA600221BB0 /* QuadrantTests.swift */,
 				2E0F5BDC1A69C43A00221BB0 /* UtilitesTests.swift */,
+				2E0F5BDE1A6A8FCA00221BB0 /* GrahamScanUnitTests.swift */,
 			);
 			path = SwiftGraphics_UnitTests;
 			sourceTree = "<group>";
@@ -1013,6 +1016,7 @@
 			files = (
 				2E0F5BDB1A69BBA600221BB0 /* QuadrantTests.swift in Sources */,
 				4515825F19C9F6A600856C91 /* TurnTests.swift in Sources */,
+				2E0F5BDF1A6A8FCA00221BB0 /* GrahamScanUnitTests.swift in Sources */,
 				2E0F5BD91A6986DA00221BB0 /* ColorTests.swift in Sources */,
 				4537991D19AA788B004DF99E /* CGSizeTests.swift in Sources */,
 				2E0F5BDD1A69C43A00221BB0 /* UtilitesTests.swift in Sources */,

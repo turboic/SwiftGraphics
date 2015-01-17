@@ -11,7 +11,8 @@ import CoreGraphics
 public func grahamOrdered(var points:[CGPoint]) -> [CGPoint] {
     // Find the point (and its index) with the lowest y
     typealias IndexedPoint = (index:Int,point:CGPoint)
-    let lowest:IndexedPoint = reduce(enumerate(points), IndexedPoint(0, points[0])) {
+    
+    let lowest = reduce(enumerate(points), IndexedPoint(0, points[0])) {
         (u:IndexedPoint, c:IndexedPoint) -> IndexedPoint in
         return c.point.y < u.point.y ? c : (c.point.y == u.point.y ? (c.point.x <= u.point.x ? c : u) : u)
     }
@@ -36,18 +37,22 @@ public func grahamScan(var points:[CGPoint], preordered:Bool = false) -> [CGPoin
     var hull:[Int] = [0, 1]
 
     for index in 2..<points.count {
-        let p_index = hull[hull.count - 2]
-        let p = points[p_index]
-        let q_index = hull[hull.count - 1]
-        let q = points[q_index]
-        let r = points[index]
-        let t = Turn(p, q, r)
-        if t != .Left {
-            hull.removeLast()
-        }
-        hull.push(index + 2)
-    }
+        
+        var t = Turn.Left
+        do {
+            let p_index = hull[hull.count - 2]
+            let p = points[p_index]
+            let q_index = hull[hull.count - 1]
+            let q = points[q_index]
+            let r = points[index]
+            t = Turn(p, q, r)
+            if t != .Right {
+                hull.removeLast()
+            }
+        } while t != .Right
 
+        hull.push(index)
+    }
 
     let hull_points:[CGPoint] = hull.map {
         return points[$0]

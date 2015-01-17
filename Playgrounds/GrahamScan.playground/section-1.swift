@@ -12,14 +12,11 @@ func SGPRender(identifier:String, block:((ctx:CGContext, bounds:CGRect) -> Void)
     XCPShowView(identifier, demoView)
 }
 
-var points = arrayOfRandomPoints(50, CGRect(w:480, h:320))
+var points = arrayOfRandomPoints(50, CGRect(w:400, h:300))
 
 SGPRender("Test") {
     (ctx:CGContext, bounds:CGRect) in
 
-    points = grahamOrdered(points)
-
-    // Next line asplodes!
     let hull = grahamScan(points)
 
     for (index, point) in enumerate(points) {
