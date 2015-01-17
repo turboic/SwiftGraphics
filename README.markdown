@@ -41,6 +41,8 @@ paths in a more natural way than CGPath or NSBezierPath can do
 ![Convex Hull Screenshot](Documentation/ConvexHull.png)
 ![Metaballs Screenshot](Documentation/Metaballs.png)
 ![QuadTree Screenshot](Documentation/QuadTree.png)
+![Ellipse Screenshot](Documentation/Ellipse.png)
+
 
 ## In Progress
 
