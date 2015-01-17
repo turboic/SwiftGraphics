@@ -31,8 +31,8 @@
 		026F21061A5FB26600A52D0E /* MonotoneChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45BA25B719CA112E00B612B7 /* MonotoneChain.swift */; };
 		029651AB1A6366FA0099DA1C /* CDisplayLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 029651A91A6366FA0099DA1C /* CDisplayLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		029651AC1A6366FA0099DA1C /* CDisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 029651AA1A6366FA0099DA1C /* CDisplayLink.m */; };
-		02BF437E1A64FACB00132343 /* BezierBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF437D1A64FACB00132343 /* BezierBounds.swift */; };
-		02BF437F1A64FACB00132343 /* BezierBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF437D1A64FACB00132343 /* BezierBounds.swift */; };
+		02BF437E1A64FACB00132343 /* BezierCurve+BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF437D1A64FACB00132343 /* BezierCurve+BoundingBox.swift */; };
+		02BF437F1A64FACB00132343 /* BezierCurve+BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF437D1A64FACB00132343 /* BezierCurve+BoundingBox.swift */; };
 		2E0F5BD91A6986DA00221BB0 /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0F5BD81A6986DA00221BB0 /* ColorTests.swift */; };
 		450155841A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450155831A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift */; };
 		450155851A62F9F600D7FB7B /* SwiftGraphicsPlayground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454FE66219C77031002E4DEF /* SwiftGraphicsPlayground.framework */; };
@@ -138,6 +138,7 @@
 		45CFDCA51A61CE3500053F96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CFDCA41A61CE3500053F96 /* ViewController.swift */; };
 		45CFDCA71A61CE3500053F96 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45CFDCA61A61CE3500053F96 /* Images.xcassets */; };
 		45CFDCAA1A61CE3500053F96 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45CFDCA81A61CE3500053F96 /* Main.storyboard */; };
+		45D7862C1A6A2743006A152E /* BezierPath+Markup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D7862B1A6A2743006A152E /* BezierPath+Markup.swift */; };
 		45DA4AC919AA62A800133F32 /* SwiftGraphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 45DA4AC819AA62A800133F32 /* SwiftGraphics.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		45E298711A69AE76006FE740 /* Markup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E298701A69AE76006FE740 /* Markup.swift */; };
 		45E298741A69B2F5006FE740 /* BezierCurveChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E298721A69B2DC006FE740 /* BezierCurveChain.swift */; };
@@ -219,7 +220,7 @@
 		029651A91A6366FA0099DA1C /* CDisplayLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDisplayLink.h; sourceTree = "<group>"; };
 		029651AA1A6366FA0099DA1C /* CDisplayLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDisplayLink.m; sourceTree = "<group>"; };
 		02A969E21A6744C3006DDF62 /* RulerPoint.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RulerPoint.playground; sourceTree = "<group>"; };
-		02BF437D1A64FACB00132343 /* BezierBounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BezierBounds.swift; sourceTree = "<group>"; };
+		02BF437D1A64FACB00132343 /* BezierCurve+BoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BezierCurve+BoundingBox.swift"; sourceTree = "<group>"; };
 		2E0F5BD81A6986DA00221BB0 /* ColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTests.swift; sourceTree = "<group>"; };
 		4501557F1A62F9F600D7FB7B /* SwiftGraphicsPlayground_OSX_UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftGraphicsPlayground_OSX_UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		450155821A62F9F600D7FB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -323,6 +324,7 @@
 		45CFDCA41A61CE3500053F96 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		45CFDCA61A61CE3500053F96 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		45CFDCA91A61CE3500053F96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		45D7862B1A6A2743006A152E /* BezierPath+Markup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BezierPath+Markup.swift"; sourceTree = "<group>"; };
 		45DA4AC419AA62A800133F32 /* SwiftGraphics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftGraphics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45DA4AC719AA62A800133F32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45DA4AC819AA62A800133F32 /* SwiftGraphics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftGraphics.h; sourceTree = "<group>"; };
@@ -574,6 +576,7 @@
 				457DEBCE1A6493AF003E4363 /* Style.swift */,
 				457DEBD21A6495BB003E4363 /* Drawable.swift */,
 				45E298701A69AE76006FE740 /* Markup.swift */,
+				45D7862B1A6A2743006A152E /* BezierPath+Markup.swift */,
 				455D7F5B1A69CBB20088EA94 /* Ellipse+Markup.swift */,
 				453A8FBC1A69DFC000D7EAD0 /* Silly.swift */,
 				454FE66419C77031002E4DEF /* Supporting Files */,
@@ -643,7 +646,7 @@
 			children = (
 				456C315B19C65B0E003AA1DF /* Ellipse.swift */,
 				459EE5DC19AEC5130012E023 /* BezierCurve.swift */,
-				02BF437D1A64FACB00132343 /* BezierBounds.swift */,
+				02BF437D1A64FACB00132343 /* BezierCurve+BoundingBox.swift */,
 				459EE5E319AEC5130012E023 /* Geometry.swift */,
 				45C11B5C1A6975400029A61C /* Geometry+Utilities.swift */,
 				45C11B5A1A69751B0029A61C /* Triangle.swift */,
@@ -947,7 +950,7 @@
 			files = (
 				45A14E1C1A69D582006F4949 /* IntGeometry.swift in Sources */,
 				029651AC1A6366FA0099DA1C /* CDisplayLink.m in Sources */,
-				02BF437E1A64FACB00132343 /* BezierBounds.swift in Sources */,
+				02BF437E1A64FACB00132343 /* BezierCurve+BoundingBox.swift in Sources */,
 				456C315C19C65B0E003AA1DF /* Ellipse.swift in Sources */,
 				4574C0251A64604900454DE5 /* CGContext_OSX.swift in Sources */,
 				45E298741A69B2F5006FE740 /* BezierCurveChain.swift in Sources */,
@@ -1005,6 +1008,7 @@
 				45B32D4A1A637DF3004FD3FB /* Sketch.swift in Sources */,
 				455D7F5C1A69CBB20088EA94 /* Ellipse+Markup.swift in Sources */,
 				45B8787C1A634F1F00CE168E /* Random.swift in Sources */,
+				45D7862C1A6A2743006A152E /* BezierPath+Markup.swift in Sources */,
 				45B32D481A637DF3004FD3FB /* Arc.swift in Sources */,
 				45E298711A69AE76006FE740 /* Markup.swift in Sources */,
 				453A8FBD1A69DFC000D7EAD0 /* Silly.swift in Sources */,
@@ -1065,7 +1069,7 @@
 				4515826219C9F83300856C91 /* Private.swift in Sources */,
 				459EE5FA19AEC5130012E023 /* Scaling.swift in Sources */,
 				459EE5F819AEC5130012E023 /* Quadrant.swift in Sources */,
-				02BF437F1A64FACB00132343 /* BezierBounds.swift in Sources */,
+				02BF437F1A64FACB00132343 /* BezierCurve+BoundingBox.swift in Sources */,
 				459A4C4D1A69913600E87608 /* Circle.swift in Sources */,
 				459EE5F419AEC5130012E023 /* CGSize.swift in Sources */,
 				459EE5EE19AEC5130012E023 /* CGPath.swift in Sources */,

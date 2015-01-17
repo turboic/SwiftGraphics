@@ -102,12 +102,11 @@ public extension Ellipse {
         get {
             let bezierCurves = self.asBezierCurves
             let rects = [
-                bezierCurves.0.bounds,
-                bezierCurves.1.bounds,
-                bezierCurves.2.bounds,
-                bezierCurves.3.bounds
+                bezierCurves.0.boundingBox,
+                bezierCurves.1.boundingBox,
+                bezierCurves.2.boundingBox,
+                bezierCurves.3.boundingBox
                 ]
-
 
             return CGRect.unionOfRects(rects)
         }

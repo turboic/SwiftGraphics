@@ -19,9 +19,9 @@ public extension BezierCurve {
     }}
     
     //! Compute the bounding box based on the straightened curve, for best fit
-    public var bounds: CGRect { get {
+    public var boundingBox: CGRect { get {
         if self.controls.count == 1 {
-            return increasedOrder().bounds
+            return increasedOrder().boundingBox
         }
         
         let pt1 = start!

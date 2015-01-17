@@ -70,7 +70,7 @@ class BezierEditor : Editor {
         
         context.stroke(self.curve)
         context.withColor(CGColor.lightGrayColor()) {
-            context.strokeRect(self.curve.bounds)
+            context.strokeRect(self.curve.boundingBox)
             let points = self.curve.points
             context.strokeLine(points[0], points[1])
             context.strokeLine(points[2], self.curve.end)

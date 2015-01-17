@@ -92,9 +92,21 @@ public struct Marker: Markup {
 }
 
 public extension CGContext {
-    func draw(markup:[Markup]) {
+    func draw(markup:[Markup], styles:[String:Style]? = nil) {
         for item in markup {
+
+            let style = styles?[item.tag!]
+
+            if let style = style {
+                CGContextSaveGState(self)
+                apply(style)
+            }
+
             item.draw(self)
+
+            if let style = style {
+                CGContextRestoreGState(self)
+            }
         }
     }
 }
