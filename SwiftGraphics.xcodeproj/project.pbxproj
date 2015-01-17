@@ -251,7 +251,6 @@
 		451CE9F41A61D73C006F721B /* SwiftGraphicsTest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SwiftGraphicsTest.playground; sourceTree = "<group>"; };
 		4537990419AA671E004DF99E /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4537990519AA671E004DF99E /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
-		4537990619AA6736004DF99E /* TODO.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.markdown; sourceTree = "<group>"; };
 		4537991919AA6C37004DF99E /* CGPointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointTests.swift; sourceTree = "<group>"; };
 		4537991C19AA788B004DF99E /* CGSizeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGSizeTests.swift; sourceTree = "<group>"; };
 		453997C31A61F89F00572E47 /* BouncingBalls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BouncingBalls.swift; sourceTree = "<group>"; };
@@ -478,7 +477,6 @@
 			children = (
 				4537990419AA671E004DF99E /* LICENSE */,
 				4537990519AA671E004DF99E /* README.markdown */,
-				4537990619AA6736004DF99E /* TODO.markdown */,
 				454FE65B19C77001002E4DEF /* Playgrounds */,
 				459EE5DB19AEC5130012E023 /* SwiftGraphics */,
 				454D551319AA5CE6000E3EB3 /* SwiftGraphics_UnitTests */,
