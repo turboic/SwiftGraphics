@@ -1,19 +1,18 @@
 # SwiftGraphics
 
-## *IMPORTANT*
+## **IMPORTANT**
 
-Most interesting development happens on the [develop][develop] branch.
+All development happens on the [develop][develop] branch. Code is merged back on master branch infrequently.
 
 [develop]: https://github.com/schwa/SwiftGraphics/tree/develop
+
+## Bringing Swift goodness to Quartz.
 
 [![Travis][travis_img]][travis]
 
 [travis]: https://travis-ci.org/schwa/SwiftGraphics
 [travis_img]: https://travis-ci.org/schwa/SwiftGraphics.svg?branch=master
 
-## Bringing Swift goodness to Quartz.
-
-See [TODO.markdown][TODO] for short term plans.
 See "Help Wanted" section of this document for how you can contribute to SwiftGraphics.
 
 [TODO]: TODO.markdown
@@ -27,13 +26,12 @@ convenient as possible.
 
 ## What's included
 
-* Pragmatic operator overloading for CoreGraphics types including: CGPoint, CGSize,
-CGRect, CGAffineTransform
-* Object Oriented extensions for CGContext, CGPath
+* Pragmatic operator overloading for CoreGraphics types including: CGPoint, CGSize, CGRect, CGAffineTransform
+* Object Oriented extensions for CGContext (including easy creation of bitmap context), CGPath
 * A bezier curve object that can represent curves of any order (including quadratic and
 cubic of course)
-* A path object that represents a bezier path - can be used to create and manipulate
-paths in a more natural way than CGPath or NSBezierPath can do 
+* A path object that represents a bezier path - can be used to create and manipulate paths in a more natural way than CGPath or NSBezierPath can do 
+* Fleshed out Geometry objects (Triangle, Ellipse, etc) allowing creating and introspection.
 * Convex Hull Generation
 * QuadTree data structure
 * Metaballs (Marching Squares algorithm) implementation
@@ -46,25 +44,28 @@ paths in a more natural way than CGPath or NSBezierPath can do
 
 ## In Progress
 
-All of this code is very much a _*work in progress*_. I'm adding and changing
-functionality as needed. As such I'm trying not to add code that isn't used (with some
+All of this code is very much a _*work in progress*_. I'm adding and changing functionality as needed. As such I'm trying not to add code that isn't used (with some
 exceptions).
 
-Look in the Demo directory for "bleeding edge" projects that are adding new functionality
-to SwiftGraphics.
+## Project Structure
+
+SwiftGraphics is made up of:
+
+* Two SwiftGraphics dynamic frameworks (one for iOS and one for Mac OS X),
+* A Mac OS X only SwiftGraphicsPlayground framework (containing code generally useful when using Playground)
+* A directory of Playground files
+* A Mac OS X testbed app “SwiftGraphics_OSX_UITest” that highlights some of the more interactive code
+* Unit Test Targets
 
 ## Usage
 
-SwiftGraphics builds iOS and OSX frameworks. Just add SwiftGraphics.xcodeproj to your
-project and set up your dependencies appropriately.
+SwiftGraphics builds iOS and OS X frameworks. Just add SwiftGraphics.xcodeproj to your project and set up your dependencies appropriately.
 
-You can play with SwiftGraphics in Xcode 6 Playgrounds.
-Use Demos/SwiftGraphicsDemos.xcworkspace.
+You can play with SwiftGraphics in Xcode 6 Playgrounds. **IMPORTANT** just make sure you compile the SwiftGraphicsPlayground target before trying to run any Playgrounds.
 
 ## Help Wanted
 
-Your help wanted. I would definitely appreciate contributions from other members of the 
-Swift/Cocoa community. Please fork this project and submit pull requests.
+Your help wanted. I would definitely appreciate contributions from other members of the Swift/Cocoa community. Please fork this project and submit pull requests.
 
 You can help by using Swift Graphics in your projects and discovering its shortcomings. I encourage you to file [issues][issues] against this project.
 
@@ -80,10 +81,13 @@ Contributions are always welcome in the following areas:
 
 [wikipedia]: https://en.wikipedia.org/wiki/Category:Computer_graphics_algorithms
 
-## Naming
+## Code Life Cycle
 
-"SwiftGraphics" is a placeholder name. Please send your suggestions for a better name on a
-self-addressed, stamped postcard to…
+All development occurs on the develop branch. New code starts either as a Playground or as a tab inside the houseSwiftGraphics_OSX_UITest application target.
+
+As code proves itself to be useful it is added to the SwiftGraphicsPlayground target and shared with all Playgrounds.
+
+If code is generally useful it is moved directly to the SwiftGraphics target.
 
 ## License
 
