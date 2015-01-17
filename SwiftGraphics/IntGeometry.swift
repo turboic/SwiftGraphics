@@ -6,8 +6,6 @@
 //  Copyright (c) 2015 schwa.io. All rights reserved.
 //
 
-import Foundation
-
 public struct GenericPoint <T> {
     public let x:T
     public let y:T

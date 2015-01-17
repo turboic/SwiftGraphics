@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 schwa.io. All rights reserved.
 //
 
-import Foundation
+import CoreGraphics
 
 class Grid_Array <T> {
     let size:(width:Int,height:Int)

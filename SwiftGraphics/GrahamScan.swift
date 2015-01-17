@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 schwa.io. All rights reserved.
 //
 
-import Foundation
+import CoreGraphics
 
 public func grahamOrdered(var points:[CGPoint]) -> [CGPoint] {
     // Find the point (and its index) with the lowest y

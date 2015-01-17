@@ -7,8 +7,6 @@
 //
 
 import Foundation
-
-import Foundation
 import CoreGraphics
 
 // Utility code that is used by SwiftGraphics but isn't intended to be used outside of this project

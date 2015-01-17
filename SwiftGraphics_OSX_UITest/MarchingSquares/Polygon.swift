@@ -8,6 +8,8 @@
 
 import Foundation
 
+// TODO: Remove all this.
+
 public struct GenericVector3 <T> {
     var x:T
     var y:T

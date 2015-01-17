@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 schwa.io. All rights reserved.
 //
 
+import CoreGraphics
 import Foundation
 
 import SwiftGraphicsPlayground

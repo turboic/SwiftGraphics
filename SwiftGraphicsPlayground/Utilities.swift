@@ -7,9 +7,6 @@
 //
 
 import Foundation
-import Foundation
-
-import Cocoa
 
 extension Array {
     init(count:Int, block:(Void) -> T) {

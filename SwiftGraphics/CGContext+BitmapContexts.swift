@@ -8,6 +8,10 @@
 
 import CoreGraphics
 
+#if os(OSX)
+import AppKit
+#endif
+
 public extension CGContext {
     class func bitmapContext(size:CGSize) -> CGContext! {
         let colorspace = CGColorSpaceCreateDeviceRGB()    
@@ -48,6 +52,7 @@ public extension CGContext {
 
 
 public extension CGContext {
+#if os(OSX)
     var nsimage : NSImage {
         get { 
             // This assumes the context is a bitmap context
@@ -57,6 +62,7 @@ public extension CGContext {
             return nsimage
         }
     }
+#endif
 }
 
 
