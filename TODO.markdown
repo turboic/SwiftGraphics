@@ -4,18 +4,12 @@ SwiftGraphics is currently a WIP - the API will change radically.
 
 * TODO: Documentation
 * TODO: Unit Tests
-* TODO: Fix iOS vs OSX build targets
 * TODO: Double check operater precidence - forced to do some weird casting right
 now
-* TODO: Demo projects
-* TODO: Really understand public vs private vs internal (see BezierCurve)
-* TODO: Unsure about some of the convenience init() methods. They serve no
-purpose other than reducing typing and visual clutter.
 * TODO: Might end up wrapping CGContext (and other CG types) in swift classes
 just so I get full benefit of swift. For example you can't create class methods
 on CGContext etc. NOTE: I was wrong about class methods. Extending CGContext is
 somewhat viable.
-* TODO: Rethink bezier methods. The rotate vs rotated conflation is weird.
 
 ## SVG
 
