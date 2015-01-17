@@ -8,6 +8,8 @@
 
 import CoreGraphics
 
+import SwiftGraphics
+
 class Grid_Array <T> {
     let size:(width:Int,height:Int)
     var buffer:Array<T>

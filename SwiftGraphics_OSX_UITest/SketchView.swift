@@ -52,7 +52,7 @@ class SketchView: NSView {
                 context.strokeEllipseInRect(node.frame)
             case let node as SwiftGraphicsPlayground.Line:
                 context.strokeLine(node.start, node.end)
-            case let node as Rectangle:
+            case let node as SwiftGraphicsPlayground.Rectangle:
                 context.strokeRect(node.frame)
             case let node as Group:
                 break
