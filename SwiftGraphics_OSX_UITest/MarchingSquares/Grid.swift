@@ -8,18 +8,6 @@
 
 import Foundation
 
-struct GenericSize <T> {
-    let width:T
-    let height:T
-}
-
-struct IntPoint {
-    let x:Int
-    let y:Int
-}
-
-typealias IntSize = GenericSize<Int>
-
 class Grid_Array <T> {
     let size:(width:Int,height:Int)
     var buffer:Array<T>

@@ -15,10 +15,14 @@ public extension CGContext {
         return CGBitmapContextCreate(nil, UInt(size.width), UInt(size.height), 8, UInt(size.width) * 4, colorspace, bitmapInfo)
     }
 
-    class func bitmapContext(size:CGSize, color:CGColor) -> CGContext! {
+    class func bitmapContext(size:CGSize, color:CGColor, origin:CGPoint = CGPointZero) -> CGContext! {
         var context = bitmapContext(size)
-        context.setFillColor(color)
-        context.fillRect(CGRect(size:size))
+        context.with {
+            context.setFillColor(color)
+            context.fillRect(CGRect(size:size))
+        }
+        CGContextTranslateCTM(context, origin.x * size.width, origin.y * size.height)
+
         return context
     }
 
@@ -32,6 +36,29 @@ public extension CGContext {
 public extension CGImageRef {
     var size : CGSize { get { return CGSize(width:CGFloat(CGImageGetWidth(self)), height:CGFloat(CGImageGetHeight(self))) } }
 }
+
+public extension CGContext {
+    class func imageWithBlock(size:CGSize, color:CGColor, origin:CGPoint = CGPointZero, block:CGContext -> Void) -> CGImage! {
+        var context = bitmapContext(size, color: color, origin: origin)
+        block(context)
+        let cgimage = CGBitmapContextCreateImage(context)
+        return cgimage
+    }
+}
+
+
+public extension CGContext {
+    var nsimage : NSImage {
+        get { 
+            // This assumes the context is a bitmap context
+            let cgimage = CGBitmapContextCreateImage(self)
+            let size = CGSize(width:CGFloat(CGImageGetWidth(cgimage)), height:CGFloat(CGImageGetHeight(cgimage)))
+            let nsimage = NSImage(CGImage:cgimage, size:size)
+            return nsimage
+        }
+    }
+}
+
 
 public func validParametersForBitmapContext(# colorSpace:CGColorSpaceRef, # bitsPerPixel:Int, # bitsPerComponent:Int, # alphaInfo:CGImageAlphaInfo, # bitmapInfo:CGBitmapInfo) -> Bool {
 

@@ -6,24 +6,8 @@
 //  Copyright (c) 2015 schwa.io. All rights reserved.
 //
 
-import Foundation
-
 import CoreGraphics
-import Foundation
-
 import AppKit
-
-public extension CGContext {
-    var nsimage : NSImage {
-        get { 
-            // This assumes the context is a bitmap context
-            let cgimage = CGBitmapContextCreateImage(self)
-            let size = CGSize(width:CGFloat(CGImageGetWidth(cgimage)), height:CGFloat(CGImageGetHeight(cgimage)))
-            let nsimage = NSImage(CGImage:cgimage, size:size)
-            return nsimage
-        }
-    }
-}
 
 // MARK: Strings
 

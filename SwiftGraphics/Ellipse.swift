@@ -17,6 +17,10 @@ public struct Ellipse {
     public let rotation:CGFloat
 
     public init(center:CGPoint, semiMajorAxis a:CGFloat, eccentricity e:CGFloat, rotation:CGFloat = 0.0) {
+
+        assert(a >= 0)
+        assert(e >= 0 && e <= 1)
+
         self.center = center
         self.a = a
         self.b = a * sqrt(1.0 - e * e)
@@ -25,8 +29,17 @@ public struct Ellipse {
         self.rotation = rotation
     }
 
-//    public var F1: CGPoint { get { return CGPoint(x:self.center.x - self.F, y:self.center.y) } }
-//    public var F2: CGPoint { get { return CGPoint(x:self.center.x + self.F, y:self.center.y) } }
+    public init(center:CGPoint, semiMajorAxis a:CGFloat, semiMinorAxis b:CGFloat, rotation:CGFloat = 0.0) {
+        assert(a >= b)
+        assert(a >= 0)
+
+        self.center = center
+        self.a = a
+        self.b = b
+        self.e = sqrt(1 - (b / a) ** 2)
+        self.F = a * e
+        self.rotation = rotation
+    }
 
     public var foci:(CGPoint, CGPoint) {
         get {
@@ -38,31 +51,128 @@ public struct Ellipse {
         }
     }
 
-//    public var size:CGSize {
-//        get {
-//            return CGSize(width:a * 2, height:b * 2)
-//        }
-//    }
-//
-//    public var frame:CGRect {
-//        get {
-//            let size = CGSize(width:a * 2, height:b * 2)
-//            let origin = CGPoint(x:center.x - size.width * 0.5, y:center.y - size.height * 0.5)
-//            return CGRect(origin:origin, size:size)
-//        }
-//    }
+}
 
+extension Ellipse:Printable {
+    public var description:String {
+        get {
+            return "Ellipse(center:\(center), semiMajorAxis:\(a) semiMinorAxis:\(b), eccentricity:\(e), rotation:\(rotation)"
+        }
+    }
+}
+
+
+public extension Ellipse {
+
+    public init(center:CGPoint, size:CGSize, rotation:CGFloat = 0.0) {
+        assert(rotation == 0.0)
+        let semiMajorAxis:CGFloat = max(size.width, size.height) * 0.5
+        let semiMinorAxis:CGFloat = min(size.width, size.height) * 0.5
+
+        var rotation = rotation
+        if size.height > size.width {
+            rotation = DegreesToRadians(90)
+        }
+
+        self.init(center:center, semiMajorAxis:semiMajorAxis, semiMinorAxis:semiMinorAxis, rotation:rotation)
+    }
+
+    public init(frame:CGRect) {
+        self.init(center: frame.mid, size: frame.size, rotation:0.0)
+    }
+
+    /// Size of ellipse if rotation were 0
+    var unrotatedSize:CGSize {
+        get {
+            return CGSize(width:a * 2, height:b * 2)
+        }
+    }
+
+    /// Frame of ellipse if rotation were 0. This is generally not very useful. See boundingBox.
+    var unrotatedFrame:CGRect {
+        get {
+            let size = unrotatedSize
+            let origin = CGPoint(x:center.x - size.width * 0.5, y:center.y - size.height * 0.5)
+            return CGRect(origin:origin, size:size)
+        }
+    }
+
+    /// Smallest rect that can contain the ellipse.
+    var boundingBox:CGRect {
+        get {
+            let bezierCurves = self.asBezierCurves
+            let rects = [
+                bezierCurves.0.bounds,
+                bezierCurves.1.bounds,
+                bezierCurves.2.bounds,
+                bezierCurves.3.bounds
+                ]
+
+
+            return CGRect.unionOfRects(rects)
+        }
+    }
 }
 
 public extension Ellipse {
     var asCircle : Circle? {
         get {
-            return nil
+            if e == 0.0 {
+                assert(a == b)
+                assert(F == 0.0)
+                return Circle(center: center, radius:a)
+            }
+            else {
+                return nil
+            }
         }
     }
 }
 
-//public extension Ellipse {
-//    var path:CGPath { get { return CGPathCreateWithEllipseInRect(frame, nil) } }
-//}
-//
+public extension Ellipse {
+
+    var asBezierChain:(BezierCurveChain) {
+        get {
+            let curves = self.asBezierCurves
+            let curvesArray = [curves.0, curves.1, curves.2, curves.3]
+            return BezierCurveChain(curves:curvesArray)
+        }
+    }
+
+    var asBezierCurves:(BezierCurve, BezierCurve, BezierCurve, BezierCurve) {
+        get {
+
+            let t = CGAffineTransform(rotation: rotation)
+
+            let da = a * 4.0 * (sqrt(2.0) - 1.0) / 3.0
+            let db = b * 4.0 * (sqrt(2.0) - 1.0) / 3.0
+
+            let curve0 = BezierCurve(
+                start:    center + CGPoint(x:0, y:b) * t,
+                control1: center + (CGPoint(x:0, y:b) + CGPoint(x:da, y:0)) * t,
+                control2: center + (CGPoint(x:a, y:0) + CGPoint(x:0, y:db)) * t,
+                end:      center + CGPoint(x:a, y:0) * t
+            )
+            let curve1 = BezierCurve(
+                start:    center + CGPoint(x:a, y:0) * t,
+                control1: center + (CGPoint(x:a, y:0) + CGPoint(x:0, y:-db)) * t,
+                control2: center + (CGPoint(x:0, y:-b) + CGPoint(x:da, y:0)) * t,
+                end:      center + CGPoint(x:0, y:-b) * t
+            )
+            let curve2 = BezierCurve(
+                start:    center + CGPoint(x:0, y:-b) * t,
+                control1: center + (CGPoint(x:0, y:-b) + CGPoint(x:-da, y:0)) * t,
+                control2: center + (CGPoint(x:-a, y:0) + CGPoint(x:0, y:-db)) * t,
+                end:      center + CGPoint(x:-a, y:0) * t
+            )
+            let curve3 = BezierCurve(
+                start:    center + CGPoint(x:-a, y:0) * t,
+                control1: center + (CGPoint(x:-a, y:0) + CGPoint(x:0, y:db)) * t,
+                control2: center + (CGPoint(x:0, y:b) + CGPoint(x:-da, y:0)) * t,
+                end:      center + CGPoint(x:0, y:b) * t
+            )
+
+        return (curve0, curve1, curve2, curve3)
+        }
+    }
+}

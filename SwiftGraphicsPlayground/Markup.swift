@@ -12,45 +12,76 @@ import SwiftGraphicsPlayground
 
 public protocol Markup {
     var tag:String? { get }
+    var style:Style? { get }
     func draw(context:CGContext)
 }
 
 public struct Guide: Markup {
 
     public enum Type {
-        case line(Line)
+//        case line(Line)
         case lineSegment(LineSegment)
+        case polygon(SwiftGraphics.Polygon)
+        case rectangle(SwiftGraphics.Rectangle)
     }
 
     public let type:Type
     public let tag:String?
+    public let style:Style?
 
-    public init(type:Type, tag:String?) {
+    public init(type:Type, tag:String? = nil, style:Style? = nil) {
         self.type = type
         self.tag = tag
+        self.style = style
     }
 
     public func draw(context:CGContext) {
+
+        if let style = style {
+            CGContextSaveGState(context)
+            context.apply(style)
+        }
+
         switch type {
-            case .line:
-                break
+//            case .line:
+//                break
             case .lineSegment(let lineSegment):
                 context.stroke(lineSegment)
+            case .polygon(let polygon):
+                context.stroke(polygon)
+            case .rectangle(let rectangle):
+                context.strokeRect(rectangle)
         }
+
+        if let style = style {
+            CGContextRestoreGState(context)
+        }
+
     }
 }
 
 public struct Marker: Markup {
     public let point:CGPoint
     public let tag:String?
+    public var style:Style?
 
-    public init(point:CGPoint, tag:String? = nil) {
+    public init(point:CGPoint, tag:String? = nil, style:Style? = nil) {
         self.point = point
         self.tag = tag
+        self.style = style
     }
 
     public func draw(context:CGContext) {
+        if let style = style {
+            CGContextSaveGState(context)
+            context.apply(style)
+        }
+
         context.strokeSaltire(CGRect(center:point, diameter:10))
+
+        if let style = style {
+            CGContextRestoreGState(context)
+        }
     }
 
     public static func markers(points:[CGPoint]) -> [Marker] {
@@ -58,7 +89,6 @@ public struct Marker: Markup {
             return Marker(point:$0)
         }
     }
-
 }
 
 public extension CGContext {

@@ -10,7 +10,7 @@ import CoreGraphics
 
 // MARK: -
 
-typealias Rectangle = CGRect
+public typealias Rectangle = CGRect
 
 // MARK: -
 
@@ -120,6 +120,15 @@ public struct Polygon {
         self.points = points
     }
 }
+
+public extension CGContext {
+    func stroke(polygon:Polygon) {
+        self.strokeLine(polygon.points, close: true)
+    }
+}
+
+
+
 
 // MARK: Drawing (TODO: Replace with Drawable)
 
