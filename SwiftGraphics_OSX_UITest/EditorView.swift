@@ -10,27 +10,27 @@ import Cocoa
 
 import SwiftGraphics
 
-struct Handle {
+struct Handle_OLD {
     var position : CGPoint
 }
 
 protocol Editor {
-    var handles:[Handle] { get }
-    var guides:[Handle] { get }
+    var handles:[Handle_OLD] { get }
+    var guides:[Handle_OLD] { get }
     func setHandlePosition(handle:Int, position:CGPoint);
     func draw(context:CGContextRef);
 }
 
 class BezierEditor : Editor {
     var curve:BezierCurve
-    var handles:[Handle] = []
-    var guides:[Handle] = []
+    var handles:[Handle_OLD] = []
+    var guides:[Handle_OLD] = []
 
     init(_ curve:BezierCurve) {
         self.curve = curve
         self.handles = self.curve.points.map {
-            (p:CGPoint) -> Handle in
-            return Handle(position:p)
+            (p:CGPoint) -> Handle_OLD in
+            return Handle_OLD(position:p)
         }
         self._update()
     }
@@ -43,7 +43,7 @@ class BezierEditor : Editor {
     func _update() {
         // Make a new curve from the points of the handles...
         let points = self.handles.map() {
-            (h:Handle) -> CGPoint in
+            (h:Handle_OLD) -> CGPoint in
             return h.position
         }
         self.curve = BezierCurve(points:points)
@@ -51,8 +51,8 @@ class BezierEditor : Editor {
         // Make a cubic and turn its points into guides...
         let cubicCurve = self.curve.increasedOrder()
         self.guides = cubicCurve.controls.map {
-            (p:CGPoint) -> Handle in
-            return Handle(position:p)
+            (p:CGPoint) -> Handle_OLD in
+            return Handle_OLD(position:p)
         }
     }
     

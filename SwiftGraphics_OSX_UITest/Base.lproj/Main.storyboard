@@ -713,6 +713,7 @@
                         <tabViewItem label="OmniGraffle" id="FN0-r7-S0E"/>
                         <tabViewItem id="9PR-CI-Qee"/>
                         <tabViewItem label="SVG View" id="NHl-gP-o5c"/>
+                        <tabViewItem label="Handle Editor" id="88h-Qq-daC"/>
                     </tabViewItems>
                     <connections>
                         <segue destination="ttq-86-y00" kind="relationship" relationship="tabItems" id="U9j-mm-h6O"/>
@@ -722,6 +723,7 @@
                         <segue destination="Gm2-q4-fPO" kind="relationship" relationship="tabItems" id="BhL-rY-faV"/>
                         <segue destination="71F-0d-QXL" kind="relationship" relationship="tabItems" id="jgK-Bb-c84"/>
                         <segue destination="maU-p6-pVv" kind="relationship" relationship="tabItems" id="b8n-3z-aqH"/>
+                        <segue destination="zs4-qr-e2f" kind="relationship" relationship="tabItems" id="F4E-20-x4H"/>
                     </connections>
                 </tabViewController>
                 <customObject id="OyY-ov-XOg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -793,6 +795,19 @@
             </objects>
             <point key="canvasLocation" x="1893" y="1927"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="vuA-FX-BOY">
+            <objects>
+                <viewController id="zs4-qr-e2f" sceneMemberID="viewController">
+                    <view key="view" id="uKd-0r-9m7" customClass="HandleEditorView" customModule="SwiftGraphics_OSX_UITest" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="cFf-H1-Xg6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2208" y="843"/>
+        </scene>
         <!--Metaballs-->
         <scene sceneID="yDx-uK-ilu">
             <objects>
@@ -804,7 +819,7 @@
                 </viewController>
                 <customObject id="yGT-ep-DpR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2234" y="1516"/>
+            <point key="canvasLocation" x="2242" y="1324"/>
         </scene>
         <!--Arc View Controller-->
         <scene sceneID="6Yk-nN-4iQ">
