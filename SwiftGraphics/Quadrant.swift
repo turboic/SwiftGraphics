@@ -70,13 +70,13 @@ public extension CGRect {
         let size = CGSize(width:self.size.width * 0.5, height:self.size.height * 0.5)
         switch quadrant {
         case .MinXMinY:
-            return CGRect(origin:CGPoint(x:self.minX, y:self.minY), size:size)
+            return CGRect(origin:CGPoint(x:minX, y:minY), size:size)
         case .MaxXMinY:
-            return CGRect(origin:CGPoint(x:self.midX, y:self.minY), size:size)
+            return CGRect(origin:CGPoint(x:midX, y:minY), size:size)
         case .MinXMaxY:
-            return CGRect(origin:CGPoint(x:self.minX, y:self.midY), size:size)
+            return CGRect(origin:CGPoint(x:minX, y:midY), size:size)
         case .MaxXMaxY:
-            return CGRect(origin:CGPoint(x:self.midX, y:self.midY), size:size)
+            return CGRect(origin:CGPoint(x:midX, y:midY), size:size)
         }
     }
 }
