@@ -35,7 +35,7 @@
 		02BF437F1A64FACB00132343 /* BezierCurve+BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BF437D1A64FACB00132343 /* BezierCurve+BoundingBox.swift */; };
 		2E0F5BD91A6986DA00221BB0 /* ColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0F5BD81A6986DA00221BB0 /* ColorTests.swift */; };
 		2E0F5BDB1A69BBA600221BB0 /* QuadrantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0F5BDA1A69BBA600221BB0 /* QuadrantTests.swift */; };
-		2E0F5BDD1A69C43A00221BB0 /* UtilitesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0F5BDC1A69C43A00221BB0 /* UtilitesTests.swift */; };
+		2E0F5BDD1A69C43A00221BB0 /* UtilitiesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0F5BDC1A69C43A00221BB0 /* UtilitiesTests.swift */; };
 		2E0F5BDF1A6A8FCA00221BB0 /* GrahamScanUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0F5BDE1A6A8FCA00221BB0 /* GrahamScanUnitTests.swift */; };
 		450155841A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450155831A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift */; };
 		450155851A62F9F600D7FB7B /* SwiftGraphicsPlayground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454FE66219C77031002E4DEF /* SwiftGraphicsPlayground.framework */; };
@@ -229,7 +229,7 @@
 		02BF437D1A64FACB00132343 /* BezierCurve+BoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BezierCurve+BoundingBox.swift"; sourceTree = "<group>"; };
 		2E0F5BD81A6986DA00221BB0 /* ColorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorTests.swift; sourceTree = "<group>"; };
 		2E0F5BDA1A69BBA600221BB0 /* QuadrantTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuadrantTests.swift; sourceTree = "<group>"; };
-		2E0F5BDC1A69C43A00221BB0 /* UtilitesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilitesTests.swift; sourceTree = "<group>"; };
+		2E0F5BDC1A69C43A00221BB0 /* UtilitiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilitiesTests.swift; sourceTree = "<group>"; };
 		2E0F5BDE1A6A8FCA00221BB0 /* GrahamScanUnitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrahamScanUnitTests.swift; sourceTree = "<group>"; };
 		4501557F1A62F9F600D7FB7B /* SwiftGraphicsPlayground_OSX_UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftGraphicsPlayground_OSX_UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		450155821A62F9F600D7FB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -485,10 +485,10 @@
 				4537990519AA671E004DF99E /* README.markdown */,
 				454FE65B19C77001002E4DEF /* Playgrounds */,
 				459EE5DB19AEC5130012E023 /* SwiftGraphics */,
-				454D551319AA5CE6000E3EB3 /* SwiftGraphics_UnitTests */,
 				454D550919AA5CE6000E3EB3 /* SwiftGraphics_OSX */,
 				45DA4AC519AA62A800133F32 /* SwiftGraphics_iOS */,
 				454FE66319C77031002E4DEF /* SwiftGraphicsPlayground */,
+				454D551319AA5CE6000E3EB3 /* SwiftGraphics_UnitTests */,
 				450155801A62F9F600D7FB7B /* SwiftGraphicsPlayground_OSX_UnitTests */,
 				45CFDC9F1A61CE3500053F96 /* SwiftGraphics_OSX_UITest */,
 				4514F5F71A61D2D800CC9C26 /* Frameworks */,
@@ -540,7 +540,7 @@
 				454D551419AA5CE6000E3EB3 /* Supporting Files */,
 				2E0F5BD81A6986DA00221BB0 /* ColorTests.swift */,
 				2E0F5BDA1A69BBA600221BB0 /* QuadrantTests.swift */,
-				2E0F5BDC1A69C43A00221BB0 /* UtilitesTests.swift */,
+				2E0F5BDC1A69C43A00221BB0 /* UtilitiesTests.swift */,
 				2E0F5BDE1A6A8FCA00221BB0 /* GrahamScanUnitTests.swift */,
 			);
 			path = SwiftGraphics_UnitTests;
@@ -1019,7 +1019,7 @@
 				2E0F5BDF1A6A8FCA00221BB0 /* GrahamScanUnitTests.swift in Sources */,
 				2E0F5BD91A6986DA00221BB0 /* ColorTests.swift in Sources */,
 				4537991D19AA788B004DF99E /* CGSizeTests.swift in Sources */,
-				2E0F5BDD1A69C43A00221BB0 /* UtilitesTests.swift in Sources */,
+				2E0F5BDD1A69C43A00221BB0 /* UtilitiesTests.swift in Sources */,
 				4537991A19AA6C37004DF99E /* CGPointTests.swift in Sources */,
 				45C6DC751A13E59C004C4693 /* TransformTests.swift in Sources */,
 				45BA25BD19CA1E8A00B612B7 /* ConvexHullTests.swift in Sources */,
