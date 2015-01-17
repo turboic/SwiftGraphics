@@ -19,7 +19,9 @@ somewhat viable.
 
 ## SVG
 
-* NOTE THIS HAS MOVED *
+#### NOTE THIS HAS MOVED OUT OF THIS REPO TEMPORARILY
+
+See https://github.com/schwa/SwiftGraphics/commit/cf3408e266c54cde8df7019c62309b7a1a061e71 for the last good commit with SVG in.
 
 SwiftGraphics could (should?) have basic support for SVG. Supporting the full
 SVG spec is nuts. But supporting enough of SVG so we can use it as an
