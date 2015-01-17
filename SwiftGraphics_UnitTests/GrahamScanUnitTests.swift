@@ -9,7 +9,6 @@
 import Cocoa
 import XCTest
 import SwiftGraphics
-import SwiftGraphicsPlayground
 
 class GrahamScanUnitTests: XCTestCase {
 
@@ -21,12 +20,12 @@ class GrahamScanUnitTests: XCTestCase {
         var points = [
             CGPointMake(100, 100),
             CGPointMake(10, 300),
-             CGPointMake(30, 30),
+            CGPointMake(30, 30),
             CGPointMake(200, 100),
-            CGPointMake(150, 40)]
-        
+            CGPointMake(150, 40)
+        ]
+
         let hull = grahamScan(points)
-        
         XCTAssertEqual(hull, [CGPointMake(30, 30), CGPointMake(10, 300), CGPointMake(200, 100), CGPointMake(150, 40)])
     }
 }
