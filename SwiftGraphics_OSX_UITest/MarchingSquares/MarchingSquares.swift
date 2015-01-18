@@ -52,26 +52,26 @@ class MarchingSquares {
     
     func magnitudeForPoint(point:CGPoint) -> CGFloat {
         if point.x != floor(point.x) || point.y != floor(point.y) {
-            return self.magnitudeClosure(point: point)
+            return magnitudeClosure(point: point)
         }
         else {
             let x = Int(point.x / resolution)
             let y = Int(point.y / resolution)
-            return self.magnitudeGrid[IntPoint(x:x,y:y)]
+            return magnitudeGrid[IntPoint(x:x,y:y)]
         }
     }
     
     func magnitudeForCell(cell:IntPoint) -> CGFloat {
-        return self.magnitudeGrid[cell]
+        return magnitudeGrid[cell]
     }
 
     func update() {
     
-        self.magnitudeGrid = Grid_Buffer <CGFloat>(width:size.width, height:size.height, defaultValue:0.0)
+        magnitudeGrid = Grid_Buffer <CGFloat>(width:size.width, height:size.height, defaultValue:0.0)
         for X in 0..<size.width {
             for Y in 0..<size.height {
                 let point = CGPoint(x:CGFloat(X), y:CGFloat(Y)) * resolution
-                magnitudeGrid[IntPoint(x:X,y:Y)] = self.magnitudeClosure(point:point)
+                magnitudeGrid[IntPoint(x:X,y:Y)] = magnitudeClosure(point:point)
             }
         }
     
@@ -83,7 +83,7 @@ class MarchingSquares {
         
         for X in 0..<(size.width - 1) {
             for Y in 0..<(size.height - 1) {
-                let offset = CGPoint(x:CGFloat(X), y:CGFloat(Y)) * self.resolution
+                let offset = CGPoint(x:CGFloat(X), y:CGFloat(Y)) * resolution
 
                 let A = magnitudeForCell(IntPoint(x:X, y:Y))
                 let B = magnitudeForCell(IntPoint(x:X + 1, y:Y))

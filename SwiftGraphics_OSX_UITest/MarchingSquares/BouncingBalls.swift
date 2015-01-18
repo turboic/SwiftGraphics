@@ -53,10 +53,9 @@ class BouncingBalls {
     }
 
     func moveBalls(delta:NSTimeInterval) {
-        let bounds = self.bounds
-        for ball in self.balls {
+        for ball in balls {
             ball.position += ball.velocity * CGFloat(delta)
-            if self.bounds.partiallyIntersects(ball.frame) {
+            if bounds.partiallyIntersects(ball.frame) {
                 ball.color = NSColor.greenColor()
                 if ball.frame.minX < bounds.minX {
                     ball.velocity.x *= -1

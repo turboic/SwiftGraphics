@@ -73,7 +73,7 @@ public extension CGContext {
         }
         set {
             setAssociatedObject(self, &CGContext_Style_Key, newValue)
-            self.apply(newValue)
+            apply(newValue)
         }
     }
 
@@ -118,110 +118,110 @@ public extension CGContext {
 
     var fillColor:CGColor? {
         get {
-            return self.style.fillColor
+            return style.fillColor
         }
         set {
             assert(newValue != nil)
-            self.style.fillColor = newValue
+            style.fillColor = newValue
             setFillColor(newValue!)
         }
     }
 
     var strokeColor:CGColor? {
         get {
-            return self.style.strokeColor
+            return style.strokeColor
         }
         set {
             assert(newValue != nil)
-            self.style.strokeColor = newValue
+            style.strokeColor = newValue
             setStrokeColor(newValue!)
         }
     }
 
     var lineWidth:CGFloat? {
         get {
-            return self.style.lineWidth
+            return style.lineWidth
         }
         set {
             assert(newValue != nil)
-            self.style.lineWidth = newValue
+            style.lineWidth = newValue
             setLineWidth(newValue!)
         }
     }
 
     var lineCap:CGLineCap? {
         get {
-            return self.style.lineCap
+            return style.lineCap
         }
         set {
             assert(newValue != nil)
-            self.style.lineCap = newValue
+            style.lineCap = newValue
             setLineCap(newValue!)
         }
     }
 
     var lineJoin:CGLineJoin? {
         get {
-            return self.style.lineJoin
+            return style.lineJoin
         }
         set {
             assert(newValue != nil)
-            self.style.lineJoin = newValue
+            style.lineJoin = newValue
             setLineJoin(newValue!)
         }
     }
 
     var lineDash:[CGFloat]? {
         get {
-            return self.style.lineDash
+            return style.lineDash
         }
         set {
             assert(newValue != nil)
-            self.style.lineDash = newValue
+            style.lineDash = newValue
             setLineDash(newValue!)
         }
     }
 
     var lineDashPhase:CGFloat? {
         get {
-            return self.style.lineDashPhase
+            return style.lineDashPhase
         }
         set {
             assert(newValue != nil)
-            self.style.lineDashPhase = newValue
+            style.lineDashPhase = newValue
             // TODO
         }
     }
 
     var flatness:CGFloat? {
         get {
-            return self.style.flatness
+            return style.flatness
         }
         set {
             assert(newValue != nil)
-            self.style.flatness = newValue
+            style.flatness = newValue
             setFlatness(newValue!)
         }
     }
 
     var alpha:CGFloat? {
         get {
-            return self.style.alpha
+            return style.alpha
         }
         set {
             assert(newValue != nil)
-            self.style.alpha = newValue
+            style.alpha = newValue
             setAlpha(newValue!)
         }
     }
 
     var blendMode:CGBlendMode? {
         get {
-            return self.style.blendMode
+            return style.blendMode
         }
         set {
             assert(newValue != nil)
-            self.style.blendMode = newValue
+            style.blendMode = newValue
             setBlendMode(newValue!)
         }
     }
@@ -244,33 +244,33 @@ public extension Style {
     mutating func add(element:StyleElement) {
         switch element {
             case .fillColor(let value):
-                self.fillColor = value
+                fillColor = value
             case .strokeColor(let value):
-                self.strokeColor = value
+                strokeColor = value
             case .lineWidth(let value):
-                self.lineWidth = value
+                lineWidth = value
             case .lineCap(let value):
-                self.lineCap = value
+                lineCap = value
             case .lineJoin(let value):
-                self.lineJoin = value
+                lineJoin = value
             case .miterLimit(let value):
-                self.miterLimit = value
+                miterLimit = value
             case .lineDash(let value):
-                self.lineDash = value
+                lineDash = value
             case .lineDashPhase(let value):
-                self.lineDashPhase = value
+                lineDashPhase = value
             case .miterLimit(let value):
-                self.miterLimit = value
+                miterLimit = value
             case .lineDash(let value):
-                self.lineDash = value
+                lineDash = value
             case .lineDashPhase(let value):
-                self.lineDashPhase = value
+                lineDashPhase = value
             case .flatness(let value):
-                self.flatness = value
+                flatness = value
             case .alpha(let value):
-                self.alpha = value
+                alpha = value
             case .blendMode(let value):
-                self.blendMode = value
+                blendMode = value
             default:
                 assert(false)
         }
@@ -283,7 +283,7 @@ public extension Style {
     }
 
     init(elements:[StyleElement]) {
-        self.add(elements)
+        add(elements)
     }
 }
 

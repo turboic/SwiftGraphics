@@ -102,7 +102,7 @@ public extension CGContext {
     }
 
     func strokeLine(p1:CGPoint, _ p2:CGPoint) {
-        self.strokeLines([p1, p2])
+        strokeLines([p1, p2])
     }
 
     // TODO: Rename strokePolygon?
@@ -120,7 +120,7 @@ public extension CGContext {
             newPoints.append(second!)
         }
 
-        self.strokeLines(newPoints)
+        strokeLines(newPoints)
     }
 
     
@@ -140,7 +140,7 @@ public extension CGContext {
             CGPoint(x:rect.minX, y:rect.midY), CGPoint(x:rect.maxX, y:rect.midY),
             CGPoint(x:rect.midX, y:rect.minY), CGPoint(x:rect.midX, y:rect.maxY),
         ]
-        self.strokeLines(linePoints)
+        strokeLines(linePoints)
     }
 
     func strokeSaltire(rect:CGRect) {    
@@ -148,6 +148,6 @@ public extension CGContext {
             CGPoint(x:rect.minX, y:rect.minY), CGPoint(x:rect.maxX, y:rect.maxY),
             CGPoint(x:rect.minX, y:rect.maxY), CGPoint(x:rect.maxX, y:rect.minY),
         ]
-        self.strokeLines(linePoints)
+        strokeLines(linePoints)
     }
 }

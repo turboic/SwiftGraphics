@@ -53,7 +53,7 @@ public struct LineSegment {
     }
 
     public func isParallel(other:LineSegment) -> Bool {
-        return self.slope == other.slope
+        return slope == other.slope
     }
 
     public func intersection(other:LineSegment, clamped:Bool = true) -> CGPoint? {
@@ -80,7 +80,7 @@ public struct LineSegment {
         let pt = CGPoint(x:x, y:y)
 
         if clamped {
-            if self.containsPoint(pt) == false || other.containsPoint(pt) == false {
+            if containsPoint(pt) == false || other.containsPoint(pt) == false {
                 return nil
             }
         }
@@ -89,8 +89,8 @@ public struct LineSegment {
     }
 
     public func containsPoint(point:CGPoint) -> Bool {
-        let a = self.start
-        let b = self.end
+        let a = start
+        let b = end
         let c = point
 
         func within(p:CGFloat, q:CGFloat, r:CGFloat) -> Bool {
@@ -123,7 +123,7 @@ public struct Polygon {
 
 public extension CGContext {
     func stroke(polygon:Polygon) {
-        self.strokeLine(polygon.points, close: true)
+        strokeLine(polygon.points, close: true)
     }
 }
 
@@ -134,7 +134,7 @@ public extension CGContext {
 
 public extension CGContext {
     func stroke(lineSegment:LineSegment) {
-        self.strokeLine(lineSegment.start, lineSegment.end)
+        strokeLine(lineSegment.start, lineSegment.end)
     }
 }
 

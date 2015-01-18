@@ -19,8 +19,8 @@ class OmniGraffleLoader {
     
     init(path:String) {
         self.path = path
-        self.doc = OmniGraffleDocumentModel(path: self.path)
-        self.root = convert(doc.rootNode)
+        doc = OmniGraffleDocumentModel(path: path)
+        root = convert(doc.rootNode)
     }
 
     internal func convert(input:OmniGraffleNode) -> Node! {
@@ -49,10 +49,10 @@ class OmniGraffleLoader {
         let shapeName = input.dictionary["Shape"] as String
         switch shapeName {
             case "Circle":
-                let bounds = input.bounds.flipped(.TopLeft, insideRect:self.doc.frame)
+                let bounds = input.bounds.flipped(.TopLeft, insideRect:doc.frame)
                 return Circle(center:bounds.mid, radius:bounds.size.width * 0.5)
             case "Rectangle":
-                let bounds = input.bounds.flipped(.TopLeft, insideRect:self.doc.frame)
+                let bounds = input.bounds.flipped(.TopLeft, insideRect:doc.frame)
                 return Rectangle(frame:bounds)
     ////                    case "Bezier":
     ////                        println(d)
@@ -64,8 +64,8 @@ class OmniGraffleLoader {
     }
 
     internal func convert(input:OmniGraffleLine) -> Node! {
-        let start = input.start.flipped(.TopLeft, insideRect:self.doc.frame)
-        let end = input.end.flipped(.TopLeft, insideRect:self.doc.frame)
+        let start = input.start.flipped(.TopLeft, insideRect:doc.frame)
+        let end = input.end.flipped(.TopLeft, insideRect:doc.frame)
 
         let shape = Line(start:start, end:end)
         return shape

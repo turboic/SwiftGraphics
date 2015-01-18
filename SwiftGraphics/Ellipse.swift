@@ -100,7 +100,7 @@ public extension Ellipse {
     /// Smallest rect that can contain the ellipse.
     var boundingBox:CGRect {
         get {
-            let bezierCurves = self.asBezierCurves
+            let bezierCurves = asBezierCurves
             let rects = [
                 bezierCurves.0.boundingBox,
                 bezierCurves.1.boundingBox,
@@ -132,7 +132,7 @@ public extension Ellipse {
 
     var asBezierChain:(BezierCurveChain) {
         get {
-            let curves = self.asBezierCurves
+            let curves = asBezierCurves
             let curvesArray = [curves.0, curves.1, curves.2, curves.3]
             return BezierCurveChain(curves:curvesArray)
         }

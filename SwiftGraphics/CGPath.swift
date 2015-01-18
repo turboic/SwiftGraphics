@@ -19,10 +19,10 @@ public extension CGMutablePath {
 
     func move(point:CGPoint, relative:Bool) -> CGMutablePath {
         if relative {
-            return self.move(point + currentPoint)
+            return move(point + currentPoint)
         }
         else {
-            return self.move(point)
+            return move(point)
         }
     }
     
@@ -38,10 +38,10 @@ public extension CGMutablePath {
 
     func addLine(point:CGPoint, relative:Bool) -> CGMutablePath {
         if relative {
-            return self.addLine(point + currentPoint)
+            return addLine(point + currentPoint)
         }
         else {
-            return self.addLine(point)
+            return addLine(point)
         }
     }
 
@@ -77,14 +77,14 @@ public extension CGMutablePath {
         switch curve.order {
             case .Quadratic:
                 if let start = curve.start {
-                    self.move(start)
+                    move(start)
                 }
-                return self.addQuadCurveToPoint(curve.end, control1:curve.controls[0], relative:relative)
+                return addQuadCurveToPoint(curve.end, control1:curve.controls[0], relative:relative)
             case .Cubic:
                 if let start = curve.start {
-                    self.move(start)
+                    move(start)
                 }
-                return self.addCubicCurveToPoint(curve.end, control1:curve.controls[0], control2:curve.controls[1], relative:relative)
+                return addCubicCurveToPoint(curve.end, control1:curve.controls[0], control2:curve.controls[1], relative:relative)
             default:
                 assert(false)
         }

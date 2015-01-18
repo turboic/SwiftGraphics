@@ -18,6 +18,6 @@ public extension CGContext {
 
     func drawLabel(string:String, point:CGPoint, size:CGFloat) {
         let attributes = [NSFontAttributeName:NSFont.labelFontOfSize(size)]
-        self.draw(string, point:point, attributes:attributes)
+        draw(string, point:point, attributes:attributes)
     }
 }

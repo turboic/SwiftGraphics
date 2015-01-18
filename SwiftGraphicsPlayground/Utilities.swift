@@ -12,7 +12,7 @@ extension Array {
     init(count:Int, block:(Void) -> T) {
         self.init()
         for N in 0..<count {
-            self.append(block())
+            append(block())
         }
     }
 }

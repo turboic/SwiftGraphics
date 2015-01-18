@@ -27,7 +27,7 @@ public class QuadTree <T> {
     
     public func addObject(object:T, point:CGPoint) {
         assert(frame.contains(point))
-        self.rootNode.addObject(object, point:point)
+        rootNode.addObject(object, point:point)
     }
     
     public func objectsInRect(rect:CGRect) -> [T] {

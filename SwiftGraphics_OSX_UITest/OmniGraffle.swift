@@ -70,10 +70,10 @@ extension OmniGraffleDocumentModel {
         var error:NSString?
         if let d = NSPropertyListSerialization.propertyListFromData(data, mutabilityOption: NSPropertyListMutabilityOptions(), format: nil, errorDescription:&error) as? NSDictionary {
         
-            self._processRoot(d)
+            _processRoot(d)
             let origin = StringToPoint(d["CanvasOrigin"] as String)
             let size = StringToSize(d["CanvasSize"] as String)
-            self.frame = CGRect(origin:origin, size:size)
+            frame = CGRect(origin:origin, size:size)
 //            println(nodesByID)
             
             let nodes = nodesByID.values.filter {

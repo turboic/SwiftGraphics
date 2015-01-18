@@ -196,7 +196,7 @@ public extension CGAffineTransform {
     }
 
     mutating func invert() -> CGAffineTransform {
-        self = self.inverted()
+        self = inverted()
         return self
     }
 }

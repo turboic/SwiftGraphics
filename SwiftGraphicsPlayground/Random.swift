@@ -190,7 +190,7 @@ public struct SRandomProvider : RandomProvider {
     }
 
     public init() {
-        self.seed = arc4random()
+        seed = arc4random()
     }
 
     public init(seed:UInt32) {

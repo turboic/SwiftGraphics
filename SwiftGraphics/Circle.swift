@@ -27,7 +27,7 @@ public struct Circle {
     
     public var frame : CGRect {
         get {
-            return CGRect(center: self.center, diameter: self.diameter)
+            return CGRect(center: center, diameter: diameter)
         }
     }
 }

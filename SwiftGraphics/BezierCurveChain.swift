@@ -48,7 +48,7 @@ public extension CGContext {
         let start = chain.curves[0].start
         CGContextMoveToPoint(self, start!.x, start!.y)
         for curve in chain.curves {
-            self.addToPath(curve)
+            addToPath(curve)
         }
         CGContextStrokePath(self)
     }

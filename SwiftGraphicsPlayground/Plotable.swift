@@ -29,13 +29,13 @@ extension CGPoint : Plotable {
 
 extension Circle : Plotable {
     public func plotInContext(ctx:CGContext) {
-        ctx.strokeEllipseInRect(self.frame)
+        ctx.strokeEllipseInRect(frame)
     }
 }
 
 extension Triangle : Plotable {
     public func plotInContext(ctx:CGContext) {
-        let (a,b,c) = self.points
+        let (a,b,c) = points
         ctx.strokeLine([a, b, c], close:true)
     }
     public var frame : CGRect {
@@ -61,7 +61,7 @@ public extension CGContext {
     public func plot(a:Array <Plotable>) {
         for e in a {
             e.plotInContext(self)
-//            self.strokeRect(e.frame)
+//            strokeRect(e.frame)
         }
     }
 
@@ -69,8 +69,8 @@ public extension CGContext {
         for (key, value) in d {
             value.plotInContext(self)
             println(key)
-            self.drawLabel(key, point:value.frame.mid, size: 16)
-//            self.strokeRect(value.frame)
+            drawLabel(key, point:value.frame.mid, size: 16)
+//            strokeRect(value.frame)
         }
     }
 }

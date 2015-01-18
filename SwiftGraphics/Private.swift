@@ -35,11 +35,11 @@ extension Array {
     }
 
     mutating func push(o:T) {
-        self.append(o)
+        append(o)
     }
     mutating func pop() -> T? {
-        if let first = self.first {
-            self.removeAtIndex(0)
+        if let first = first {
+            removeAtIndex(0)
             return first
         }
         return nil

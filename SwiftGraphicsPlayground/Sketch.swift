@@ -35,7 +35,7 @@ public class Group : GroupNode, GeometryNode {
     public var children : [Node] = []
     public var name : String?
     public var frame : CGRect { get {
-        let geometryChildren = self.children as [GeometryNode]
+        let geometryChildren = children as [GeometryNode]
         
         let rects = geometryChildren.map {
             (child:GeometryNode) -> CGRect in
@@ -63,7 +63,7 @@ public class Circle : Shape, Node, GeometryNode {
 }
 
 public class Line : Shape, Node, GeometryNode {
-    public var frame : CGRect { get { return CGRect(P1:self.start, P2:self.end) } }
+    public var frame : CGRect { get { return CGRect(P1:start, P2:end) } }
 
     public var start : CGPoint
     public var end : CGPoint

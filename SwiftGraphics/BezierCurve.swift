@@ -35,23 +35,23 @@ public struct BezierCurve {
 
     public var order : Order {
         get {
-            switch self.controls.count + 2 {
+            switch controls.count + 2 {
                 case 3:
                     return .Quadratic
                 case 4:
                     return .Cubic
                 default:
-                    return .OrderN(self.controls.count + 2)
+                    return .OrderN(controls.count + 2)
             }       
         }
     }
     public var points : [CGPoint] {
         get {
-            if let start = self.start {
-                return [start] + self.controls + [self.end]
+            if let start = start {
+                return [start] + controls + [end]
             }
             else {
-                return self.controls + [self.end]
+                return controls + [end]
             }
         }
     }
@@ -125,15 +125,15 @@ public extension BezierCurve {
 
 public extension BezierCurve {
     func increasedOrder() -> BezierCurve {
-        switch self.controls.count {
-        case 1:
-            let CP1 = points[0] + ((2.0 / 3.0) * (points[1] - points[0]))
-            let CP2 = points[2] + ((2.0 / 3.0) * (points[1] - points[2]))
-            return BezierCurve(start:start!, controls:[CP1, CP2], end:end)
-        case 2:
-            return self
-        default:
-            return BezierCurve(start:start!, end:end).increasedOrder()
+        switch controls.count {
+            case 1:
+                let CP1 = points[0] + ((2.0 / 3.0) * (points[1] - points[0]))
+                let CP2 = points[2] + ((2.0 / 3.0) * (points[1] - points[2]))
+                return BezierCurve(start:start!, controls:[CP1, CP2], end:end)
+            case 2:
+                return self
+            default:
+                return BezierCurve(start:start!, end:end).increasedOrder()
         }
     }
 }
@@ -167,7 +167,7 @@ public extension CGContextRef {
         if let start = curve.start {
             CGContextMoveToPoint(self, start.x, start.y)
         }
-        self.addToPath(curve)
+        addToPath(curve)
         CGContextStrokePath(self)
     }
 }
