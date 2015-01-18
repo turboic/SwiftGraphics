@@ -43,6 +43,10 @@ public struct GenericRect <T, U> {
 public typealias IntPoint = GenericPoint<Int>
 public typealias IntSize = GenericSize<Int>
 
+public typealias UIntPoint = GenericPoint <UInt>
+public typealias UIntSize = GenericSize <UInt>
+
+
 // MARK: Protocols with associated types
 
 // Due to a bug with Swift (http://openradar.appspot.com/myradars/edit?id=5241213351362560) we cannot make CG types conform to these protocols.

@@ -8,6 +8,8 @@
 
 import Foundation
 
+import SwiftGraphics
+
 extension Array {
     init(count:Int, block:(Void) -> T) {
         self.init()
@@ -43,28 +45,6 @@ extension UInt32 {
     }
 
 }
-
-public struct IntegerPoint <T: IntegerType> {
-    public var x:T
-    public var y:T
-    public init(x:T, y:T) {
-        self.x = x
-        self.y = y
-    }
-}
-
-public typealias UIntPoint = IntegerPoint <UInt>
-
-public struct IntegerSize <T: IntegerType> {
-    public var width:T
-    public var height:T
-    public init(width:T, height:T) {
-        self.width = width
-        self.height = height
-    }
-}
-
-public typealias UIntSize = IntegerSize <UInt>
 
 public struct Bitmap {
     public let size: UIntSize
