@@ -120,8 +120,8 @@
 		459EE5FA19AEC5130012E023 /* Scaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5E519AEC5130012E023 /* Scaling.swift */; };
 		459EE5FB19AEC5130012E023 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5E619AEC5130012E023 /* Utilities.swift */; };
 		459EE5FC19AEC5130012E023 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459EE5E619AEC5130012E023 /* Utilities.swift */; };
-		45A14E1C1A69D582006F4949 /* IntGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A14E1B1A69D582006F4949 /* IntGeometry.swift */; };
-		45A14E1D1A69D582006F4949 /* IntGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A14E1B1A69D582006F4949 /* IntGeometry.swift */; };
+		45A14E1C1A69D582006F4949 /* GenericGeometryTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A14E1B1A69D582006F4949 /* GenericGeometryTypes.swift */; };
+		45A14E1D1A69D582006F4949 /* GenericGeometryTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A14E1B1A69D582006F4949 /* GenericGeometryTypes.swift */; };
 		45B32D481A637DF3004FD3FB /* Arc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B32D451A637DF3004FD3FB /* Arc.swift */; };
 		45B32D4A1A637DF3004FD3FB /* Sketch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B32D471A637DF3004FD3FB /* Sketch.swift */; };
 		45B32D4D1A637E74004FD3FB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4514F6201A61D56500CC9C26 /* libz.dylib */; };
@@ -310,7 +310,7 @@
 		459EE5E419AEC5130012E023 /* Quadrant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quadrant.swift; sourceTree = "<group>"; };
 		459EE5E519AEC5130012E023 /* Scaling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scaling.swift; sourceTree = "<group>"; };
 		459EE5E619AEC5130012E023 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		45A14E1B1A69D582006F4949 /* IntGeometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntGeometry.swift; sourceTree = "<group>"; };
+		45A14E1B1A69D582006F4949 /* GenericGeometryTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericGeometryTypes.swift; sourceTree = "<group>"; };
 		45B32D451A637DF3004FD3FB /* Arc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arc.swift; sourceTree = "<group>"; };
 		45B32D471A637DF3004FD3FB /* Sketch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sketch.swift; sourceTree = "<group>"; };
 		45B32D4E1A637ECC004FD3FB /* RegularExpression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegularExpression.swift; sourceTree = "<group>"; };
@@ -626,7 +626,7 @@
 				458BDD8119BCF7D100CD0EAC /* QuadTree.swift */,
 				459EE5E519AEC5130012E023 /* Scaling.swift */,
 				459EE5E619AEC5130012E023 /* Utilities.swift */,
-				45A14E1B1A69D582006F4949 /* IntGeometry.swift */,
+				45A14E1B1A69D582006F4949 /* GenericGeometryTypes.swift */,
 				4515826019C9F83300856C91 /* Private.swift */,
 				4594B09119AEE31E00101EB4 /* Path.swift */,
 				456877E119B6857B004BEFD6 /* CoordinateSystems.swift */,
@@ -972,7 +972,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45A14E1C1A69D582006F4949 /* IntGeometry.swift in Sources */,
+				45A14E1C1A69D582006F4949 /* GenericGeometryTypes.swift in Sources */,
 				029651AC1A6366FA0099DA1C /* CDisplayLink.m in Sources */,
 				02BF437E1A64FACB00132343 /* BezierCurve+BoundingBox.swift in Sources */,
 				456C315C19C65B0E003AA1DF /* Ellipse.swift in Sources */,
@@ -1088,7 +1088,7 @@
 				4594B08C19AEDC2100101EB4 /* SwiftGraphicsHelper.m in Sources */,
 				4574C0281A64613A00454DE5 /* CGContext+BitmapContexts.swift in Sources */,
 				459EE5F219AEC5130012E023 /* CGRect.swift in Sources */,
-				45A14E1D1A69D582006F4949 /* IntGeometry.swift in Sources */,
+				45A14E1D1A69D582006F4949 /* GenericGeometryTypes.swift in Sources */,
 				459A4C4E1A69914000E87608 /* Geometry+Utilities.swift in Sources */,
 				45F32C731A6455BB00E3DA68 /* CGColor.swift in Sources */,
 				459EE5FC19AEC5130012E023 /* Utilities.swift in Sources */,
