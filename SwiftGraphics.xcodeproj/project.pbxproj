@@ -39,6 +39,8 @@
 		2E0F5BDF1A6A8FCA00221BB0 /* GrahamScanUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E0F5BDE1A6A8FCA00221BB0 /* GrahamScanUnitTests.swift */; };
 		450155841A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450155831A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift */; };
 		450155851A62F9F600D7FB7B /* SwiftGraphicsPlayground.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454FE66219C77031002E4DEF /* SwiftGraphicsPlayground.framework */; };
+		450717071A6B7EBA00E86EB4 /* Bitmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450717061A6B7EBA00E86EB4 /* Bitmap.swift */; };
+		450717091A6B7F0700E86EB4 /* CGTypes+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450717081A6B7F0700E86EB4 /* CGTypes+String.swift */; };
 		4514F60E1A61D4C400CC9C26 /* ArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4514F5FB1A61D4C400CC9C26 /* ArcView.swift */; };
 		4514F60F1A61D4C400CC9C26 /* ArcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4514F5FC1A61D4C400CC9C26 /* ArcViewController.swift */; };
 		4514F6101A61D4C400CC9C26 /* DemoSVGViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4514F5FE1A61D4C400CC9C26 /* DemoSVGViewController.swift */; };
@@ -234,6 +236,8 @@
 		4501557F1A62F9F600D7FB7B /* SwiftGraphicsPlayground_OSX_UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftGraphicsPlayground_OSX_UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		450155821A62F9F600D7FB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		450155831A62F9F600D7FB7B /* SwiftGraphicsPlayground_UnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGraphicsPlayground_UnitTests.swift; sourceTree = "<group>"; };
+		450717061A6B7EBA00E86EB4 /* Bitmap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bitmap.swift; sourceTree = "<group>"; };
+		450717081A6B7F0700E86EB4 /* CGTypes+String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGTypes+String.swift"; sourceTree = "<group>"; };
 		4514F5FB1A61D4C400CC9C26 /* ArcView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcView.swift; sourceTree = "<group>"; };
 		4514F5FC1A61D4C400CC9C26 /* ArcViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArcViewController.swift; sourceTree = "<group>"; };
 		4514F5FD1A61D4C400CC9C26 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
@@ -424,6 +428,16 @@
 			name = "Duplicate Code *FIXME*";
 			sourceTree = "<group>";
 		};
+		450717051A6B7EA100E86EB4 /* Non Graphics */ = {
+			isa = PBXGroup;
+			children = (
+				45CFDC651A61CA0700053F96 /* Utilities.swift */,
+				45B8787B1A634F1F00CE168E /* Random.swift */,
+				45B32D4E1A637ECC004FD3FB /* RegularExpression.swift */,
+			);
+			name = "Non Graphics";
+			sourceTree = "<group>";
+		};
 		4514F5F71A61D2D800CC9C26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -591,10 +605,10 @@
 				454FE66619C77031002E4DEF /* SwiftGraphicsPlayground.h */,
 				450717041A6B7CE800E86EB4 /* Duplicate Code *FIXME* */,
 				454FE67F19C77455002E4DEF /* SwiftGraphicsPlayground.swift */,
-				45CFDC651A61CA0700053F96 /* Utilities.swift */,
-				45B8787B1A634F1F00CE168E /* Random.swift */,
+				450717081A6B7F0700E86EB4 /* CGTypes+String.swift */,
+				450717061A6B7EBA00E86EB4 /* Bitmap.swift */,
+				450717051A6B7EA100E86EB4 /* Non Graphics */,
 				45B32D451A637DF3004FD3FB /* Arc.swift */,
-				45B32D4E1A637ECC004FD3FB /* RegularExpression.swift */,
 				457DEBCE1A6493AF003E4363 /* Style.swift */,
 				45E298701A69AE76006FE740 /* Markup.swift */,
 				45D7862B1A6A2743006A152E /* BezierPath+Markup.swift */,
@@ -1047,9 +1061,11 @@
 				45B32D481A637DF3004FD3FB /* Arc.swift in Sources */,
 				45E298711A69AE76006FE740 /* Markup.swift in Sources */,
 				453A8FBD1A69DFC000D7EAD0 /* Silly.swift in Sources */,
+				450717091A6B7F0700E86EB4 /* CGTypes+String.swift in Sources */,
 				454B0D5919CAA00300044B7C /* Plotable.swift in Sources */,
 				457DEBCF1A6493AF003E4363 /* Style.swift in Sources */,
 				454FE68019C77455002E4DEF /* SwiftGraphicsPlayground.swift in Sources */,
+				450717071A6B7EBA00E86EB4 /* Bitmap.swift in Sources */,
 				457DEBD31A6495BB003E4363 /* Drawable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -46,31 +46,6 @@ extension UInt32 {
 
 }
 
-public struct Bitmap {
-    public let size: UIntSize
-    public let bitsPerComponent: UInt
-    public let bitsPerPixel: UInt
-    public let bytesPerRow: UInt
-    public let ptr: UnsafeMutablePointer<Void>
-    public var bytesPerPixel: UInt { get { return bitsPerPixel / 8 } }
-
-    public init(size:UIntSize, bitsPerComponent:UInt, bitsPerPixel:UInt, bytesPerRow:UInt, ptr:UnsafeMutablePointer <Void>) {
-        self.size = size
-        self.bitsPerComponent = bitsPerComponent
-        self.bitsPerPixel = bitsPerPixel
-        self.bytesPerRow = bytesPerRow
-        self.ptr = ptr
-    }
-
-    public subscript (index:UIntPoint) -> UInt32 {
-        assert(index.x < size.width)
-        assert(index.y < size.height)
-        let offset = index.y * bytesPerRow + index.x * bytesPerPixel
-        let offsetPointer = ptr.advancedBy(Int(offset))
-        return UnsafeMutablePointer <UInt32> (offsetPointer).memory
-    }
-}
-
 public extension NSColor {
     convenience init(rgba:UInt32, bgra:Bool = true) {
         let (rs:UInt32, gs:UInt32, bs:UInt32) = bgra ? (8, 16, 24) : (24, 16, 8)
@@ -94,40 +69,6 @@ public extension NSColor {
     }
 }
 
-public extension CGFloat {
-    init(string:String) {
-        self = CGFloat(string._bridgeToObjectiveC().doubleValue)
-    }
-}
-
-public func StringToPoint(s:String) -> CGPoint {
-    let f = "([0-9.Ee+-]+)"
-    let pair = "\\{\(f), \(f)\\}"
-    let match = RegularExpression(pair).match(s)!
-    let x = CGFloat(string:match.groups[1].string)
-    let y = CGFloat(string:match.groups[2].string)
-    return CGPoint(x:x, y:y)
-}
-
-public func StringToSize(s:String) -> CGSize {
-    let f = "([0-9.Ee+-]+)"
-    let pair = "\\{\(f), \(f)\\}"
-    let match = RegularExpression(pair).match(s)!
-    let w = CGFloat(string:match.groups[1].string)
-    let h = CGFloat(string:match.groups[2].string)
-    return CGSize(w:w, h:h)
-}
-
-public func StringToRect(s:String) -> CGRect {
-    let f = "([0-9.Ee+-]+)"
-    let pair = "\\{\(f), \(f)\\}"
-    let match = RegularExpression("\\{\(pair), \(pair)\\}").match(s)!
-    let x = CGFloat(string:match.groups[1].string)
-    let y = CGFloat(string:match.groups[2].string)
-    let w = CGFloat(string:match.groups[3].string)
-    let h = CGFloat(string:match.groups[4].string)
-    return CGRect(x:x, y:y, width:w, height:h)
-}
 
 /**
  *  A struct that acts like an array but returns results from a block
