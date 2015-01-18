@@ -414,6 +414,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		450717041A6B7CE800E86EB4 /* Duplicate Code *FIXME* */ = {
+			isa = PBXGroup;
+			children = (
+				454B0D5819CAA00300044B7C /* Plotable.swift */,
+				45B32D471A637DF3004FD3FB /* Sketch.swift */,
+				457DEBD21A6495BB003E4363 /* Drawable.swift */,
+			);
+			name = "Duplicate Code *FIXME*";
+			sourceTree = "<group>";
+		};
 		4514F5F71A61D2D800CC9C26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -579,15 +589,13 @@
 			isa = PBXGroup;
 			children = (
 				454FE66619C77031002E4DEF /* SwiftGraphicsPlayground.h */,
-				454B0D5819CAA00300044B7C /* Plotable.swift */,
+				450717041A6B7CE800E86EB4 /* Duplicate Code *FIXME* */,
 				454FE67F19C77455002E4DEF /* SwiftGraphicsPlayground.swift */,
 				45CFDC651A61CA0700053F96 /* Utilities.swift */,
 				45B8787B1A634F1F00CE168E /* Random.swift */,
 				45B32D451A637DF3004FD3FB /* Arc.swift */,
-				45B32D471A637DF3004FD3FB /* Sketch.swift */,
 				45B32D4E1A637ECC004FD3FB /* RegularExpression.swift */,
 				457DEBCE1A6493AF003E4363 /* Style.swift */,
-				457DEBD21A6495BB003E4363 /* Drawable.swift */,
 				45E298701A69AE76006FE740 /* Markup.swift */,
 				45D7862B1A6A2743006A152E /* BezierPath+Markup.swift */,
 				455D7F5B1A69CBB20088EA94 /* Ellipse+Markup.swift */,

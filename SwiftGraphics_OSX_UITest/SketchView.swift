@@ -13,13 +13,13 @@ import SwiftGraphicsPlayground
 
 class SketchView: NSView {
 
-    var rootNode : Group
+    var rootNode : GroupGeometryNode
 
     required init?(coder: NSCoder) {
 
         let path = NSBundle.mainBundle().pathForResource("Test", ofType:"graffle")
         let converter = OmniGraffleLoader(path:path!)
-        rootNode = converter.root as Group
+        rootNode = converter.root as GroupGeometryNode
 
         super.init(coder:coder)
     }
@@ -48,19 +48,19 @@ class SketchView: NSView {
         }
         
         switch node {
-            case let node as SwiftGraphicsPlayground.Circle:
+            case let node as CircleNode:
                 context.strokeEllipseInRect(node.frame)
-            case let node as SwiftGraphicsPlayground.Line:
+            case let node as LineSegmentNode:
                 context.strokeLine(node.start, node.end)
-            case let node as SwiftGraphicsPlayground.Rectangle:
+            case let node as RectangleNode:
                 context.strokeRect(node.frame)
-            case let node as Group:
+            case let node as GroupGeometryNode:
                 break
             default:
                 println("No renderer for \(node)")
         }
         
-        if let group = node as? Group {
+        if let group = node as? GroupGeometryNode {
             for node in group.children {
                 self.renderNode(context, rect:rect, node:node, applyStyleForNode:applyStyleForNode)
             }

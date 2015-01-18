@@ -9,21 +9,6 @@
 import AppKit
 import SwiftGraphics
 
-public func pt(x:CGFloat, y:CGFloat) -> CGPoint {
-    return CGPoint(x:x, y:y)
-}
-
-
-// MARK: Plotting points
-
-public extension CGContext {
-    func plotPoints(points:[CGPoint]) {
-        for (index, point) in enumerate(points) {
-            self.strokeCross(CGRect(center:point, diameter:10))
-        }
-    }
-}
-
 // MARK: Rendering in views
 
 public func SGPRender(identifier:String, showView:((identifier:String, view:NSView) -> Void), block:((ctx:CGContext, bounds:CGRect) -> Void)) -> DemoView {
@@ -69,5 +54,3 @@ public class DemoView : NSView {
         }
     }
 }
-
-// MARK: Random

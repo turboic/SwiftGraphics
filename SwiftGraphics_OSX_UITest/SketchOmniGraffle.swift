@@ -37,7 +37,7 @@ class OmniGraffleLoader {
     }
 
     internal func convert(input:OmniGraffleGroup) -> Node! {
-        let group = Group()
+        let group = GroupGeometryNode()
         group.children = input.children.map {
             (node:Node) -> Node in
             return self.convert(node as OmniGraffleNode)
@@ -50,10 +50,10 @@ class OmniGraffleLoader {
         switch shapeName {
             case "Circle":
                 let bounds = input.bounds.flipped(.TopLeft, insideRect:doc.frame)
-                return Circle(center:bounds.mid, radius:bounds.size.width * 0.5)
+                return CircleNode(center:bounds.mid, radius:bounds.size.width * 0.5)
             case "Rectangle":
                 let bounds = input.bounds.flipped(.TopLeft, insideRect:doc.frame)
-                return Rectangle(frame:bounds)
+                return RectangleNode(frame:bounds)
     ////                    case "Bezier":
     ////                        println(d)
     //                        return nil
@@ -67,7 +67,7 @@ class OmniGraffleLoader {
         let start = input.start.flipped(.TopLeft, insideRect:doc.frame)
         let end = input.end.flipped(.TopLeft, insideRect:doc.frame)
 
-        let shape = Line(start:start, end:end)
+        let shape = LineSegmentNode(start:start, end:end)
         return shape
     }
 

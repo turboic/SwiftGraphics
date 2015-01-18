@@ -27,6 +27,17 @@ extension CGPoint : Plotable {
     }
 }
 
+// MARK: Plotting points
+
+public extension CGContext {
+    func plotPoints(points:[CGPoint]) {
+        for (index, point) in enumerate(points) {
+            self.strokeCross(CGRect(center:point, diameter:10))
+        }
+    }
+}
+
+
 extension Circle : Plotable {
     public func plotInContext(ctx:CGContext) {
         ctx.strokeEllipseInRect(frame)
