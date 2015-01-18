@@ -22,6 +22,9 @@ func dump(t:Triangle) -> String {
     return s    
 }
 
+func pt(x:CGFloat, y:CGFloat) -> CGPoint {
+    return CGPoint(x:x, y:y)
+}
 
 SGPRender("Test", XCPShowView) {
     (ctx:CGContext, bounds:CGRect) in

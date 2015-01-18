@@ -12,7 +12,7 @@ var c = Circle(center:CGPoint(x:156, y:200), radius:20)
 
 let view = SGPRender("Test", XCPShowView) {
     (ctx:CGContext, bounds:CGRect) in
-    ctx.plot(c)
+    ctx.draw(c)
 }
 
 view.tickBlock = {
