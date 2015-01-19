@@ -11,30 +11,30 @@ import CoreGraphics
 // MARK: Scaling and alignment.
 
 public enum Scaling {
-    case None
-    case Proportionally
-    case ToFit
+    case none
+    case proportionally
+    case toFit
 }
 
 public enum Alignment {
-   case Center
-   case Top
-   case TopLeft
-   case TopRight
-   case Left
-   case Bottom
-   case BottomLeft
-   case BottomRight
-   case Right
+    case center
+    case top
+    case topLeft
+    case topRight
+    case left
+    case bottom
+    case bottomLeft
+    case bottomRight
+    case right
 }
 
 public func scaleAndAlignRectToRect(inner:CGRect, outer:CGRect, scaling:Scaling, align:Alignment) -> CGRect {
     var resultRect = CGRectZero
 
     switch scaling {
-    case .ToFit:
+    case .toFit:
         resultRect = outer
-    case .Proportionally:
+    case .proportionally:
         var theScaleFactor = CGFloat(1.0)
         if (outer.size.width / inner.size.width < outer.size.height / inner.size.height) {
             theScaleFactor = outer.size.width / inner.size.width
@@ -43,38 +43,38 @@ public func scaleAndAlignRectToRect(inner:CGRect, outer:CGRect, scaling:Scaling,
             theScaleFactor = outer.size.height / inner.size.height
         }
         resultRect.size = inner.size * theScaleFactor
-    case .None:
+    case .none:
         switch align {
             //
-        case .Center:
+        case .center:
             resultRect.origin.x = outer.origin.x + (outer.size.width - inner.size.width) * 0.5
             resultRect.origin.y = outer.origin.y + (outer.size.height - inner.size.height) * 0.5
-        case .Top:
+        case .top:
             resultRect.origin.x = outer.origin.x + (outer.size.width - inner.size.width) * 0.5
             resultRect.origin.y = outer.origin.y + outer.size.height - inner.size.height
-        case .TopLeft:
+        case .topLeft:
             resultRect.origin.x = outer.origin.x
             resultRect.origin.y = outer.origin.y + outer.size.height - inner.size.height
-        case .TopRight:
+        case .topRight:
             resultRect.origin.x = outer.origin.x + outer.size.width - inner.size.width
             resultRect.origin.y = outer.origin.y + outer.size.height - inner.size.height
-        case .Left:
+        case .left:
             resultRect.origin.x = outer.origin.x
             resultRect.origin.y = outer.origin.y + (outer.size.height - inner.size.height) * 0.5
-        case .Bottom:
+        case .bottom:
             resultRect.origin.x = outer.origin.x + (outer.size.width - inner.size.width) * 0.5
             resultRect.origin.y = outer.origin.y
-        case .BottomLeft:
+        case .bottomLeft:
             resultRect.origin.x = outer.origin.x
             resultRect.origin.y = outer.origin.y
-        case .BottomRight:
+        case .bottomRight:
             resultRect.origin.x = outer.origin.x + outer.size.width - inner.size.width
             resultRect.origin.y = outer.origin.y
-        case .Right:
+        case .right:
             resultRect.origin.x = outer.origin.x + outer.size.width - inner.size.width
             resultRect.origin.y = outer.origin.y + (outer.size.height - inner.size.height) * 0.5
         }
     }
-    
+
     return resultRect
 }
