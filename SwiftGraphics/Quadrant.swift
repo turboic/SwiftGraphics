@@ -37,7 +37,7 @@ public extension Quadrant {
         }
     }
 
-    func toPoint() -> CGPoint {
+    func asPoint() -> CGPoint {
         switch self {
             case .MinXMinY:
                 return CGPoint(x:-1, y:-1)

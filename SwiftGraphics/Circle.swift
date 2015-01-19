@@ -34,7 +34,7 @@ public struct Circle {
 
 extension Circle {
 
-    var toBezierCurves:(BezierCurve, BezierCurve, BezierCurve, BezierCurve) {
+    var asBezierCurves:(BezierCurve, BezierCurve, BezierCurve, BezierCurve) {
         get {
             let quadrants = [
                 CGSize(w:-1.0, h:-1.0),
