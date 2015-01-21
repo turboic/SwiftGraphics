@@ -12,6 +12,19 @@ import CoreGraphics
 // MARK: Relative point calculation methods like ruler tools
 
 public extension CGPoint {
+    
+    /**
+     * Calculate a point with polar angle and radius based on this point.
+     *
+     * @param angle polar angle in radians.
+     * @param radius the length of the polar radius
+     *
+     * @return the point relative to this point.
+     */
+    func polarPoint(angle:CGFloat, radius:CGFloat) -> CGPoint {
+        return CGPoint(x: x + radius * cos(angle), y: y + radius * sin(angle));
+    }
+    
     /**
      * Calculate a point along the direction from this point to 'dir' point.
      *
