@@ -6,11 +6,12 @@
 //  Copyright (c) 2015 schwa.io. All rights reserved.
 //
 
-import UIKit
 import CoreGraphics
 
 #if os(OSX)
 import AppKit
+#else
+import UIKit
 #endif
 
 public extension CGColor {
