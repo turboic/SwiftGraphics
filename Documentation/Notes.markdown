@@ -30,7 +30,7 @@ Use <ObjectName>+<AspectName>.swift style naming.
 
 Friends don’t let friends define new operators.
 
-Do not invent new operators recklessly (if at all). So far SwiftGraphics has added a ==? (equality with inaccuracy) operator and a ** (to the power of). Both operators are strongly justified. The ==? operator is incredibly useful when dealing with floating point math, the ** operator is a common operator in other languages (and is just very convenient).
+Do not invent new operators recklessly (if at all). So far SwiftGraphics has added a ==% (equality with inaccuracy) operator and a ** (to the power of). Both operators are strongly justified. The ==% operator is incredibly useful when dealing with floating point math, the ** operator is a common operator in other languages (and is just very convenient).
 
 Do not make an existing operator do something utterly different. + should always be some kind of additive operation for example.
 
