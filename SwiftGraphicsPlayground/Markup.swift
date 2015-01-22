@@ -21,8 +21,9 @@ public struct Guide: Markup {
     public enum Type {
 //        case line(Line)
         case lineSegment(LineSegment)
-        case polygon(SwiftGraphics.Polygon)
-        case rectangle(SwiftGraphics.Rectangle)
+        case polygon(SwiftGraphics.Polygon) // TODO: Should not have to namespace this.
+        case rectangle(Rectangle)
+        case circle(Circle)
     }
 
     public let type:Type
@@ -51,6 +52,10 @@ public struct Guide: Markup {
                 context.stroke(polygon)
             case .rectangle(let rectangle):
                 context.strokeRect(rectangle)
+            case .circle(let circle):
+                context.draw(circle)
+            default:
+                break
         }
 
         if let style = style {
@@ -90,6 +95,46 @@ public struct Marker: Markup {
         }
     }
 }
+
+
+public struct AngleMarker : Markup {
+
+    public let tag:String?
+    public let style:Style?
+
+    public let points:(CGPoint, CGPoint, CGPoint)
+
+    public init(points:(CGPoint, CGPoint, CGPoint), tag:String? = nil, style:Style? = nil) {
+        self.tag = tag
+        self.style = style
+        self.points = points
+    }
+
+    public func draw(context:CGContext) {
+//        context.setFillColor(CGColor.redColor())
+        context.setStrokeColor(CGColor.redColor())
+
+        var (p0, p1, p2) = points
+        p0 = p1 + CGPoint(magnitude:20, direction: p0.angleTo(p1))
+
+
+
+        context.strokeLine(p0, p1)
+
+        context.setStrokeColor(CGColor.blueColor())
+        context.strokeLine(p1, p2)
+
+//        context.fillCircle(center: points.1, radius: 5)
+//
+//
+//        CGContextMoveToPoint(context, <#x: CGFloat#>, <#y: CGFloat#>)
+//        CGContextAddArc(context, <#x: CGFloat#>, <#y: CGFloat#>, <#radius: CGFloat#>, <#startAngle: CGFloat#>, <#endAngle: CGFloat#>, <#clockwise: Int32#>)
+    }
+
+}
+
+
+
 
 public extension CGContext {
     func draw(markup:[Markup], styles:[String:Style]? = nil) {
