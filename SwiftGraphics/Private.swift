@@ -91,6 +91,7 @@ public func setAssociatedObject(object:AnyObject, key: UnsafePointer<Void>, valu
     objc_setAssociatedObject(object, key, value, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
 }
 
+// TODO: Rename ObjCBox?
 @objc class StructWrapper {
     var wrapped:Any
     init(wrapped:Any) {
