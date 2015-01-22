@@ -291,6 +291,8 @@
 		45592F501A61B65200F496D2 /* TransformTest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TransformTest.playground; sourceTree = "<group>"; };
 		455D0A5D1A64A3EF00189879 /* Color.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Color.playground; sourceTree = "<group>"; };
 		455D7F5B1A69CBB20088EA94 /* Ellipse+Markup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Ellipse+Markup.swift"; sourceTree = "<group>"; };
+		45639D3E1A717EA800419686 /* RadiansEnum.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RadiansEnum.playground; sourceTree = "<group>"; };
+		45639D3F1A717EA800419686 /* Radians.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Radians.playground; sourceTree = "<group>"; };
 		456877E119B6857B004BEFD6 /* CoordinateSystems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinateSystems.swift; sourceTree = "<group>"; };
 		456C315B19C65B0E003AA1DF /* Ellipse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ellipse.swift; sourceTree = "<group>"; };
 		4570B83C1A1EC3770055847A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -597,6 +599,8 @@
 				45ECEC301A6561D60018F7C6 /* BezierPath.playground */,
 				457E54501A68D35B0059B357 /* Turn.playground */,
 				45BF4CAC1A69929C00F260B0 /* Ellipse.playground */,
+				45639D3E1A717EA800419686 /* RadiansEnum.playground */,
+				45639D3F1A717EA800419686 /* Radians.playground */,
 			);
 			path = Playgrounds;
 			sourceTree = "<group>";
