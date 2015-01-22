@@ -112,10 +112,10 @@ public class QuadTreeNode <T> {
     internal func expand() {
         assert(canExpand)
         subnodes = [
-            QuadTreeNode(config:config, frame:frame.quadrant(.MinXMinY)),
-            QuadTreeNode(config:config, frame:frame.quadrant(.MaxXMinY)),
-            QuadTreeNode(config:config, frame:frame.quadrant(.MinXMaxY)),
-            QuadTreeNode(config:config, frame:frame.quadrant(.MaxXMaxY)),
+            QuadTreeNode(config:config, frame:frame.quadrant(.minXMinY)),
+            QuadTreeNode(config:config, frame:frame.quadrant(.maxXMinY)),
+            QuadTreeNode(config:config, frame:frame.quadrant(.minXMaxY)),
+            QuadTreeNode(config:config, frame:frame.quadrant(.maxXMaxY)),
             ]
         for item in items! {
             let node = subnodeForPoint(item.point)
@@ -135,13 +135,13 @@ public class QuadTreeNode <T> {
     internal func subnodeForQuadrant(quadrant:Quadrant) -> QuadTreeNode! {
         if let subnodes = subnodes {
             switch (quadrant) {
-                case .MinXMinY:
+                case .minXMinY:
                     return subnodes[0]
-                case .MaxXMinY:
+                case .maxXMinY:
                     return subnodes[1]
-                case .MinXMaxY:
+                case .minXMaxY:
                     return subnodes[2]
-                case .MaxXMaxY:
+                case .maxXMaxY:
                     return subnodes[3]
             }
         } else {

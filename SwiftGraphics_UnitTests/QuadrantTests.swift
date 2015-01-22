@@ -21,24 +21,24 @@ class QuadrantTests: XCTestCase {
     func testCGRectFromQuadrant() {
         let rect = CGRectMake(0, 0, 20, 20)
         
-        XCTAssertEqual(rect.quadrant(.MinXMinY), CGRectMake(0, 0, 10, 10))
-        XCTAssertEqual(rect.quadrant(.MaxXMinY), CGRectMake(10, 0, 10, 10))
-        XCTAssertEqual(rect.quadrant(.MinXMaxY), CGRectMake(0, 10, 10, 10))
-        XCTAssertEqual(rect.quadrant(.MaxXMaxY), CGRectMake(10, 10, 10, 10))
+        XCTAssertEqual(rect.quadrant(.minXMinY), CGRectMake(0, 0, 10, 10))
+        XCTAssertEqual(rect.quadrant(.maxXMinY), CGRectMake(10, 0, 10, 10))
+        XCTAssertEqual(rect.quadrant(.minXMaxY), CGRectMake(0, 10, 10, 10))
+        XCTAssertEqual(rect.quadrant(.maxXMaxY), CGRectMake(10, 10, 10, 10))
     }
     
     func testQuadrantFromPoint() {
-        XCTAssertEqual(Quadrant.MinXMinY, Quadrant.fromPoint(p1))
-        XCTAssertEqual(Quadrant.MinXMaxY, Quadrant.fromPoint(p2))
-        XCTAssertEqual(Quadrant.MaxXMinY, Quadrant.fromPoint(p3))
-        XCTAssertEqual(Quadrant.MaxXMaxY, Quadrant.fromPoint(p4))
+        XCTAssertEqual(Quadrant.minXMinY, Quadrant.fromPoint(p1))
+        XCTAssertEqual(Quadrant.minXMaxY, Quadrant.fromPoint(p2))
+        XCTAssertEqual(Quadrant.maxXMinY, Quadrant.fromPoint(p3))
+        XCTAssertEqual(Quadrant.maxXMaxY, Quadrant.fromPoint(p4))
     }
     
     func testQuadrantFromPointWithOrigin() {
-        XCTAssertEqual(Quadrant.MaxXMinY, Quadrant.fromPoint(p1, origin: p2))
-        XCTAssertEqual(Quadrant.MinXMaxY, Quadrant.fromPoint(p2, origin: p3))
-        XCTAssertEqual(Quadrant.MaxXMinY, Quadrant.fromPoint(p3, origin: p4))
-        XCTAssertEqual(Quadrant.MaxXMaxY, Quadrant.fromPoint(p4, origin: p1))
+        XCTAssertEqual(Quadrant.maxXMinY, Quadrant.fromPoint(p1, origin: p2))
+        XCTAssertEqual(Quadrant.minXMaxY, Quadrant.fromPoint(p2, origin: p3))
+        XCTAssertEqual(Quadrant.maxXMinY, Quadrant.fromPoint(p3, origin: p4))
+        XCTAssertEqual(Quadrant.maxXMaxY, Quadrant.fromPoint(p4, origin: p1))
     }
     
     func testQuadrantFromPointWithRect() {
@@ -46,10 +46,10 @@ class QuadrantTests: XCTestCase {
     }
     
     func testQuadrantToPoint() {
-        XCTAssertEqual(p1, Quadrant.MinXMinY.toPoint())
-        XCTAssertEqual(p2, Quadrant.MinXMaxY.toPoint())
-        XCTAssertEqual(p3, Quadrant.MaxXMinY.toPoint())
-        XCTAssertEqual(p4, Quadrant.MaxXMaxY.toPoint())
+        XCTAssertEqual(p1, Quadrant.minXMinY.asPoint())
+        XCTAssertEqual(p2, Quadrant.minXMaxY.asPoint())
+        XCTAssertEqual(p3, Quadrant.maxXMinY.asPoint())
+        XCTAssertEqual(p4, Quadrant.maxXMaxY.asPoint())
     }
 
 }

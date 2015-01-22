@@ -11,41 +11,41 @@ import CoreGraphics
 // MARK: Quadrants
 
 public enum Quadrant {
-    case MinXMinY
-    case MaxXMinY
-    case MinXMaxY
-    case MaxXMaxY
+    case minXMinY
+    case maxXMinY
+    case minXMaxY
+    case maxXMaxY
 }
 
 public extension Quadrant {
     static func fromPoint(point:CGPoint) -> Quadrant {
         if (point.y >= 0) {
             if (point.x >= 0) {
-                return .MaxXMaxY
+                return .maxXMaxY
             }
             else {
-                return .MinXMaxY
+                return .minXMaxY
             }
         }
         else {
             if (point.x >= 0) {
-                return .MaxXMinY
+                return .maxXMinY
             }
             else {
-                return .MinXMinY
+                return .minXMinY
             }
         }
     }
 
     func asPoint() -> CGPoint {
         switch self {
-            case .MinXMinY:
+            case .minXMinY:
                 return CGPoint(x:-1, y:-1)
-            case .MaxXMinY:
+            case .maxXMinY:
                 return CGPoint(x:1, y:-1)
-            case .MinXMaxY:
+            case .minXMaxY:
                 return CGPoint(x:-1, y:1)
-            case .MaxXMaxY:
+            case .maxXMaxY:
                 return CGPoint(x:1, y:1)
         }
     }
@@ -69,13 +69,13 @@ public extension CGRect {
     func quadrant(quadrant:Quadrant) -> CGRect {
         let size = CGSize(width:self.size.width * 0.5, height:self.size.height * 0.5)
         switch quadrant {
-        case .MinXMinY:
+        case .minXMinY:
             return CGRect(origin:CGPoint(x:minX, y:minY), size:size)
-        case .MaxXMinY:
+        case .maxXMinY:
             return CGRect(origin:CGPoint(x:midX, y:minY), size:size)
-        case .MinXMaxY:
+        case .minXMaxY:
             return CGRect(origin:CGPoint(x:minX, y:midY), size:size)
-        case .MaxXMaxY:
+        case .maxXMaxY:
             return CGRect(origin:CGPoint(x:midX, y:midY), size:size)
         }
     }
